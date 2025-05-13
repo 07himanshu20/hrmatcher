@@ -1,0 +1,24 @@
+<h1>Matched Candidates</h1>
+
+{% if matched_candidates %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Resume</th>
+                <th>Score</th>
+                <th>Matched</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for candidate in matched_candidates %}
+                <tr>
+                    <td>{{ candidate.resume }}</td>
+                    <td>{{ candidate.score }}</td>
+                    <td>{{ candidate.matched }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No matched candidates yet.</p>
+{% endif %}
