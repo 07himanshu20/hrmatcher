@@ -27,6 +27,8 @@ from .utils import (
     calculate_match_score,
     get_resume_files,
     test_email_connection,
+    extract_email_from_resume,  # Add this
+    extract_phone  
 )
 
 # Initialize logger
@@ -84,10 +86,9 @@ def resume_matcher_view(request):
                     )
 
                     if score['total_score'] > 0 and experience >= min_experience:
-                        matched_candidates.append({
-                            'name': candidate_data['name'],
+                        matched_candidates.append({   'name': candidate_data['name'],
                             'score': score['total_score'],
-                            'path': os.path.join(settings.MEDIA_URL, 'resumes', filename).replace('\\', '/'),  # Force f
+                            'path': os.path.join(settings.MEDIA_URL, 'resumes', f'user_{request.user.id}', filename).replace('\\', '/'),
                             'matched_skills': score['matched_skills'],
                             'experience': experience
                         })
@@ -103,7 +104,7 @@ def resume_matcher_view(request):
     })
 
 @require_POST
-@csrf_exempt
+@csrf_exempt 
 def match_resumes(request):
     try:
         
@@ -122,46 +123,53 @@ def match_resumes(request):
         
         resume_dir = os.path.join(settings.MEDIA_ROOT, 'resumes')
         results = []
-        
-        for filename in os.listdir(resume_dir):
-            if filename.lower().endswith(('.pdf', '.docx')):
-                filepath = os.path.join(resume_dir, filename)
-                
-                try:
-                    text = extract_text_from_resume(filepath)
-                    if not text:
-                        continue
-                        
-                    # Use Gemini with fallback
-                    candidate_data = extract_skills_with_gemini(text, skills)
-                    
-                    ats_score = calculate_ats_score(
-                        resume_text=text,
-                        job_requirements={
-                            'required_skills': skills,
-                            'min_experience': min_experience,
-                            'job_title_keywords': [position],
-                            'preferred_skills': []
-                        }
-                    )
-                    if ats_score['matched_skills']:  # This checks if the list is not empty
-                        results.append({
-                            'name': candidate_data['name'],
-                            'score': ats_score['total_score'],
-                            'matched_skills': ats_score['matched_skills'],
-                            'missing_skills': ats_score['missing_skills'],
-                            'experience': candidate_data['experience'],
-                            'filename': filename,
-                            'resume_url': os.path.join(settings.MEDIA_URL, 'resumes', filename).replace('\\', '/')
-                    })
-                    
-                except Exception as e:
-                    logger.error(f"Error processing {filename}: {str(e)}")
+
+        MAX_RESUMES = 5  # Set your desired limit here
+
+        # List and sort resumes (optional: by newest first)
+        all_resumes = [f for f in os.listdir(resume_dir) if f.lower().endswith(('.pdf', '.docx'))]
+        all_resumes = sorted(all_resumes, key=lambda x: os.path.getmtime(os.path.join(resume_dir, x)), reverse=True)
+        limited_resumes = all_resumes[:MAX_RESUMES]
+
+        for filename in limited_resumes:
+            filepath = os.path.join(resume_dir, filename)
+            try:
+                text = extract_text_from_resume(filepath)
+                if not text:
                     continue
-        
+
+                # Use Gemini with fallback
+                candidate_data = extract_skills_with_gemini(text, skills)
+
+                ats_score = calculate_ats_score(
+                    resume_text=text,
+                    job_requirements={
+                        'required_skills': skills,
+                        'min_experience': min_experience,
+                        'job_title_keywords': [position],
+                        'preferred_skills': []
+                    }
+                )
+                if ats_score['matched_skills']:
+                    results.append({
+                        'name': candidate_data['name'],
+                        'score': ats_score['total_score'],
+                        'matched_skills': ats_score['matched_skills'],
+                        'missing_skills': ats_score['missing_skills'],
+                        'experience': candidate_data['experience'],
+                        'email': candidate_data['email'],
+                        'phone': candidate_data['phone'],
+                        'filename': filename,
+                        'resume_url': os.path.join(settings.MEDIA_URL, 'resumes', filename).replace('\\', '/'),
+                    })
+
+            except Exception as e:
+                logger.error(f"Error processing {filename}: {str(e)}")
+                continue
+
         results.sort(key=lambda x: x['score'], reverse=True)
         return JsonResponse(results, safe=False)
-        
+
     except Exception as e:
         logger.error(f"Match resumes error: {str(e)}", exc_info=True)
         return JsonResponse({'error': str(e)}, status=500)
@@ -209,6 +217,8 @@ def extract_skills_with_gemini(resume_text: str, searched_skills: List[str]) -> 
         prompt = f"""Extract from resume as JSON:
 {{
     "name": "Full Name",
+    "email": "email@example.com",
+    "phone": "+1234567890",
     "skills": ["only", "requested", "skills"],
     "experience": years
 }}
@@ -218,6 +228,8 @@ Skills to match: {searched_skills}"""
         
         return {
             "name": data.get("name", "Unknown").title(),
+            "email": data.get("email", ""),
+            "phone": data.get("phone", ""),
             "skills": [s.lower() for s in data.get("skills", []) if s.lower() in {sk.lower() for sk in searched_skills}],
             "experience": float(data.get("experience", 0)),
             "source": "Gemini"
@@ -230,6 +242,8 @@ def extract_direct_search_fallback(resume_text: str, searched_skills: List[str])
     text_lower = resume_text.lower()
     return {
         "name": extract_name_from_resume(resume_text),
+        "email": extract_email_from_resume(resume_text),
+        "phone": extract_phone(resume_text),
         "skills": [s for s in searched_skills if re.search(rf'\b{re.escape(s.lower())}\b', text_lower)],
         "experience": extract_experience(resume_text),
         "source": "DirectSearch"
@@ -285,22 +299,35 @@ def fetch_resumes(request):
     
 from .export_utils import export_to_excel, export_to_pdf
 
+from django.views.decorators.csrf import csrf_exempt
+
+from django.http import HttpResponseBadRequest
+
 def export_results(request, format_type):
     if request.method == 'POST':
         try:
-            data = json.loads(request.body)
-            candidates = data.get('candidates', [])
-            
+            if not request.POST.get('candidates'):
+                return HttpResponseBadRequest("Missing candidates data")
+            candidates = json.loads(request.POST['candidates'])
+            # Convert string lists to actual lists
+            for candidate in candidates:
+                for field in ['matched_skills', 'missing_skills']:
+                    if isinstance(candidate.get(field), str):
+                        candidate[field] = [s.strip() for s in candidate[field].split(',') if s.strip()]
+                    elif not candidate.get(field):
+                        candidate[field] = []
+
             if format_type == 'excel':
                 return export_to_excel(candidates)
             elif format_type == 'pdf':
                 return export_to_pdf(candidates)
             else:
-                return JsonResponse({'error': 'Invalid format'}, status=400)
+                return HttpResponseBadRequest("Invalid format")
                 
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=500)
-    return JsonResponse({'error': 'Invalid request'}, status=400)
+    return HttpResponseBadRequest("Invalid request method")
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.contrib import messages
@@ -311,16 +338,20 @@ from .forms import EmailConfigurationForm
 
 @login_required
 def email_config_view(request):
-    try:
-        instance = EmailConfiguration.objects.get(user=request.user)
-    except EmailConfiguration.DoesNotExist:
-        instance = None
-
     if request.method == 'POST':
-        form = EmailConfigurationForm(request.POST, instance=instance)
+        # For POST requests, create a new form instance with the submitted data
+        form = EmailConfigurationForm(request.POST)
         if form.is_valid():
-            config = form.save(commit=False)
-            config.user = request.user
+            # Get or create the configuration for this user
+            config, created = EmailConfiguration.objects.get_or_create(user=request.user)
+            
+            # Update the configuration with form data
+            config.email_backend = form.cleaned_data['email_backend']
+            config.email_host = form.cleaned_data['email_host']
+            config.email_port = form.cleaned_data['email_port']
+            config.use_tls = form.cleaned_data['use_tls']
+            config.email_username = form.cleaned_data['email_username']
+            config.email_password = form.cleaned_data['email_password']
             config.save()
             
             # Update session state
@@ -342,12 +373,18 @@ def email_config_view(request):
         else:
             messages.error(request, 'Invalid configuration values')
     else:
-        form = EmailConfigurationForm(instance=instance)
+        # For GET requests, always create a completely empty form
+        form = EmailConfigurationForm()
+
+    # Check if user has existing config (just for the template to know)
+    has_existing_config = EmailConfiguration.objects.filter(user=request.user).exists()
 
     return render(request, 'hrapp/email_config.html', {
         'form': form,
-        'existing_config': bool(instance)
+        'existing_config': has_existing_config
     })
+
+
 
 from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect
@@ -368,41 +405,122 @@ logger = logging.getLogger(__name__)
 def test_email_connection(request):
     """Test email server connection with user-provided settings"""
     try:
+        # Debug: Log all POST data (excluding password)
+        safe_post_data = {k: v for k, v in request.POST.items() if k != 'email_password'}
+        logger.info(f"Received POST data: {safe_post_data}")
+        
         # Get parameters from POST data
-        host = request.POST.get('email_host')
-        port = int(request.POST.get('email_port'))
-        username = request.POST.get('email_username')
-        password = request.POST.get('email_password')
+        host = request.POST.get('email_host', '').strip()
+        port_str = request.POST.get('email_port', '').strip()
+        username = request.POST.get('email_username', '').strip()
+        password = request.POST.get('email_password', '')
         use_tls = request.POST.get('use_tls') == 'true'
+        
+        # Log received data (excluding password)
+        logger.info(f"Testing connection with: host='{host}', port='{port_str}', username='{username}', use_tls={use_tls}")
+        
+        # Validate required fields
+        if not host:
+            return JsonResponse({
+                'success': False,
+                'message': "Email server address is required"
+            }, status=400)
+            
+        if not port_str:
+            return JsonResponse({
+                'success': False,
+                'message': "Port number is required"
+            }, status=400)
+            
+        if not username:
+            return JsonResponse({
+                'success': False,
+                'message': "Email username is required"
+            }, status=400)
+            
+        if not password:
+            return JsonResponse({
+                'success': False,
+                'message': "Email password is required"
+            }, status=400)
+        
+        # Convert port to integer
+        try:
+            port = int(port_str)
+        except ValueError:
+            return JsonResponse({
+                'success': False,
+                'message': f"Invalid port number: {port_str}"
+            }, status=400)
+        
+        # Remove any protocol prefixes from the host
+        if host.startswith('http://') or host.startswith('https://'):
+            host = host.split('://', 1)[1]
+        
+        # Determine protocol based on host name
         protocol = 'IMAP' if 'imap' in host.lower() else 'SMTP'
 
         logger.info(f"Testing {protocol} connection to {host}:{port}")
 
-        # Test connection
-        if protocol == 'IMAP':
-            with imaplib.IMAP4_SSL(host, port) as imap:
-                imap.login(username, password)
-                status, _ = imap.select('INBOX')
-        else:
-            if use_tls:
-                with smtplib.SMTP_SSL(host, port) as smtp:
-                    smtp.login(username, password)
+        # Test connection with better error handling
+        try:
+            # First test DNS resolution
+            import socket
+            try:
+                socket.gethostbyname(host)
+            except socket.gaierror:
+                return JsonResponse({
+                    'success': False,
+                    'message': f"Cannot resolve hostname '{host}'. Please check the server address and your internet connection."
+                }, status=400)
+                
+            # Now test the actual connection
+            if protocol == 'IMAP':
+                with imaplib.IMAP4_SSL(host, port, timeout=10) as imap:
+                    imap.login(username, password)
+                    status, _ = imap.select('INBOX')
             else:
-                with smtplib.SMTP(host, port) as smtp:
-                    smtp.starttls()
-                    smtp.login(username, password)
+                if use_tls:
+                    with smtplib.SMTP_SSL(host, port, timeout=10) as smtp:
+                        smtp.login(username, password)
+                else:
+                    with smtplib.SMTP(host, port, timeout=10) as smtp:
+                        smtp.starttls()
+                        smtp.login(username, password)
 
-        logger.info(f"Connection to {host} successful!")
-        return JsonResponse({
-            'success': True,
-            'message': f"{protocol} connection successful!"
-        })
+            logger.info(f"Connection to {host} successful!")
+            return JsonResponse({
+                'success': True,
+                'message': f"{protocol} connection successful!"
+            })
+            
+        except socket.timeout:
+            return JsonResponse({
+                'success': False,
+                'message': f"Connection to {host}:{port} timed out. Please check the server address and port."
+            }, status=400)
+        except ConnectionRefusedError:
+            return JsonResponse({
+                'success': False,
+                'message': f"Connection to {host}:{port} was refused. Please check the server address and port."
+            }, status=400)
+        except (imaplib.IMAP4.error, smtplib.SMTPAuthenticationError):
+            return JsonResponse({
+                'success': False,
+                'message': "Authentication failed. Please check your username and password."
+            }, status=400)
+        except Exception as e:
+            logger.error(f"Connection error: {str(e)}")
+            return JsonResponse({
+                'success': False,
+                'message': f"Connection failed: {str(e)}"
+            }, status=400)
 
     except Exception as e:
-        logger.error(f"Connection failed: {str(e)}")
+        logger.error(f"Unexpected error: {str(e)}")
         return JsonResponse({
             'success': False,
-            'message': f"Connection failed: {str(e)}"
+            'message': f"An unexpected error occurred: {str(e)}"
         }, status=500)
         
 

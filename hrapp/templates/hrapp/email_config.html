@@ -8,130 +8,317 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+            min-height: 100vh;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+        }
+        .config-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            background: #fff;
+            border-radius: 2rem;
+            box-shadow: 0 8px 32px rgba(37,99,235,0.13), 0 1.5px 4px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+        .config-header {
+            background: linear-gradient(90deg, #6366f1 0%, #2563eb 100%);
+            color: #fff;
+            padding: 2.5rem 2rem 1.5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        .config-header h2 {
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        .config-header .subtitle {
+            font-size: 1.1rem;
+            color: #e0e7ff;
+            margin-bottom: 0;
+        }
+        .config-header .back-link {
+            position: absolute;
+            left: 2rem;
+            top: 2rem;
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .config-header .back-link:hover {
+            color: #c7d2fe;
+        }
+        .config-body {
+            padding: 2.5rem 2rem 2rem 2rem;
         }
         .config-card {
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: #f1f5f9;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(37,99,235,0.07);
+        }
+        .config-form label {
+            font-weight: 600;
+            color: #334155;
+        }
+        .config-form .form-control, .config-form .form-select {
+            border-radius: 0.75rem;
+            border: 1.5px solid #c7d2fe;
+            font-size: 1rem;
+            padding: 0.7rem 1rem;
+            background: #fff;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .config-form .form-control:focus, .config-form .form-select:focus {
+            border-color: #6366f1;
+            box-shadow: 0 0 0 2px #6366f122;
+            background: #f8fafc;
+        }
+        .input-group-text {
+            background: #e0e7ff;
+            border: none;
+            border-radius: 0.75rem 0 0 0.75rem;
+            color: #6366f1;
+            font-weight: 600;
+        }
+        .btn-primary, .btn-info {
+            border-radius: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            box-shadow: 0 2px 8px rgba(99,102,241,0.07);
+            transition: box-shadow 0.2s, filter 0.2s;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #6366f1 0%, #2563eb 100%);
             border: none;
         }
-        .form-label {
-            font-weight: 500;
+        .btn-primary:hover, .btn-info:hover {
+            background: #2b66e4;
+            box-shadow: 0 4px 16px rgba(99,102,241,0.13);
         }
-        .port-help {
-            font-size: 0.85rem;
-            color: #6c757d;
+        .btn-outline-primary {
+            border-radius: 0.75rem;
+            font-weight: 600;
+            color: #6366f1;
+            background: #fff;
+            transition: background 0.2s, color 0.2s;
+        }
+        .btn-outline-primary:hover {
+            background: #6366f1;
+            color: #fff;
         }
         .protocol-info {
-            background-color: #f8f9fa;
-            border-radius: 5px;
-            padding: 15px;
-            margin-bottom: 20px;
+            background: #e0e7ff;
+            border-radius: 1rem;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #6366f1;
+            color: #334155;
+        }
+        .table {
+            border-radius: 1rem;
+            overflow: hidden;
+            background: #fff;
+            margin-bottom: 0;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+            font-size: 1rem;
+        }
+        .table th {
+            background: #f1f5f9;
+            color: #1e293b;
+            font-weight: 700;
+        }
+        .table-hover tbody tr:hover {
+            background: #e0e7ff;
+        }
+        .alert {
+            border-radius: 0.75rem;
+            font-size: 1rem;
+        }
+        .modal-content {
+            border-radius: 1rem;
+        }
+        .modal-header {
+            border-radius: 1rem 1rem 0 0;
+        }
+        @media (max-width: 700px) {
+            .config-container { margin: 1rem; }
+            .config-header, .config-body { padding: 1rem; }
+            .config-card { padding: 1rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="card config-card">
-                    <div class="card-header bg-primary text-white">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h3 class="mb-0">
-                                <i class="bi bi-envelope-gear me-2"></i>Email Server Configuration
-                            </h3>
-                            <a href="{% url 'resume_matcher' %}" class="btn btn-sm btn-light">
-                                <i class="bi bi-arrow-left"></i> Move to HRMatcher
-                            </a>
-                        </div>
+    <div class="config-container">
+        <div class="config-header">
+            <a href="{% url 'resume_matcher' %}" class="back-link">
+                <i class="bi bi-arrow-left"></i>
+            </a>
+            <h2>
+                <i class="bi bi-envelope-gear me-2"></i>Email Server Configuration
+            </h2>
+            <div class="subtitle">Set up your email to fetch and send resumes securely</div>
+        </div>
+        <div class="config-body">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                     </div>
-                    
-                    <div class="card-body">
-                        {% if messages %}
-                            {% for message in messages %}
-                                <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
-                                    {{ message }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                                </div>
-                            {% endfor %}
-                        {% endif %}
-                        
-                        <div class="protocol-info">
-                            <h5><i class="bi bi-info-circle"></i> Configuration Guide</h5>
-                            <ul class="mb-0">
-                                <li><strong>SMTP</strong>: Used for sending emails (ports: 587, 465)</li>
-                                <li><strong>IMAP</strong>: Used for fetching emails (ports: 993, 143)</li>
-                                <li>Contact your email provider for exact server details</li>
-                            </ul>
+                {% endfor %}
+            {% endif %}
+
+            <div class="protocol-info mb-4">
+                <h5 class="mb-2"><i class="bi bi-info-circle"></i> Configuration Guide</h5>
+                <ul class="mb-0">
+                    <li><strong>SMTP</strong>: Used for sending emails (ports: 587, 465)</li>
+                    <li><strong>IMAP</strong>: Used for fetching emails (ports: 993, 143)</li>
+                    <li>Contact your email provider for exact server details</li>
+                </ul>
+            </div>
+
+            <div class="config-card">
+                <form id="emailConfigForm" class="config-form" method="post" action="{% url 'email_config' %}">
+                    {% csrf_token %}
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <label for="id_email_host" class="form-label">
+                                <i class="bi bi-server me-1"></i>Email Server
+                            </label>
+                            <input type="text" name="email_host" class="form-control" 
+                                   id="id_email_host" required 
+                                   placeholder="e.g. imap.gmail.com" 
+                                   value="{{ form.email_host.value|default:'' }}"
+                                   autocomplete="off">
+                            <div class="form-text">
+                                <small>Enter only the server name (no http:// or https://)</small>
+                            </div>
                         </div>
-                        
-                        <form method="post" id="emailConfigForm">
-                            {% csrf_token %}
-                            
-                            <div class="mb-3">
-                                <label for="id_email_backend" class="form-label">Email Protocol</label>
-                                <select class="form-select" name="email_backend" id="id_email_backend" required>
-                                    <option value="">Select protocol...</option>
-                                    <option value="django.core.mail.backends.smtp.EmailBackend" {% if form.email_backend.value == "django.core.mail.backends.smtp.EmailBackend" %}selected{% endif %}>
-                                        SMTP (For sending emails)
-                                    </option>
-                                    <option value="django.core.mail.backends.imap.EmailBackend" {% if form.email_backend.value == "django.core.mail.backends.imap.EmailBackend" %}selected{% endif %}>
-                                        IMAP (For fetching emails)
-                                    </option>
-                                </select>
+                        <div class="col-md-6">
+                            <label for="id_email_port" class="form-label">Port</label>
+                            <input type="number" class="form-control" name="email_port" id="id_email_port" 
+                                   value="{{ form.email_port.value|default:'' }}" 
+                                   placeholder="e.g. 587, 465, 993, 143" required>
+                            <div class="form-text">
+                                <small>Common ports: SMTP (587), SMTP SSL (465), IMAP (993), IMAP (143)</small>
                             </div>
-                            
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="id_email_host" class="form-label">Mail Server</label>
-                                    <input type="text" class="form-control" name="email_host" id="id_email_host" 
-                                           value="{{ form.email_host.value|default:'' }}" 
-                                           placeholder="e.g. smtp.gmail.com or imap.gmail.com" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="id_email_port" class="form-label">Port</label>
-                                    <input type="number" class="form-control" name="email_port" id="id_email_port" 
-                                           value="{{ form.email_port.value|default:'' }}" 
-                                           placeholder="e.g. 587, 465, 993, 143" required>
-                                    <div class="port-help mt-1">
-                                        Common ports: SMTP (587), SMTP SSL (465), IMAP (993), IMAP (143)
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="id_email_username" class="form-label">Email/Username</label>
-                                    <input type="text" class="form-control" name="email_username" id="id_email_username" 
-                                           value="{{ form.email_username.value|default:'' }}" 
-                                           placeholder="Your email address" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="id_email_password" class="form-label">Password</label>
-                                    <input type="password" class="form-control" name="email_password" id="id_email_password" 
-                                           value="{{ form.email_password.value|default:'' }}" 
-                                           placeholder="Your email password" required>
-                                </div>
-                            </div>
-                            
-                            <div class="mb-4 form-check form-switch">
-                                <input type="checkbox" class="form-check-input" name="use_tls" id="id_use_tls" 
-                                       {% if form.use_tls.value %}checked{% endif %}>
-                                <label class="form-check-label" for="id_use_tls">Use TLS/SSL Encryption</label>
-                            </div>
-                            
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                <button type="button" 
-        class="btn btn-outline-secondary me-md-2" 
-        id="testConnectionBtn"
-        onclick="testEmailConnection()">
-    <i class="bi bi-plug"></i> Test Connection
-</button>
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="bi bi-save"></i> Save Configuration
+                        </div>
+                        <div class="col-md-6">
+                            <label for="id_email_username" class="form-label">
+                                <i class="bi bi-person me-1"></i>Email Username
+                            </label>
+                            <input type="text" class="form-control" name="email_username" id="id_email_username" 
+                                   value="{{ form.email_username.value|default:'' }}"
+                                   placeholder="Your email address" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="id_email_password" class="form-label">
+                                <i class="bi bi-key me-1"></i>Email Password
+                            </label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" name="email_password" id="id_email_password" 
+                                       placeholder="Your email password or app password" required>
+                                <button type="button" class="btn btn-outline-primary" onclick="togglePassword()" tabindex="-1">
+                                    <i id="eyeIcon" class="bi bi-eye"></i>
                                 </button>
                             </div>
-                        </form>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="id_email_backend" class="form-label">
+                                <i class="bi bi-envelope me-1"></i>Email Protocol
+                            </label>
+                            <select class="form-select" name="email_backend" id="id_email_backend" required>
+                                <option value="">Select Protocol</option>
+                                <option value="imap" {% if form.email_backend.value == 'imap' %}selected{% endif %}>IMAP (Fetch Emails)</option>
+                                <option value="smtp" {% if form.email_backend.value == 'smtp' %}selected{% endif %}>SMTP (Send Emails)</option>
+                            </select>
+                            <div class="form-text">
+                                <small>Choose IMAP for fetching resumes, SMTP for sending emails</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-flex align-items-center">
+                            <div>
+                                <input type="checkbox" class="form-check-input me-2" name="use_tls" id="id_use_tls" 
+                                       {% if form.use_tls.value %}checked{% endif %}>
+                                <label class="form-check-label" for="id_use_tls">Use TLS/SSL</label>
+                                <div class="form-text">
+                                    <small>Usually required for secure connections (recommended)</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-4">
+                        <button type="button" class="btn btn-info" onclick="testEmailConnection()">
+                            <i class="bi bi-check-circle me-1"></i>Test Connection
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save me-1"></i>Save Configuration
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="config-card">
+                <div class="mb-3">
+                    <h5 class="mb-3"><i class="bi bi-info-circle me-2"></i>Common Email Providers</h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Provider</th>
+                                    <th>IMAP Server</th>
+                                    <th>IMAP Port</th>
+                                    <th>SMTP Server</th>
+                                    <th>SMTP Port</th>
+                                    <th>TLS/SSL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Gmail</td>
+                                    <td>imap.gmail.com</td>
+                                    <td>993</td>
+                                    <td>smtp.gmail.com</td>
+                                    <td>465</td>
+                                    <td>Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>Outlook/Office 365</td>
+                                    <td>outlook.office365.com</td>
+                                    <td>993</td>
+                                    <td>smtp.office365.com</td>
+                                    <td>587</td>
+                                    <td>Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>Yahoo</td>
+                                    <td>imap.mail.yahoo.com</td>
+                                    <td>993</td>
+                                    <td>smtp.mail.yahoo.com</td>
+                                    <td>465</td>
+                                    <td>Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>GoDaddy</td>
+                                    <td>imap.secureserver.net</td>
+                                    <td>993</td>
+                                    <td>smtpout.secureserver.net</td>
+                                    <td>465</td>
+                                    <td>Yes</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-3 d-flex flex-wrap gap-2">
+                        <button type="button" class="btn btn-outline-primary" onclick="fillGmailSettings()">Use Gmail</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="fillOutlookSettings()">Use Outlook</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="fillYahooSettings()">Use Yahoo</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="fillGoDaddySettings()">Use GoDaddy</button>
                     </div>
                 </div>
             </div>
@@ -142,30 +329,15 @@
     <div class="modal fade" id="connectionTestModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Testing Connection...</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">Testing Email Connection</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="text-center my-3">
-                        <div class="spinner-border text-primary" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                        </div>
-                        <p class="mt-2">Attempting to connect to your mail server...</p>
+                <div class="modal-body text-center">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
                     </div>
-                    <div id="testResult" class="d-none">
-                        <div class="alert alert-success">
-                            Connection successful! Your settings have been saved.
-                        </div>
-                        <div class="text-center mt-3">
-                            <a href="{% url 'resume_matcher' %}" class="btn btn-primary">
-                                <i class="bi bi-file-earmark-person"></i> Go to Resume Matcher
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <div id="testResult" class="mt-3 d-none"></div>
                 </div>
             </div>
         </div>
@@ -173,49 +345,169 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        function togglePassword() {
+            const pwdInput = document.getElementById('id_email_password');
+            const eyeIcon = document.getElementById('eyeIcon');
+            if (pwdInput.type === 'password') {
+                pwdInput.type = 'text';
+                eyeIcon.classList.remove('bi-eye');
+                eyeIcon.classList.add('bi-eye-slash');
+            } else {
+                pwdInput.type = 'password';
+                eyeIcon.classList.remove('bi-eye-slash');
+                eyeIcon.classList.add('bi-eye');
+            }
+        }
         // Moved outside DOMContentLoaded to make function globally accessible
         async function testEmailConnection() {
-            const form = document.getElementById('emailConfigForm');
-            const formData = new FormData(form);
+            // Get form elements
+            const hostInput = document.getElementById('id_email_host');
+            const portInput = document.getElementById('id_email_port');
+            const usernameInput = document.getElementById('id_email_username');
+            const passwordInput = document.getElementById('id_email_password');
+            const tlsInput = document.getElementById('id_use_tls');
+            
+            // Validate inputs
+            if (!hostInput || !hostInput.value.trim()) {
+                alert('Please enter the email server address');
+                hostInput.focus();
+                return;
+            }
+            
+            if (!portInput || !portInput.value.trim()) {
+                alert('Please enter the port number');
+                portInput.focus();
+                return;
+            }
+            
+            if (!usernameInput || !usernameInput.value.trim()) {
+                alert('Please enter your email username');
+                usernameInput.focus();
+                return;
+            }
+            
+            if (!passwordInput || !passwordInput.value.trim()) {
+                alert('Please enter your email password');
+                passwordInput.focus();
+                return;
+            }
+            
+            // Create FormData
+            const formData = new FormData();
+            
+            // Clean host value (remove protocol if present)
+            let hostValue = hostInput.value.trim();
+            if (hostValue.startsWith('http://') || hostValue.startsWith('https://')) {
+                hostValue = hostValue.split('://', 1)[1];
+            }
+            
+            formData.append('email_host', hostValue);
+            formData.append('email_port', portInput.value.trim());
+            formData.append('email_username', usernameInput.value.trim());
+            formData.append('email_password', passwordInput.value);
+            formData.append('use_tls', tlsInput.checked ? 'true' : 'false');
+            
+            // Add CSRF token
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]');
+            if (csrfToken) {
+                formData.append('csrfmiddlewaretoken', csrfToken.value);
+            }
+            
+            // Show modal with loading state
             const modal = document.getElementById('connectionTestModal');
             const bsModal = new bootstrap.Modal(modal);
-            
-            // Clear previous results
             const resultDiv = modal.querySelector('#testResult');
             resultDiv.innerHTML = '';
-            
-            // Show loading state
             modal.querySelector('.spinner-border').classList.remove('d-none');
             resultDiv.classList.add('d-none');
             bsModal.show();
-        
+
             try {
                 const response = await fetch('/test-email-connection/', {
                     method: 'POST',
                     body: formData,
                     headers: {
-                        'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                        'X-CSRFToken': csrfToken ? csrfToken.value : ''
                     }
                 });
                 
                 const data = await response.json();
                 
-                resultDiv.innerHTML = `
-                    <div class="alert alert-${data.success ? 'success' : 'danger'}">
-                        ${data.message}
-                    </div>
-                    ${data.success ? `
-                    <div class="text-center mt-3">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
-                            Continue
-                        </button>
-                    </div>` : ''}
-                `;
+                if (data.success) {
+                    resultDiv.innerHTML = `
+                        <div class="alert alert-success">
+                            <i class="bi bi-check-circle-fill me-2"></i>${data.message}
+                        </div>
+                        <div class="text-center mt-3">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                                Continue
+                            </button>
+                        </div>
+                    `;
+                } else {
+                    // Provide helpful suggestions based on the error
+                    let suggestions = '';
+                    
+                    if (data.message.includes('resolve hostname') || data.message.includes('getaddrinfo failed')) {
+                        suggestions = `
+                            <div class="mt-3">
+                                <strong>Suggestions:</strong>
+                                <ul class="text-start">
+                                    <li>Check if the server address is correct</li>
+                                    <li>Make sure you're connected to the internet</li>
+                                    <li>Try using a common email provider server:
+                                        <ul>
+                                            <li>Gmail: imap.gmail.com (IMAP, port 993)</li>
+                                            <li>Outlook: outlook.office365.com (IMAP, port 993)</li>
+                                            <li>Yahoo: imap.mail.yahoo.com (IMAP, port 993)</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        `;
+                    } else if (data.message.includes('timed out')) {
+                        suggestions = `
+                            <div class="mt-3">
+                                <strong>Suggestions:</strong>
+                                <ul class="text-start">
+                                    <li>Check your internet connection</li>
+                                    <li>Verify the server address and port</li>
+                                    <li>Your firewall might be blocking the connection</li>
+                                </ul>
+                            </div>
+                        `;
+                    } else if (data.message.includes('Authentication failed')) {
+                        suggestions = `
+                            <div class="mt-3">
+                                <strong>Suggestions:</strong>
+                                <ul class="text-start">
+                                    <li>Double-check your username and password</li>
+                                    <li>For Gmail, you may need to use an App Password</li>
+                                    <li>Make sure your account has IMAP/SMTP access enabled</li>
+                                </ul>
+                            </div>
+                        `;
+                    }
+                    
+                    resultDiv.innerHTML = `
+                        <div class="alert alert-danger">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>${data.message}
+                        </div>
+                        ${suggestions}
+                    `;
+                }
                 
             } catch (error) {
                 resultDiv.innerHTML = `
                     <div class="alert alert-danger">
-                        Network error: ${error.message}
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>Network error: ${error.message}
+                    </div>
+                    <div class="mt-3">
+                        <strong>Suggestions:</strong>
+                        <ul class="text-start">
+                            <li>Check your internet connection</li>
+                            <li>Make sure the server is reachable</li>
+                        </ul>
                     </div>
                 `;
             } finally {
@@ -225,6 +517,20 @@
         }
     
         document.addEventListener('DOMContentLoaded', function() {
+            console.log("Clearing form fields...");
+            
+            // Force clear all form fields on page load
+            setTimeout(function() {
+                document.getElementById('id_email_host').value = '';
+                document.getElementById('id_email_port').value = '';
+                document.getElementById('id_email_backend').value = '';
+                document.getElementById('id_email_username').value = '';
+                document.getElementById('id_email_password').value = '';
+                document.getElementById('id_use_tls').checked = false;
+                
+                console.log("Fields cleared");
+            }, 100);
+            
             // Protocol/port suggestions
             document.getElementById('id_email_backend').addEventListener('change', function() {
                 const portField = document.getElementById('id_email_port');
@@ -235,6 +541,44 @@
                 }
             });
         });
+        function fillGmailSettings() {
+            document.getElementById('id_email_host').value = 'imap.gmail.com';
+            document.getElementById('id_email_port').value = '993';
+            document.getElementById('id_use_tls').checked = true;
+        }
+        
+        function fillOutlookSettings() {
+            document.getElementById('id_email_host').value = 'outlook.office365.com';
+            document.getElementById('id_email_port').value = '993';
+            document.getElementById('id_use_tls').checked = true;
+        }
+        
+        function fillYahooSettings() {
+            document.getElementById('id_email_host').value = 'imap.mail.yahoo.com';
+            document.getElementById('id_email_port').value = '993';
+            document.getElementById('id_use_tls').checked = true;
+        }
+        
+        function fillGoDaddySettings() {
+            document.getElementById('id_email_host').value = 'imap.secureserver.net';
+            document.getElementById('id_email_port').value = '993';
+            document.getElementById('id_use_tls').checked = true;
+        }
+
+
+
+
+
+
+        // Update the protocol/port suggestions in email_config.html's JavaScript
+document.getElementById('id_email_backend').addEventListener('change', function() {
+    const portField = document.getElementById('id_email_port');
+    if (this.value === 'smtp') {
+        portField.placeholder = "587 (TLS) or 465 (SSL)";
+    } else if (this.value === 'imap') {
+        portField.placeholder = "993 (SSL) or 143 (plain)";
+    }
+});
     </script>
 </body>
 </html>

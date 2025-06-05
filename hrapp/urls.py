@@ -20,6 +20,7 @@ urlpatterns = [
     path('export/<str:format_type>/', views.export_results, name='export_results'),  
     path('test-email-connection/', views.test_email_connection, name='test_email_connection'),  
     
+    
     path('', views.root_redirect, name='root_redirect'),
 
 ]

@@ -114,9 +114,6 @@ from .models import EmailConfiguration
 @shared_task(bind=True)
 
 def fetch_resumes_from_email(self, user_id):
-        
-    
-
     # Configuration
     config = EmailConfiguration.objects.get(user_id=user_id)
     IMAP_SERVER = config.email_host
@@ -124,10 +121,39 @@ def fetch_resumes_from_email(self, user_id):
     PASSWORD = config.email_password
     PORT = config.email_port
     USE_TLS = config.use_tls
-    DOWNLOAD_DIR = r"C:\Users\himan\OneDrive\Documents\hrmatcher\media\resumes"
-    RESUME_KEYWORDS = ["resume", "cv", "application", "apply", "applying"]
+    MAX_EMAILS = 5  # Limit to the most recent N emails
+    # Import settings and os at the beginning of the function
+    from django.conf import settings
+    import os
+    import logging
+    
+    logger = logging.getLogger(__name__)
+    
+    # Log the base directory and media root for debugging
+    logger.info(f"BASE_DIR: {settings.BASE_DIR}")
+    logger.info(f"MEDIA_ROOT: {settings.MEDIA_ROOT}")
+    
+    # Create a user-specific directory for resumes
+    user_resume_dir = os.path.join(settings.MEDIA_ROOT, 'resumes')
 
-    os.makedirs(DOWNLOAD_DIR, exist_ok=True)
+    
+    # Log the directory we're trying to create
+    logger.info(f"Attempting to create directory: {user_resume_dir}")
+    
+    try:
+        os.makedirs(user_resume_dir, exist_ok=True)
+        logger.info(f"Directory created successfully: {user_resume_dir}")
+    except Exception as e:
+        logger.error(f"Error creating directory: {str(e)}")
+        # Fallback to a temporary directory
+        import tempfile
+        user_resume_dir = tempfile.mkdtemp()
+        logger.info(f"Using temporary directory instead: {user_resume_dir}")
+    
+    DOWNLOAD_DIR = user_resume_dir
+    
+    RESUME_KEYWORDS = ["resume","job","availability" "cv", "application", "apply","intern", "internship", "applying","interview"]
+
     saved_files = []
 
     try:
@@ -136,7 +162,7 @@ def fetch_resumes_from_email(self, user_id):
             imap.login(EMAIL, PASSWORD)
             logger.info("Logged in successfully")
 
-            status, _ = imap.select("INBOX")  # IMPORTANT: remove readonly=True
+            status, _ = imap.select("INBOX")
             if status != 'OK':
                 raise Exception("Failed to select INBOX")
 
@@ -146,6 +172,9 @@ def fetch_resumes_from_email(self, user_id):
 
             email_ids = messages[0].split()
             logger.info(f"Found {len(email_ids)} emails to scan")
+
+            # Limit the number of emails processed
+            email_ids = email_ids[-MAX_EMAILS:]  # Get the most recent N emails
 
             for email_id in email_ids:
                 try:

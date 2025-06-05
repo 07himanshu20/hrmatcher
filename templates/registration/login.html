@@ -2,31 +2,141 @@
 <html>
 <head>
     <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { 
+            background: #f5f6fa; 
+            min-height: 100vh; 
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .form {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90vw;
+            margin: 3rem auto;
+        }
+        .inputForm {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            background: #fafbfc;
+        }
+        .input {
+            border: none;
+            outline: none;
+            background: transparent;
+            flex: 1;
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
+        .button-submit {
+            width: 100%;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        .btn.google, .btn.apple {
+            width: 48%;
+            margin-right: 2%;
+        }
+        .btn.apple { margin-right: 0; }
+        .flex-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .flex-column {
+            margin-bottom: 0.25rem;
+        }
+        .span {
+            color: #007bff;
+            cursor: pointer;
+        }
+        .p.line {
+            text-align: center;
+            margin: 1rem 0 0.5rem 0;
+            color: #888;
+        }
+        @media (max-width: 500px) {
+            .form {
+                padding: 1rem;
+                border-radius: 0.5rem;
+                max-width: 98vw;
+            }
+            .input {
+                font-size: 0.95rem;
+            }
+            .button-submit {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="text-center">Login</h3>
-                    </div>
-                    <div class="card-body">
-                        <form method="post">
-                            {% csrf_token %}
-                            <div class="mb-3">
-                                <input type="text" name="username" class="form-control" placeholder="Username" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="password" name="password" class="form-control" placeholder="Password" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Login</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+    <form class="form" method="post">
+        {% csrf_token %}
+        <div class="flex-column">
+            <label>Email</label>
         </div>
-    </div>
+        <div class="inputForm">
+            <input type="text" class="input" placeholder="Enter your Email" name="username" required>
+        </div>
+        <div class="flex-column">
+            <label>Password</label>
+        </div>
+        <div class="inputForm">
+            <input type="password" class="input" placeholder="Enter your Password" name="password" id="password" required>
+            <button type="button" class="btn btn-sm" onclick="togglePassword()" tabindex="-1" style="margin-left:8px;">
+                <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24">
+                    <path id="eyeOpen" d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12zm11 3a3 3 0 100-6 3 3 0 000 6z" stroke="#333" stroke-width="2" fill="none"/>
+                    <g id="eyeClosed" style="display:none">
+                        <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" stroke="#333" stroke-width="2" fill="none"/>
+                        <line x1="4" y1="4" x2="20" y2="20" stroke="#333" stroke-width="2"/>
+                    </g>
+                </svg>
+            </button>
+        </div>
+        <div class="flex-row">
+            <div>
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Remember me</label>
+            </div>
+            <span class="span">Forgot password?</span>
+        </div>
+        <button class="button-submit" type="submit">Sign In</button>
+        <p class="p">Don't have an account? <span class="span">Sign Up</span></p>
+    </form>
+    <script>
+    function togglePassword() {
+        const pwd = document.getElementById('password');
+        const eyeOpen = document.getElementById('eyeOpen');
+        const eyeClosed = document.getElementById('eyeClosed');
+        if (pwd.type === "password") {
+            pwd.type = "text";
+            eyeOpen.style.display = "none";
+            eyeClosed.style.display = "inline";
+        } else {
+            pwd.type = "password";
+            eyeOpen.style.display = "inline";
+            eyeClosed.style.display = "none";
+        }
+    }
+    </script>
 </body>
 </html>

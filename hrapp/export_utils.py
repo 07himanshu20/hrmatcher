@@ -8,12 +8,27 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib import colors
 import xlsxwriter
 
+
+# export_utils.py
+import os
+from io import BytesIO
+from datetime import datetime
+from django.http import HttpResponse
+from django.conf import settings
+import xlsxwriter
+import xlwt
+
+import xlsxwriter
+from io import BytesIO
+from datetime import datetime
+from django.http import HttpResponse
+
 def export_to_excel(candidates, filename="matching_candidates"):
     output = BytesIO()
     workbook = xlsxwriter.Workbook(output)
-    worksheet = workbook.add_worksheet()
+    worksheet = workbook.add_worksheet("Matched Candidates")
 
-    # Header format
+    # Define formats
     header_format = workbook.add_format({
         'bold': True,
         'align': 'center',
@@ -22,69 +37,85 @@ def export_to_excel(candidates, filename="matching_candidates"):
         'font_color': 'white',
         'border': 1
     })
+    
+    text_format = workbook.add_format({'num_format': '@'})  # Force text format
+    number_format = workbook.add_format({'num_format': '0.00'})
 
-    # Data formats
-    even_row = workbook.add_format({'bg_color': '#E9E9E9', 'border': 1})
-    odd_row = workbook.add_format({'bg_color': '#FFFFFF', 'border': 1})
-    high_score = workbook.add_format({'bg_color': '#C6EFCE', 'font_color': '#006100', 'border': 1})
-    medium_score = workbook.add_format({'bg_color': '#FFEB9C', 'font_color': '#9C5700', 'border': 1})
-    low_score = workbook.add_format({'bg_color': '#FFC7CE', 'font_color': '#9C0006', 'border': 1})
+    # Column configuration
+    columns = [
+        ('Name', 25),
+        ('Match Score (%)', 15),
+        ('Experience (Years)', 18),
+        ('Email', 30),
+        ('Phone', 20),
+        ('Matched Skills', 40),
+        ('Missing Skills', 40)
+    ]
 
     # Write headers
-    headers = [
-        "Rank", "Candidate Name", "Match Score (%)", 
-        "Experience (Years)", "Matched Skills", "Missing Skills"
-    ]
-    for col, header in enumerate(headers):
-        worksheet.write(0, col, header, header_format)
+    for col_idx, (header, width) in enumerate(columns):
+        worksheet.set_column(col_idx, col_idx, width)
+        worksheet.write(0, col_idx, header, header_format)
 
-    # Write data
-    for row, candidate in enumerate(candidates, start=1):
-        # Determine row format based on score
-        if candidate['score'] >= 65:
-            row_format = high_score
-        elif candidate['score'] >= 30:
-            row_format = medium_score
-        else:
-            row_format = low_score
+    # Data processing with error handling
+    for row_idx, candidate in enumerate(candidates, start=1):
+        try:
+            # Safe value extraction
+            def get_value(key, default='N/A'):
+                value = candidate.get(key)
+                if value is None:
+                    return default
+                if isinstance(value, str):
+                    return value.strip() or default
+                return value
 
-        # Apply alternating row colors
-        if row % 2 == 0:
-            row_format.set_bg_color('#E9E9E9')
-        else:
-            row_format.set_bg_color('#FFFFFF')
+            # Process numeric fields
+            def get_float(key, default=0.0):
+                try:
+                    value = candidate.get(key)
+                    if isinstance(value, str):
+                        # Remove non-numeric characters
+                        value = ''.join(c for c in value if c.isdigit() or c in ('.', '-'))
+                    return float(value) if value not in (None, '') else default
+                except (TypeError, ValueError):
+                    return default
 
-        data = [
-            row,  # Rank
-            candidate.get('name', 'N/A'),
-            candidate.get('score', 0),
-            candidate.get('experience', 0),
-            ', '.join(candidate.get('matched_skills', []) or 'None'),
-            ', '.join(candidate.get('missing_skills', []) or 'None')
-        ]
+            # Extract all values
+            name = get_value('name')
+            score = get_float('score')
+            experience = get_float('experience')
+            email = get_value('email')
+            phone = get_value('phone')
+            
+            # Force text format for phone numbers
+            if str(phone).strip() not in ('', 'N/A'):
+                phone = f"'{phone}"  # Prepend apostrophe to force text format
 
-        for col, value in enumerate(data):
-            worksheet.write(row, col, value, row_format)
+            # Process skills lists
+            matched_skills = ', '.join(map(str, candidate.get('matched_skills', []))) or 'None'
+            missing_skills = ', '.join(map(str, candidate.get('missing_skills', []))) or 'None'
 
-    # Adjust column widths
-    worksheet.set_column(0, 0, 8)   # Rank
-    worksheet.set_column(1, 1, 25)  # Name
-    worksheet.set_column(2, 2, 15)  # Score
-    worksheet.set_column(3, 3, 15)  # Experience
-    worksheet.set_column(4, 4, 40)  # Matched Skills
-    worksheet.set_column(5, 5, 40)  # Missing Skills
+            # Write data to worksheet
+            worksheet.write(row_idx, 0, name, text_format)
+            worksheet.write_number(row_idx, 1, score, number_format)
+            worksheet.write_number(row_idx, 2, experience, number_format)
+            worksheet.write(row_idx, 3, email, text_format)
+            worksheet.write(row_idx, 4, phone, text_format)
+            worksheet.write(row_idx, 5, matched_skills, text_format)
+            worksheet.write(row_idx, 6, missing_skills, text_format)
 
-    # Add filters
-    worksheet.autofilter(0, 0, row, len(headers)-1)
+        except Exception as e:
+            print(f"Error processing row {row_idx}: {str(e)}")
+            continue
 
     workbook.close()
     output.seek(0)
     
     response = HttpResponse(
-        output.read(),
-        content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        output.getvalue(),
+        content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        headers={'Content-Disposition': f'attachment; filename="{filename}_{datetime.now().date()}.xlsx"'}
     )
-    response['Content-Disposition'] = f'attachment; filename="{filename}_{datetime.now().date()}.xlsx"'
     return response
 
 def export_to_pdf(candidates, filename="matching_candidates"):
@@ -113,13 +144,16 @@ def export_to_pdf(candidates, filename="matching_candidates"):
     ]
 
     for idx, candidate in enumerate(candidates, start=1):
+        print(f"DEBUG: Candidate matched_skills = {candidate.get('matched_skills')}")
+
         data.append([
             str(idx),
             candidate.get('name', 'N/A'),
             f"{candidate.get('score', 0):.1f}",
             str(candidate.get('experience', 0)),
-            ', '.join(candidate.get('matched_skills', []) or 'None'),
-            ', '.join(candidate.get('missing_skills', []) or 'None')
+            ', '.join(candidate.get('matched_skills', [])) if candidate.get('matched_skills') else 'None',
+            ', '.join(candidate.get('missing_skills', [])) if candidate.get('missing_skills') else 'None'
+
         ])
 
     # Create table

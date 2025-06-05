@@ -1,315 +1,608 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Matcher | BharatCrest</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Simplified CSS to prevent any hiding */
-        .progress {
-            height: 25px;
+{% extends 'hrapp/base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<style>
+    /* Dynamic background */
+    #background-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        opacity: 0.18;
+        pointer-events: none;
+    }
+
+    .main-title {
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #0d6efd;
+        margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+        color: #fafafa;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+
+    .card {
+        border: none;
+        box-shadow: 0 4px 24px 0 rgba(13,110,253,0.07), 0 1.5px 4px 0 rgba(0,0,0,0.03);
+        border-radius: 1.25rem;
+        transition: box-shadow 0.3s, transform 0.3s;
+        background: #fff;
+    }
+
+    .card-header {
+        border-bottom: none;
+        border-radius: 1.25rem 1.25rem 0 0;
+        background: linear-gradient(90deg, #0d6efd 60%, #6ea8fe 100%);
+        color: #fff;
+        font-weight: 600;
+        font-size: 1.2rem;
+        letter-spacing: 0.5px;
+    }
+
+    .card-body {
+        padding: 2rem 1.5rem;
+    }
+
+    .form-label {
+        font-weight: 500;
+        color: #0d6efd;
+    }
+
+    .form-control, .form-select {
+        border-radius: 0.75rem;
+        border: 1.5px solid #e3e6f0;
+        font-size: 1rem;
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-control:focus, .form-select:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 0.15rem rgba(13,110,253,0.12);
+    }
+
+    .btn-primary {
+        border-radius: 0.75rem;
+        font-weight: 600;
+        font-size: 1.1rem;
+        background: linear-gradient(90deg, #0d6efd 70%, #6ea8fe 100%);
+        border: none;
+        box-shadow: 0 2px 8px 0 rgba(13,110,253,0.08);
+        transition: background 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover, .btn-primary:focus {
+        background: linear-gradient(90deg, #0b5ed7 70%, #5a9bf6 100%);
+        box-shadow: 0 4px 16px 0 rgba(13,110,253,0.12);
+    }
+
+    .btn-light {
+        border-radius: 0.5rem;
+        font-weight: 500;
+        color: #0d6efd;
+        border: 1px solid #e3e6f0;
+        background: #f8f9fa;
+        transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-light:hover {
+        background: #e7f1ff;
+        color: #0b5ed7;
+    }
+
+    .result-card {
+        opacity: 0;
+        transform: translateY(24px);
+        animation: fadeInUp 0.6s forwards;
+        border-radius: 1rem;
+        border: 1.5px solid #e3e6f0;
+        box-shadow: 0 2px 12px 0 rgba(13,110,253,0.06);
+        margin-bottom: 1.5rem;
+        background: #fafdff;
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
-        #resultsContainer {
-            max-height: 500px;
-            overflow-y: auto;
-            margin-top: 20px;
-            padding: 15px;
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
+    }
+
+    .progress {
+        background: #e9ecef;
+        border-radius: 0.5rem;
+        height: 12px;
+        margin-bottom: 1rem;
+    }
+
+    .progress-bar {
+        border-radius: 0.5rem;
+        transition: width 1s cubic-bezier(.4,2,.6,1);
+    }
+
+    .badge {
+        border-radius: 0.5rem;
+        font-size: 0.95rem;
+        padding: 0.45em 0.9em;
+        font-weight: 500;
+        letter-spacing: 0.2px;
+        margin-bottom: 0.2em;
+        margin-right: 0.2em;
+        transition: transform 0.2s;
+    }
+
+    .badge.bg-success {
+        background: linear-gradient(90deg, #198754 70%, #43e97b 100%);
+        color: #fff;
+    }
+    .badge.bg-danger {
+        background: linear-gradient(90deg, #dc3545 70%, #ff758c 100%);
+        color: #fff;
+    }
+    .badge.bg-warning {
+        background: linear-gradient(90deg, #ffc107 70%, #ffe259 100%);
+        color: #212529;
+    }
+
+    .badge:hover {
+        transform: scale(1.08);
+        box-shadow: 0 2px 8px 0 rgba(13,110,253,0.08);
+    }
+
+    .loading-spinner {
+        display: none;
+        width: 48px;
+        height: 48px;
+        margin: 32px auto;
+        border: 5px solid rgba(0,0,0,0.08);
+        border-radius: 50%;
+        border-top: 5px solid #0d6efd;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg);}
+        100% { transform: rotate(360deg);}
+    }
+
+    .matched-skills strong, .missing-skills strong, .candidate-experience strong, .candidate-email strong, .candidate-phone strong {
+        color: #0d6efd;
+        font-weight: 500;
+    }
+
+    .candidate-email .email-value, .candidate-phone .phone-value {
+        font-family: 'Fira Mono', 'Consolas', monospace;
+        color: #495057;
+    }
+
+    .result-card .btn-outline-primary {
+        border-radius: 0.5rem;
+        font-weight: 500;
+        border-width: 1.5px;
+        margin-top: 0.5rem;
+    }
+
+    /* Make search card compact */
+    .search-card {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 24px 0 rgba(13,110,253,0.07), 0 1.5px 4px 0 rgba(0,0,0,0.03);
+        border-radius: 1.25rem;
+        background: #fff;
+    }
+    .search-card .card-body {
+        padding: 2rem 1.5rem;
+    }
+
+    /* Results card stretches but not beyond content */
+    #results-col {
+        width: 100%;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2rem;
+        opacity: 0;
+        transform: translateY(40px);
+        pointer-events: none;
+        transition: opacity 0.5s cubic-bezier(.4,2,.6,1), transform 0.5s cubic-bezier(.4,2,.6,1);
+    }
+    #results-col.results-visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+    #results-col .card {
+        min-height: 0;
+        box-shadow: 0 4px 24px 0 rgba(40,167,69,0.07), 0 1.5px 4px 0 rgba(0,0,0,0.03);
+        border-radius: 1.25rem;
+        background: #fafdff;
+        /* Remove h-100 so it doesn't stretch */
+        height: auto !important;
+    }
+    #results-col .card-body {
+        padding: 2rem 1.5rem;
+        max-height: none;
+        overflow: visible;
+    }
+
+    /* Prevent results from overflowing footer */
+    html, body {
+        height: 100%;
+    }
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    main, .container {
+        flex: 1 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .footer {
+        flex-shrink: 0;
+    }
+
+    @media (max-width: 991px) {
+        .card-body {
+            padding: 1.25rem 0.75rem;
         }
-        #exportButtons {
-            margin-top: 20px;
-            text-align: right;
+        .main-title {
+            font-size: 1.5rem;
         }
-    </style>
-</head>
-<body>
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="card shadow">
-                    <div class="card-header bg-primary text-white">
-                        <h3 class="mb-0">Resume Matching System</h3>
+    }
+</style>
+{% endblock extra_head %}
+
+{% block content %}
+<canvas id="background-canvas"></canvas>
+
+<div class="container mt-4">
+    <div class="row justify-content-center flex-column align-items-center">
+        <div class="col-12">
+            <div class="search-card card shadow-lg mb-4">
+                <div class="card-header">
+                    <span class="main-title"><i class="bi bi-search me-2"></i>Resume Matcher</span>
+                    <div class="subtitle">Find the best candidates for your job requirements</div>
+                </div>
+                <div class="card-body">
+                    <form id="resume-matcher-form" autocomplete="off">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="position" class="form-label">
+                                <i class="bi bi-briefcase me-1"></i>Job Position
+                            </label>
+                            <input type="text" class="form-control" id="position" name="position" 
+                                   placeholder="e.g. Python Developer" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="skills" class="form-label">
+                                <i class="bi bi-tools me-1"></i>Required Skills (comma separated)
+                            </label>
+                            <input type="text" class="form-control" id="skills" name="skills"
+                                   placeholder="e.g. Python, Django, AWS" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="min_experience" class="form-label">
+                                <i class="bi bi-calendar-check me-1"></i>Minimum Experience (years)
+                            </label>
+                            <input type="number" class="form-control" id="min_experience" name="min_experience"
+                                   placeholder="e.g. 2" min="0" value="0">
+                        </div>
+                        <div class="mb-3">
+                            <label for="priority" class="form-label">
+                                <i class="bi bi-flag me-1"></i>Priority Level
+                            </label>
+                            <select class="form-select" id="priority" name="priority">
+                                <option value="low">Low</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="bi bi-search me-2"></i>Match Resumes
+                        </button>
+                    </form>
+                    <div class="loading-spinner mt-3" id="loading-spinner"></div>
+                </div>
+            </div>
+            <div id="results-col">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-success text-white d-flex justify-content-between align-items-center" style="background: linear-gradient(90deg, #198754 70%, #43e97b 100%) !important;">
+                        <span class="main-title" style="color:#fff;"><i class="bi bi-person-check me-2"></i>Matching Results</span>
+                        <div>
+                            <button class="btn btn-sm btn-light me-2" id="export-excel">
+                                <i class="bi bi-file-earmark-excel"></i> Excel
+                            </button>
+                            <button class="btn btn-sm btn-light" id="export-pdf">
+                                <i class="bi bi-file-earmark-pdf"></i> PDF
+                            </button>
+                        </div>
                     </div>
                     <div class="card-body">
-                        <form id="resumeMatchForm">
-                            {% csrf_token %}
-                            <div class="mb-3">
-                                <label for="position" class="form-label">Job Position</label>
-                                <input type="text" class="form-control" id="position" name="position" 
-                                       placeholder="e.g. Python Developer" required>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <label for="skills" class="form-label">Required Skills (comma separated)</label>
-                                <input type="text" class="form-control" id="skills" name="skills"
-                                       placeholder="e.g. Python, Django, AWS" required>
-                            </div>
-                            
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="minExperience" class="form-label">Minimum Experience (years)</label>
-                                    <input type="number" class="form-control" id="minExperience" 
-                                           name="min_experience" min="0" value="2" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="priority" class="form-label">Priority</label>
-                                    <select class="form-select" id="priority" name="priority">
-                                        <option value="high">High</option>
-                                        <option value="medium" selected>Medium</option>
-                                        <option value="low">Low</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-primary btn-lg" id="matchButton">
-                                    <span id="buttonText">Match Resumes</span>
-                                    <div id="buttonSpinner" class="spinner-border spinner-border-sm d-none" role="status">
-                                        <span class="visually-hidden">Loading...</span>
-                                    </div>
-                                </button>
-                            </div>
-                        </form>
-                        
-                        <!-- Export Buttons - Always visible below the form -->
-                        <div id="exportButtons">
-                            <button id="exportExcel" class="btn btn-success me-2">
-                                <i class="bi bi-file-excel"></i> Export to Excel
-                            </button>
-                            <button id="exportPdf" class="btn btn-danger">
-                                <i class="bi bi-file-pdf"></i> Export to PDF
-                            </button>
-                        </div>
-                        
-                        <!-- Results Container -->
-                        <div id="resultsContainer" style="display: none;">
-                            <h4 class="mb-3">Matching Results</h4>
-                            <div id="resultsList" class="list-group"></div>
-                        </div>
+                        <div id="results-container"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // FORM SUBMISSION HANDLER
-        document.getElementById('resumeMatchForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const button = document.getElementById('matchButton');
-            const buttonText = document.getElementById('buttonText');
-            const spinner = document.getElementById('buttonSpinner');
-            const resultsContainer = document.getElementById('resultsContainer');
-            
-            // Show loading state
-            buttonText.textContent = "Matching...";
-            spinner.classList.remove('d-none');
-            button.disabled = true;
-            resultsContainer.style.display = 'none';
-            document.getElementById('resultsList').innerHTML = '';
-            
-            try {
-                const formData = new FormData(e.target);
-                const response = await fetch('/match-resumes/', {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRFToken': '{{ csrf_token }}',
-                        'Accept': 'application/json',
-                        'X-Requested-With': 'XMLHttpRequest'
-                    },
-                    body: formData
-                });
-                
-                if (!response.ok) {
-                    const error = await response.json();
-                    throw new Error(error.message || 'Failed to match resumes');
-                }
-                
-                const results = await response.json();
-                displayResults(results);
-                
-            } catch (error) {
-                console.error('Error:', error);
-                alert(`Error: ${error.message}`);
-            } finally {
-                buttonText.textContent = "Match Resumes";
-                spinner.classList.add('d-none');
-                button.disabled = false;
-            }
-        });
-        
-        // DISPLAY RESULTS FUNCTION
-        function displayResults(results) {
-            const container = document.getElementById('resultsContainer');
-            const list = document.getElementById('resultsList');
-            
-            // Clear previous results
-            list.innerHTML = '';
-            
-            if (!results || results.length === 0) {
-                list.innerHTML = '<div class="alert alert-info">No matching resumes found.</div>';
-                container.style.display = 'block';
-                return;
-            }
-            
-            // Add each result to the list
-            results.forEach(result => {
-                const card = document.createElement('div');
-                card.className = 'card mb-3';
-                
-                // Determine score class
-                let scoreClass = 'danger';
-                if (result.score >= 75) scoreClass = 'success';
-                else if (result.score >= 50) scoreClass = 'warning';
-                
-                card.innerHTML = `
-                    <div class="card-body border-${scoreClass} border-start border-5">
-                        <div class="d-flex justify-content-between">
-                            <h5>${result.name || 'Unknown Candidate'}</h5>
-                            <span class="badge bg-${scoreClass}">
-                                ${result.score.toFixed(1)}%
-                            </span>
-                        </div>
-                        
-                        <div class="progress mb-2" style="height: 20px;">
-                            <div class="progress-bar bg-${scoreClass}" 
-                                 style="width: ${result.score}%"></div>
-                        </div>
-                        
-                        <p><strong>Matched Skills:</strong> ${result.matched_skills?.join(', ') || 'None'}</p>
-                        <p><strong>Missing Skills:</strong> ${result.missing_skills?.join(', ') || 'None'}</p>
-                        <p><strong>Experience:</strong> ${result.experience || 0} years</p>
-                        
-                        <div class="mt-2">
-                            <a href="${result.resume_url || '#'}" target="_blank" 
-                               class="btn btn-sm btn-outline-primary">
-                                View Resume
-                            </a>
-                            ${result.email ? `
-                            <button class="btn btn-sm btn-outline-success ms-2 contact-btn" 
-                                    data-email="${result.email}">
-                                Contact
-                            </button>
-                            ` : ''}
-                        </div>
-                    </div>
-                `;
-                
-                list.appendChild(card);
-            });
-            
-            // Show the results container
-            container.style.display = 'block';
-            
-            // Set up contact buttons
-            document.querySelectorAll('.contact-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const email = e.target.dataset.email;
-                    if (email) window.location.href = `mailto:${email}`;
-                });
-            });
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const canvas = document.getElementById('background-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouseX = 0;
+        let mouseY = 0;
+
+        // Define resultsCol at the top so it's available everywhere
+        const resultsCol = document.getElementById('results-col');
+        resultsCol.classList.remove('results-visible'); // Hide initially
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
         }
-        
-        // EXPORT TO EXCEL
-        document.getElementById('exportExcel').addEventListener('click', async () => {
-            try {
-                const cards = document.querySelectorAll('#resultsList .card');
-                if (cards.length === 0) {
-                    alert('No results to export!');
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < 100; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 3 + 1,
+                    color: `rgba(${Math.floor(Math.random() * 100)}, ${Math.floor(Math.random() * 100)}, ${Math.floor(Math.random() * 255)}, 0.5)`,
+                    speedX: Math.random() * 2 - 1,
+                    speedY: Math.random() * 2 - 1
+                });
+            }
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.x += particle.speedX;
+                particle.y += particle.speedY;
+
+                if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
+                if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
+
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+                ctx.fillStyle = particle.color;
+                ctx.fill();
+
+                const dx = mouseX - particle.x;
+                const dy = mouseY - particle.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < 150) {
+                    ctx.beginPath();
+                    ctx.moveTo(particle.x, particle.y);
+                    ctx.lineTo(mouseX, mouseY);
+                    ctx.strokeStyle = `rgba(100, 100, 255, ${0.2 - distance/750})`;
+                    ctx.stroke();
+
+                    particle.x += dx * 0.01;
+                    particle.y += dy * 0.01;
+                }
+            });
+
+            requestAnimationFrame(drawParticles);
+        }
+
+        document.addEventListener('mousemove', function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        resizeCanvas();
+        initParticles();
+        drawParticles();
+
+        window.addEventListener('resize', function() {
+            resizeCanvas();
+            initParticles();
+        });
+
+        document.getElementById('export-excel').addEventListener('click', () => handleExport('excel'));
+        document.getElementById('export-pdf').addEventListener('click', () => handleExport('pdf'));
+
+        document.getElementById('resume-matcher-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const resultsContainer = document.getElementById('results-container');
+            resultsCol.classList.remove('results-visible');
+            resultsContainer.innerHTML = '';
+            loadingSpinner.style.display = 'block';
+
+            // Wait for fetch and loader to finish before showing results
+            await new Promise((resolve) => setTimeout(resolve, 350)); // Small delay for loader effect
+
+            fetch('/match-resumes/', {
+                method: 'POST',
+                body: new FormData(this)
+            })
+            .then(response => response.json())
+            .then(async data => {
+                loadingSpinner.style.display = 'none';
+                await new Promise((resolve) => setTimeout(resolve, 150)); // Wait for loader to disappear
+                if (!Array.isArray(data)) {
+                    resultsContainer.innerHTML = `
+                        <div class="alert alert-danger">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                            ${data.error ? data.error : 'An error occurred while processing your request.'}
+                        </div>`;
+                    resultsCol.classList.add('results-visible');
+                    if (window.updateFooterSticky) window.updateFooterSticky();
                     return;
                 }
-                
-                const results = Array.from(cards).map(card => {
-                    return {
-                        name: card.querySelector('h5').textContent.trim(),
-                        score: parseFloat(card.querySelector('.badge').textContent),
-                        experience: parseFloat(card.querySelector('p:nth-of-type(3)').textContent
-                                     .replace('Experience:', '').trim()),
-                        matched_skills: card.querySelector('p:nth-of-type(1)').textContent
-                                       .replace('Matched Skills:', '').trim().split(/\s*,\s*/),
-                        missing_skills: card.querySelector('p:nth-of-type(2)').textContent
-                                       .replace('Missing Skills:', '').trim().split(/\s*,\s*/)
-                    };
-                });
-                
-                const response = await fetch('/export/excel/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': '{{ csrf_token }}'
-                    },
-                    body: JSON.stringify({ candidates: results })
-                });
-                
-                if (!response.ok) throw new Error('Export failed');
-                
-                const blob = await response.blob();
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `candidates_${new Date().toISOString().split('T')[0]}.xlsx`;
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(url);
-                
-            } catch (error) {
-                console.error('Export error:', error);
-                alert('Failed to export: ' + error.message);
-            }
-        });
-        
-        // EXPORT TO PDF
-        document.getElementById('exportPdf').addEventListener('click', async () => {
-            try {
-                const cards = document.querySelectorAll('#resultsList .card');
-                if (cards.length === 0) {
-                    alert('No results to export!');
+                if (data.length === 0) {
+                    resultsContainer.innerHTML = `
+                        <div class="text-center text-muted">
+                            <i class="bi bi-emoji-frown" style="font-size: 3rem;"></i>
+                            <p class="mt-3">No matching candidates found</p>
+                        </div>`;
+                    resultsCol.classList.add('results-visible');
+                    if (window.updateFooterSticky) window.updateFooterSticky();
                     return;
                 }
-                
-                const results = Array.from(cards).map(card => {
-                    return {
-                        name: card.querySelector('h5').textContent.trim(),
-                        score: parseFloat(card.querySelector('.badge').textContent),
-                        experience: parseFloat(card.querySelector('p:nth-of-type(3)').textContent
-                                     .replace('Experience:', '').trim()),
-                        matched_skills: card.querySelector('p:nth-of-type(1)').textContent
-                                       .replace('Matched Skills:', '').trim().split(/\s*,\s*/),
-                        missing_skills: card.querySelector('p:nth-of-type(2)').textContent
-                                       .replace('Missing Skills:', '').trim().split(/\s*,\s*/)
-                    };
+
+                resultsContainer.innerHTML = '';
+                data.forEach((result, index) => {
+                    setTimeout(() => {
+                        const resultCard = document.createElement('div');
+                        resultCard.className = 'card mb-3 result-card';
+                        resultCard.style.animationDelay = `${index * 0.1}s`;
+
+                        const scoreColor = result.score >= 70 ? 'bg-success' : 
+                                        result.score >= 40 ? 'bg-warning' : 'bg-danger';
+
+                        resultCard.innerHTML = `
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <h5 class="card-title mb-0">${result.name}</h5>
+                                    <span class="badge ${scoreColor}">${Math.round(result.score)}%</span>
+                                </div>
+                                <div class="progress mb-3" style="height: 10px;">
+                                    <div class="progress-bar ${scoreColor}" style="width: 0%" role="progressbar"></div>
+                                </div>
+                                <div class="mb-2 matched-skills">
+                                    <strong>Matched Skills:</strong>
+                                    <div class="mt-1">
+                                        ${result.matched_skills.length ? 
+                                            result.matched_skills.map(skill => 
+                                                `<span class="badge bg-success me-1 mb-1">${skill}</span>`
+                                            ).join('') : 
+                                            '<span class="text-muted">None</span>'}
+                                    </div>
+                                </div>
+                                <div class="mb-2 missing-skills">
+                                    <strong>Missing Skills:</strong>
+                                    <div class="mt-1">
+                                        ${result.missing_skills.length ? 
+                                            result.missing_skills.map(skill => 
+                                                `<span class="badge bg-danger me-1 mb-1">${skill}</span>`
+                                            ).join('') : 
+                                            '<span class="text-muted">None</span>'}
+                                    </div>
+                                </div>
+                                <div class="mb-2 candidate-experience">
+                                    <strong>Experience:</strong>
+                                    <span class="experience-value">${result.experience || 0} years</span>
+                                </div>
+                                <div class="mb-2 candidate-email">
+                                    <strong>Email:</strong>
+                                    <span class="email-value">${result.email ? result.email.trim() : 'N/A'}</span>
+                                </div>
+                                <div class="mb-2 candidate-phone">
+                                    <strong>Phone:</strong>
+                                    <span class="phone-value">${result.phone ? result.phone.toString().trim() : 'N/A'}</span>
+                                </div>
+                                <a href="${result.resume_url}" class="btn btn-sm btn-outline-primary mt-2" target="_blank">
+                                    <i class="bi bi-file-earmark-text me-1"></i>View Resume
+                                </a>
+                            </div>`;
+
+                        resultsContainer.appendChild(resultCard);
+                        setTimeout(() => {
+                            resultCard.querySelector('.progress-bar').style.width = `${Math.round(result.score)}%`;
+                        }, 100);
+                        if (window.updateFooterSticky) window.updateFooterSticky();
+                    }, index * 150);
                 });
-                
-                const response = await fetch('/export/pdf/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': '{{ csrf_token }}'
-                    },
-                    body: JSON.stringify({ candidates: results })
-                });
-                
-                if (!response.ok) throw new Error('Export failed');
-                
-                const blob = await response.blob();
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `candidates_${new Date().toISOString().split('T')[0]}.pdf`;
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(url);
-                
-            } catch (error) {
-                console.error('Export error:', error);
-                alert('Failed to export: ' + error.message);
-            }
+                resultsCol.classList.add('results-visible');
+                if (window.updateFooterSticky) window.updateFooterSticky();
+            })
+            .catch(async error => {
+                console.error('Error:', error);
+                loadingSpinner.style.display = 'none';
+                await new Promise((resolve) => setTimeout(resolve, 150));
+                resultsContainer.innerHTML = `
+                    <div class="alert alert-danger">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        An error occurred while processing your request.
+                    </div>`;
+                resultsCol.classList.add('results-visible');
+                if (window.updateFooterSticky) window.updateFooterSticky();
+            });
         });
-    </script>
-</body>
-</html>
+    });
+
+    function handleExport(format) {
+        const cards = document.querySelectorAll('.result-card');
+        if (!cards.length) {
+            alert('No results to export!');
+            return;
+        }
+
+        const candidates = [];
+        cards.forEach(card => {
+            // Helper function to safely get text content
+            const getText = (selector) => {
+                const element = card.querySelector(selector);
+                return element ? element.textContent.trim() : '';
+            };
+
+            const candidate = {
+                name: getText('.card-title'),
+                score: parseFloat(getText('.badge').replace('%', '')) || 0,
+                experience: parseFloat(getText('.candidate-experience .experience-value').replace(' years', '')) || 0,
+                email: getText('.candidate-email .email-value'),
+                phone: getText('.candidate-phone .phone-value'),
+                matched_skills: Array.from(card.querySelectorAll('.matched-skills .badge'))
+                    .map(b => b.textContent.trim())
+                    .filter(skill => skill.toLowerCase() !== 'none'),
+                missing_skills: Array.from(card.querySelectorAll('.missing-skills .badge'))
+                    .map(b => b.textContent.trim())
+                    .filter(skill => skill.toLowerCase() !== 'none'),
+                path: card.querySelector('a[target="_blank"]')?.href || ''
+            };
+
+            // Clean and validate data
+            candidate.email = candidate.email === 'N/A' ? '' : candidate.email;
+            candidate.phone = candidate.phone === 'N/A' ? '' : candidate.phone;
+            
+            
+            candidates.push(candidate);
+        });
+
+        // Debug output
+        console.log('Exporting candidates:', candidates);
+
+        const csrfElement = document.querySelector('[name=csrfmiddlewaretoken]');
+        if (!csrfElement) {
+            alert('Security token missing! Please refresh the page.');
+            return;
+        }
+
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = `/export/${format}/`;
+
+        const csrf = document.createElement('input');
+        csrf.type = 'hidden';
+        csrf.name = 'csrfmiddlewaretoken';
+        csrf.value = csrfElement.value;
+
+        const data = document.createElement('input');
+        data.type = 'hidden';
+        data.name = 'candidates';
+        data.value = JSON.stringify(candidates);
+
+        form.append(csrf, data);
+        document.body.appendChild(form);
+        form.submit();
+    }
+</script>
+{% endblock content %}
