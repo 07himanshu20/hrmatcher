@@ -71,6 +71,7 @@
             background: #fff;
             transition: border-color 0.2s, box-shadow 0.2s;
         }
+        
         .config-form .form-control:focus, .config-form .form-select:focus {
             border-color: #6366f1;
             box-shadow: 0 0 0 2px #6366f122;
@@ -145,10 +146,33 @@
         .modal-header {
             border-radius: 1rem 1rem 0 0;
         }
+        .form-select {
+            background-color: #fff;
+            background-image:
+                linear-gradient(to right, #fff 0%, #fff 85%, transparent 100%),
+                url("data:image/svg+xml,%3Csvg width='16' height='16' fill='gray' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.646 6.646a.5.5 0 0 1 .708 0L8 9.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.25em 1.25em;
+            padding-right: 3rem;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            position: relative;
+            z-index: 1;
+        }
         @media (max-width: 700px) {
             .config-container { margin: 1rem; }
             .config-header, .config-body { padding: 1rem; }
             .config-card { padding: 1rem; }
+            /* Stack the action buttons vertically on mobile */
+            .config-form .action-buttons {
+                flex-direction: column !important;
+                gap: 0.75rem;
+            }
+            .config-form .action-buttons .btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -252,7 +276,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-between mt-4">
+                    <div class="d-flex justify-content-between mt-4 action-buttons">
                         <button type="button" class="btn btn-info" onclick="testEmailConnection()">
                             <i class="bi bi-check-circle me-1"></i>Test Connection
                         </button>
@@ -315,6 +339,9 @@
                         </table>
                     </div>
                     <div class="mt-3 d-flex flex-wrap gap-2">
+                        <div class="form-text color-secondary mt-2">
+                            <medium>Choose any of the following providers to auto-fill the details</medium>
+                        </div>
                         <button type="button" class="btn btn-outline-primary" onclick="fillGmailSettings()">Use Gmail</button>
                         <button type="button" class="btn btn-outline-primary" onclick="fillOutlookSettings()">Use Outlook</button>
                         <button type="button" class="btn btn-outline-primary" onclick="fillYahooSettings()">Use Yahoo</button>
@@ -564,11 +591,6 @@
             document.getElementById('id_email_port').value = '993';
             document.getElementById('id_use_tls').checked = true;
         }
-
-
-
-
-
 
         // Update the protocol/port suggestions in email_config.html's JavaScript
 document.getElementById('id_email_backend').addEventListener('change', function() {

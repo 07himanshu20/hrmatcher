@@ -42,6 +42,42 @@
             margin-top: 0 !important;
             z-index: 100;
         }
+        .uiverse-btn {
+            border: 2px solid transparent;
+            border-radius: 0.5rem;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+            padding: 0.4rem 1rem;
+            font-weight: 500;
+         }
+        .uiverse-btn:hover, .uiverse-btn:focus {
+            background: #0d6efd !important;
+            color: #fff !important;
+            border-color: #0d6efd;
+            text-decoration: none;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                text-align: center;
+            }
+            .navbar-nav.mx-auto {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                justify-content: center !important;
+                width: 100%;
+                display: flex !important;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            .navbar-nav.mx-auto .nav-item {
+                width: 100%;
+            }
+            .navbar-nav.mx-auto .nav-link.uiverse-btn {
+                width: 100%;
+                display: inline-block;
+            }
+        }
     </style>
     
     {% block extra_head %}{% endblock extra_head %}
@@ -76,7 +112,7 @@
                 </ul>
                 <div class="navbar-nav">
                     {% if user.is_authenticated %}
-                        <div class="nav-item dropdown">
+                        <div class="nav-item dropdown text-end">
                             <a class="nav-link dropdown-toggle text-primary" href="#" id="userDropdown" role="button" 
                                data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-person-circle me-1"></i>{{ user.username }}

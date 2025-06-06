@@ -14,20 +14,21 @@
         opacity: 0.18;
         pointer-events: none;
     }
-
     .main-title {
         font-weight: 700;
         letter-spacing: 1px;
         color: #0d6efd;
         margin-bottom: 0.5rem;
     }
-
     .subtitle {
         color: #fafafa;
         font-size: 1.1rem;
         margin-bottom: 2rem;
+        font-weight: 500;
+        justify-content: center;
+        display: flex;
+        align-items: center;
     }
-
     .card {
         border: none;
         box-shadow: 0 4px 24px 0 rgba(13,110,253,0.07), 0 1.5px 4px 0 rgba(0,0,0,0.03);
@@ -35,7 +36,6 @@
         transition: box-shadow 0.3s, transform 0.3s;
         background: #fff;
     }
-
     .card-header {
         border-bottom: none;
         border-radius: 1.25rem 1.25rem 0 0;
@@ -45,28 +45,23 @@
         font-size: 1.2rem;
         letter-spacing: 0.5px;
     }
-
     .card-body {
         padding: 2rem 1.5rem;
     }
-
     .form-label {
         font-weight: 500;
         color: #0d6efd;
     }
-
     .form-control, .form-select {
         border-radius: 0.75rem;
         border: 1.5px solid #e3e6f0;
         font-size: 1rem;
         transition: border-color 0.2s, box-shadow 0.2s;
     }
-
     .form-control:focus, .form-select:focus {
         border-color: #0d6efd;
         box-shadow: 0 0 0 0.15rem rgba(13,110,253,0.12);
     }
-
     .btn-primary {
         border-radius: 0.75rem;
         font-weight: 600;
@@ -76,12 +71,10 @@
         box-shadow: 0 2px 8px 0 rgba(13,110,253,0.08);
         transition: background 0.2s, box-shadow 0.2s;
     }
-
     .btn-primary:hover, .btn-primary:focus {
         background: linear-gradient(90deg, #0b5ed7 70%, #5a9bf6 100%);
         box-shadow: 0 4px 16px 0 rgba(13,110,253,0.12);
     }
-
     .btn-light {
         border-radius: 0.5rem;
         font-weight: 500;
@@ -90,12 +83,10 @@
         background: #f8f9fa;
         transition: background 0.2s, color 0.2s;
     }
-
     .btn-light:hover {
         background: #e7f1ff;
         color: #0b5ed7;
     }
-
     .result-card {
         opacity: 0;
         transform: translateY(24px);
@@ -106,26 +97,22 @@
         margin-bottom: 1.5rem;
         background: #fafdff;
     }
-
     @keyframes fadeInUp {
         to {
             opacity: 1;
             transform: translateY(0);
         }
     }
-
     .progress {
         background: #e9ecef;
         border-radius: 0.5rem;
         height: 12px;
         margin-bottom: 1rem;
     }
-
     .progress-bar {
         border-radius: 0.5rem;
         transition: width 1s cubic-bezier(.4,2,.6,1);
     }
-
     .badge {
         border-radius: 0.5rem;
         font-size: 0.95rem;
@@ -136,7 +123,6 @@
         margin-right: 0.2em;
         transition: transform 0.2s;
     }
-
     .badge.bg-success {
         background: linear-gradient(90deg, #198754 70%, #43e97b 100%);
         color: #fff;
@@ -149,26 +135,31 @@
         background: linear-gradient(90deg, #ffc107 70%, #ffe259 100%);
         color: #212529;
     }
-
     .badge:hover {
         transform: scale(1.08);
         box-shadow: 0 2px 8px 0 rgba(13,110,253,0.08);
     }
-
     .loading-spinner {
-        display: none;
-        width: 48px;
-        height: 48px;
-        margin: 32px auto;
-        border: 5px solid rgba(0,0,0,0.08);
-        border-radius: 50%;
-        border-top: 5px solid #0d6efd;
-        animation: spin 1s linear infinite;
+    display: none; /* Hide by default */
+    width: 100%;
+    text-align: center;
+    margin: 32px auto 0 auto;
     }
-
-    @keyframes spin {
-        0% { transform: rotate(0deg);}
-        100% { transform: rotate(360deg);}
+    .loading-text {
+        display: inline-block;
+        font-size: 1.3rem;
+        font-weight: 600;
+        background: linear-gradient(90deg, #0d6efd 0%, #6ea8fe 40%, #e3e6f0 60%, #0d6efd 100%);
+        background-size: 200% auto;
+        color: #fff;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: loading-gradient-move 2.0s linear infinite;
+    }
+    @keyframes loading-gradient-move {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
     }
 
     .matched-skills strong, .missing-skills strong, .candidate-experience strong, .candidate-email strong, .candidate-phone strong {
@@ -259,6 +250,17 @@
             font-size: 1.5rem;
         }
     }
+
+    .animated-select {
+        transition: box-shadow 0.3s, border-color 0.3s;
+        will-change: box-shadow, border-color;
+    }
+
+    .animated-select.open {
+        box-shadow: 0 8px 24px 0 rgba(13,110,253,0.18);
+        border-color: #0d6efd;
+        background: #f0f8ff;
+    }
 </style>
 {% endblock extra_head %}
 
@@ -301,7 +303,7 @@
                             <label for="priority" class="form-label">
                                 <i class="bi bi-flag me-1"></i>Priority Level
                             </label>
-                            <select class="form-select" id="priority" name="priority">
+                            <select class="form-select animated-select" id="priority" name="priority">
                                 <option value="low">Low</option>
                                 <option value="medium" selected>Medium</option>
                                 <option value="high">High</option>
@@ -311,7 +313,9 @@
                             <i class="bi bi-search me-2"></i>Match Resumes
                         </button>
                     </form>
-                    <div class="loading-spinner mt-3" id="loading-spinner"></div>
+                    <div class="loading-spinner mt-3" id="loading-spinner">
+                        <span class="loading-text">Matching candidates, please wait...</span>
+                    </div>
                 </div>
             </div>
             <div id="results-col">
@@ -320,10 +324,10 @@
                         <span class="main-title" style="color:#fff;"><i class="bi bi-person-check me-2"></i>Matching Results</span>
                         <div>
                             <button class="btn btn-sm btn-light me-2" id="export-excel">
-                                <i class="bi bi-file-earmark-excel"></i> Excel
+                                <i class="bi bi-file-earmark-excel"></i> Export to Excel
                             </button>
                             <button class="btn btn-sm btn-light" id="export-pdf">
-                                <i class="bi bi-file-earmark-pdf"></i> PDF
+                                <i class="bi bi-file-earmark-pdf"></i> View as PDF
                             </button>
                         </div>
                     </div>
@@ -537,6 +541,24 @@
                 if (window.updateFooterSticky) window.updateFooterSticky();
             });
         });
+
+        // Animate the priority dropdown
+        const prioritySelect = document.getElementById('priority');
+        if (prioritySelect) {
+            prioritySelect.addEventListener('focus', function() {
+                this.classList.add('open');
+            });
+            prioritySelect.addEventListener('blur', function() {
+                this.classList.remove('open');
+            });
+            // For keyboard navigation (optional, for accessibility)
+            prioritySelect.addEventListener('mousedown', function() {
+                this.classList.add('open');
+            });
+            prioritySelect.addEventListener('change', function() {
+                this.classList.remove('open');
+            });
+        }
     });
 
     function handleExport(format) {

@@ -24476,3 +24476,361 @@ imaplib.IMAP4.error: b'[AUTHENTICATIONFAILED] Invalid credentials (Failure)'
 2025-06-05 19:57:26,296 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
 2025-06-05 19:57:27,429 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
 2025-06-05 19:57:27,767 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:09:56,417 INFO autoreload Watching for file changes with StatReloader
+2025-06-05 20:10:08,701 WARNING log Not Found: /favicon.ico
+2025-06-05 20:11:04,849 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-05 20:11:04,850 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-05 20:11:04,850 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-05 20:11:04,851 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-05 20:11:04,853 INFO tasks Connecting to IMAP...
+2025-06-05 20:11:08,236 INFO tasks Logged in successfully
+2025-06-05 20:11:09,162 INFO tasks Found 86 emails to scan
+2025-06-05 20:11:10,126 INFO tasks Processing resume email: Thank you for applying for AWS Activate Founders credits
+2025-06-05 20:11:11,347 INFO tasks Processing resume email: =?UTF-8?Q?Message_from_Naukri_EVP_=E2=80=93_Fre?=
+ =?UTF-8?Q?e_Job_Posting_Launched_for_SMB?=
+2025-06-05 20:11:13,281 INFO views No new resumes found in email
+2025-06-05 20:11:13,304 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:11:13,317 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:11:15,275 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:11:15,278 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:11:15,661 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:11:15,663 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:11:16,993 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:11:17,313 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:11:17,767 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:11:17,953 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:33:17,263 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-05 20:33:17,264 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-05 20:33:17,264 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-05 20:33:17,266 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-05 20:33:17,266 INFO tasks Connecting to IMAP...
+2025-06-05 20:33:20,625 INFO tasks Logged in successfully
+2025-06-05 20:33:21,555 INFO tasks Found 86 emails to scan
+2025-06-05 20:33:22,301 INFO tasks Processing resume email: Thank you for applying for AWS Activate Founders credits
+2025-06-05 20:33:23,507 INFO tasks Processing resume email: =?UTF-8?Q?Message_from_Naukri_EVP_=E2=80=93_Fre?=
+ =?UTF-8?Q?e_Job_Posting_Launched_for_SMB?=
+2025-06-05 20:33:25,389 INFO views No new resumes found in email
+2025-06-05 20:33:25,397 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:33:25,410 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:33:25,879 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:33:25,884 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:33:27,112 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:33:27,115 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:33:27,517 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:33:27,698 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:33:28,711 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:33:29,020 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:49:18,754 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-05 20:49:18,756 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-05 20:49:18,756 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-05 20:49:18,759 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-05 20:49:18,759 INFO tasks Connecting to IMAP...
+2025-06-05 20:49:22,420 INFO tasks Logged in successfully
+2025-06-05 20:49:23,336 INFO tasks Found 86 emails to scan
+2025-06-05 20:49:24,086 INFO tasks Processing resume email: Thank you for applying for AWS Activate Founders credits
+2025-06-05 20:49:25,280 INFO tasks Processing resume email: =?UTF-8?Q?Message_from_Naukri_EVP_=E2=80=93_Fre?=
+ =?UTF-8?Q?e_Job_Posting_Launched_for_SMB?=
+2025-06-05 20:49:27,427 INFO views No new resumes found in email
+2025-06-05 20:49:27,465 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:49:27,494 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:49:28,045 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:49:28,049 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:49:29,264 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:49:29,267 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:49:29,658 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:49:29,876 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:49:30,880 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 20:49:31,060 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:03:09,877 WARNING log Not Found: /static/admin/css/base.css
+2025-06-05 21:03:09,880 WARNING log Not Found: /static/admin/css/dark_mode.css
+2025-06-05 21:03:09,884 WARNING log Not Found: /static/admin/css/nav_sidebar.css
+2025-06-05 21:03:09,889 WARNING log Not Found: /static/admin/css/responsive.css
+2025-06-05 21:03:09,893 WARNING log Not Found: /static/admin/css/dashboard.css
+2025-06-05 21:03:09,894 WARNING log Not Found: /static/admin/js/theme.js
+2025-06-05 21:03:09,904 WARNING log Not Found: /static/admin/js/nav_sidebar.js
+2025-06-05 21:03:09,907 WARNING log Not Found: /static/admin/css/nav_sidebar.css
+2025-06-05 21:03:09,908 WARNING log Not Found: /static/admin/css/dashboard.css
+2025-06-05 21:03:09,908 WARNING log Not Found: /static/admin/css/responsive.css
+2025-06-05 21:03:55,984 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-05 21:03:55,984 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-05 21:03:55,985 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-05 21:03:55,987 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-05 21:03:55,987 INFO tasks Connecting to IMAP...
+2025-06-05 21:03:59,178 INFO tasks Logged in successfully
+2025-06-05 21:04:00,107 INFO tasks Found 86 emails to scan
+2025-06-05 21:04:00,872 INFO tasks Processing resume email: Thank you for applying for AWS Activate Founders credits
+2025-06-05 21:04:02,100 INFO tasks Processing resume email: =?UTF-8?Q?Message_from_Naukri_EVP_=E2=80=93_Fre?=
+ =?UTF-8?Q?e_Job_Posting_Launched_for_SMB?=
+2025-06-05 21:04:04,134 INFO views No new resumes found in email
+2025-06-05 21:04:04,136 ERROR views Match resumes error: invalid literal for int() with base 10: ''
+Traceback (most recent call last):
+  File "C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\hrapp\views.py", line 121, in match_resumes
+    min_experience = int(request.POST.get('min_experience', 0))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: ''
+2025-06-05 21:04:04,168 ERROR log Internal Server Error: /match-resumes/
+2025-06-05 21:04:14,500 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-05 21:04:14,500 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-05 21:04:14,501 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-05 21:04:14,501 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-05 21:04:14,503 INFO tasks Connecting to IMAP...
+2025-06-05 21:04:17,932 INFO tasks Logged in successfully
+2025-06-05 21:04:18,899 INFO tasks Found 86 emails to scan
+2025-06-05 21:04:19,879 INFO tasks Processing resume email: Thank you for applying for AWS Activate Founders credits
+2025-06-05 21:04:21,210 INFO tasks Processing resume email: =?UTF-8?Q?Message_from_Naukri_EVP_=E2=80=93_Fre?=
+ =?UTF-8?Q?e_Job_Posting_Launched_for_SMB?=
+2025-06-05 21:04:23,027 INFO views No new resumes found in email
+2025-06-05 21:04:23,036 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:04:23,051 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:04:25,022 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:04:25,025 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:04:25,459 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:04:25,460 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:04:26,710 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:04:27,155 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:04:27,544 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:04:27,709 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:18:11,145 INFO autoreload Watching for file changes with StatReloader
+2025-06-05 21:18:39,376 WARNING log Not Found: /favicon.ico
+2025-06-05 21:26:26,674 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-05 21:26:26,676 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-05 21:26:26,678 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-05 21:26:26,682 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-05 21:26:26,683 INFO tasks Connecting to IMAP...
+2025-06-05 21:26:29,954 INFO tasks Logged in successfully
+2025-06-05 21:26:30,894 INFO tasks Found 86 emails to scan
+2025-06-05 21:26:31,642 INFO tasks Processing resume email: Thank you for applying for AWS Activate Founders credits
+2025-06-05 21:26:32,853 INFO tasks Processing resume email: =?UTF-8?Q?Message_from_Naukri_EVP_=E2=80=93_Fre?=
+ =?UTF-8?Q?e_Job_Posting_Launched_for_SMB?=
+2025-06-05 21:26:34,556 INFO views No new resumes found in email
+2025-06-05 21:26:34,598 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:26:34,639 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:26:35,439 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:26:35,447 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:26:36,620 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:26:36,626 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:26:37,162 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:26:37,966 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:26:38,367 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-05 21:26:38,807 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 16:57:36,849 INFO autoreload Watching for file changes with StatReloader
+2025-06-06 16:58:04,008 WARNING log Not Found: /favicon.ico
+2025-06-06 17:03:58,255 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 17:07:09,089 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 17:11:44,859 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 17:12:58,034 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 17:13:01,209 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 17:13:01,422 WARNING log Not Found: /favicon.ico
+2025-06-06 17:14:53,489 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 17:15:07,099 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 17:19:20,517 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 17:20:00,868 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 17:20:09,238 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 17:20:41,537 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 17:21:17,672 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 17:21:46,033 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 17:23:02,991 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 17:23:11,896 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 17:29:24,254 WARNING log Not Found: /favicon.ico
+2025-06-06 19:43:42,664 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 19:54:32,448 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-06 19:54:32,450 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-06 19:54:32,450 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-06 19:54:32,452 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-06 19:54:32,453 INFO tasks Connecting to IMAP...
+2025-06-06 19:54:35,730 INFO tasks Logged in successfully
+2025-06-06 19:54:36,734 INFO tasks Found 90 emails to scan
+2025-06-06 19:54:40,726 INFO tasks Processing resume email: Application for web development internship
+2025-06-06 19:54:40,730 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\SindhuraH.pdf
+2025-06-06 19:54:41,285 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 19:54:41,707 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 19:54:44,747 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 19:54:44,758 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 19:54:45,143 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 19:54:45,146 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 19:54:46,514 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 19:54:46,516 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 19:54:46,904 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 19:54:47,162 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 19:59:02,464 WARNING log Not Found: /favicon.ico
+2025-06-06 20:00:55,040 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-06 20:00:55,040 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-06 20:00:55,041 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-06 20:00:55,043 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-06 20:00:55,045 INFO tasks Connecting to IMAP...
+2025-06-06 20:00:58,230 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-06 20:00:58,231 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-06 20:00:58,232 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-06 20:00:58,232 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-06 20:00:58,233 INFO tasks Connecting to IMAP...
+2025-06-06 20:00:58,694 INFO tasks Logged in successfully
+2025-06-06 20:00:59,643 INFO tasks Found 90 emails to scan
+2025-06-06 20:01:01,660 INFO tasks Logged in successfully
+2025-06-06 20:01:02,744 INFO tasks Found 90 emails to scan
+2025-06-06 20:01:04,371 INFO tasks Processing resume email: Application for web development internship
+2025-06-06 20:01:04,378 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\SindhuraH.pdf
+2025-06-06 20:01:04,914 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:01:05,158 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:01:06,786 INFO tasks Processing resume email: Application for web development internship
+2025-06-06 20:01:06,788 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\SindhuraH.pdf
+2025-06-06 20:01:07,013 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:01:07,022 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:01:07,389 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:01:07,390 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:01:07,395 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:01:07,564 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:01:08,744 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:01:08,746 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:01:09,129 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:01:09,140 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:01:09,246 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:01:09,497 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:01:10,381 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:01:10,383 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:01:11,137 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:01:11,139 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:01:12,030 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:01:12,175 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:02:45,199 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-06 20:02:45,200 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-06 20:02:45,200 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-06 20:02:45,201 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-06 20:02:45,202 INFO tasks Connecting to IMAP...
+2025-06-06 20:02:48,900 INFO tasks Logged in successfully
+2025-06-06 20:02:49,888 INFO tasks Found 90 emails to scan
+2025-06-06 20:02:54,209 INFO tasks Processing resume email: Application for web development internship
+2025-06-06 20:02:54,212 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\SindhuraH.pdf
+2025-06-06 20:02:54,722 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:02:54,887 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:02:55,286 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:02:55,295 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:02:56,553 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:02:56,557 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:02:57,048 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:02:57,050 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:02:58,854 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:02:59,109 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:04:41,506 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-06 20:04:41,507 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-06 20:04:41,507 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-06 20:04:41,508 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-06 20:04:41,509 INFO tasks Connecting to IMAP...
+2025-06-06 20:04:44,728 INFO tasks Logged in successfully
+2025-06-06 20:04:45,674 INFO tasks Found 90 emails to scan
+2025-06-06 20:04:49,566 INFO tasks Processing resume email: Application for web development internship
+2025-06-06 20:04:49,567 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\SindhuraH.pdf
+2025-06-06 20:04:50,051 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:04:50,220 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:04:50,591 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:04:50,600 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:04:51,865 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:04:51,867 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:04:52,364 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:04:52,367 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:04:53,516 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:04:53,658 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:08:20,068 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-06 20:08:20,069 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-06 20:08:20,069 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-06 20:08:20,071 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-06 20:08:20,072 INFO tasks Connecting to IMAP...
+2025-06-06 20:08:23,782 INFO tasks Logged in successfully
+2025-06-06 20:08:24,707 INFO tasks Found 90 emails to scan
+2025-06-06 20:08:31,189 INFO tasks Processing resume email: Application for web development internship
+2025-06-06 20:08:31,191 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\SindhuraH.pdf
+2025-06-06 20:08:31,682 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:08:31,862 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:08:32,248 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:08:32,263 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:08:33,572 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:08:33,575 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:08:34,004 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:08:34,006 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:08:35,305 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:08:35,655 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:08:56,506 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-06 20:08:56,507 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-06 20:08:56,509 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-06 20:08:56,510 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-06 20:08:56,510 INFO tasks Connecting to IMAP...
+2025-06-06 20:08:59,762 INFO tasks Logged in successfully
+2025-06-06 20:09:00,716 INFO tasks Found 90 emails to scan
+2025-06-06 20:09:04,585 INFO tasks Processing resume email: Application for web development internship
+2025-06-06 20:09:04,586 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\SindhuraH.pdf
+2025-06-06 20:09:05,077 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:09:05,243 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:09:05,611 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:09:05,621 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:09:06,902 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:09:06,906 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:09:07,295 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:09:07,296 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:09:08,556 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:09:08,706 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:10:05,586 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 20:10:11,526 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 20:10:39,402 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'true', 'csrfmiddlewaretoken': '2l9W39FU6vmiIWlN6xo3pMmPEJv2Tl00LKIkL5b5Bn51bP0X8orVBBsLLboH7yTK'}
+2025-06-06 20:10:39,405 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='prod@bharatcrest.com', use_tls=True
+2025-06-06 20:10:39,406 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-06-06 20:10:43,717 INFO views Connection to imap.secureserver.net successful!
+2025-06-06 20:10:48,889 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 20:11:00,260 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 20:11:03,879 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 20:12:29,376 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 20:12:52,765 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 20:13:14,383 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 20:14:23,285 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 20:14:43,799 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 20:15:01,928 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 20:15:08,715 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 20:15:08,721 WARNING log Not Found: /static/admin/css/base.css
+2025-06-06 20:15:08,725 WARNING log Not Found: /static/admin/css/nav_sidebar.css
+2025-06-06 20:15:08,728 WARNING log Not Found: /static/admin/css/dark_mode.css
+2025-06-06 20:15:08,728 WARNING log Not Found: /static/admin/css/responsive.css
+2025-06-06 20:15:08,729 WARNING log Not Found: /static/admin/js/theme.js
+2025-06-06 20:15:08,730 WARNING log Not Found: /static/admin/css/dashboard.css
+2025-06-06 20:15:08,740 WARNING log Not Found: /static/admin/js/nav_sidebar.js
+2025-06-06 20:15:08,741 WARNING log Not Found: /static/admin/css/dashboard.css
+2025-06-06 20:15:08,741 WARNING log Not Found: /static/admin/css/responsive.css
+2025-06-06 20:15:08,742 WARNING log Not Found: /static/admin/css/nav_sidebar.css
+2025-06-06 20:15:09,849 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 20:15:09,874 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 20:15:32,049 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-06 20:15:32,050 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-06 20:15:32,051 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-06 20:15:32,053 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-06 20:15:32,053 INFO tasks Connecting to IMAP...
+2025-06-06 20:15:35,474 INFO tasks Logged in successfully
+2025-06-06 20:15:36,430 INFO tasks Found 90 emails to scan
+2025-06-06 20:15:40,343 INFO tasks Processing resume email: Application for web development internship
+2025-06-06 20:15:40,346 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\SindhuraH.pdf
+2025-06-06 20:15:40,835 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:15:41,116 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:15:41,651 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:15:41,667 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:15:42,966 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:15:42,970 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:15:43,338 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:15:43,339 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:15:44,990 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:15:45,342 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:16:36,087 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-06 20:16:42,712 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-06 20:16:42,714 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-06 20:16:42,714 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-06 20:16:42,715 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-06 20:16:42,716 INFO tasks Connecting to IMAP...
+2025-06-06 20:16:46,253 INFO tasks Logged in successfully
+2025-06-06 20:16:47,186 INFO tasks Found 90 emails to scan
+2025-06-06 20:16:51,959 INFO tasks Processing resume email: Application for web development internship
+2025-06-06 20:16:51,961 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\SindhuraH.pdf
+2025-06-06 20:16:52,468 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:16:52,667 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:16:53,063 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:16:53,071 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:16:54,331 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:16:54,349 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:16:54,748 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:16:54,749 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:16:55,988 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-06 20:16:56,217 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
