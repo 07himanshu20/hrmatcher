@@ -8,6 +8,7 @@ import logging
 from datetime import datetime, timedelta
 from email.header import decode_header
 from typing import List, Dict, Any, Optional, Union
+import ssl
 
 from celery import shared_task
 from django.conf import settings
@@ -121,7 +122,7 @@ def fetch_resumes_from_email(self, user_id):
     PASSWORD = config.email_password
     PORT = config.email_port
     USE_TLS = config.use_tls
-    MAX_EMAILS = 5  # Limit to the most recent N emails
+    
     # Import settings and os at the beginning of the function
     from django.conf import settings
     import os
@@ -158,11 +159,13 @@ def fetch_resumes_from_email(self, user_id):
 
     try:
         logger.info("Connecting to IMAP...")
-        with imaplib.IMAP4_SSL(IMAP_SERVER, 993) as imap:
+        # Always use a fresh SSL context for each connection
+        ssl_context = ssl.create_default_context()
+        with imaplib.IMAP4_SSL(IMAP_SERVER, 993, ssl_context=ssl_context) as imap:
             imap.login(EMAIL, PASSWORD)
             logger.info("Logged in successfully")
 
-            status, _ = imap.select("INBOX")
+            status, _ = imap.select("INBOX")  # IMPORTANT: remove readonly=True
             if status != 'OK':
                 raise Exception("Failed to select INBOX")
 
@@ -172,9 +175,6 @@ def fetch_resumes_from_email(self, user_id):
 
             email_ids = messages[0].split()
             logger.info(f"Found {len(email_ids)} emails to scan")
-
-            # Limit the number of emails processed
-            email_ids = email_ids[-MAX_EMAILS:]  # Get the most recent N emails
 
             for email_id in email_ids:
                 try:

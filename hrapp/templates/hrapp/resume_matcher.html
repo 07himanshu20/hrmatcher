@@ -3,16 +3,30 @@
 
 {% block extra_head %}
 <style>
-    /* Dynamic background */
+    /* Override base background for better contrast */
+    html, body {
+        background: linear-gradient(50deg, #458cf7 10%, #578bd8 50%, #b7bfd1) !important;
+    }
+    
+    /* Dynamic background: only behind main content, not navbar/footer */
     #background-canvas {
-        position: fixed;
+        position: absolute;
+        right: 0;
+        right:0;
         top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        z-index: -1;
-        opacity: 0.18;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.5;
         pointer-events: none;
+        display: block;
+    }
+    /* Ensure main content is positioned relative for absolute canvas */
+    .main-content-particles {
+        position: relative;
+        width: 100vw;
+        min-height: 100vh;
+        padding-bottom: 2rem;
     }
     .main-title {
         font-weight: 700;
@@ -23,79 +37,259 @@
     .subtitle {
         color: #fafafa;
         font-size: 1.1rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         font-weight: 500;
         justify-content: center;
         display: flex;
         align-items: center;
-    }
-    .card {
+    }    .card {
         border: none;
-        box-shadow: 0 4px 24px 0 rgba(13,110,253,0.07), 0 1.5px 4px 0 rgba(0,0,0,0.03);
-        border-radius: 1.25rem;
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.25),
+            0 4px 16px rgba(0, 0, 0, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        border-radius: 2rem;
         transition: box-shadow 0.3s, transform 0.3s;
-        background: #fff;
+        background: rgba(255, 255, 255, 0.08) !important;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        overflow: hidden;
+        position: relative;
+    }    .card-header, .card-header {
+        background: none !important;
+        color: #fff !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.7rem;
+        text-align: center;
+        border-radius: 2rem 2rem 0 0;
+        padding: 2.5rem 2rem 1.5rem 2rem;
+        position: relative;
     }
-    .card-header {
-        border-bottom: none;
-        border-radius: 1.25rem 1.25rem 0 0;
-        background: linear-gradient(90deg, #0d6efd 60%, #6ea8fe 100%);
+    #results-col .card-header .main-title {
+        background: none;
         color: #fff;
-        font-weight: 600;
+        -webkit-text-fill-color: #fff;
+        background-clip: unset;
+        -webkit-background-clip: unset;
         font-size: 1.2rem;
-        letter-spacing: 0.5px;
+        font-weight: 700;
+        margin-bottom: 0;
+        text-align: center;
+        width: 100%;
+    }    .card-header .subtitle {
+        background: none;
+        color: rgba(255, 255, 255, 0.9) !important;
+        -webkit-text-fill-color: rgba(255, 255, 255, 0.9) !important;
+        background-clip: unset;
+        -webkit-background-clip: unset;
+        font-size: 2.1rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        width: 100%;
+        line-height: 1.1;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', 'Poppins', system-ui, sans-serif;
+        letter-spacing: -0.02em;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
-    .card-body {
-        padding: 2rem 1.5rem;
+
+    .step-indicator {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
     }
-    .form-label {
-        font-weight: 500;
-        color: #0d6efd;
+
+    .step-number {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.3);
     }
-    .form-control, .form-select {
-        border-radius: 0.75rem;
-        border: 1.5px solid #e3e6f0;
+
+    .step-number.active {
+        background: rgba(99, 102, 241, 0.4);
+        border-color: rgba(99, 102, 241, 0.6);
+        color: #fff;
+    }
+
+    .step-separator {
+        width: 40px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.3);
+    }
+    
+    @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+    @keyframes loading-gradient-move {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+    #results-col .card-header > div {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    @media (min-width: 768px) {
+        .card-header, #results-col .card-header {
+            flex-direction: row;
+            gap: 1.2rem;
+            padding: 1.7rem 2.2rem 1.2rem 2.2rem;
+        }
+        #results-col .card-header .main-title {
+            margin-bottom: 0;
+        }
+    }
+    @media (max-width: 767.98px) {
+        .card-header, #results-col .card-header {
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center;
+            gap: 0.5rem;
+            padding: 1.2rem 1rem 1rem 1rem;
+        }
+        #results-col .card-header .main-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            width: 100%;
+        }
+        #results-col .card-header > div {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+    }    .card-body {
+        padding: 2.5rem 2rem 2rem 2rem;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }.form-label {
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         font-size: 1rem;
-        transition: border-color 0.2s, box-shadow 0.2s;
+        margin-bottom: 0.7rem;
+    }    .form-control {
+        color: rgba(255, 255, 255, 0.9) !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        backdrop-filter: blur(5px) !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        border-radius: 0.5rem !important;
+        transition: all 0.3s ease !important;
     }
-    .form-control:focus, .form-select:focus {
-        border-color: #0d6efd;
-        box-shadow: 0 0 0 0.15rem rgba(13,110,253,0.12);
+    .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+    }    .form-control:focus {
+        color: #fff7f7 !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        text-decoration: none !important;
+    }    .form-select{
+        color: rgba(255, 255, 255, 0.9) !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        backdrop-filter: blur(5px) !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        border-radius: 0.5rem !important;
+        transition: all 0.3s ease !important;
+    }
+    .form-select:focus{
+        color: rgba(255, 255, 255, 0.9) !important;
+        background: rgba(255, 255, 255, 0.15) !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        text-decoration: none !important;
+    }
+    
+    /* Fix dropdown options visibility */
+    .form-select option {
+        background-color: #fbfdff !important;
+        color: #000000 !important;
+        padding: 8px 12px;
+        font-weight: 500;
+    }
+    
+    .form-select option:hover {
+        background-color: #34495e !important;
+        color: #ffffff !important;
+    }
+    
+    .form-select option:checked,
+    .form-select option:selected {
+        background-color: #3498db !important;
+        color: #ffffff !important;
     }
     .btn-primary {
         border-radius: 0.75rem;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 1.1rem;
-        background: linear-gradient(90deg, #0d6efd 70%, #6ea8fe 100%);
-        border: none;
-        box-shadow: 0 2px 8px 0 rgba(13,110,253,0.08);
-        transition: background 0.2s, box-shadow 0.2s;
+        background: rgba(99, 102, 241, 0.3);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(99, 102, 241, 0.4);
+        color: #fff;
+        box-shadow: 
+            0 4px 16px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        letter-spacing: 0.02em;
     }
     .btn-primary:hover, .btn-primary:focus {
-        background: linear-gradient(90deg, #0b5ed7 70%, #5a9bf6 100%);
-        box-shadow: 0 4px 16px 0 rgba(13,110,253,0.12);
-    }
-    .btn-light {
+        background: rgba(99, 102, 241, 0.5);
+        box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+        transform: translateY(-2px);
+        border-color: rgba(99, 102, 241, 0.6);
+        color: #fff;
+    }    .btn-light {
         border-radius: 0.5rem;
-        font-weight: 500;
-        color: #0d6efd;
-        border: 1px solid #e3e6f0;
-        background: #f8f9fa;
-        transition: background 0.2s, color 0.2s;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(5px);
+        transition: all 0.3s ease;
     }
     .btn-light:hover {
-        background: #e7f1ff;
-        color: #0b5ed7;
-    }
-    .result-card {
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.5);
+    }    .result-card {
         opacity: 0;
         transform: translateY(24px);
         animation: fadeInUp 0.6s forwards;
-        border-radius: 1rem;
-        border: 1.5px solid #e3e6f0;
-        box-shadow: 0 2px 12px 0 rgba(13,110,253,0.06);
+        border-radius: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.25),
+            0 4px 16px rgba(0, 0, 0, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
         margin-bottom: 1.5rem;
-        background: #fafdff;
+        background: rgba(255, 255, 255, 0.08) !important;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
     }
     @keyframes fadeInUp {
         to {
@@ -160,16 +354,38 @@
     @keyframes loading-gradient-move {
         0% { background-position: 200% 0; }
         100% { background-position: -200% 0; }
-    }
-
-    .matched-skills strong, .missing-skills strong, .candidate-experience strong, .candidate-email strong, .candidate-phone strong {
-        color: #0d6efd;
-        font-weight: 500;
+    }    .matched-skills strong, .missing-skills strong, .candidate-experience strong, .candidate-email strong, .candidate-phone strong {
+        color: rgba(255, 255, 255, 0.95);
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        font-size: 1rem;
     }
 
     .candidate-email .email-value, .candidate-phone .phone-value {
         font-family: 'Fira Mono', 'Consolas', monospace;
-        color: #495057;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 500;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .result-card .card-title {
+        color: rgba(255, 255, 255, 0.98) !important;
+        font-weight: 800;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        font-size: 1.25rem;
+    }
+
+    .result-card .card-body {
+        color: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    .result-card .experience-value {
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 500;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
     }
 
     .result-card .btn-outline-primary {
@@ -177,20 +393,29 @@
         font-weight: 500;
         border-width: 1.5px;
         margin-top: 0.5rem;
-    }
-
-    /* Make search card compact */
+    }    /* Make search card compact */
     .search-card {
         max-width: 900px;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 2rem;
-        box-shadow: 0 4px 24px 0 rgba(13,110,253,0.07), 0 1.5px 4px 0 rgba(0,0,0,0.03);
-        border-radius: 1.25rem;
-        background: #fff;
-    }
-    .search-card .card-body {
-        padding: 2rem 1.5rem;
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.25),
+            0 4px 16px rgba(0, 0, 0, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        border-radius: 2rem;
+        background: rgba(255, 255, 255, 0.08) !important;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        overflow: hidden;
+        position: relative;
+    }    .search-card .card-body {
+        padding: 2.5rem 2rem 2rem 2rem;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
     }
 
     /* Results card stretches but not beyond content */
@@ -209,24 +434,75 @@
         opacity: 1;
         transform: translateY(0);
         pointer-events: auto;
-    }
-    #results-col .card {
+    }    #results-col .card {
         min-height: 0;
-        box-shadow: 0 4px 24px 0 rgba(40,167,69,0.07), 0 1.5px 4px 0 rgba(0,0,0,0.03);
-        border-radius: 1.25rem;
-        background: #fafdff;
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.25),
+            0 4px 16px rgba(0, 0, 0, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        border-radius: 2rem;
+        background: linear-gradient(
+            145deg,
+            rgba(34, 197, 94, 0.815) 0%,
+            rgba(34, 197, 94, 0.08) 15%,
+            rgba(34, 197, 94, 0.04) 35%,
+            rgba(255, 255, 255, 0.08) 60%,
+            rgba(255, 255, 255, 0.08) 100%
+        ) !important;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.25);
         /* Remove h-100 so it doesn't stretch */
         height: auto !important;
+        overflow: hidden;
+        position: relative;
+    }
+    #results-col .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 40%;
+        background: linear-gradient(
+            180deg,
+            rgba(34, 197, 94, 0.08) 0%,
+            rgba(34, 197, 94, 0.04) 50%,
+            transparent 100%
+        );
+        border-radius: 2rem 2rem 0 0;
+        pointer-events: none;
+        z-index: 1;
     }
     #results-col .card-body {
-        padding: 2rem 1.5rem;
+        padding: 2.5rem 2rem 2rem 2rem;
         max-height: none;
         overflow: visible;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        position: relative;
+        z-index: 2;
+    }
+    #results-col .card-header {
+        padding: 2.5rem 2rem 1.5rem 2rem;
+        background: linear-gradient(
+            180deg,
+            rgb(26, 223, 98) 0%,
+            rgba(47, 243, 119, 0.397) 70%,
+            rgba(255, 255, 255, 0.06) 100%
+        ) !important;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        color: #fff !important;
+        border-radius: 2rem 2rem 0 0;
+        position: relative;
+        z-index: 2;
     }
 
     /* Prevent results from overflowing footer */
     html, body {
-        height: 100%;
+        min-height: 100%;
     }
     body {
         min-height: 100vh;
@@ -240,99 +516,438 @@
     }
     .footer {
         flex-shrink: 0;
+        transition: position 0.3s;
+        padding-top: 16px;
+        background: #f8f9fa;
+        border-top: 1.5px solid #e3e6f0;
+        box-shadow: 0 -2px 16px 0 rgba(13,110,253,0.04);
+        font-size: 1.05rem;
     }
-
-    @media (max-width: 991px) {
-        .card-body {
-            padding: 1.25rem 0.75rem;
+    .footer .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 16px;
+    }
+    .footer .row {
+        align-items: center;
+    }
+    .footer .col-md-6 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .footer .col-md-6.text-md-end {
+        align-items: flex-end;
+        text-align: right;
+    }
+    @media (max-width: 767.98px) {
+        .footer .row {
+            flex-direction: column;
+            text-align: center;
         }
-        .main-title {
-            font-size: 1.5rem;
+        .footer .col-md-6,
+        .footer .col-md-6.text-md-end {
+            align-items: center !important;
+            text-align: center !important;
+            margin-bottom: 0.5rem;
         }
     }
 
     .animated-select {
         transition: box-shadow 0.3s, border-color 0.3s;
         will-change: box-shadow, border-color;
-    }
-
-    .animated-select.open {
+    }    .animated-select.open {
         box-shadow: 0 8px 24px 0 rgba(13,110,253,0.18);
         border-color: #0d6efd;
         background: #f0f8ff;
+    } 
+    .button-animated {
+        --black-700: hsla(220, 80%, 15%, 1);
+        --border_radius: 2rem;
+        --transtion: 0.3s ease-in-out;
+        --offset: 2px;
+
+        cursor: pointer;
+        position: relative;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        
+        transform-origin: center;
+        
+        padding: 1rem 2rem;
+        background-color: transparent;
+        
+        border: none;
+        border-radius: var(--border_radius);
+        transform: scale(calc(1 + (var(--active, 0) * 0.05)));
+        
+        transition: transform var(--transtion);
+        width: 100%;
+        font-size: 1.1rem;
+        font-weight: 600;
+        overflow: hidden;
+        margin: 0.25rem 0;
+    }
+
+    .button-animated::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, #0d6efd 30%, #6ea8fe 100%);
+        
+        border-radius: var(--border_radius);
+        box-shadow: inset 0 0.5px hsl(0, 0%, 100%), inset 0 -1px 2px 0 hsl(0, 0%, 0%),
+            0px 4px 10px -4px hsla(0 0% 0% / calc(1 - var(--active, 0))),
+            0 0 0 calc(var(--active, 0) * 0.375rem) hsl(210 97% 50% / 0.75);
+        
+        transition: all var(--transtion);
+        z-index: 0;
+    }    .button-animated::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        width: 100%;
+        height: 100%;
+        background-color: hsla(210, 59%, 42%, 0.75);
+        background-image: radial-gradient(
+            at 51% 89%,
+            hsla(210, 45%, 74%, 1) 0px,
+            transparent 50%
+        ),
+        radial-gradient(at 100% 100%, hsla(210, 36%, 60%, 1) 0px, transparent 50%),
+        radial-gradient(at 22% 91%, hsla(210, 36%, 60%, 1) 0px, transparent 50%);
+        background-position: top;
+        
+        opacity: var(--active, 0);
+        border-radius: var(--border_radius);
+        transition: opacity var(--transtion);
+        z-index: 1;
+    }
+
+    .button-animated:is(:hover, :focus-visible) {
+        --active: 1;
+    }    .button-animated:active {
+        transform: scale(0.98);
+    }
+
+    .button-animated .dots_border {
+        --size_border: calc(100% + 2px);
+        
+        overflow: hidden;
+        
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        width: var(--size_border);
+        height: var(--size_border);
+        background-color: transparent;
+        
+        border-radius: var(--border_radius);
+        z-index: -10;
+    }
+
+    .button-animated .dots_border::before {
+        content: "";
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transform-origin: left;
+        transform: rotate(0deg);
+        
+        width: 100%;
+        height: 2rem;
+        background-color: white;
+        
+        mask: linear-gradient(transparent 0%, white 120%);
+        animation: rotate 2s linear infinite;
+    }
+
+    @keyframes rotate {
+        to {
+            transform: rotate(360deg);
+        }
+    }    .button-animated .sparkle {
+        position: relative;
+        z-index: 15;
+        
+        width: 1.75rem;
+        flex-shrink: 0;
+    }
+
+    .button-animated .sparkle .path {
+        fill: currentColor;
+        stroke: currentColor;
+        
+        transform-origin: center;
+        
+        color: hsl(0, 0%, 100%);
+    }
+
+    .button-animated:is(:hover, :focus) .sparkle .path {
+        animation: path 1.5s linear 0.5s infinite;
+    }
+
+    .button-animated .sparkle .path:nth-child(1) {
+        --scale_path_1: 1.2;
+    }
+    .button-animated .sparkle .path:nth-child(2) {
+        --scale_path_2: 1.2;
+    }
+    .button-animated .sparkle .path:nth-child(3) {
+        --scale_path_3: 1.2;
+    }
+
+    @keyframes path {
+        0%,
+        34%,
+        71%,
+        100% {
+            transform: scale(1);
+        }
+        17% {
+            transform: scale(var(--scale_path_1, 1));
+        }
+        49% {
+            transform: scale(var(--scale_path_2, 1));
+        }
+        83% {
+            transform: scale(var(--scale_path_3, 1));
+        }
+    }    .button-animated .text_button {
+        position: relative;
+        z-index: 20;
+        
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: white !important;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Fix button text visibility */
+    .btn-outline-primary {
+        color: #0d6efd !important;
+        border-color: #0d6efd !important;
+        background-color: transparent !important;
+    }
+    
+    .btn-outline-primary:hover {
+        color: #fff !important;
+        background-color: #0d6efd !important;
+        border-color: #0d6efd !important;
+    }
+      /* Ensure demo button text is visible */
+    #demo-results-btn {
+        color: rgba(255, 255, 255, 0.9) !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        backdrop-filter: blur(5px) !important;
+        font-weight: 600 !important;
+        border-radius: 0.75rem !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    #demo-results-btn:hover {
+        color: #fff !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        transform: translateY(-2px) !important;
+    }
+      /* Fix resume button text visibility */
+    .result-card .btn-outline-primary {
+        color: rgba(255, 255, 255, 0.9) !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        backdrop-filter: blur(5px) !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        border-radius: 0.5rem !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .result-card .btn-outline-primary:hover {
+        color: #fff !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        text-decoration: none !important;
+    }
+    
+    /* Force text visibility for all buttons */
+    .btn, .btn-outline-primary, #demo-results-btn {
+        -webkit-text-fill-color: unset !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+    }
+    
+    /* Enhanced text visibility for results */
+    .text-muted {
+        color: rgba(255, 255, 255, 0.7) !important;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+    
+    .alert {
+        background: rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.95) !important;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+    
+    .alert-danger {
+        background: rgba(220, 53, 69, 0.2) !important;
+        border-color: rgba(220, 53, 69, 0.3);
+    }
+    
+    /* Fix any remaining visibility issues */
+    .result-card p, 
+    .result-card div, 
+    .result-card span:not(.badge) {
+        color: rgba(255, 255, 255, 0.9) !important;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+    
+    /* Ensure badge visibility */
+    .badge {
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        font-weight: 600;
+    }
+    
+    /* Progress bar background for better visibility */
+    .progress {
+        background: rgba(255, 255, 255, 0.2) !important;
+        backdrop-filter: blur(5px);
+        border-radius: 0.5rem;
+        height: 12px;
+        margin-bottom: 1rem;
     }
 </style>
 {% endblock extra_head %}
 
 {% block content %}
-<canvas id="background-canvas"></canvas>
+<div class="main-content-particles" style="position:relative; width:100%;">
+    <canvas id="background-canvas" style="position:absolute; left:0; top:0; width:100%; height:100%; z-index:0; opacity:0.5; pointer-events:none;"></canvas>
 
-<div class="container mt-4">
-    <div class="row justify-content-center flex-column align-items-center">
-        <div class="col-12">
-            <div class="search-card card shadow-lg mb-4">
-                <div class="card-header">
-                    <span class="main-title"><i class="bi bi-search me-2"></i>Resume Matcher</span>
-                    <div class="subtitle">Find the best candidates for your job requirements</div>
-                </div>
-                <div class="card-body">
-                    <form id="resume-matcher-form" autocomplete="off">
-                        {% csrf_token %}
-                        <div class="mb-3">
-                            <label for="position" class="form-label">
-                                <i class="bi bi-briefcase me-1"></i>Job Position
-                            </label>
-                            <input type="text" class="form-control" id="position" name="position" 
-                                   placeholder="e.g. Python Developer" required>
+    <div class="card-header">   
+        <div class="subtitle">Find the best candidates for your job requirements</div>
+    </div>
+    <div class="container mt-4">
+        <div class="row justify-content-center flex-column align-items-center">
+            <div class="col-12">
+                <div class="search-card card shadow-lg mb-4">                    <div class="card-body">
+                        <form id="resume-matcher-form" autocomplete="off">
+                            {% csrf_token %}
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="position" class="form-label">Job Position</label>
+                                        <input type="text" class="form-control" id="position" name="position" 
+                                               placeholder="Software Developer" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="priority" class="form-label">Priority Level</label>
+                                        <select class="form-select animated-select" id="priority" name="priority">
+                                            <option value="low">Low Priority</option>
+                                            <option value="medium" selected>Medium Priority</option>
+                                            <option value="high">High Priority</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="skills" class="form-label">Required Skills</label>
+                                <input type="text" class="form-control" id="skills" name="skills"
+                                       placeholder="Python, Django, React, AWS (comma separated)" required>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="min_experience" class="form-label">Minimum Experience (years)</label>
+                                <input type="number" class="form-control" id="min_experience" name="min_experience"
+                                       placeholder="2" min="0" value="0">
+                            </div>
+                            
+                            <button type="submit" class="button-animated">
+                                <div class="dots_border"></div>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    class="sparkle"
+                                >
+                                    <path
+                                        class="path"
+                                        stroke-linejoin="round"
+                                        stroke-linecap="round"
+                                        stroke="white"
+                                        fill="white"
+                                        d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
+                                    ></path>
+                                    <path
+                                        class="path"
+                                        stroke-linejoin="round"
+                                        stroke-linecap="round"
+                                        stroke="white"
+                                        fill="white"
+                                        d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
+                                    ></path>
+                                    <path
+                                        class="path"
+                                        stroke-linejoin="round"
+                                        stroke-linecap="round"
+                                        stroke="white"
+                                        fill="white"
+                                        d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
+                                    ></path>
+                                </svg>
+                                <span class="text_button">Find Candidates</span>
+                            </button>
+                            
+                            <!-- Demo Results Button -->
+                            <button type="button" class="btn btn-outline-primary mt-3" id="demo-results-btn">
+                                <i class="bi bi-play-circle me-2"></i>View Demo Results
+                            </button>
+                        </form>
+                        <div class="loading-spinner mt-3" id="loading-spinner">
+                            <span class="loading-text">Matching candidates, please wait...</span>
                         </div>
-                        <div class="mb-3">
-                            <label for="skills" class="form-label">
-                                <i class="bi bi-tools me-1"></i>Required Skills (comma separated)
-                            </label>
-                            <input type="text" class="form-control" id="skills" name="skills"
-                                   placeholder="e.g. Python, Django, AWS" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="min_experience" class="form-label">
-                                <i class="bi bi-calendar-check me-1"></i>Minimum Experience (years)
-                            </label>
-                            <input type="number" class="form-control" id="min_experience" name="min_experience"
-                                   placeholder="e.g. 2" min="0" value="0">
-                        </div>
-                        <div class="mb-3">
-                            <label for="priority" class="form-label">
-                                <i class="bi bi-flag me-1"></i>Priority Level
-                            </label>
-                            <select class="form-select animated-select" id="priority" name="priority">
-                                <option value="low">Low</option>
-                                <option value="medium" selected>Medium</option>
-                                <option value="high">High</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">
-                            <i class="bi bi-search me-2"></i>Match Resumes
-                        </button>
-                    </form>
-                    <div class="loading-spinner mt-3" id="loading-spinner">
-                        <span class="loading-text">Matching candidates, please wait...</span>
                     </div>
                 </div>
-            </div>
-            <div id="results-col">
-                <div class="card shadow-lg">
-                    <div class="card-header bg-success text-white d-flex justify-content-between align-items-center" style="background: linear-gradient(90deg, #198754 70%, #43e97b 100%) !important;">
-                        <span class="main-title" style="color:#fff;"><i class="bi bi-person-check me-2"></i>Matching Results</span>
-                        <div>
-                            <button class="btn btn-sm btn-light me-2" id="export-excel">
-                                <i class="bi bi-file-earmark-excel"></i> Export to Excel
-                            </button>
-                            <button class="btn btn-sm btn-light" id="export-pdf">
-                                <i class="bi bi-file-earmark-pdf"></i> View as PDF
-                            </button>
+                <div id="results-col">
+                    <div class="card shadow-lg">
+                        <div class="card-header">
+                            <span class="main-title"><i class="bi bi-person-check me-2"></i>Matching Results</span>
+                            <div>
+                                <button class="btn btn-sm btn-light me-2" id="export-excel">
+                                    <i class="bi bi-file-earmark-excel"></i> Export to Excel
+                                </button>
+                                <button class="btn btn-sm btn-light" id="export-pdf">
+                                    <i class="bi bi-file-earmark-pdf"></i> View as PDF
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <div id="results-container"></div>
+                        <div class="card-body">
+                            <div id="results-container"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -352,72 +967,6 @@
         const resultsCol = document.getElementById('results-col');
         resultsCol.classList.remove('results-visible'); // Hide initially
 
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-
-        function initParticles() {
-            particles = [];
-            for (let i = 0; i < 100; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    radius: Math.random() * 3 + 1,
-                    color: `rgba(${Math.floor(Math.random() * 100)}, ${Math.floor(Math.random() * 100)}, ${Math.floor(Math.random() * 255)}, 0.5)`,
-                    speedX: Math.random() * 2 - 1,
-                    speedY: Math.random() * 2 - 1
-                });
-            }
-        }
-
-        function drawParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            particles.forEach(particle => {
-                particle.x += particle.speedX;
-                particle.y += particle.speedY;
-
-                if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
-                if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
-
-                ctx.beginPath();
-                ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-                ctx.fillStyle = particle.color;
-                ctx.fill();
-
-                const dx = mouseX - particle.x;
-                const dy = mouseY - particle.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < 150) {
-                    ctx.beginPath();
-                    ctx.moveTo(particle.x, particle.y);
-                    ctx.lineTo(mouseX, mouseY);
-                    ctx.strokeStyle = `rgba(100, 100, 255, ${0.2 - distance/750})`;
-                    ctx.stroke();
-
-                    particle.x += dx * 0.01;
-                    particle.y += dy * 0.01;
-                }
-            });
-
-            requestAnimationFrame(drawParticles);
-        }
-
-        document.addEventListener('mousemove', function(e) {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        resizeCanvas();
-        initParticles();
-        drawParticles();
-
-        window.addEventListener('resize', function() {
-            resizeCanvas();
-            initParticles();
-        });
 
         document.getElementById('export-excel').addEventListener('click', () => handleExport('excel'));
         document.getElementById('export-pdf').addEventListener('click', () => handleExport('pdf'));
@@ -542,6 +1091,11 @@
             });
         });
 
+        // Demo Results Button Event Listener
+        document.getElementById('demo-results-btn').addEventListener('click', function() {
+            showDemoResults();
+        });
+        
         // Animate the priority dropdown
         const prioritySelect = document.getElementById('priority');
         if (prioritySelect) {
@@ -559,6 +1113,246 @@
                 this.classList.remove('open');
             });
         }
+
+        // Sticky footer logic for resume matcher page
+        // Use the already defined resultsCol at the top
+        const footer = document.getElementById('main-footer');
+        function updateFooterSticky() {
+            if (!resultsCol || !footer) return;
+            // If results are hidden, stick footer to bottom
+            if (resultsCol.style.display === 'none' || resultsCol.offsetParent === null || !resultsCol.classList.contains('results-visible')) {
+                footer.classList.add('footer-sticky');
+            } else {
+                footer.classList.remove('footer-sticky');
+            }
+        }
+        // Initial check
+        updateFooterSticky();
+        // Listen for results-col display changes
+        const observer = new MutationObserver(updateFooterSticky);
+        if (resultsCol) {
+            observer.observe(resultsCol, { attributes: true, attributeFilter: ['style', 'class'] });
+        }
+        // Also update on window resize
+        window.addEventListener('resize', updateFooterSticky);
+        // Expose for manual update from other scripts if needed
+        window.updateFooterSticky = updateFooterSticky;        // --- Particle effect background responsive to mouse movement ---
+        (function() {
+            // Instead of full window, use only the main-content-particles area
+            const wrapper = document.querySelector('.main-content-particles');
+            const canvas = document.getElementById('background-canvas');
+            if (!canvas || !wrapper) return;
+            const ctx = canvas.getContext('2d');
+            let width = 0;
+            let height = 0;
+            let particles = [];
+            const PARTICLE_COUNT = 80;            let mouse = { x: 0, y: 0, active: false, lastX: 0, lastY: 0, moving: false };
+
+            function resizeCanvas() {
+                const rect = wrapper.getBoundingClientRect();
+                width = rect.width;
+                height = rect.height;
+                canvas.width = width;
+                canvas.height = height;
+                canvas.style.width = width + 'px';
+                canvas.style.height = height + 'px';
+                canvas.style.left = '0px';
+                canvas.style.right = '0px';
+            }
+
+            function createParticles() {
+                particles = [];
+                for (let i = 0; i < PARTICLE_COUNT; i++) {                    particles.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,                        
+                        vx: (Math.random() - 0.5) * 1.4,
+                        vy: (Math.random() - 0.5) * 1.4,
+                        radius: Math.random() * 3.5 + 2.5,
+                        color: `rgba(255, 255, 255, ${Math.random() * 0.4 + 0.5})`,
+                        attractedToMouse: false,
+                        orbitalAngle: Math.random() * Math.PI * 2,
+                        orbitalDistance: 50 + Math.random() * 100
+                    });
+                }
+            }
+
+            function drawParticles() {
+                ctx.clearRect(0, 0, width, height);
+                // Draw lines between close particles (only free particles)
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        if (!particles[i].attractedToMouse && !particles[j].attractedToMouse) {
+                            const dx = particles[i].x - particles[j].x;
+                            const dy = particles[i].y - particles[j].y;
+                            const dist = Math.sqrt(dx * dx + dy * dy);                            if (dist < 110) {
+                                ctx.save();
+                                ctx.globalAlpha = 0.25 - dist/800; // More visible lines
+                                ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)'; // White lines for better visibility
+                                ctx.lineWidth = 1.2;
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                                ctx.stroke();
+                                ctx.restore();
+                            }
+                        }
+                    }
+                }
+                // Draw lines from attracted particles to mouse
+                if (mouse.active) {
+                    for (const p of particles) {                        if (p.attractedToMouse) {
+                            ctx.save();
+                            ctx.globalAlpha = 0.7;
+                            ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)'; // Bright white connection lines
+                            ctx.lineWidth = 2;
+                            ctx.shadowColor = 'rgba(255, 255, 255, 0.5)';
+                            ctx.shadowBlur = 3;
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(mouse.x, mouse.y);
+                            ctx.stroke();
+                            ctx.restore();
+                        }else {
+                            // Draw line to nearby particles if close to mouse
+                            const dx = p.x - mouse.x;
+                            const dy = p.y - mouse.y;
+                            const dist = Math.sqrt(dx * dx + dy * dy);                            if (dist < 120) {
+                                ctx.save();
+                                ctx.globalAlpha = 0.4 - dist/600;
+                                ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)'; // White proximity lines
+                                ctx.lineWidth = 1.5;
+                                ctx.beginPath();
+                                ctx.moveTo(p.x, p.y);
+                                ctx.lineTo(mouse.x, mouse.y);
+                                ctx.stroke();
+                                ctx.restore();
+                            }
+                        }
+                    }
+                }
+                // Draw particles
+                for (const p of particles) {
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI);                    ctx.fillStyle = p.color;
+                    ctx.shadowColor = 'rgba(255, 255, 255, 0.8)'; // Bright white glow
+                    ctx.shadowBlur = 8;
+                    ctx.fill();
+                    ctx.restore();
+                }
+            }            function updateParticles() {
+                for (const p of particles) {
+                    if (mouse.active) {
+                        const dx = p.x - mouse.x;
+                        const dy = p.y - mouse.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        
+                        // If mouse is moving, release attracted particles
+                        if (mouse.moving && p.attractedToMouse) {
+                            p.attractedToMouse = false;                           
+                            p.vx = (Math.random() - 0.5) * 1.5;
+                            p.vy = (Math.random() - 0.5) * 1.5;
+                        }
+                        
+                        // Attract particles within range only when mouse is not moving
+                        if (dist < 120 && !p.attractedToMouse && !mouse.moving) {
+                            p.attractedToMouse = true;
+                            p.orbitalAngle = Math.atan2(dy, dx);
+                            p.orbitalDistance = 50; // Set consistent orbital distance of 50px
+                        }
+                        
+                        // Move attracted particles in orbit around mouse (only when not moving)
+                        if (p.attractedToMouse && !mouse.moving) {
+                            p.orbitalAngle += 0.02; // Faster orbital speed
+                            const targetX = mouse.x + Math.cos(p.orbitalAngle) * p.orbitalDistance;
+                            const targetY = mouse.y + Math.sin(p.orbitalAngle) * p.orbitalDistance;
+                              // Faster movement towards orbital position
+                            p.x += (targetX - p.x) * 0.03;
+                            p.y += (targetY - p.y) * 0.03;
+                            p.vx = 0;
+                            p.vy = 0;
+                            continue;
+                        }
+                    } else {                        // Release all particles when mouse is not active
+                        if (p.attractedToMouse) {
+                            p.attractedToMouse = false;
+                            p.vx = (Math.random() - 0.5) * 2.0;
+                            p.vy = (Math.random() - 0.5) * 2.0;
+                        }
+                    }
+                    
+                    // Normal particle movement for free particles
+                    if (!p.attractedToMouse) {
+                        p.x += p.vx;
+                        p.y += p.vy;
+                        // Bounce off edges
+                        if (p.x < 0 || p.x > width) p.vx *= -1;
+                        if (p.y < 0 || p.y > height) p.vy *= -1;
+                        // Limit velocity
+                        p.vx = Math.max(-1, Math.min(1, p.vx));
+                        p.vy = Math.max(-1, Math.min(1, p.vy));
+                    }
+                }
+            }
+
+            function animate() {
+                updateParticles();
+                drawParticles();
+                requestAnimationFrame(animate);
+            }            function updateMouse(e) {
+                const rect = canvas.getBoundingClientRect();
+                const newX = e.clientX - rect.left;
+                const newY = e.clientY - rect.top;
+                
+                // Check if mouse moved significantly
+                const moveDistance = Math.sqrt(Math.pow(newX - mouse.lastX, 2) + Math.pow(newY - mouse.lastY, 2));
+                mouse.moving = moveDistance > 2; // Consider moving if moved more than 2px
+                
+                mouse.lastX = mouse.x;
+                mouse.lastY = mouse.y;
+                mouse.x = newX;
+                mouse.y = newY;
+                mouse.active = true;
+                
+                // Set a timeout to stop considering the mouse as moving
+                clearTimeout(mouse.moveTimeout);
+                mouse.moveTimeout = setTimeout(() => {
+                    mouse.moving = false;
+                }, 100); // Stop considering as moving after 100ms of no movement
+            }function deactivateMouse() {
+                mouse.active = false;                // Release all particles when mouse leaves
+                for (const p of particles) {
+                    if (p.attractedToMouse) {
+                        p.attractedToMouse = false;
+                        p.vx = (Math.random() - 0.5) * 2.0;
+                        p.vy = (Math.random() - 0.5) * 2.0;
+                    }
+                }
+            }
+
+            window.addEventListener('resize', function() {
+                resizeCanvas();
+                createParticles();
+            });
+            document.addEventListener('scroll', function() {
+                resizeCanvas();
+            }, true);
+            document.addEventListener('mousemove', updateMouse);
+            document.addEventListener('mouseleave', deactivateMouse);
+
+            // Set mouse to center initially but inactive
+            function setMouseToCenter() {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = rect.width / 2;
+                mouse.y = rect.height / 2;
+                mouse.active = false;
+            }
+            setMouseToCenter();
+
+            resizeCanvas();
+            createParticles();
+            animate();
+        })();
     });
 
     function handleExport(format) {
@@ -626,5 +1420,252 @@
         document.body.appendChild(form);
         form.submit();
     }
+
+    // Demo Results Function
+    function showDemoResults() {
+        const resultsContainer = document.getElementById('results-container');
+        const resultsCol = document.getElementById('results-col');
+        
+        // Hide results first
+        resultsCol.classList.remove('results-visible');
+        resultsContainer.innerHTML = '';
+        
+        // Demo data - predefined candidates
+        const demoData = [
+            {
+                name: "Sarah Johnson",
+                score: 87,
+                experience: 5,
+                email: "sarah.johnson@email.com",
+                phone: "+1 (555) 123-4567",
+                matched_skills: ["Python", "Django", "JavaScript", "React", "SQL"],
+                missing_skills: ["AWS", "Docker"],
+                resume_url: "#"
+            },
+            {
+                name: "Michael Chen",
+                score: 76,
+                experience: 3,
+                email: "michael.chen@techcorp.com",
+                phone: "+1 (555) 987-6543",
+                matched_skills: ["JavaScript", "React", "Node.js", "MongoDB"],
+                missing_skills: ["Python", "Django", "AWS"],
+                resume_url: "#"
+            },
+            {
+                name: "Emily Rodriguez",
+                score: 92,
+                experience: 7,
+                email: "emily.rodriguez@devstudio.io",
+                phone: "+1 (555) 456-7890",
+                matched_skills: ["Python", "Django", "AWS", "Docker", "PostgreSQL", "React"],
+                missing_skills: [],
+                resume_url: "#"
+            },
+            {
+                name: "David Kim",
+                score: 64,
+                experience: 2,
+                email: "david.kim@startup.com",
+                phone: "+1 (555) 321-0987",
+                matched_skills: ["JavaScript", "HTML", "CSS"],
+                missing_skills: ["Python", "Django", "AWS", "React", "SQL"],
+                resume_url: "#"
+            },
+            {
+                name: "Lisa Wang",
+                score: 81,
+                experience: 4,
+                email: "lisa.wang@techsolutions.net",
+                phone: "+1 (555) 654-3210",
+                matched_skills: ["Python", "SQL", "AWS", "Git"],
+                missing_skills: ["Django", "React", "Docker"],
+                resume_url: "#"
+            }
+        ];
+
+        // Show demo results with animation
+        setTimeout(() => {
+            demoData.forEach((result, index) => {
+                setTimeout(() => {
+                    const resultCard = document.createElement('div');
+                    resultCard.className = 'card mb-3 result-card';
+                    resultCard.style.animationDelay = `${index * 0.1}s`;
+
+                    const scoreColor = result.score >= 70 ? 'bg-success' : 
+                                    result.score >= 40 ? 'bg-warning' : 'bg-danger';
+
+                    resultCard.innerHTML = `
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">${result.name}</h5>
+                                <span class="badge ${scoreColor}">${Math.round(result.score)}%</span>
+                            </div>
+                            <div class="progress mb-3" style="height: 10px;">
+                                <div class="progress-bar ${scoreColor}" style="width: 0%" role="progressbar"></div>
+                            </div>
+                            <div class="mb-2 matched-skills">
+                                <strong>Matched Skills:</strong>
+                                <div class="mt-1">
+                                    ${result.matched_skills.length ? 
+                                        result.matched_skills.map(skill => 
+                                            `<span class="badge bg-success me-1 mb-1">${skill}</span>`
+                                        ).join('') : 
+                                        '<span class="text-muted">None</span>'}
+                                </div>
+                            </div>
+                            <div class="mb-2 missing-skills">
+                                <strong>Missing Skills:</strong>
+                                <div class="mt-1">
+                                    ${result.missing_skills.length ? 
+                                        result.missing_skills.map(skill => 
+                                            `<span class="badge bg-danger me-1 mb-1">${skill}</span>`
+                                        ).join('') : 
+                                        '<span class="text-muted">None</span>'}
+                                </div>
+                            </div>
+                            <div class="mb-2 candidate-experience">
+                                <strong>Experience:</strong>
+                                <span class="experience-value">${result.experience || 0} years</span>
+                            </div>
+                            <div class="mb-2 candidate-email">
+                                <strong>Email:</strong>
+                                <span class="email-value">${result.email}</span>
+                            </div>
+                            <div class="mb-2 candidate-phone">
+                                <strong>Phone:</strong>
+                                <span class="phone-value">${result.phone}</span>
+                            </div>
+                            <a href="${result.resume_url}" class="btn btn-sm btn-outline-primary mt-2" onclick="alert('This is a demo - no actual resume available'); return false;">
+                                <i class="bi bi-file-earmark-text me-1"></i>View Resume (Demo)
+                            </a>
+                        </div>`;
+
+                    resultsContainer.appendChild(resultCard);
+                    setTimeout(() => {
+                        resultCard.querySelector('.progress-bar').style.width = `${Math.round(result.score)}%`;
+                    }, 100);
+                    if (window.updateFooterSticky) window.updateFooterSticky();
+                }, index * 150);
+            });
+            
+            // Show results container
+            resultsCol.classList.add('results-visible');
+            if (window.updateFooterSticky) window.updateFooterSticky();
+        }, 200);
+    }
+
+    // Particle effect background responsive to mouse movement
+    (function() {
+        const canvas = document.getElementById('background-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+        let particles = [];
+        const PARTICLE_COUNT = 70;
+        let mouse = { x: width/2, y: height/2 };
+
+        function resizeCanvas() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+
+        function createParticles() {
+            particles = [];
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,                    vx: (Math.random() - 0.5) * 0.7,
+                    vy: (Math.random() - 0.5) * 0.7,
+                    radius: Math.random() * 3.5 + 2.0,
+                    color: `rgba(70, 130, 255, ${Math.random() * 0.4 + 0.3})` // Blueish particles
+                });
+            }
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, width, height);
+            // Draw lines between close particles
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 110) {
+                        ctx.save();
+                        ctx.globalAlpha = 0.08 - dist/1200;
+                        ctx.strokeStyle = '#a8d5ba'; // Very soft green-gray
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                        ctx.restore();
+                    }
+                }
+            }
+            // Draw particles
+            for (const p of particles) {
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI);
+                ctx.fillStyle = p.color;
+                ctx.shadowColor = '#28a745'; // Green shadow
+                ctx.shadowBlur = 8;
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        function updateParticles() {
+            for (const p of particles) {
+                // Move particles
+                p.x += p.vx;
+                p.y += p.vy;
+                // Bounce off edges
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
+                // Mouse repulsion/attraction
+                const dx = p.x - mouse.x;
+                const dy = p.y - mouse.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 120) {
+                    // Repel
+                    p.vx += dx / dist * 0.04;
+                    p.vy += dy / dist * 0.04;
+                } else if (dist < 220) {
+                    // Attract
+                    p.vx -= dx / dist * 0.01;
+                    p.vy -= dy / dist * 0.01;
+                }
+                // Limit velocity
+                p.vx = Math.max(-1, Math.min(1, p.vx));
+                p.vy = Math.max(-1, Math.min(1, p.vy));
+            }
+        }
+
+        function animate() {
+            updateParticles();
+            drawParticles();
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', function() {
+            resizeCanvas();
+            createParticles();
+        });
+        // Mouse position relative to canvas (robust for scrolling)
+        document.addEventListener('mousemove', function(e) {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+
+        resizeCanvas();
+        createParticles();
+        animate();
+    })();
 </script>
 {% endblock content %}

@@ -5,23 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Configuration | HRMatcher</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <style>
-        body {
-            background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">    <style>        body {
+            background: linear-gradient(50deg, #458cf7 10%, #578bd8 50%, #b7bfd1);
             min-height: 100vh;
             font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            position: relative;
+            overflow-x: hidden;
         }
+        
         .config-container {
             max-width: 1000px;
             margin: 3rem auto;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 2rem;
-            box-shadow: 0 8px 32px rgba(37,99,235,0.13), 0 1.5px 4px rgba(0,0,0,0.04);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                0 4px 16px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
             overflow: hidden;
-        }
-        .config-header {
-            background: linear-gradient(90deg, #6366f1 0%, #2563eb 100%);
+            position: relative;
+            z-index: 1;
+        }        .config-header {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             color: #fff;
             padding: 2.5rem 2rem 1.5rem 2rem;
             text-align: center;
@@ -31,11 +42,13 @@
             font-weight: 800;
             letter-spacing: 1px;
             margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         .config-header .subtitle {
             font-size: 1.1rem;
-            color: #e0e7ff;
+            color: rgba(255, 255, 255, 0.8);
             margin-bottom: 0;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
         .config-header .back-link {
             position: absolute;
@@ -44,113 +57,172 @@
             color: #fff;
             font-size: 1.2rem;
             text-decoration: none;
-            transition: color 0.2s;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }        .config-header .back-link:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
-        .config-header .back-link:hover {
-            color: #c7d2fe;
-        }
+        
         .config-body {
             padding: 2.5rem 2rem 2rem 2rem;
         }
         .config-card {
-            background: #f1f5f9;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 1.5rem;
             padding: 2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 2px 8px rgba(37,99,235,0.07);
-        }
-        .config-form label {
+            box-shadow: 
+                0 4px 16px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }        .config-form label {
             font-weight: 600;
-            color: #334155;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
         .config-form .form-control, .config-form .form-select {
             border-radius: 0.75rem;
-            border: 1.5px solid #c7d2fe;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             font-size: 1rem;
             padding: 0.7rem 1rem;
-            background: #fff;
-            transition: border-color 0.2s, box-shadow 0.2s;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        
+        .config-form .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.6);
         }
         
         .config-form .form-control:focus, .config-form .form-select:focus {
-            border-color: #6366f1;
-            box-shadow: 0 0 0 2px #6366f122;
-            background: #f8fafc;
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
+            outline: none;
         }
         .input-group-text {
-            background: #e0e7ff;
-            border: none;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 0.75rem 0 0 0.75rem;
-            color: #6366f1;
+            color: rgba(255, 255, 255, 0.9);
             font-weight: 600;
-        }
-        .btn-primary, .btn-info {
+        }        .btn-primary, .btn-info {
             border-radius: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.02em;
-            box-shadow: 0 2px 8px rgba(99,102,241,0.07);
-            transition: box-shadow 0.2s, filter 0.2s;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         .btn-primary {
-            background: linear-gradient(90deg, #6366f1 0%, #2563eb 100%);
-            border: none;
+            background: rgba(99, 102, 241, 0.3);
+            color: #fff;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+        }        .btn-primary:hover, .btn-info:hover {
+            background: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+            transform: translateY(-2px);
+            color: #fff;
         }
-        .btn-primary:hover, .btn-info:hover {
-            background: #2b66e4;
-            box-shadow: 0 4px 16px rgba(99,102,241,0.13);
-        }
+        
         .btn-outline-primary {
             border-radius: 0.75rem;
             font-weight: 600;
-            color: #6366f1;
-            background: #fff;
-            transition: background 0.2s, color 0.2s;
-        }
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;        }
+        
         .btn-outline-primary:hover {
-            background: #6366f1;
+            background: rgba(255, 255, 255, 0.2);
             color: #fff;
+            border-color: rgba(255, 255, 255, 0.5);
         }
+        
         .protocol-info {
-            background: #e0e7ff;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             border-radius: 1rem;
             padding: 1.2rem 1.5rem;
             margin-bottom: 2rem;
-            border-left: 4px solid #6366f1;
-            color: #334155;
-        }
-        .table {
+            border-left: 4px solid rgba(99, 102, 241, 0.6);
+            color: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }          .table {
             border-radius: 1rem;
             overflow: hidden;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
             margin-bottom: 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
         .table th, .table td {
             vertical-align: middle;
             font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            border-color: rgba(255, 255, 255, 0.15);
+            background: transparent;
         }
         .table th {
-            background: #f1f5f9;
-            color: #1e293b;
+            background: rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.95);
             font-weight: 700;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
         }
         .table-hover tbody tr:hover {
-            background: #e0e7ff;
+            background: rgba(99, 102, 241, 0.15);
+            transform: translateY(-1px);
+            transition: all 0.3s ease;
         }
+        .table tbody tr {
+            transition: all 0.3s ease;
+        }
+        
         .alert {
             border-radius: 0.75rem;
             font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.9);
         }
+        
         .modal-content {
             border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         .modal-header {
             border-radius: 1rem 1rem 0 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.9);
         }
+        .modal-body {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
         .form-select {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
             background-image:
-                linear-gradient(to right, #fff 0%, #fff 85%, transparent 100%),
-                url("data:image/svg+xml,%3Csvg width='16' height='16' fill='gray' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.646 6.646a.5.5 0 0 1 .708 0L8 9.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+                linear-gradient(to right, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 85%, transparent 100%),
+                url("data:image/svg+xml,%3Csvgwidth='16'height='16'fill='white'xmlns='http://www.w3.org/2000/svg'%3E%3Cpathd='M4.646 6.646a.5.5 0 0 1 .708 0L8 9.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 1rem center;
             background-size: 1.25em 1.25em;
@@ -160,6 +232,11 @@
             -moz-appearance: none;
             position: relative;
             z-index: 1;
+        }
+        
+        .form-select option {
+            background: #1e293b;
+            color: #fff;
         }
         @media (max-width: 700px) {
             .config-container { margin: 1rem; }
@@ -339,7 +416,7 @@
                         </table>
                     </div>
                     <div class="mt-3 d-flex flex-wrap gap-2">
-                        <div class="form-text color-secondary mt-2">
+                        <div class="form-text color:white mt-2">
                             <medium>Choose any of the following providers to auto-fill the details</medium>
                         </div>
                         <button type="button" class="btn btn-outline-primary" onclick="fillGmailSettings()">Use Gmail</button>

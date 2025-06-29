@@ -117,7 +117,7 @@
                 <input type="checkbox" id="remember" name="remember">
                 <label for="remember">Remember me</label>
             </div>
-            <span class="span">Forgot password?</span>
+            <span class="span" id="forgot-password-link">Forgot password?</span>
         </div>
         <button class="button-submit" type="submit">Sign In</button>
         <p class="p">Don't have an account? <span class="span">Sign Up</span></p>
@@ -136,6 +136,49 @@
             eyeOpen.style.display = "inline";
             eyeClosed.style.display = "none";
         }
+    }
+
+    // Forgot password popup
+    const forgotLink = document.getElementById('forgot-password-link');
+    if (forgotLink) {
+        forgotLink.addEventListener('click', function() {
+            // Create overlay
+            const overlay = document.createElement('div');
+            overlay.style.position = 'fixed';
+            overlay.style.top = 0;
+            overlay.style.left = 0;
+            overlay.style.width = '100vw';
+            overlay.style.height = '100vh';
+            overlay.style.background = 'rgba(0,0,0,0.18)';
+            overlay.style.display = 'flex';
+            overlay.style.alignItems = 'center';
+            overlay.style.justifyContent = 'center';
+            overlay.style.zIndex = 9999;
+
+            // Create popup
+            const popup = document.createElement('div');
+            popup.style.background = '#fff';
+            popup.style.borderRadius = '1rem';
+            popup.style.boxShadow = '0 2px 16px rgba(0,0,0,0.13)';
+            popup.style.padding = '2rem 1.5rem 1.5rem 1.5rem';
+            popup.style.maxWidth = '340px';
+            popup.style.width = '90vw';
+            popup.style.textAlign = 'center';
+            popup.style.position = 'relative';
+            popup.innerHTML = `
+                <div style="color:#444;font-size:1rem;margin-bottom:1.1rem;">Contact the team for resetting your admin access</div>
+                <div style="padding:0.7rem 0.5rem;border-radius:0.5rem;font-size:1.05rem;color:#007bff;font-weight:500;word-break:break-all;">prod@bharatcrest.com</div>
+                <button id="close-forgot-popup" style="margin-top:1.3rem;background:#007bff;color:#fff;border:none;padding:0.5rem 1.2rem;border-radius:0.5rem;font-weight:500;font-size:1rem;">Close</button>
+            `;
+            overlay.appendChild(popup);
+            document.body.appendChild(overlay);
+            document.getElementById('close-forgot-popup').onclick = function() {
+                document.body.removeChild(overlay);
+            };
+            overlay.onclick = function(e) {
+                if (e.target === overlay) document.body.removeChild(overlay);
+            };
+        });
     }
     </script>
 </body>

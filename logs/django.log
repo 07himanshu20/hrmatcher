@@ -24834,3 +24834,1127 @@ ValueError: invalid literal for int() with base 10: ''
 2025-06-06 20:16:54,749 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
 2025-06-06 20:16:55,988 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
 2025-06-06 20:16:56,217 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:27:02,986 INFO autoreload Watching for file changes with StatReloader
+2025-06-09 17:27:30,793 WARNING log Not Found: /favicon.ico
+2025-06-09 17:27:55,085 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 17:29:01,659 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 17:29:12,079 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 17:29:16,470 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 17:29:23,413 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 17:29:25,539 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 17:29:25,581 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 17:29:47,066 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-09 17:29:47,069 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-09 17:29:47,070 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-09 17:29:47,073 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-09 17:29:47,075 INFO tasks Connecting to IMAP...
+2025-06-09 17:29:50,539 INFO tasks Logged in successfully
+2025-06-09 17:29:51,634 INFO tasks Found 93 emails to scan
+2025-06-09 17:29:53,738 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-09 17:29:55,586 INFO tasks Processing resume email: Post a Job For Free on Naukri & Hire Local Talent Fast
+2025-06-09 17:29:56,177 INFO views No new resumes found in email
+2025-06-09 17:29:56,285 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:29:57,033 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:29:57,956 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:29:57,991 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:29:59,026 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:29:59,037 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:29:59,922 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:29:59,925 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:30:00,695 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:30:01,243 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:30:59,171 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 17:33:59,445 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 17:34:23,988 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-09 17:34:23,990 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-09 17:34:23,992 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-09 17:34:23,995 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-09 17:34:23,996 INFO tasks Connecting to IMAP...
+2025-06-09 17:34:27,250 INFO tasks Logged in successfully
+2025-06-09 17:34:28,244 INFO tasks Found 93 emails to scan
+2025-06-09 17:34:30,493 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-09 17:34:31,736 INFO tasks Processing resume email: Post a Job For Free on Naukri & Hire Local Talent Fast
+2025-06-09 17:34:32,195 INFO views No new resumes found in email
+2025-06-09 17:34:32,216 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:34:32,786 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:34:34,668 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:34:34,700 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:34:35,107 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:34:35,115 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:34:36,436 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:34:36,443 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:34:36,923 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:34:37,657 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:34:49,363 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 17:38:21,644 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 17:38:59,389 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-09 17:38:59,390 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-09 17:38:59,393 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-09 17:38:59,395 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-09 17:38:59,397 INFO tasks Connecting to IMAP...
+2025-06-09 17:39:02,768 INFO tasks Logged in successfully
+2025-06-09 17:39:03,832 INFO tasks Found 93 emails to scan
+2025-06-09 17:39:05,904 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-09 17:39:07,273 INFO tasks Processing resume email: Post a Job For Free on Naukri & Hire Local Talent Fast
+2025-06-09 17:39:07,768 INFO views No new resumes found in email
+2025-06-09 17:39:07,787 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:39:08,189 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:39:08,778 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:39:08,803 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:39:10,083 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:39:10,090 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:39:10,497 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:39:10,502 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:39:11,760 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:39:12,275 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:40:04,461 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 17:43:24,485 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 17:43:32,746 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-09 17:43:32,748 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-09 17:43:32,751 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-09 17:43:32,753 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-09 17:43:32,757 INFO tasks Connecting to IMAP...
+2025-06-09 17:43:36,488 INFO tasks Logged in successfully
+2025-06-09 17:43:37,491 INFO tasks Found 93 emails to scan
+2025-06-09 17:43:40,691 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-09 17:43:41,942 INFO tasks Processing resume email: Post a Job For Free on Naukri & Hire Local Talent Fast
+2025-06-09 17:43:42,412 INFO views No new resumes found in email
+2025-06-09 17:43:42,430 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:43:42,859 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:43:44,788 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:43:44,817 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:43:45,270 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:43:45,278 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:43:46,563 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:43:46,567 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:43:47,007 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 17:43:47,695 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:12:33,342 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 18:12:40,920 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 18:13:18,897 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 18:25:55,331 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-09 18:25:55,333 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-09 18:25:55,335 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-09 18:25:55,342 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-09 18:25:55,345 INFO tasks Connecting to IMAP...
+2025-06-09 18:25:58,666 INFO tasks Logged in successfully
+2025-06-09 18:25:59,665 INFO tasks Found 93 emails to scan
+2025-06-09 18:26:01,817 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-09 18:26:03,050 INFO tasks Processing resume email: Post a Job For Free on Naukri & Hire Local Talent Fast
+2025-06-09 18:26:03,673 INFO views No new resumes found in email
+2025-06-09 18:26:03,714 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:26:04,190 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:26:05,853 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:26:05,900 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:26:06,991 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:26:07,002 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:26:07,575 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:26:07,581 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:26:08,649 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:26:09,092 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:41:33,104 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-09 18:41:33,108 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-09 18:41:33,110 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-09 18:41:33,112 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-09 18:41:33,119 INFO tasks Connecting to IMAP...
+2025-06-09 18:41:36,744 INFO tasks Logged in successfully
+2025-06-09 18:41:37,747 INFO tasks Found 93 emails to scan
+2025-06-09 18:41:40,152 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-09 18:41:41,486 INFO tasks Processing resume email: Post a Job For Free on Naukri & Hire Local Talent Fast
+2025-06-09 18:41:41,956 INFO views No new resumes found in email
+2025-06-09 18:41:41,975 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:41:42,480 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:41:44,908 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:41:44,940 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:41:45,867 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:41:45,873 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:41:46,672 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:41:46,678 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:41:47,581 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:41:48,591 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 18:59:26,844 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 18:59:40,303 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 18:59:43,702 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 19:10:00,888 WARNING log Not Found: /favicon.ico
+2025-06-09 19:36:01,193 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-09 19:36:01,194 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-09 19:36:01,195 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-09 19:36:01,198 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-09 19:36:01,199 INFO tasks Connecting to IMAP...
+2025-06-09 19:36:04,427 INFO tasks Logged in successfully
+2025-06-09 19:36:05,360 INFO tasks Found 93 emails to scan
+2025-06-09 19:36:07,750 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-09 19:36:09,222 INFO tasks Processing resume email: Post a Job For Free on Naukri & Hire Local Talent Fast
+2025-06-09 19:36:09,705 INFO views No new resumes found in email
+2025-06-09 19:36:09,724 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 19:36:09,916 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 19:36:11,843 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 19:36:11,853 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 19:36:12,249 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 19:36:12,253 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 19:36:13,540 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 19:36:13,542 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 19:36:13,910 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 19:36:14,078 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-09 19:37:53,596 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 19:42:28,895 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 19:50:28,972 WARNING log Not Found: /favicon.ico
+2025-06-09 19:50:30,799 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 19:56:08,319 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 19:56:20,618 WARNING log Not Found: /favicon.ico
+2025-06-09 20:03:15,272 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 20:04:48,504 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 20:04:57,407 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 20:06:56,233 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 20:13:07,848 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 20:14:05,614 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 20:14:45,764 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 20:18:11,710 WARNING log Not Found: /favicon.ico
+2025-06-09 20:20:06,083 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 20:20:21,592 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 20:20:24,079 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 20:20:24,399 WARNING log Not Found: /favicon.ico
+2025-06-09 20:22:09,465 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 20:24:52,463 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 20:36:01,692 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 20:37:11,566 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 20:39:40,439 WARNING log Not Found: /favicon.ico
+2025-06-09 20:39:40,855 WARNING log Not Found: /favicon.ico
+2025-06-09 20:39:41,233 WARNING log Not Found: /favicon.ico
+2025-06-09 20:43:18,863 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 21:42:15,002 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 21:42:35,735 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 21:42:59,855 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 22:00:58,144 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 22:02:05,288 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 22:02:05,663 WARNING log Not Found: /favicon.ico
+2025-06-09 22:02:13,041 WARNING log Not Found: /favicon.ico
+2025-06-09 22:02:14,287 WARNING log Not Found: /favicon.ico
+2025-06-09 22:02:15,290 WARNING log Not Found: /favicon.ico
+2025-06-09 22:15:11,524 WARNING log Not Found: /favicon.ico
+2025-06-09 22:19:16,902 WARNING log Not Found: /favicon.ico
+2025-06-09 22:34:31,178 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 22:34:58,602 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 22:35:16,330 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-09 22:35:24,571 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-10 14:16:02,823 INFO autoreload Watching for file changes with StatReloader
+2025-06-10 14:16:26,316 WARNING log Not Found: /favicon.ico
+2025-06-10 14:24:44,557 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-10 14:25:04,689 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-10 14:28:02,611 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-10 14:29:25,463 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-10 14:29:25,464 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-10 14:29:25,467 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-10 14:29:25,471 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-10 14:29:25,472 INFO tasks Connecting to IMAP...
+2025-06-10 14:29:29,707 INFO tasks Logged in successfully
+2025-06-10 14:29:30,689 INFO tasks Found 93 emails to scan
+2025-06-10 14:29:32,786 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-10 14:29:34,990 INFO tasks Processing resume email: Post a Job For Free on Naukri & Hire Local Talent Fast
+2025-06-10 14:29:35,462 INFO views No new resumes found in email
+2025-06-10 14:29:35,579 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:29:36,005 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:29:37,109 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:29:37,139 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:29:37,839 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:29:37,846 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:29:38,348 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:29:38,353 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:29:38,920 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:29:39,269 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:30:13,479 WARNING log Not Found: /favicon.ico
+2025-06-10 14:30:46,844 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-10 14:30:46,845 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-10 14:30:46,846 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-10 14:30:46,850 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-10 14:30:46,854 INFO tasks Connecting to IMAP...
+2025-06-10 14:30:50,227 INFO tasks Logged in successfully
+2025-06-10 14:30:51,243 INFO tasks Found 93 emails to scan
+2025-06-10 14:30:53,383 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-10 14:30:54,573 INFO tasks Processing resume email: Post a Job For Free on Naukri & Hire Local Talent Fast
+2025-06-10 14:30:55,046 INFO views No new resumes found in email
+2025-06-10 14:30:55,068 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:30:55,657 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:30:56,056 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:30:56,087 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:30:57,409 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:30:57,420 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:30:57,801 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:30:57,806 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:30:58,198 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:30:58,834 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:31:33,794 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-10 14:31:33,795 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-10 14:31:33,797 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-10 14:31:33,798 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-10 14:31:33,799 INFO tasks Connecting to IMAP...
+2025-06-10 14:31:37,246 INFO tasks Logged in successfully
+2025-06-10 14:31:38,165 INFO tasks Found 93 emails to scan
+2025-06-10 14:31:40,477 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-10 14:31:41,671 INFO tasks Processing resume email: Post a Job For Free on Naukri & Hire Local Talent Fast
+2025-06-10 14:31:42,128 INFO views No new resumes found in email
+2025-06-10 14:31:42,150 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:31:42,764 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:31:43,147 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:31:43,176 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:31:43,650 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:31:43,656 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:31:44,031 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:31:44,036 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:31:44,412 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:31:44,941 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:36:25,234 INFO autoreload C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\hrapp\tasks.py changed, reloading.
+2025-06-10 14:36:33,781 INFO autoreload Watching for file changes with StatReloader
+2025-06-10 14:37:05,902 INFO autoreload C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\hrapp\views.py changed, reloading.
+2025-06-10 14:37:08,675 INFO autoreload Watching for file changes with StatReloader
+2025-06-10 14:37:51,419 WARNING log Not Found: /favicon.ico
+2025-06-10 14:37:53,075 WARNING log Not Found: /favicon.ico
+2025-06-10 14:38:30,325 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-10 14:38:30,326 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-10 14:38:30,327 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-10 14:38:30,331 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-10 14:38:30,333 INFO tasks Connecting to IMAP...
+2025-06-10 14:38:33,718 INFO tasks Logged in successfully
+2025-06-10 14:38:34,676 INFO tasks Found 93 emails to scan
+2025-06-10 14:38:39,475 INFO tasks Processing resume email: resumes
+2025-06-10 14:38:39,509 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\0YEARS-210106-180335.pdf
+2025-06-10 14:38:43,156 INFO tasks Processing resume email: resumes
+2025-06-10 14:38:43,195 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\0YEARS-210106-180335.pdf
+2025-06-10 14:38:44,052 INFO tasks Processing resume email: resume
+2025-06-10 14:38:44,059 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\2YEARS2-210310-175659.pdf
+2025-06-10 14:38:44,931 INFO tasks Processing resume email: resumes
+2025-06-10 14:38:44,937 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\3YEARS-210310-181659.pdf
+2025-06-10 14:38:56,509 INFO tasks Processing resume email: resumes
+2025-06-10 14:38:56,546 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\4YEARS-210310-195819.pdf
+2025-06-10 14:39:00,337 INFO tasks Processing resume email: Resumes
+2025-06-10 14:39:00,341 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\anshuvarshney_devOps_1+_exp_resume (1)-1.pdf
+2025-06-10 14:39:02,211 INFO tasks Processing resume email: Application for lead generation executive
+2025-06-10 14:39:05,087 INFO tasks Processing resume email: Re: Application for lead generation executive
+2025-06-10 14:39:05,091 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Shivanand_resume.pdf
+2025-06-10 14:39:07,168 INFO tasks Processing resume email: Application for lead generation executive position
+2025-06-10 14:39:07,173 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\SARWAR-MBA.pdf
+2025-06-10 14:39:16,879 INFO tasks Processing resume email: Re: Application for lead generation executive position
+2025-06-10 14:39:17,517 INFO tasks Processing resume email: Job application
+2025-06-10 14:39:18,866 INFO tasks Processing resume email: Application for Full Stack Developer Role
+2025-06-10 14:39:18,869 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Ashutosh (1).pdf
+2025-06-10 14:39:19,954 INFO tasks Processing resume email: resume
+2025-06-10 14:39:19,960 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\aparna.resume (1).pdf
+2025-06-10 14:39:20,711 INFO tasks Processing resume email: =?UTF-8?Q?Marketing_Lead_Application_=E2=80=93_Vikash_Ranjan?=
+2025-06-10 14:39:24,987 INFO tasks Processing resume email: Resume for applying to job
+2025-06-10 14:39:24,992 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Vikash Ranjan Resume.pdf
+2025-06-10 14:39:30,537 INFO tasks Processing resume email: Resume for applying MAIN LATEST.pdf
+2025-06-10 14:39:30,556 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\CV - Gaurav Dhawan_edited MAIN LATEST.pdf
+2025-06-10 14:39:32,029 INFO tasks Processing resume email: Update resume
+2025-06-10 14:39:32,033 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Puja_Kumari_BDE-1.pdf
+2025-06-10 14:39:36,329 INFO tasks Processing resume email: Resume | Akash Garg | Contact 8192987409
+2025-06-10 14:39:36,335 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\2024-09-15.pdf
+2025-06-10 14:39:38,943 INFO tasks Processing resume email: Resume
+2025-06-10 14:39:38,955 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Yash Sharma Resume .pdf
+2025-06-10 14:39:43,719 INFO tasks Processing resume email: Resume (Lead Generation Executive)
+2025-06-10 14:39:43,727 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\ANTARA CHAKRAVORTY CV-1-5-1.pdf
+2025-06-10 14:39:46,036 INFO tasks Processing resume email: My resume for lead generation
+2025-06-10 14:39:46,040 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\DanishBDEResume-1 (2).pdf
+2025-06-10 14:39:47,596 INFO tasks Processing resume email: Application lead genration
+2025-06-10 14:39:47,599 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Resume updated 1.docx
+2025-06-10 14:39:48,187 INFO tasks Processing resume email: Lead generation specialist resume
+2025-06-10 14:39:48,805 INFO tasks Processing resume email: Tanu resume
+2025-06-10 14:39:50,822 INFO tasks Processing resume email: Resume for Lead Generation Executive Role
+2025-06-10 14:39:50,827 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\ashtharesume.pdf
+2025-06-10 14:39:59,537 INFO tasks Processing resume email: Re: Resume for Lead Generation Executive Role
+2025-06-10 14:40:03,067 INFO tasks Processing resume email: =?UTF-8?Q?Grateful_for_the_Opportunity_=E2=80=93_Resume_Shared_for_L?=
+	=?UTF-8?Q?ead_Generation_Executive_Role_at_BharatCrest?=
+2025-06-10 14:40:03,078 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Arogiya CV-25-2.pdf
+2025-06-10 14:40:13,091 INFO tasks Processing resume email: =?UTF-8?Q?Re=3A_Grateful_for_the_Opportunity_=E2=80=93_Resume_Shared_f?=
+	=?UTF-8?Q?or_Lead_Generation_Executive_Role_at_BharatCrest?=
+2025-06-10 14:40:15,218 INFO tasks Processing resume email: Application for Front-end Developer Position
+2025-06-10 14:40:15,222 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Naresh Tak - Resume.pdf
+2025-06-10 14:40:39,222 INFO tasks Processing resume email: Application for Lead Generation Executive Position
+2025-06-10 14:40:40,370 INFO tasks Processing resume email: BELOW ATTACHED IS MY RESUME 
+2025-06-10 14:40:40,376 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\K ROHAN BM.pdf
+2025-06-10 14:40:44,316 INFO tasks Processing resume email: You have 66 new applicants for your job: Frontend Web Developer
+2025-06-10 14:40:44,818 INFO tasks Processing resume email: Frontend Developer Internship - Resume Submission
+2025-06-10 14:40:46,195 INFO tasks Processing resume email: Application for Front - End Developer
+2025-06-10 14:40:46,198 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Mayuri_Wasu.pdf
+2025-06-10 14:40:52,191 INFO tasks Processing resume email: Frontend web developer intern
+2025-06-10 14:40:53,433 INFO tasks Processing resume email: =?UTF-8?Q?Availability_for_Interview_=E2=80=93_Frontend_Web_Develope?=
+	=?UTF-8?Q?r_Intern_at_Bharatcrest?=
+2025-06-10 14:40:53,452 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\DOC-20250414-WA0013..pdf
+2025-06-10 14:40:54,526 INFO tasks Processing resume email: =?UTF-8?Q?Hi_there=2C_I_hope_you=27re_doing_well=21_I=27m_Saloni_Sharm?=
+	=?UTF-8?Q?a=2C_and_I=27m_reaching_out_to_apply_for_the_web_development_int?=
+	=?UTF-8?Q?ernship_at_Bharat_Crest_=28prod=40bharatcrest=2Ecom=29=2E_I=27m_really_p?=
+	=?UTF-8?Q?assionate_about_creating_things_for_the_web_and_have_hands=2Do?=
+	=?UTF-8?Q?n_experience_with_HTML=2C_CSS=2C_JavaScript=2C_and_React=2E_I=E2=80=99ve_a?=
+	=?UTF-8?Q?ttached_my_resume_for_your_review=2E_I=E2=80=99d_love_the_opportunit?=
+	=?UTF-8?Q?y_to_learn=2C_grow=2C_and_contribute_to_your_team=2E_Thanks_so_muc?=
+	=?UTF-8?Q?h_for_your_time=2C_and_I_hope_to_hear_from_you_soon=21_Best=2C_Sal?=
+	=?UTF-8?Q?oni_Sharma?=
+2025-06-10 14:41:00,517 INFO tasks Processing resume email: Job role of Frontend developer
+2025-06-10 14:41:00,534 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Bhoomi___Gupta.pdf
+2025-06-10 14:41:01,032 INFO tasks Processing resume email: Application for Frontend Web Developer Role
+2025-06-10 14:41:04,839 INFO tasks Processing resume email: =?UTF-8?Q?Resume_for_Frontend_Web_Developer_Role_=E2=80=93_Keshav_Ch?=
+	=?UTF-8?Q?andel?=
+2025-06-10 14:41:04,847 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\KeshavChandelResume4.pdf
+2025-06-10 14:41:16,047 INFO tasks Processing resume email: Re: Job role of Frontend developer
+2025-06-10 14:41:18,572 INFO tasks Processing resume email: =?UTF-8?Q?Re=3A_Availability_for_Interview_=E2=80=93_Frontend_Web_Deve?=
+	=?UTF-8?Q?loper_Intern_at_Bharatcrest?=
+2025-06-10 14:41:20,336 INFO tasks Processing resume email: Confirmation of Availability for Frontend development internship
+2025-06-10 14:41:20,354 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Milan-Singh-Frontend.pdf
+2025-06-10 14:41:21,280 INFO tasks Processing resume email: =?UTF-8?Q?Re=3A_Availability_for_Interview_=E2=80=93_Frontend_Web_Deve?=
+	=?UTF-8?Q?loper_Intern_at_Bharatcrest?=
+2025-06-10 14:41:21,284 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\DOC-20250414-WA0013..pdf
+2025-06-10 14:41:22,107 INFO tasks Processing resume email: Suraj Menon - Resume
+2025-06-10 14:41:22,112 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\cv.pdf
+2025-06-10 14:41:22,950 INFO tasks Processing resume email: =?UTF-8?Q?Resume_for_Remote_Frontend_Web_Developer_Intern_=E2=80=93_?=
+	=?UTF-8?Q?Rakesh_De?=
+2025-06-10 14:41:22,958 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\myresumeV12.pdf
+2025-06-10 14:41:24,029 INFO tasks Processing resume email: =?UTF-8?Q?Frontend_Web_Developer_Internship_=E2=80=93_Interview_Avai?=
+	=?UTF-8?Q?lability?=
+2025-06-10 14:41:24,034 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Ravi Bhaskar Resume.pdf
+2025-06-10 14:41:26,804 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-10 14:41:28,903 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-10 14:41:29,701 INFO tasks Processing resume email: Thank you for applying for AWS Activate Founders credits
+2025-06-10 14:41:34,613 INFO tasks Processing resume email: Application for web development internship
+2025-06-10 14:41:34,633 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\SindhuraH.pdf
+2025-06-10 14:41:36,430 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-10 14:41:37,719 INFO tasks Processing resume email: Post a Job For Free on Naukri & Hire Local Talent Fast
+2025-06-10 14:41:42,613 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:42,617 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:43,063 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:43,065 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:44,914 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:44,916 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:44,919 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:45,489 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:45,491 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:45,492 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:46,484 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:46,488 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:47,196 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:47,197 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:48,183 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:48,187 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:48,191 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:49,558 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:49,559 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:49,562 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:50,198 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:50,496 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:51,262 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:51,265 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:51,941 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:51,942 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:52,377 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:52,380 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:52,383 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:53,019 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:53,021 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:53,022 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:53,681 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:53,684 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:54,159 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:54,160 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:54,727 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:55,040 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:57,178 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:41:57,179 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:03,544 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:03,545 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:04,112 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:04,301 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:06,009 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:06,012 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:06,238 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:06,239 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:09,719 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:09,722 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:10,155 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:10,156 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:12,190 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:12,741 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:13,159 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:13,515 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:13,926 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:14,327 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:15,240 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:15,244 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:16,050 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:16,538 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:16,953 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:17,370 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:18,307 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:18,537 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:18,954 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:18,957 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:19,444 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:19,445 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:19,899 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:20,374 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:20,747 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:20,756 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:21,161 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:21,171 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:21,884 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:21,909 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:22,452 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:22,455 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:22,895 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:42:22,896 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-10 14:44:15,196 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-10 21:30:15,570 INFO autoreload Watching for file changes with StatReloader
+2025-06-10 21:30:41,718 WARNING log Not Found: /favicon.ico
+2025-06-10 21:33:51,580 INFO views Received POST data: {'email_host': 'imap.gmail.com', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'true', 'csrfmiddlewaretoken': 'JKCvfabi0N4JjUeq0BxHiq73nE7bthbNZRnGDJ80gIOmZmxvqm7DALMPxgWGDdpD'}
+2025-06-10 21:33:51,584 INFO views Testing connection with: host='imap.gmail.com', port='993', username='prod@bharatcrest.com', use_tls=True
+2025-06-10 21:33:51,587 INFO views Testing IMAP connection to imap.gmail.com:993
+2025-06-10 21:33:53,399 WARNING log Bad Request: /test-email-connection/
+2025-06-10 21:34:04,094 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'true', 'csrfmiddlewaretoken': 'JKCvfabi0N4JjUeq0BxHiq73nE7bthbNZRnGDJ80gIOmZmxvqm7DALMPxgWGDdpD'}
+2025-06-10 21:34:04,096 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='prod@bharatcrest.com', use_tls=True
+2025-06-10 21:34:04,101 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-06-10 21:34:08,959 INFO views Connection to imap.secureserver.net successful!
+2025-06-10 21:43:39,847 INFO autoreload Watching for file changes with StatReloader
+2025-06-10 22:07:09,631 INFO autoreload Watching for file changes with StatReloader
+2025-06-10 22:07:22,366 WARNING log Not Found: /favicon.ico
+2025-06-10 22:07:46,707 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'true', 'csrfmiddlewaretoken': '61kvCF91PVueweSt3sIdLJAI5f6DCnAzxg6By9nFayvzvXJtm6PsW9OUf5VHEGfi'}
+2025-06-10 22:07:46,710 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='prod@bharatcrest.com', use_tls=True
+2025-06-10 22:07:46,711 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-06-10 22:07:51,194 INFO views Connection to imap.secureserver.net successful!
+2025-06-10 22:08:07,398 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-10 22:08:07,399 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-10 22:08:07,401 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-10 22:08:07,403 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-10 22:08:07,405 INFO tasks Connecting to IMAP...
+2025-06-10 22:08:10,861 INFO tasks Logged in successfully
+2025-06-10 22:08:12,413 INFO tasks Found 93 emails to scan
+2025-06-10 22:08:32,242 INFO tasks Processing resume email: resumes
+2025-06-10 22:08:32,280 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\0YEARS-210106-180335.pdf
+2025-06-10 22:08:41,469 INFO tasks Processing resume email: resumes
+2025-06-10 22:08:41,508 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\0YEARS-210106-180335.pdf
+2025-06-10 22:08:43,253 INFO tasks Processing resume email: resume
+2025-06-10 22:08:43,262 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\2YEARS2-210310-175659.pdf
+2025-06-10 22:08:45,083 INFO tasks Processing resume email: resumes
+2025-06-10 22:08:45,087 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\3YEARS-210310-181659.pdf
+2025-06-10 22:08:54,227 INFO autoreload Watching for file changes with StatReloader
+2025-06-10 22:10:00,212 WARNING log Not Found: /favicon.ico
+2025-06-10 22:10:50,801 INFO autoreload C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\hrapp\tasks.py changed, reloading.
+2025-06-10 22:10:54,703 INFO autoreload Watching for file changes with StatReloader
+2025-06-10 22:11:24,991 INFO autoreload C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\hrapp\tasks.py changed, reloading.
+2025-06-10 22:11:27,927 INFO autoreload Watching for file changes with StatReloader
+2025-06-10 22:11:55,009 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'true', 'csrfmiddlewaretoken': 'BSDrrDazmaz3BLCaQAZSrw7nzYXwUb6Rc0wuY6FvJLyYVLAK2y36H1o4TbmH7SDH'}
+2025-06-10 22:11:55,012 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='prod@bharatcrest.com', use_tls=True
+2025-06-10 22:11:55,015 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-06-10 22:11:59,580 INFO views Connection to imap.secureserver.net successful!
+2025-06-11 12:35:45,447 INFO autoreload Watching for file changes with StatReloader
+2025-06-11 12:36:21,648 WARNING log Not Found: /favicon.ico
+2025-06-11 21:18:47,486 INFO autoreload Watching for file changes with StatReloader
+2025-06-11 21:19:14,383 WARNING log Not Found: /favicon.ico
+2025-06-11 21:48:22,354 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-11 21:58:13,056 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-11 21:58:13,058 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-11 21:58:13,060 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-11 21:58:13,065 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-11 21:58:13,070 INFO tasks Connecting to IMAP...
+2025-06-11 21:58:16,593 INFO tasks Logged in successfully
+2025-06-11 21:58:17,544 INFO tasks Found 94 emails to scan
+2025-06-11 21:58:21,195 INFO tasks Processing resume email: resumes
+2025-06-11 21:58:21,233 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\0YEARS-210106-180335.pdf
+2025-06-11 21:58:23,571 INFO tasks Processing resume email: resumes
+2025-06-11 21:58:23,603 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\0YEARS-210106-180335.pdf
+2025-06-11 21:58:24,447 INFO tasks Processing resume email: resume
+2025-06-11 21:58:24,454 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\2YEARS2-210310-175659.pdf
+2025-06-11 21:58:25,259 INFO tasks Processing resume email: resumes
+2025-06-11 21:58:25,265 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\3YEARS-210310-181659.pdf
+2025-06-11 21:58:28,139 INFO tasks Processing resume email: resumes
+2025-06-11 21:58:28,196 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\4YEARS-210310-195819.pdf
+2025-06-11 21:58:30,953 INFO tasks Processing resume email: Resumes
+2025-06-11 21:58:30,958 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\anshuvarshney_devOps_1+_exp_resume (1)-1.pdf
+2025-06-11 21:58:32,801 INFO tasks Processing resume email: Application for lead generation executive
+2025-06-11 21:58:34,579 INFO tasks Processing resume email: Re: Application for lead generation executive
+2025-06-11 21:58:34,584 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Shivanand_resume.pdf
+2025-06-11 21:58:35,629 INFO tasks Processing resume email: Application for lead generation executive position
+2025-06-11 21:58:35,637 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\SARWAR-MBA.pdf
+2025-06-11 21:58:40,123 INFO tasks Processing resume email: Re: Application for lead generation executive position
+2025-06-11 21:58:40,639 INFO tasks Processing resume email: Job application
+2025-06-11 21:58:41,901 INFO tasks Processing resume email: Application for Full Stack Developer Role
+2025-06-11 21:58:41,905 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Ashutosh (1).pdf
+2025-06-11 21:58:42,709 INFO tasks Processing resume email: resume
+2025-06-11 21:58:42,715 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\aparna.resume (1).pdf
+2025-06-11 21:58:43,219 INFO tasks Processing resume email: =?UTF-8?Q?Marketing_Lead_Application_=E2=80=93_Vikash_Ranjan?=
+2025-06-11 21:58:44,938 INFO tasks Processing resume email: Resume for applying to job
+2025-06-11 21:58:44,944 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Vikash Ranjan Resume.pdf
+2025-06-11 21:58:47,866 INFO tasks Processing resume email: Resume for applying MAIN LATEST.pdf
+2025-06-11 21:58:47,888 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\CV - Gaurav Dhawan_edited MAIN LATEST.pdf
+2025-06-11 21:58:48,678 INFO tasks Processing resume email: Update resume
+2025-06-11 21:58:48,682 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Puja_Kumari_BDE-1.pdf
+2025-06-11 21:58:51,615 INFO tasks Processing resume email: Resume | Akash Garg | Contact 8192987409
+2025-06-11 21:58:51,620 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\2024-09-15.pdf
+2025-06-11 21:58:53,279 INFO tasks Processing resume email: Resume
+2025-06-11 21:58:53,290 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Yash Sharma Resume .pdf
+2025-06-11 21:58:55,552 INFO tasks Processing resume email: Resume (Lead Generation Executive)
+2025-06-11 21:58:55,568 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\ANTARA CHAKRAVORTY CV-1-5-1.pdf
+2025-06-11 21:58:56,907 INFO tasks Processing resume email: My resume for lead generation
+2025-06-11 21:58:56,911 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\DanishBDEResume-1 (2).pdf
+2025-06-11 21:58:58,184 INFO tasks Processing resume email: Application lead genration
+2025-06-11 21:58:58,193 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Resume updated 1.docx
+2025-06-11 21:58:58,692 INFO tasks Processing resume email: Lead generation specialist resume
+2025-06-11 21:58:59,181 INFO tasks Processing resume email: Tanu resume
+2025-06-11 21:59:00,698 INFO tasks Processing resume email: Resume for Lead Generation Executive Role
+2025-06-11 21:59:00,705 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\ashtharesume.pdf
+2025-06-11 21:59:03,790 INFO tasks Processing resume email: Re: Resume for Lead Generation Executive Role
+2025-06-11 21:59:05,354 INFO tasks Processing resume email: =?UTF-8?Q?Grateful_for_the_Opportunity_=E2=80=93_Resume_Shared_for_L?=
+	=?UTF-8?Q?ead_Generation_Executive_Role_at_BharatCrest?=
+2025-06-11 21:59:05,373 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Arogiya CV-25-2.pdf
+2025-06-11 21:59:08,489 INFO tasks Processing resume email: =?UTF-8?Q?Re=3A_Grateful_for_the_Opportunity_=E2=80=93_Resume_Shared_f?=
+	=?UTF-8?Q?or_Lead_Generation_Executive_Role_at_BharatCrest?=
+2025-06-11 21:59:10,238 INFO tasks Processing resume email: Application for Front-end Developer Position
+2025-06-11 21:59:10,242 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Naresh Tak - Resume.pdf
+2025-06-11 21:59:19,742 INFO tasks Processing resume email: Application for Lead Generation Executive Position
+2025-06-11 21:59:20,790 INFO tasks Processing resume email: BELOW ATTACHED IS MY RESUME 
+2025-06-11 21:59:20,796 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\K ROHAN BM.pdf
+2025-06-11 21:59:22,681 INFO tasks Processing resume email: You have 66 new applicants for your job: Frontend Web Developer
+2025-06-11 21:59:23,214 INFO tasks Processing resume email: Frontend Developer Internship - Resume Submission
+2025-06-11 21:59:24,222 INFO tasks Processing resume email: Application for Front - End Developer
+2025-06-11 21:59:24,228 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Mayuri_Wasu.pdf
+2025-06-11 21:59:26,416 INFO tasks Processing resume email: Frontend web developer intern
+2025-06-11 21:59:26,941 INFO tasks Processing resume email: =?UTF-8?Q?Availability_for_Interview_=E2=80=93_Frontend_Web_Develope?=
+	=?UTF-8?Q?r_Intern_at_Bharatcrest?=
+2025-06-11 21:59:26,946 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\DOC-20250414-WA0013..pdf
+2025-06-11 21:59:27,969 INFO tasks Processing resume email: =?UTF-8?Q?Hi_there=2C_I_hope_you=27re_doing_well=21_I=27m_Saloni_Sharm?=
+	=?UTF-8?Q?a=2C_and_I=27m_reaching_out_to_apply_for_the_web_development_int?=
+	=?UTF-8?Q?ernship_at_Bharat_Crest_=28prod=40bharatcrest=2Ecom=29=2E_I=27m_really_p?=
+	=?UTF-8?Q?assionate_about_creating_things_for_the_web_and_have_hands=2Do?=
+	=?UTF-8?Q?n_experience_with_HTML=2C_CSS=2C_JavaScript=2C_and_React=2E_I=E2=80=99ve_a?=
+	=?UTF-8?Q?ttached_my_resume_for_your_review=2E_I=E2=80=99d_love_the_opportunit?=
+	=?UTF-8?Q?y_to_learn=2C_grow=2C_and_contribute_to_your_team=2E_Thanks_so_muc?=
+	=?UTF-8?Q?h_for_your_time=2C_and_I_hope_to_hear_from_you_soon=21_Best=2C_Sal?=
+	=?UTF-8?Q?oni_Sharma?=
+2025-06-11 21:59:31,710 INFO tasks Processing resume email: Job role of Frontend developer
+2025-06-11 21:59:31,732 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Bhoomi___Gupta.pdf
+2025-06-11 21:59:32,244 INFO tasks Processing resume email: Application for Frontend Web Developer Role
+2025-06-11 21:59:35,390 INFO tasks Processing resume email: =?UTF-8?Q?Resume_for_Frontend_Web_Developer_Role_=E2=80=93_Keshav_Ch?=
+	=?UTF-8?Q?andel?=
+2025-06-11 21:59:35,398 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\KeshavChandelResume4.pdf
+2025-06-11 21:59:44,615 INFO tasks Processing resume email: Re: Job role of Frontend developer
+2025-06-11 21:59:49,758 INFO tasks Processing resume email: =?UTF-8?Q?Re=3A_Availability_for_Interview_=E2=80=93_Frontend_Web_Deve?=
+	=?UTF-8?Q?loper_Intern_at_Bharatcrest?=
+2025-06-11 21:59:52,550 INFO tasks Processing resume email: Confirmation of Availability for Frontend development internship
+2025-06-11 21:59:52,555 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Milan-Singh-Frontend.pdf
+2025-06-11 21:59:53,587 INFO tasks Processing resume email: =?UTF-8?Q?Re=3A_Availability_for_Interview_=E2=80=93_Frontend_Web_Deve?=
+	=?UTF-8?Q?loper_Intern_at_Bharatcrest?=
+2025-06-11 21:59:53,592 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\DOC-20250414-WA0013..pdf
+2025-06-11 21:59:55,601 INFO tasks Processing resume email: Suraj Menon - Resume
+2025-06-11 21:59:55,605 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\cv.pdf
+2025-06-11 21:59:58,172 INFO tasks Processing resume email: =?UTF-8?Q?Resume_for_Remote_Frontend_Web_Developer_Intern_=E2=80=93_?=
+	=?UTF-8?Q?Rakesh_De?=
+2025-06-11 21:59:58,179 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\myresumeV12.pdf
+2025-06-11 22:00:00,119 INFO tasks Processing resume email: =?UTF-8?Q?Frontend_Web_Developer_Internship_=E2=80=93_Interview_Avai?=
+	=?UTF-8?Q?lability?=
+2025-06-11 22:00:00,124 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Ravi Bhaskar Resume.pdf
+2025-06-11 22:00:02,615 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-11 22:00:04,620 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-11 22:00:05,368 INFO tasks Processing resume email: Thank you for applying for AWS Activate Founders credits
+2025-06-11 22:00:10,069 INFO tasks Processing resume email: Application for web development internship
+2025-06-11 22:00:10,073 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\SindhuraH.pdf
+2025-06-11 22:00:12,012 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-11 22:00:13,274 INFO tasks Processing resume email: Post a Job For Free on Naukri & Hire Local Talent Fast
+2025-06-11 22:00:16,516 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:16,519 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:16,967 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:16,969 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:17,633 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:17,636 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:17,638 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:18,203 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:18,205 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:18,206 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:19,919 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:19,923 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:20,611 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:20,612 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:20,984 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:20,987 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:20,989 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:22,302 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:22,303 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:22,304 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:22,718 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:22,966 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:23,872 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:23,878 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:24,299 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:24,300 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:24,727 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:24,730 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:24,734 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:25,981 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:25,984 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:25,986 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:26,433 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:26,435 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:26,725 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:26,726 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:27,546 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:27,834 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:29,426 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:29,427 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:34,827 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:34,828 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:35,315 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:35,476 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:36,980 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:36,984 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:37,203 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:37,204 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:38,820 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:38,823 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:39,588 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:39,589 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:41,205 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:41,790 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:42,658 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:43,316 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:43,665 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:43,876 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:44,806 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:45,209 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:45,547 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:45,982 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:47,483 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:47,721 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:48,277 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:48,280 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:48,904 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:48,905 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:49,590 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:50,074 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:50,418 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:50,420 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:50,860 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:00:50,862 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:05:02,569 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-11 22:05:02,574 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-11 22:05:02,575 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-11 22:05:02,579 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-11 22:05:02,580 INFO tasks Connecting to IMAP...
+2025-06-11 22:05:06,850 INFO tasks Logged in successfully
+2025-06-11 22:05:07,787 INFO tasks Found 94 emails to scan
+2025-06-11 22:05:21,884 INFO tasks Processing resume email: resumes
+2025-06-11 22:05:21,915 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\0YEARS-210106-180335.pdf
+2025-06-11 22:05:28,051 INFO tasks Processing resume email: resumes
+2025-06-11 22:05:28,120 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\0YEARS-210106-180335.pdf
+2025-06-11 22:05:29,289 INFO tasks Processing resume email: resume
+2025-06-11 22:05:29,297 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\2YEARS2-210310-175659.pdf
+2025-06-11 22:05:30,500 INFO tasks Processing resume email: resumes
+2025-06-11 22:05:30,507 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\3YEARS-210310-181659.pdf
+2025-06-11 22:05:35,864 INFO tasks Processing resume email: resumes
+2025-06-11 22:05:35,919 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\4YEARS-210310-195819.pdf
+2025-06-11 22:05:38,699 INFO tasks Processing resume email: Resumes
+2025-06-11 22:05:38,708 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\anshuvarshney_devOps_1+_exp_resume (1)-1.pdf
+2025-06-11 22:05:40,342 INFO tasks Processing resume email: Application for lead generation executive
+2025-06-11 22:05:42,037 INFO tasks Processing resume email: Re: Application for lead generation executive
+2025-06-11 22:05:42,042 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Shivanand_resume.pdf
+2025-06-11 22:05:43,054 INFO tasks Processing resume email: Application for lead generation executive position
+2025-06-11 22:05:43,060 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\SARWAR-MBA.pdf
+2025-06-11 22:05:47,354 INFO tasks Processing resume email: Re: Application for lead generation executive position
+2025-06-11 22:05:47,818 INFO tasks Processing resume email: Job application
+2025-06-11 22:05:48,975 INFO tasks Processing resume email: Application for Full Stack Developer Role
+2025-06-11 22:05:48,984 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Ashutosh (1).pdf
+2025-06-11 22:05:49,792 INFO tasks Processing resume email: resume
+2025-06-11 22:05:49,798 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\aparna.resume (1).pdf
+2025-06-11 22:05:50,540 INFO tasks Processing resume email: =?UTF-8?Q?Marketing_Lead_Application_=E2=80=93_Vikash_Ranjan?=
+2025-06-11 22:05:52,037 INFO tasks Processing resume email: Resume for applying to job
+2025-06-11 22:05:52,050 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Vikash Ranjan Resume.pdf
+2025-06-11 22:05:54,968 INFO tasks Processing resume email: Resume for applying MAIN LATEST.pdf
+2025-06-11 22:05:54,996 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\CV - Gaurav Dhawan_edited MAIN LATEST.pdf
+2025-06-11 22:05:55,744 INFO tasks Processing resume email: Update resume
+2025-06-11 22:05:55,751 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Puja_Kumari_BDE-1.pdf
+2025-06-11 22:05:58,476 INFO tasks Processing resume email: Resume | Akash Garg | Contact 8192987409
+2025-06-11 22:05:58,480 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\2024-09-15.pdf
+2025-06-11 22:05:59,920 INFO tasks Processing resume email: Resume
+2025-06-11 22:05:59,933 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Yash Sharma Resume .pdf
+2025-06-11 22:06:01,756 INFO tasks Processing resume email: Resume (Lead Generation Executive)
+2025-06-11 22:06:01,782 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\ANTARA CHAKRAVORTY CV-1-5-1.pdf
+2025-06-11 22:06:03,003 INFO tasks Processing resume email: My resume for lead generation
+2025-06-11 22:06:03,006 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\DanishBDEResume-1 (2).pdf
+2025-06-11 22:06:04,191 INFO tasks Processing resume email: Application lead genration
+2025-06-11 22:06:04,198 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Resume updated 1.docx
+2025-06-11 22:06:04,664 INFO tasks Processing resume email: Lead generation specialist resume
+2025-06-11 22:06:05,126 INFO tasks Processing resume email: Tanu resume
+2025-06-11 22:06:07,066 INFO tasks Processing resume email: Resume for Lead Generation Executive Role
+2025-06-11 22:06:07,074 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\ashtharesume.pdf
+2025-06-11 22:06:09,059 INFO tasks Processing resume email: Re: Resume for Lead Generation Executive Role
+2025-06-11 22:06:09,943 INFO tasks Processing resume email: =?UTF-8?Q?Grateful_for_the_Opportunity_=E2=80=93_Resume_Shared_for_L?=
+	=?UTF-8?Q?ead_Generation_Executive_Role_at_BharatCrest?=
+2025-06-11 22:06:09,960 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Arogiya CV-25-2.pdf
+2025-06-11 22:06:11,481 INFO tasks Processing resume email: =?UTF-8?Q?Re=3A_Grateful_for_the_Opportunity_=E2=80=93_Resume_Shared_f?=
+	=?UTF-8?Q?or_Lead_Generation_Executive_Role_at_BharatCrest?=
+2025-06-11 22:06:12,882 INFO tasks Processing resume email: Application for Front-end Developer Position
+2025-06-11 22:06:12,886 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Naresh Tak - Resume.pdf
+2025-06-11 22:06:20,129 INFO tasks Processing resume email: Application for Lead Generation Executive Position
+2025-06-11 22:06:20,850 INFO tasks Processing resume email: BELOW ATTACHED IS MY RESUME 
+2025-06-11 22:06:20,856 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\K ROHAN BM.pdf
+2025-06-11 22:06:22,619 INFO tasks Processing resume email: You have 66 new applicants for your job: Frontend Web Developer
+2025-06-11 22:06:23,081 INFO tasks Processing resume email: Frontend Developer Internship - Resume Submission
+2025-06-11 22:06:23,816 INFO tasks Processing resume email: Application for Front - End Developer
+2025-06-11 22:06:23,822 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Mayuri_Wasu.pdf
+2025-06-11 22:06:25,934 INFO tasks Processing resume email: Frontend web developer intern
+2025-06-11 22:06:26,462 INFO tasks Processing resume email: =?UTF-8?Q?Availability_for_Interview_=E2=80=93_Frontend_Web_Develope?=
+	=?UTF-8?Q?r_Intern_at_Bharatcrest?=
+2025-06-11 22:06:26,468 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\DOC-20250414-WA0013..pdf
+2025-06-11 22:06:27,484 INFO tasks Processing resume email: =?UTF-8?Q?Hi_there=2C_I_hope_you=27re_doing_well=21_I=27m_Saloni_Sharm?=
+	=?UTF-8?Q?a=2C_and_I=27m_reaching_out_to_apply_for_the_web_development_int?=
+	=?UTF-8?Q?ernship_at_Bharat_Crest_=28prod=40bharatcrest=2Ecom=29=2E_I=27m_really_p?=
+	=?UTF-8?Q?assionate_about_creating_things_for_the_web_and_have_hands=2Do?=
+	=?UTF-8?Q?n_experience_with_HTML=2C_CSS=2C_JavaScript=2C_and_React=2E_I=E2=80=99ve_a?=
+	=?UTF-8?Q?ttached_my_resume_for_your_review=2E_I=E2=80=99d_love_the_opportunit?=
+	=?UTF-8?Q?y_to_learn=2C_grow=2C_and_contribute_to_your_team=2E_Thanks_so_muc?=
+	=?UTF-8?Q?h_for_your_time=2C_and_I_hope_to_hear_from_you_soon=21_Best=2C_Sal?=
+	=?UTF-8?Q?oni_Sharma?=
+2025-06-11 22:06:29,341 INFO tasks Processing resume email: Job role of Frontend developer
+2025-06-11 22:06:29,365 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Bhoomi___Gupta.pdf
+2025-06-11 22:06:29,832 INFO tasks Processing resume email: Application for Frontend Web Developer Role
+2025-06-11 22:06:34,418 INFO tasks Processing resume email: =?UTF-8?Q?Resume_for_Frontend_Web_Developer_Role_=E2=80=93_Keshav_Ch?=
+	=?UTF-8?Q?andel?=
+2025-06-11 22:06:34,425 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\KeshavChandelResume4.pdf
+2025-06-11 22:06:38,036 INFO tasks Processing resume email: Re: Job role of Frontend developer
+2025-06-11 22:06:39,800 INFO tasks Processing resume email: =?UTF-8?Q?Re=3A_Availability_for_Interview_=E2=80=93_Frontend_Web_Deve?=
+	=?UTF-8?Q?loper_Intern_at_Bharatcrest?=
+2025-06-11 22:06:41,332 INFO tasks Processing resume email: Confirmation of Availability for Frontend development internship
+2025-06-11 22:06:41,340 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Milan-Singh-Frontend.pdf
+2025-06-11 22:06:42,042 INFO tasks Processing resume email: =?UTF-8?Q?Re=3A_Availability_for_Interview_=E2=80=93_Frontend_Web_Deve?=
+	=?UTF-8?Q?loper_Intern_at_Bharatcrest?=
+2025-06-11 22:06:42,045 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\DOC-20250414-WA0013..pdf
+2025-06-11 22:06:43,040 INFO tasks Processing resume email: Suraj Menon - Resume
+2025-06-11 22:06:43,045 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\cv.pdf
+2025-06-11 22:06:44,341 INFO tasks Processing resume email: =?UTF-8?Q?Resume_for_Remote_Frontend_Web_Developer_Intern_=E2=80=93_?=
+	=?UTF-8?Q?Rakesh_De?=
+2025-06-11 22:06:44,349 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\myresumeV12.pdf
+2025-06-11 22:06:45,409 INFO tasks Processing resume email: =?UTF-8?Q?Frontend_Web_Developer_Internship_=E2=80=93_Interview_Avai?=
+	=?UTF-8?Q?lability?=
+2025-06-11 22:06:45,415 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Ravi Bhaskar Resume.pdf
+2025-06-11 22:06:47,795 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-11 22:06:49,711 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-11 22:06:50,440 INFO tasks Processing resume email: Thank you for applying for AWS Activate Founders credits
+2025-06-11 22:06:54,731 INFO tasks Processing resume email: Application for web development internship
+2025-06-11 22:06:54,735 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\SindhuraH.pdf
+2025-06-11 22:06:56,399 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-11 22:06:58,135 INFO tasks Processing resume email: Post a Job For Free on Naukri & Hire Local Talent Fast
+2025-06-11 22:07:01,721 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:01,723 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:02,260 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:02,263 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:02,974 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:02,977 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:02,979 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:03,763 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:03,764 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:03,765 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:05,461 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:05,463 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:06,133 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:06,135 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:06,580 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:06,583 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:06,585 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:08,141 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:08,142 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:08,143 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:08,611 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:08,931 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:09,816 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:09,818 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:10,396 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:10,398 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:10,814 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:10,817 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:10,821 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:11,520 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:11,520 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:11,522 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:12,081 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:12,083 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:12,623 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:12,624 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:13,200 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:13,625 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:15,748 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:15,751 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:23,953 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:23,955 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:24,385 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:24,634 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:26,409 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:26,410 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:27,014 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:27,015 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:28,688 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:28,691 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:29,275 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:29,276 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:31,641 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:32,387 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:32,865 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:33,436 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:34,089 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:34,400 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:35,101 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:35,828 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:36,239 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:36,961 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:38,654 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:38,953 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:39,376 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:39,378 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:39,854 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:39,858 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:40,713 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:41,196 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:41,666 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:41,671 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:42,528 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-11 22:07:42,530 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-13 19:47:35,024 INFO autoreload Watching for file changes with StatReloader
+2025-06-13 19:57:53,329 WARNING log Not Found: /favicon.ico
+2025-06-13 20:25:50,875 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-13 20:26:11,494 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-13 20:26:16,156 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-13 20:26:19,039 WARNING log Not Found: /favicon.ico
+2025-06-13 20:26:19,878 WARNING log Not Found: /favicon.ico
+2025-06-13 20:26:21,820 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-13 20:26:32,472 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-13 20:32:22,758 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-13 20:40:21,538 WARNING log Not Found: /favicon.ico
+2025-06-14 19:23:16,735 INFO autoreload Watching for file changes with StatReloader
+2025-06-14 19:24:03,694 WARNING log Not Found: /favicon.ico
+2025-06-14 19:40:16,378 WARNING log Not Found: /favicon.ico
+2025-06-14 19:44:50,950 WARNING log Not Found: /favicon.ico
+2025-06-14 19:44:52,051 WARNING log Not Found: /favicon.ico
+2025-06-14 20:17:02,726 WARNING log Not Found: /favicon.ico
+2025-06-14 20:27:01,393 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-17 20:22:14,360 INFO autoreload Watching for file changes with StatReloader
+2025-06-17 20:22:54,439 WARNING log Not Found: /favicon.ico
+2025-06-18 11:52:23,699 INFO autoreload Watching for file changes with StatReloader
+2025-06-18 11:52:52,608 WARNING log Not Found: /favicon.ico
+2025-06-19 20:13:59,436 INFO autoreload Watching for file changes with StatReloader
+2025-06-19 20:14:23,850 WARNING log Not Found: /favicon.ico
+2025-06-19 20:15:20,360 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-19 20:21:07,925 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-19 20:22:12,959 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-19 20:22:20,173 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-20 21:27:42,862 INFO autoreload Watching for file changes with StatReloader
+2025-06-20 21:27:58,219 WARNING log Not Found: /favicon.ico
+2025-06-20 21:47:22,131 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-24 17:44:54,649 INFO autoreload Watching for file changes with StatReloader
+2025-06-24 17:45:19,678 WARNING log Not Found: /favicon.ico
+2025-06-24 19:37:26,896 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-24 20:01:47,552 WARNING log Not Found: /favicon.ico
+2025-06-25 21:24:11,876 INFO autoreload Watching for file changes with StatReloader
+2025-06-25 21:24:46,667 WARNING log Not Found: /favicon.ico
+2025-06-26 20:00:17,244 INFO autoreload Watching for file changes with StatReloader
+2025-06-26 20:02:21,427 WARNING log Not Found: /favicon.ico
+2025-06-26 20:24:10,836 WARNING log Not Found: /favicon.ico
+2025-06-26 20:24:48,502 WARNING log Not Found: /favicon.ico
+2025-06-26 20:35:24,245 WARNING log Not Found: /favicon.ico
+2025-06-26 20:36:00,418 WARNING log Not Found: /favicon.ico
+2025-06-26 20:47:34,177 WARNING log Not Found: /favicon.ico
+2025-06-26 20:54:10,137 WARNING log Not Found: /favicon.ico
+2025-06-26 20:54:41,753 WARNING log Not Found: /favicon.ico
+2025-06-26 20:54:54,877 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-26 21:37:35,349 WARNING log Not Found: /favicon.ico
+2025-06-26 21:42:05,735 INFO autoreload Watching for file changes with StatReloader
+2025-06-26 21:43:22,802 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'true', 'csrfmiddlewaretoken': 'FSYExtWMJGqA2B6OHlJQ9JIcFD5QaCRCyYKezVeIOKX9Ckzu6OQoMBN2TOmw5DFO'}
+2025-06-26 21:43:22,805 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='prod@bharatcrest.com', use_tls=True
+2025-06-26 21:43:22,806 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-06-26 21:43:26,955 INFO views Connection to imap.secureserver.net successful!
+2025-06-26 21:51:44,078 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-26 21:54:33,863 INFO tasks BASE_DIR: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher
+2025-06-26 21:54:33,876 INFO tasks MEDIA_ROOT: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media
+2025-06-26 21:54:33,878 INFO tasks Attempting to create directory: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-26 21:54:33,879 INFO tasks Directory created successfully: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes
+2025-06-26 21:54:33,883 INFO tasks Connecting to IMAP...
+2025-06-26 21:54:37,429 INFO tasks Logged in successfully
+2025-06-26 21:54:38,375 INFO tasks Found 111 emails to scan
+2025-06-26 21:54:44,418 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-26 21:54:55,767 INFO tasks Processing resume email: resumes
+2025-06-26 21:54:55,795 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\0YEARS-210106-180335.pdf
+2025-06-26 21:55:05,174 INFO tasks Processing resume email: resumes
+2025-06-26 21:55:05,191 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\0YEARS-210106-180335.pdf
+2025-06-26 21:55:07,358 INFO tasks Processing resume email: resume
+2025-06-26 21:55:07,361 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\2YEARS2-210310-175659.pdf
+2025-06-26 21:55:09,264 INFO tasks Processing resume email: resumes
+2025-06-26 21:55:09,268 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\3YEARS-210310-181659.pdf
+2025-06-26 21:55:21,742 INFO tasks Processing resume email: resumes
+2025-06-26 21:55:21,757 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\4YEARS-210310-195819.pdf
+2025-06-26 21:55:25,198 INFO tasks Processing resume email: Resumes
+2025-06-26 21:55:25,200 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\anshuvarshney_devOps_1+_exp_resume (1)-1.pdf
+2025-06-26 21:55:26,941 INFO tasks Processing resume email: Application for lead generation executive
+2025-06-26 21:55:28,684 INFO tasks Processing resume email: Re: Application for lead generation executive
+2025-06-26 21:55:28,697 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Shivanand_resume.pdf
+2025-06-26 21:55:29,897 INFO tasks Processing resume email: Application for lead generation executive position
+2025-06-26 21:55:29,900 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\SARWAR-MBA.pdf
+2025-06-26 21:55:35,737 INFO tasks Processing resume email: Re: Application for lead generation executive position
+2025-06-26 21:55:36,243 INFO tasks Processing resume email: Job application
+2025-06-26 21:55:37,526 INFO tasks Processing resume email: Application for Full Stack Developer Role
+2025-06-26 21:55:37,528 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Ashutosh (1).pdf
+2025-06-26 21:55:38,529 INFO tasks Processing resume email: resume
+2025-06-26 21:55:38,531 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\aparna.resume (1).pdf
+2025-06-26 21:55:39,051 INFO tasks Processing resume email: =?UTF-8?Q?Marketing_Lead_Application_=E2=80=93_Vikash_Ranjan?=
+2025-06-26 21:55:43,931 INFO tasks Processing resume email: Resume for applying to job
+2025-06-26 21:55:43,933 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Vikash Ranjan Resume.pdf
+2025-06-26 21:55:57,260 INFO tasks Processing resume email: Resume for applying MAIN LATEST.pdf
+2025-06-26 21:55:57,320 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\CV - Gaurav Dhawan_edited MAIN LATEST.pdf
+2025-06-26 21:55:58,617 INFO tasks Processing resume email: Update resume
+2025-06-26 21:55:58,633 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Puja_Kumari_BDE-1.pdf
+2025-06-26 21:56:01,467 INFO tasks Processing resume email: Resume | Akash Garg | Contact 8192987409
+2025-06-26 21:56:01,473 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\2024-09-15.pdf
+2025-06-26 21:56:03,094 INFO tasks Processing resume email: Resume
+2025-06-26 21:56:03,108 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Yash Sharma Resume .pdf
+2025-06-26 21:56:05,143 INFO tasks Processing resume email: Resume (Lead Generation Executive)
+2025-06-26 21:56:05,155 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\ANTARA CHAKRAVORTY CV-1-5-1.pdf
+2025-06-26 21:56:06,473 INFO tasks Processing resume email: My resume for lead generation
+2025-06-26 21:56:06,474 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\DanishBDEResume-1 (2).pdf
+2025-06-26 21:56:07,796 INFO tasks Processing resume email: Application lead genration
+2025-06-26 21:56:07,797 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Resume updated 1.docx
+2025-06-26 21:56:08,289 INFO tasks Processing resume email: Lead generation specialist resume
+2025-06-26 21:56:08,773 INFO tasks Processing resume email: Tanu resume
+2025-06-26 21:56:10,250 INFO tasks Processing resume email: Resume for Lead Generation Executive Role
+2025-06-26 21:56:10,252 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\ashtharesume.pdf
+2025-06-26 21:56:12,075 INFO tasks Processing resume email: Re: Resume for Lead Generation Executive Role
+2025-06-26 21:56:12,932 INFO tasks Processing resume email: =?UTF-8?Q?Grateful_for_the_Opportunity_=E2=80=93_Resume_Shared_for_L?=
+	=?UTF-8?Q?ead_Generation_Executive_Role_at_BharatCrest?=
+2025-06-26 21:56:12,939 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Arogiya CV-25-2.pdf
+2025-06-26 21:56:14,370 INFO tasks Processing resume email: =?UTF-8?Q?Re=3A_Grateful_for_the_Opportunity_=E2=80=93_Resume_Shared_f?=
+	=?UTF-8?Q?or_Lead_Generation_Executive_Role_at_BharatCrest?=
+2025-06-26 21:56:15,876 INFO tasks Processing resume email: Application for Front-end Developer Position
+2025-06-26 21:56:15,878 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Naresh Tak - Resume.pdf
+2025-06-26 21:56:46,161 INFO tasks Processing resume email: Application for Lead Generation Executive Position
+2025-06-26 21:56:47,137 INFO tasks Processing resume email: BELOW ATTACHED IS MY RESUME 
+2025-06-26 21:56:47,138 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\K ROHAN BM.pdf
+2025-06-26 21:56:51,561 INFO tasks Processing resume email: You have 66 new applicants for your job: Frontend Web Developer
+2025-06-26 21:56:52,077 INFO tasks Processing resume email: Frontend Developer Internship - Resume Submission
+2025-06-26 21:56:54,360 INFO tasks Processing resume email: Application for Front - End Developer
+2025-06-26 21:56:54,362 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Mayuri_Wasu.pdf
+2025-06-26 21:57:13,770 INFO tasks Processing resume email: Frontend web developer intern
+2025-06-26 21:57:14,996 INFO tasks Processing resume email: =?UTF-8?Q?Availability_for_Interview_=E2=80=93_Frontend_Web_Develope?=
+	=?UTF-8?Q?r_Intern_at_Bharatcrest?=
+2025-06-26 21:57:14,999 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\DOC-20250414-WA0013..pdf
+2025-06-26 21:57:16,003 INFO tasks Processing resume email: =?UTF-8?Q?Hi_there=2C_I_hope_you=27re_doing_well=21_I=27m_Saloni_Sharm?=
+	=?UTF-8?Q?a=2C_and_I=27m_reaching_out_to_apply_for_the_web_development_int?=
+	=?UTF-8?Q?ernship_at_Bharat_Crest_=28prod=40bharatcrest=2Ecom=29=2E_I=27m_really_p?=
+	=?UTF-8?Q?assionate_about_creating_things_for_the_web_and_have_hands=2Do?=
+	=?UTF-8?Q?n_experience_with_HTML=2C_CSS=2C_JavaScript=2C_and_React=2E_I=E2=80=99ve_a?=
+	=?UTF-8?Q?ttached_my_resume_for_your_review=2E_I=E2=80=99d_love_the_opportunit?=
+	=?UTF-8?Q?y_to_learn=2C_grow=2C_and_contribute_to_your_team=2E_Thanks_so_muc?=
+	=?UTF-8?Q?h_for_your_time=2C_and_I_hope_to_hear_from_you_soon=21_Best=2C_Sal?=
+	=?UTF-8?Q?oni_Sharma?=
+2025-06-26 21:57:20,314 INFO tasks Processing resume email: Job role of Frontend developer
+2025-06-26 21:57:20,351 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Bhoomi___Gupta.pdf
+2025-06-26 21:57:20,862 INFO tasks Processing resume email: Application for Frontend Web Developer Role
+2025-06-26 21:57:25,452 INFO tasks Processing resume email: =?UTF-8?Q?Resume_for_Frontend_Web_Developer_Role_=E2=80=93_Keshav_Ch?=
+	=?UTF-8?Q?andel?=
+2025-06-26 21:57:25,465 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\KeshavChandelResume4.pdf
+2025-06-26 21:57:54,603 INFO tasks Processing resume email: Re: Job role of Frontend developer
+2025-06-26 21:57:57,993 INFO tasks Processing resume email: =?UTF-8?Q?Re=3A_Availability_for_Interview_=E2=80=93_Frontend_Web_Deve?=
+	=?UTF-8?Q?loper_Intern_at_Bharatcrest?=
+2025-06-26 21:57:59,771 INFO tasks Processing resume email: Confirmation of Availability for Frontend development internship
+2025-06-26 21:57:59,781 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Milan-Singh-Frontend.pdf
+2025-06-26 21:58:00,313 INFO tasks Processing resume email: =?UTF-8?Q?Re=3A_Availability_for_Interview_=E2=80=93_Frontend_Web_Deve?=
+	=?UTF-8?Q?loper_Intern_at_Bharatcrest?=
+2025-06-26 21:58:00,323 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\DOC-20250414-WA0013..pdf
+2025-06-26 21:58:01,100 INFO tasks Processing resume email: Suraj Menon - Resume
+2025-06-26 21:58:01,116 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\cv.pdf
+2025-06-26 21:58:02,189 INFO tasks Processing resume email: =?UTF-8?Q?Resume_for_Remote_Frontend_Web_Developer_Intern_=E2=80=93_?=
+	=?UTF-8?Q?Rakesh_De?=
+2025-06-26 21:58:02,197 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\myresumeV12.pdf
+2025-06-26 21:58:03,277 INFO tasks Processing resume email: =?UTF-8?Q?Frontend_Web_Developer_Internship_=E2=80=93_Interview_Avai?=
+	=?UTF-8?Q?lability?=
+2025-06-26 21:58:03,282 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Ravi Bhaskar Resume.pdf
+2025-06-26 21:58:05,583 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-26 21:58:07,718 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-26 21:58:08,459 INFO tasks Processing resume email: Thank you for applying for AWS Activate Founders credits
+2025-06-26 21:58:15,930 INFO tasks Processing resume email: Application for web development internship
+2025-06-26 21:58:15,933 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\SindhuraH.pdf
+2025-06-26 21:58:18,738 INFO tasks Processing resume email: Hiring? Post a Job for FREE on Naukri Today!
+2025-06-26 21:58:19,974 INFO tasks Processing resume email: Post a Job For Free on Naukri & Hire Local Talent Fast
+2025-06-26 21:58:23,656 INFO tasks Processing resume email: Your job, Frontend Web Developer, has been closed
+2025-06-26 21:58:26,095 INFO tasks Processing resume email: Welcome to Resume.io - your job search champion
+2025-06-26 21:58:34,544 INFO tasks Processing resume email: Resume
+2025-06-26 21:58:34,547 INFO tasks Saved resume: C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\media\resumes\Riya Shukla.pdf
+2025-06-26 21:58:37,016 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:37,017 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:37,195 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:37,196 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:37,925 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:37,926 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:37,926 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:38,218 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:38,218 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:38,219 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:39,863 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:39,864 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:40,216 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:40,217 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:40,620 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:40,623 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:40,624 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:41,651 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:41,652 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:41,653 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:42,035 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:42,144 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:43,239 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:43,241 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:43,458 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:43,459 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:43,811 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:43,814 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:43,816 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:44,180 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:44,181 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:44,181 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:45,073 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:45,075 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:45,196 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:45,198 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:45,882 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:46,218 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:51,074 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:51,076 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:56,926 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:56,927 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:57,956 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:58,174 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:59,857 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:58:59,860 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:00,084 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:00,096 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:01,925 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:01,926 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:02,397 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:02,398 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:04,460 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:05,573 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:05,963 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:06,297 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:07,232 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:07,481 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:07,924 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:08,252 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:09,168 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:09,536 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:11,172 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:11,902 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:12,291 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:12,480 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:13,526 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:13,528 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:13,821 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:13,822 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:14,274 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:14,614 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:15,530 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:15,533 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:16,410 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-26 21:59:16,412 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
+2025-06-29 16:44:21,548 INFO autoreload Watching for file changes with StatReloader
+2025-06-29 16:44:48,792 WARNING log Not Found: /favicon.ico
+2025-06-29 16:45:37,901 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-06-29 16:45:51,525 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json

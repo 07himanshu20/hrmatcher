@@ -13,61 +13,243 @@
     
     <!-- Custom CSS -->
     <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+        :root {
+            --primary-bg: #f8f9fa;
+            --primary-text: #212529;
+            --card-bg: #fff;
+            --card-shadow: 0 4px 24px 0 rgba(13,110,253,0.07), 0 1.5px 4px 0 rgba(0,0,0,0.03);
+            --navbar-bg: #f8f9fa;
+            --footer-bg: #343a40;
+            --footer-text: #f8f9fa;
+            --input-bg: #fff;
+            --input-border: #e3e6f0;
+            --btn-primary-bg: linear-gradient(90deg, #0d6efd 70%, #6ea8fe 100%);
+            --btn-primary-hover: linear-gradient(90deg, #0b5ed7 70%, #5a9bf6 100%);
+            --btn-primary-text: #fff;
+            --btn-light-bg: rgba(255, 255, 255, 0.1);
+            --btn-light-text: rgba(255, 255, 255, 0.9);
+            --badge-success-bg: linear-gradient(90deg, #198754 70%, #43e97b 100%);
+            --badge-danger-bg: linear-gradient(90deg, #dc3545 70%, #ff758c 100%);
+            --badge-warning-bg: linear-gradient(90deg, #ffc107 70%, #ffe259 100%);
         }
-        main {
-            flex: 1 0 auto;
-            display: flex;
-            flex-direction: column;
+        html, body {
+            background: var(--primary-bg) !important;
+            color: var(--primary-text) !important;
+        }
+        body, .container, .main-title, .subtitle, .form-label, .form-control, .form-select, .card, .card-header, .card-body, .footer, .navbar, .btn, .badge {
+            transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+        .navbar, .navbar-expand-lg {
+            background: rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: blur(14px) brightness(0.91);
+            -webkit-backdrop-filter: blur(14px) brightness(0.91);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            box-shadow:
+                0 8px 32px 0 rgba(31, 38, 135, 0.4),
+                0 4px 24px 0 rgba(13, 110, 253, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+            margin-top: 10px;
+            width: 98%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 12px 24px;
+            position: relative;
+            overflow: visible;
+            z-index: 1050;
+        }
+        
+        /* Enhanced glass surface effect */
+        .navbar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.2) 0%, 
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0.05) 100%);
+            border-radius: 20px;
+            pointer-events: none;
+        }
+        
+        /* Additional glass reflection */
+        .navbar::after {
+            content: '';
+            position: absolute;
+            top: 1px;
+            left: 20%;
+            right: 20%;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.6) 50%, 
+                transparent 100%);
+            pointer-events: none;
+        }
+        
+        /* Enhanced navbar brand for true glassmorphism */
+        .navbar-brand {
+            color: rgba(255, 255, 255, 1) !important;
+            font-weight: 700 !important;
+            font-size: 1.25rem !important;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 3;
+        }
+        
+        /* Enhanced navbar content with better contrast */
+        .navbar-nav .nav-link {
+            position: relative;
+            z-index: 3;
+            color: #495057 !important;
+            font-size: 1.25rem !important;
+            font-weight: 500 !important;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+            transition: all 0.3s ease !important;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: #0d6efd !important;
+            transform: translateY(-1px);
+        }
+        
+        .navbar-nav .dropdown-toggle {
+            color: #495057 !important;
+            font-size: 0.875rem !important;
+            font-weight: 500 !important;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+            z-index: 3;
+            position: relative;
+        }
+        
+        .navbar-toggler {
+            position: relative;
+            z-index: 3;
+            border: 1px solid rgba(13, 110, 253, 0.3) !important;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Enhanced uiverse buttons for glassmorphism */
+        .navbar .uiverse-btn {
+            background: transparent !important;
+            color: #dde1e7 !important;
+            padding: 8px 16px !important;
+            font-size: 1.1rem !important;
+            font-weight: 500 !important;
+            backdrop-filter: none;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease !important;
+            position: relative;
+            z-index: 3;
+            border: 1px solid transparent !important;
+        }
+        
+        .navbar .uiverse-btn:hover {
+            background: rgba(255, 255, 255, 0.15) !important;
+            color: rgba(255, 255, 255, 1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: blur(10px);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
         .footer {
-            background-color: #343a40;
-            color: #f8f9fa;
-            padding: 1.5rem 0;
-            margin-top: 3rem;
-            flex-shrink: 0;
-            width: 100%;
+            background-color: var(--footer-bg) !important;
+            color: var(--footer-text) !important;
         }
-        /* Sticky footer only when .footer-sticky is present */
-        .footer-sticky {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            margin-top: 0 !important;
-            z-index: 100;
+        .card, .search-card, #results-col .card {
+            background: var(--card-bg) !important;
+            box-shadow: var(--card-shadow) !important;
+        }
+        .card-header {
+            background: var(--btn-primary-bg) !important;
+            color: var(--btn-primary-text) !important;
+        }
+        .form-control, .form-select {
+            background: var(--input-bg) !important;
+            border-color: var(--input-border) !important;
+            color: var(--primary-text) !important;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--btn-light-text) !important;
+            background: var(--input-bg) !important;
+            color: var(--primary-text) !important;
+        }
+        .btn-primary {
+            background: var(--btn-primary-bg) !important;
+            color: var(--btn-primary-text) !important;
+            border: none;
+        }
+        .btn-primary:hover, .btn-primary:focus {
+            background: var(--btn-primary-hover) !important;
+            color: var(--btn-primary-text) !important;
+        }
+        .btn-light {
+            background: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(10px) !important;
+            color: rgba(255, 255, 255, 0.9) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+        }
+        .btn-light:hover {
+            background: rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: blur(15px) !important;
+            color: rgba(255, 255, 255, 1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+        }
+        .badge.bg-success {
+            background: var(--badge-success-bg) !important;
+            color: #fff !important;
+        }
+        .badge.bg-danger {
+            background: var(--badge-danger-bg) !important;
+            color: #fff !important;
+        }
+        .badge.bg-warning {
+            background: var(--badge-warning-bg) !important;
+            color: #212529 !important;
         }
         .uiverse-btn {
             border: 2px solid transparent;
-            border-radius: 0.5rem;
+            border-radius: 1rem;
             transition: background 0.2s, color 0.2s, border-color 0.2s;
+            color: var(--btn-light-text) !important;
             padding: 0.4rem 1rem;
             font-weight: 500;
-         }
+            background: transparent;
+            font-size: 1.15rem;
+        }
         .uiverse-btn:hover, .uiverse-btn:focus {
-            background: #0d6efd !important;
+            background: var(--btn-primary-bg) !important;
             color: #fff !important;
-            border-color: #0d6efd;
+            border-color: var(--btn-primary-bg);
             text-decoration: none;
         }
-
+        .btn-theme-toggle, .btn-theme-toggle:hover, .btn-theme-toggle:focus {
+            display: none !important;
+        }
+        .navbar-nav.mx-auto {
+            margin-left: auto !important;
+            margin-right: auto !important;
+            justify-content: center !important;
+            width: 75%;
+            display: flex !important;
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
+        }
         @media (max-width: 991.98px) {
-            .navbar-collapse {
-                text-align: center;
-            }
             .navbar-nav.mx-auto {
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-                justify-content: center !important;
-                width: 100%;
-                display: flex !important;
                 flex-direction: column;
                 align-items: center;
+                width: 100%;
                 gap: 0.5rem;
             }
             .navbar-nav.mx-auto .nav-item {
@@ -76,15 +258,160 @@
             .navbar-nav.mx-auto .nav-link.uiverse-btn {
                 width: 100%;
                 display: inline-block;
+                text-align: center;
+            }
+            /* Center the main nav buttons */
+            .navbar-nav.mx-auto {
+                justify-content: center !important;
+            }
+            /* Move user dropdown/login to right in mobile */
+            .navbar-nav.ms-auto {
+                width: 100%;
+                justify-content: flex-end !important;
+                flex-direction: row !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            .navbar-nav.ms-auto .nav-item.dropdown,
+            .navbar-nav.ms-auto > a.nav-link {
+                margin-left: auto;
             }
         }
+        
+        /* Glassmorphism for outline buttons and other variants */
+        .btn-outline-primary, .btn-outline-secondary, .btn-outline-light, .btn-outline-dark {
+            background: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(10px) !important;
+            color: rgba(255, 255, 255, 0.9) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+        }
+        .btn-outline-primary:hover, .btn-outline-secondary:hover, .btn-outline-light:hover, .btn-outline-dark:hover {
+            background: rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: blur(15px) !important;
+            color: rgba(255, 255, 255, 1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        /* General button glassmorphism fallback */
+        .btn:not(.btn-primary):not(.uiverse-btn) {
+            background: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(10px) !important;
+            color: rgba(255, 255, 255, 0.9) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+            transition: all 0.3s ease !important;
+        }
+        .btn:not(.btn-primary):not(.uiverse-btn):hover {
+            background: rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: blur(15px) !important;
+            color: rgba(255, 255, 255, 1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        /* Dropdown menu glassmorphism styling */
+        .dropdown-menu {
+            background: rgba(255, 255, 255, 0.15) !important;
+            backdrop-filter: blur(15px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            border-radius: 12px !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+            z-index: 1055 !important;
+            margin-top: 8px !important;
+        }
+        
+        .dropdown-item {
+            color: rgba(255, 255, 255, 0.9) !important;
+            background: transparent !important;
+            padding: 8px 16px !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .dropdown-item:hover, .dropdown-item:focus {
+            background: rgba(255, 255, 255, 0.2) !important;
+            color: rgba(255, 255, 255, 1) !important;
+            transform: translateX(2px) !important;
+        }
+        
+        .dropdown-divider {
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            margin: 4px 0 !important;
+        }
+        
+        /* Mobile navbar improvements */
+        @media (max-width: 991.98px) {
+            .navbar, .navbar-expand-lg {
+                background: rgba(255, 255, 255, 0.25) !important;
+                backdrop-filter: blur(20px) brightness(0.85) !important;
+                border: 2px solid rgba(255, 255, 255, 0.3) !important;
+                box-shadow:
+                    0 8px 32px 0 rgba(31, 38, 135, 0.5),
+                    0 4px 24px 0 rgba(13, 110, 253, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                    inset 0 -1px 0 rgba(255, 255, 255, 0.2) !important;
+                margin: 8px auto !important;
+                width: 96% !important;
+                padding: 16px 20px !important;
+            }
+            
+            .navbar-brand {
+                color: rgba(255, 255, 255, 1) !important;
+                font-weight: 700 !important;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+            }
+            
+            .navbar-toggler {
+                border: 2px solid rgba(255, 255, 255, 0.4) !important;
+                background: rgba(255, 255, 255, 0.15) !important;
+                backdrop-filter: blur(10px) !important;
+            }
+            
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+            }
+            
+            /* Mobile collapsed menu styling */
+            .navbar-collapse {
+                background: rgba(255, 255, 255, 0.1) !important;
+                backdrop-filter: blur(15px) !important;
+                border-radius: 12px !important;
+                margin-top: 12px !important;
+                padding: 16px !important;
+                border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            }
+            
+            /* Mobile nav links */
+            .navbar-nav .nav-link {
+                color: rgba(255, 255, 255, 0.95) !important;
+                font-weight: 600 !important;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+                padding: 12px 16px !important;
+                margin: 4px 0 !important;
+                border-radius: 8px !important;
+                background: rgba(255, 255, 255, 0.05) !important;
+                border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            }
+            
+            .navbar-nav .nav-link:hover {
+                background: rgba(255, 255, 255, 0.15) !important;
+                color: rgba(255, 255, 255, 1) !important;
+                transform: translateX(4px) !important;
+                border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            }
+        }
+        
+        /* End of mobile navbar styles */
     </style>
     
     {% block extra_head %}{% endblock extra_head %}
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg" style="background: #f8f9fa; box-shadow: 0 2px 10px rgba(0,0,0,0.07);">
+    <nav class="navbar navbar-expand-lg" style="background: var(--navbar-bg); box-shadow: 0 2px 10px rgba(0,0,0,0.07);">
         <div class="container-fluid px-4">
             <a class="navbar-brand fw-bold text-primary" href="/">
                 <i class="bi bi-file-person-fill me-2"></i>HR Resume Matcher
@@ -96,46 +423,47 @@
                 <ul class="navbar-nav mx-auto gap-3">
                     <li class="nav-item">
                         <a class="nav-link uiverse-btn" href="/">
-                            <i class="bi bi-house-door me-1"></i>Home
+                            Home
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link uiverse-btn" href="{% url 'resume_matcher' %}">
-                            <i class="bi bi-search me-1"></i>Resume Matcher
+                            Resume Matcher
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link uiverse-btn" href="{% url 'email_config' %}">
-                            <i class="bi bi-gear me-1"></i>Email Settings
+                            Email Settings
                         </a>
                     </li>
                 </ul>
-                <div class="navbar-nav">
+                <div class="navbar-nav ms-auto d-flex align-items-center gap-2">
                     {% if user.is_authenticated %}
-                        <div class="nav-item dropdown text-end">
-                            <a class="nav-link dropdown-toggle text-primary" href="#" id="userDropdown" role="button" 
-                               data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-circle me-1"></i>{{ user.username }}
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                <li>
-                                    <a class="dropdown-item" href="{% url 'admin:index' %}">
-                                        <i class="bi bi-speedometer2 me-1"></i>Admin
-                                    </a>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li>
-                                    <a class="dropdown-item" href="{% url 'logout' %}">
-                                        <i class="bi bi-box-arrow-right me-1"></i>Logout
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    {% else %}
-                        <a class="nav-link text-primary" href="{% url 'login' %}">
-                            <i class="bi bi-box-arrow-in-right me-1"></i>Login
+                    <div class="nav-item dropdown text-end">
+                        <a class="nav-link dropdown-toggle text-primary" href="#" id="userDropdown" role="button" 
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle"></i> {{ user.username }}
                         </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li>
+                                <a class="dropdown-item" href="{% url 'admin:index' %}">
+                                    <i class="bi bi-speedometer2 me-1"></i>Admin
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'logout' %}">
+                                    <i class="bi bi-box-arrow-right me-1"></i>Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    {% else %}
+                    <a class="nav-link text-primary" href="{% url 'login' %}">
+                        <i class="bi bi-box-arrow-in-right"></i> Login
+                    </a>
                     {% endif %}
+                    <!-- Theme toggler removed -->
                 </div>
             </div>
         </div>

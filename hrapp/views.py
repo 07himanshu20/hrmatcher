@@ -123,53 +123,52 @@ def match_resumes(request):
         
         resume_dir = os.path.join(settings.MEDIA_ROOT, 'resumes')
         results = []
-
-        MAX_RESUMES = 5  # Set your desired limit here
-
-        # List and sort resumes (optional: by newest first)
-        all_resumes = [f for f in os.listdir(resume_dir) if f.lower().endswith(('.pdf', '.docx'))]
-        all_resumes = sorted(all_resumes, key=lambda x: os.path.getmtime(os.path.join(resume_dir, x)), reverse=True)
-        limited_resumes = all_resumes[:MAX_RESUMES]
-
-        for filename in limited_resumes:
-            filepath = os.path.join(resume_dir, filename)
-            try:
-                text = extract_text_from_resume(filepath)
-                if not text:
-                    continue
-
-                # Use Gemini with fallback
-                candidate_data = extract_skills_with_gemini(text, skills)
-
-                ats_score = calculate_ats_score(
-                    resume_text=text,
-                    job_requirements={
-                        'required_skills': skills,
-                        'min_experience': min_experience,
-                        'job_title_keywords': [position],
-                        'preferred_skills': []
-                    }
-                )
-                if ats_score['matched_skills']:
-                    results.append({
-                        'name': candidate_data['name'],
-                        'score': ats_score['total_score'],
-                        'matched_skills': ats_score['matched_skills'],
-                        'missing_skills': ats_score['missing_skills'],
-                        'experience': candidate_data['experience'],
-                        'email': candidate_data['email'],
-                        'phone': candidate_data['phone'],
-                        'filename': filename,
-                        'resume_url': os.path.join(settings.MEDIA_URL, 'resumes', filename).replace('\\', '/'),
+        
+        for filename in os.listdir(resume_dir):
+            if filename.lower().endswith(('.pdf', '.docx')):
+                filepath = os.path.join(resume_dir, filename)
+                
+                try:
+                    text = extract_text_from_resume(filepath)
+                    if not text:
+                        continue
+                        
+                    # Use Gemini with fallback
+                    candidate_data = extract_skills_with_gemini(text, skills)
+                    
+                    ats_score = calculate_ats_score(
+                        resume_text=text,
+                        job_requirements={
+                            'required_skills': skills,
+                            'min_experience': min_experience,
+                            'job_title_keywords': [position],
+                            'preferred_skills': []
+                        }
+                    )
+                    if ats_score['matched_skills']:  # This checks if the list is not empty
+                        results.append({
+                            'name': candidate_data['name'],
+                            'score': ats_score['total_score'],
+                            'matched_skills': ats_score['matched_skills'],
+                            'missing_skills': ats_score['missing_skills'],
+                            'experience': candidate_data['experience'],
+                            #'email': candidate_data.get('email', ''),
+                            #'phone': candidate_data.get('phone', ''),
+                            'email': candidate_data['email'],
+                            'phone': candidate_data['phone'],
+                            
+                            
+                            'filename': filename,
+                            'resume_url': os.path.join(settings.MEDIA_URL, 'resumes', filename).replace('\\', '/'),
                     })
-
-            except Exception as e:
-                logger.error(f"Error processing {filename}: {str(e)}")
-                continue
-
+                    
+                except Exception as e:
+                    logger.error(f"Error processing {filename}: {str(e)}")
+                    continue
+        
         results.sort(key=lambda x: x['score'], reverse=True)
         return JsonResponse(results, safe=False)
-
+        
     except Exception as e:
         logger.error(f"Match resumes error: {str(e)}", exc_info=True)
         return JsonResponse({'error': str(e)}, status=500)
