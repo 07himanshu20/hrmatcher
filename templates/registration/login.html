@@ -5,85 +5,278 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body { 
-            background: #f5f6fa; 
+            background: linear-gradient(135deg, #458cf7 0%, #578bd8 40%, #e3e7f0 100%);
             min-height: 100vh; 
             margin: 0;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
+        
         .form {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            max-width: 400px;
-            width: 90vw;
-            margin: 3rem auto;
+            background: rgba(255, 255, 255, 0.25);
+            padding: 1rem 9rem;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 2rem;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                0 4px 16px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            width: 40vw;
         }
+        
+        .form h2 {
+            color: #ffffff;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
         .inputForm {
-            display: flex;
-            align-items: center;
-            border: 1px solid #ddd;
-            border-radius: 0.5rem;
-            padding: 0.5rem;
-            margin-bottom: 1rem;
-            background: #fafbfc;
+            position: relative;
+            margin-bottom: 2rem;
         }
+        
         .input {
+            width: 100%;
             border: none;
             outline: none;
-            background: transparent;
-            flex: 1;
-            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.2rem 1.5rem;
+            border-radius: 15px;
             font-size: 1rem;
+            color: #2d3748;
+            box-shadow: 
+                inset 3px 3px 8px rgba(69, 140, 247, 0.1),
+                inset -3px -3px 8px rgba(255, 255, 255, 0.9),
+                0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
+        
+        .input::placeholder {
+            color: #718096;
+            font-weight: 400;
+        }
+        
+        .input:focus {
+            box-shadow: 
+                inset 2px 2px 6px rgba(69, 140, 247, 0.2),
+                inset -2px -2px 6px rgba(255, 255, 255, 0.95),
+                0 0 0 3px rgba(69, 140, 247, 0.2),
+                0 4px 12px rgba(0, 0, 0, 0.15);
+            border-color: rgba(69, 140, 247, 0.4);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .password-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .password-container .input {
+            padding-right: 3.5rem;
+        }
+        
+        .password-toggle {
+            position: absolute;
+            right: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        
+        .password-toggle:hover {
+            background: rgba(69, 140, 247, 0.15);
+        }
+        
         .button-submit {
             width: 100%;
-            background: #007bff;
-            color: #fff;
+            background: linear-gradient(135deg, #458cf7 0%, #578bd8 100%);
+            color: #ffffff;
             border: none;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            font-size: 1rem;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 1rem 0 2rem 0;
+            cursor: pointer;
+            box-shadow: 
+                0 8px 20px rgba(69, 140, 247, 0.4),
+                0 4px 10px rgba(69, 140, 247, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
-        .btn.google, .btn.apple {
-            width: 48%;
-            margin-right: 2%;
+        
+        .button-submit:hover {
+            background: linear-gradient(135deg, #3b7ae6 0%, #4a7bc7 100%);
+            box-shadow: 
+                0 12px 24px rgba(69, 140, 247, 0.5),
+                0 6px 12px rgba(69, 140, 247, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
-        .btn.apple { margin-right: 0; }
+        
+        .button-submit:active {
+            transform: translateY(0);
+            box-shadow: 
+                0 4px 12px rgba(69, 140, 247, 0.4),
+                0 2px 6px rgba(69, 140, 247, 0.2),
+                inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
         .flex-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
         }
+        
         .flex-column {
-            margin-bottom: 0.25rem;
+            display: none; /* Hide labels for cleaner look */
         }
-        .span {
-            color: #007bff;
+        
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        
+        .checkbox-container input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 
+                inset 2px 2px 4px rgba(69, 140, 247, 0.1),
+                inset -2px -2px 4px rgba(255, 255, 255, 0.9),
+                0 1px 3px rgba(0, 0, 0, 0.1);
             cursor: pointer;
+            position: relative;
+            appearance: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
-        .p.line {
+        
+        .checkbox-container input[type="checkbox"]:checked {
+            background: linear-gradient(135deg, #458cf7 0%, #578bd8 100%);
+            box-shadow: 
+                0 2px 6px rgba(69, 140, 247, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        
+        .checkbox-container input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        
+        .checkbox-container label {
+            color: #ffffff;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            font-weight: 500;
+        }
+        
+        .span {
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            font-weight: 500;
+        }
+        
+        .span:hover {
+            color: #357de7;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .p {
             text-align: center;
-            margin: 1rem 0 0.5rem 0;
-            color: #888;
+            color: #ffffff;
+            font-size: 0.95rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            font-weight: 500;
         }
+        
         @media (max-width: 500px) {
             .form {
-                padding: 1rem;
-                border-radius: 0.5rem;
-                max-width: 98vw;
+                padding: 2.5rem 2rem;
+                border-radius: 20px;
+                max-width: 95vw;
+                box-shadow: 
+                    0 12px 24px rgba(0, 0, 0, 0.2),
+                    0 6px 12px rgba(0, 0, 0, 0.1),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
             }
+            
+            .form h2 {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+            }
+            
             .input {
                 font-size: 0.95rem;
+                padding: 1rem 1.2rem;
+                border-radius: 12px;
             }
+            
             .button-submit {
-                font-size: 0.95rem;
+                font-size: 1rem;
+                padding: 1rem 1.5rem;
+                border-radius: 12px;
+                margin: 2rem 0 1.5rem 0;
+            }
+            
+            .flex-row {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .checkbox-container {
+                gap: 0.5rem;
+            }
+            
+            .checkbox-container input[type="checkbox"] {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .checkbox-container label,
+            .span,
+            .p {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -91,6 +284,7 @@
 <body>
     <form class="form" method="post">
         {% csrf_token %}
+        <h2>Sign in</h2>
         <div class="flex-column">
             <label>Email</label>
         </div>
@@ -100,20 +294,20 @@
         <div class="flex-column">
             <label>Password</label>
         </div>
-        <div class="inputForm">
+        <div class="inputForm password-container">
             <input type="password" class="input" placeholder="Enter your Password" name="password" id="password" required>
-            <button type="button" class="btn btn-sm" onclick="togglePassword()" tabindex="-1" style="margin-left:8px;">
+            <button type="button" class="password-toggle" onclick="togglePassword()" tabindex="-1">
                 <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24">
-                    <path id="eyeOpen" d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12zm11 3a3 3 0 100-6 3 3 0 000 6z" stroke="#333" stroke-width="2" fill="none"/>
+                    <path id="eyeOpen" d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12zm11 3a3 3 0 100-6 3 3 0 000 6z" stroke="#9ca3af" stroke-width="2" fill="none"/>
                     <g id="eyeClosed" style="display:none">
-                        <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" stroke="#333" stroke-width="2" fill="none"/>
-                        <line x1="4" y1="4" x2="20" y2="20" stroke="#333" stroke-width="2"/>
+                        <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" stroke="#9ca3af" stroke-width="2" fill="none"/>
+                        <line x1="4" y1="4" x2="20" y2="20" stroke="#9ca3af" stroke-width="2"/>
                     </g>
                 </svg>
             </button>
         </div>
         <div class="flex-row">
-            <div>
+            <div class="checkbox-container">
                 <input type="checkbox" id="remember" name="remember">
                 <label for="remember">Remember me</label>
             </div>

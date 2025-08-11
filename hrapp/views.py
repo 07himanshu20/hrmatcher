@@ -109,11 +109,30 @@ def match_resumes(request):
     try:
         
         #accessing resumes from the email 
-        # First fetch new resumes from email
+        # First fetch new resumes from email with date filtering
         from .tasks import fetch_resumes_from_email
-        resume_files = fetch_resumes_from_email(request.user.id)
         
-        if not resume_files:
+        # Get date filter parameters
+        date_from = request.POST.get('date_from', '').strip()
+        date_to = request.POST.get('date_to', '').strip()
+        
+        # Check if date filtering is being used
+        date_filtering_applied = bool(date_from or date_to)
+        
+        # Pass date filters to the email fetching task if they are provided
+        if date_filtering_applied:
+            resume_files = fetch_resumes_from_email(request.user.id, date_from, date_to)
+            logger.info(f"Date filtering applied: from={date_from}, to={date_to}")
+            
+            # If date filtering is applied and no new emails found, return empty results
+            if not resume_files:
+                logger.info("No new resumes found in email for the specified date range")
+                return JsonResponse([], safe=False)
+        else:
+            resume_files = fetch_resumes_from_email(request.user.id)
+            logger.info("No date filtering applied - processing all emails")
+        
+        if not resume_files and not date_filtering_applied:
             logger.info("No new resumes found in email")
         
         
@@ -124,47 +143,49 @@ def match_resumes(request):
         resume_dir = os.path.join(settings.MEDIA_ROOT, 'resumes')
         results = []
         
-        for filename in os.listdir(resume_dir):
-            if filename.lower().endswith(('.pdf', '.docx')):
-                filepath = os.path.join(resume_dir, filename)
-                
-                try:
-                    text = extract_text_from_resume(filepath)
-                    if not text:
-                        continue
+        # Only process existing resumes if no date filtering is applied OR if new emails were found
+        if not date_filtering_applied or resume_files:
+            for filename in os.listdir(resume_dir):
+                if filename.lower().endswith(('.pdf', '.docx')):
+                    filepath = os.path.join(resume_dir, filename)
+                    
+                    try:
+                        text = extract_text_from_resume(filepath)
+                        if not text:
+                            continue
+                            
+                        # Use Gemini with fallback
+                        candidate_data = extract_skills_with_gemini(text, skills)
                         
-                    # Use Gemini with fallback
-                    candidate_data = extract_skills_with_gemini(text, skills)
-                    
-                    ats_score = calculate_ats_score(
-                        resume_text=text,
-                        job_requirements={
-                            'required_skills': skills,
-                            'min_experience': min_experience,
-                            'job_title_keywords': [position],
-                            'preferred_skills': []
-                        }
-                    )
-                    if ats_score['matched_skills']:  # This checks if the list is not empty
-                        results.append({
-                            'name': candidate_data['name'],
-                            'score': ats_score['total_score'],
-                            'matched_skills': ats_score['matched_skills'],
-                            'missing_skills': ats_score['missing_skills'],
-                            'experience': candidate_data['experience'],
-                            #'email': candidate_data.get('email', ''),
-                            #'phone': candidate_data.get('phone', ''),
-                            'email': candidate_data['email'],
-                            'phone': candidate_data['phone'],
-                            
-                            
-                            'filename': filename,
-                            'resume_url': os.path.join(settings.MEDIA_URL, 'resumes', filename).replace('\\', '/'),
-                    })
-                    
-                except Exception as e:
-                    logger.error(f"Error processing {filename}: {str(e)}")
-                    continue
+                        ats_score = calculate_ats_score(
+                            resume_text=text,
+                            job_requirements={
+                                'required_skills': skills,
+                                'min_experience': min_experience,
+                                'job_title_keywords': [position],
+                                'preferred_skills': []
+                            }
+                        )
+                        if ats_score['matched_skills']:  # This checks if the list is not empty
+                            results.append({
+                                'name': candidate_data['name'],
+                                'score': ats_score['total_score'],
+                                'matched_skills': ats_score['matched_skills'],
+                                'missing_skills': ats_score['missing_skills'],
+                                'experience': candidate_data['experience'],
+                                #'email': candidate_data.get('email', ''),
+                                #'phone': candidate_data.get('phone', ''),
+                                'email': candidate_data['email'],
+                                'phone': candidate_data['phone'],
+                                
+                                
+                                'filename': filename,
+                                'resume_url': os.path.join(settings.MEDIA_URL, 'resumes', filename).replace('\\', '/'),
+                        })
+                        
+                    except Exception as e:
+                        logger.error(f"Error processing {filename}: {str(e)}")
+                        continue
         
         results.sort(key=lambda x: x['score'], reverse=True)
         return JsonResponse(results, safe=False)

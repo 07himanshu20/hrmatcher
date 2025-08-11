@@ -10,9 +10,8 @@
     
     /* Dynamic background: only behind main content, not navbar/footer */
     #background-canvas {
-        position: absolute;
-        right: 0;
-        right:0;
+        position: fixed;
+        left: 0;
         top: 0;
         width: 100%;
         height: 100%;
@@ -24,10 +23,18 @@
     /* Ensure main content is positioned relative for absolute canvas */
     .main-content-particles {
         position: relative;
-        width: 100vw;
-        min-height: 100vh;
+        width: 100%;
+        min-height: 100%;
+        padding-top: 2rem; /* Add top padding to prevent navbar overlap */
         padding-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
     }
+    /* Body scroll adjustments */
+    body {
+        overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+
     .main-title {
         font-weight: 700;
         letter-spacing: 1px;
@@ -66,7 +73,8 @@
         gap: 0.7rem;
         text-align: center;
         border-radius: 2rem 2rem 0 0;
-        padding: 2.5rem 2rem 1.5rem 2rem;
+        padding: 1rem 2rem 2rem 2rem;
+        margin-bottom: 0.5rem;
         position: relative;
     }
     #results-col .card-header .main-title {
@@ -286,10 +294,153 @@
             0 8px 32px rgba(0, 0, 0, 0.25),
             0 4px 16px rgba(0, 0, 0, 0.15),
             inset 0 1px 0 rgba(255, 255, 255, 0.15);
-        margin-bottom: 1.5rem;
         background: rgba(255, 255, 255, 0.08) !important;
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
+        height: 320px !important; /* Fixed height for all cards */
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: hidden !important;
+    }
+    
+    /* Flexible card body */
+    .result-card .card-body {
+        height: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 1.5rem !important;
+        overflow: visible !important; /* Allow content to flow naturally */
+    }
+    
+    /* Card title with proper ellipsis for long names */
+    .result-card .card-title {
+        margin-bottom: 0.5rem !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important; /* Keep single line for consistency */
+        font-size: 1.1rem !important;
+        line-height: 1.3 !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* Progress bar styling */
+    .result-card .progress {
+        height: 10px !important;
+        margin-bottom: 1rem !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* Content area with controlled height and scrolling */
+    .result-card .content-area {
+        height: 180px !important; /* Fixed height for content area */
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        flex-grow: 1 !important;
+        flex-shrink: 0 !important;
+        margin-bottom: 1rem !important;
+        padding-right: 8px !important; /* Space for scrollbar */
+    }
+    
+    /* Custom scrollbar styling */
+    .result-card .content-area::-webkit-scrollbar {
+        width: 4px !important;
+    }
+    
+    .result-card .content-area::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1) !important;
+        border-radius: 2px !important;
+    }
+    
+    .result-card .content-area::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3) !important;
+        border-radius: 2px !important;
+    }
+    
+    .result-card .content-area::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.5) !important;
+    }
+    
+    /* Ensure sections have consistent spacing */
+    .result-card .candidate-experience,
+    .result-card .candidate-email,
+    .result-card .candidate-phone {
+        margin-bottom: 0.75rem !important;
+        word-wrap: break-word !important;
+    }
+    
+    .result-card .matched-skills,
+    .result-card .missing-skills {
+        margin-bottom: 0.75rem !important;
+    }
+    
+    /* Fixed button area at bottom */
+    .result-card .mt-auto {
+        flex-shrink: 0 !important;
+        margin-top: auto !important;
+    }
+
+    /* Grid layout improvements */
+    #results-container .row {
+        margin: 0 -0.75rem; /* Adjust for Bootstrap grid gaps */
+        row-gap: 1.5rem; /* Consistent vertical spacing between rows */
+    }
+    
+    #results-container .col-md-6 {
+        padding: 0 0.75rem;
+    }
+
+    /* Ensure grid cards maintain consistent height */
+    .result-card.h-100 {
+        height: 320px !important; /* Match the base result-card height exactly */
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        #results-container .row {
+            row-gap: 0.5rem;
+        }
+        .result-card,
+        .result-card.h-100 {
+            height: 280px !important; /* Slightly smaller but still fixed height on mobile */
+        }
+        .result-card .content-area {
+            height: 140px !important; /* Adjust content area for mobile */
+            overflow-y: auto !important;
+        }
+        
+        /* Stack columns vertically on mobile */
+        .result-card .row {
+            flex-direction: column;
+        }
+        .result-card .col-md-6 {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Responsive adjustments for header and search card spacing */
+        .search-card {
+            margin-top: 1rem;
+        }
+        
+        .header-search-wrapper.search-active {
+            transform: translateY(-60px);
+        }
+        
+        .card-header, .card-header {
+            padding: 1rem 1.5rem 2.5rem 1.5rem;
+        }
+    }
+    @media (max-width: 576px) {
+        .search-card {
+            margin-top: 1.5rem;
+        }
+        
+        .header-search-wrapper.search-active {
+            transform: translateY(-50px);
+        }
+        
+        .card-header, .card-header {
+            padding: 1.5rem 1rem 2rem 1rem;
+        }
     }
     @keyframes fadeInUp {
         to {
@@ -318,13 +469,14 @@
         transition: transform 0.2s;
     }
     .badge.bg-success {
-        background: linear-gradient(90deg, #198754 70%, #43e97b 100%);
+        background: rgba(40, 167, 69, 0.8);
         color: #fff;
     }
     .badge.bg-danger {
-        background: linear-gradient(90deg, #dc3545 70%, #ff758c 100%);
+        background: rgba(220, 53, 69, 0.8);
         color: #fff;
     }
+
     .badge.bg-warning {
         background: linear-gradient(90deg, #ffc107 70%, #ffe259 100%);
         color: #212529;
@@ -343,7 +495,7 @@
         display: inline-block;
         font-size: 1.3rem;
         font-weight: 600;
-        background: linear-gradient(90deg, #0d6efd 0%, #6ea8fe 40%, #e3e6f0 60%, #0d6efd 100%);
+        background: #ffffff;
         background-size: 200% auto;
         color: #fff;
         background-clip: text;
@@ -393,24 +545,9 @@
         font-weight: 500;
         border-width: 1.5px;
         margin-top: 0.5rem;
-    }    /* Make search card compact */
-    .search-card {
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 2rem;
-        box-shadow: 
-            0 8px 32px rgba(0, 0, 0, 0.25),
-            0 4px 16px rgba(0, 0, 0, 0.15),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        border-radius: 2rem;
-        background: rgba(255, 255, 255, 0.08) !important;
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        overflow: hidden;
-        position: relative;
-    }    .search-card .card-body {
+    }    /* Make search card compact - REMOVED DUPLICATE */
+    
+    .search-card .card-body {
         padding: 2.5rem 2rem 2rem 2rem;
         overflow: hidden;
         background: rgba(255, 255, 255, 0.03);
@@ -420,20 +557,25 @@
 
     /* Results card stretches but not beyond content */
     #results-col {
-        width: 100%;
-        max-width: 900px;
+        width: 100%; /* Increased from 900px to 1200px */
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+        margin-top: 0;
         opacity: 0;
         transform: translateY(40px);
         pointer-events: none;
         transition: opacity 0.5s cubic-bezier(.4,2,.6,1), transform 0.5s cubic-bezier(.4,2,.6,1);
+        display: none; /* Hidden by default */
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
     #results-col.results-visible {
         opacity: 1;
         transform: translateY(0);
         pointer-events: auto;
+        display: block; /* Show when results are visible */
     }    #results-col .card {
         min-height: 0;
         box-shadow: 
@@ -442,16 +584,15 @@
             inset 0 1px 0 rgba(255, 255, 255, 0.2);
         border-radius: 2rem;
         background: linear-gradient(
-            145deg,
-            rgba(34, 197, 94, 0.815) 0%,
-            rgba(34, 197, 94, 0.08) 15%,
+            180deg,
+            rgba(56, 98, 235, 0.658) 0%,
+            rgba(34, 105, 197, 0.08) 15%,
             rgba(34, 197, 94, 0.04) 35%,
             rgba(255, 255, 255, 0.08) 60%,
             rgba(255, 255, 255, 0.08) 100%
         ) !important;
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.25);
         /* Remove h-100 so it doesn't stretch */
         height: auto !important;
         overflow: hidden;
@@ -466,8 +607,8 @@
         height: 40%;
         background: linear-gradient(
             180deg,
-            rgba(34, 197, 94, 0.08) 0%,
-            rgba(34, 197, 94, 0.04) 50%,
+            rgba(34, 110, 197, 0.08) 0%,
+            rgba(34, 91, 197, 0.04) 50%,
             transparent 100%
         );
         border-radius: 2rem 2rem 0 0;
@@ -488,8 +629,8 @@
         padding: 2.5rem 2rem 1.5rem 2rem;
         background: linear-gradient(
             180deg,
-            rgb(26, 223, 98) 0%,
-            rgba(47, 243, 119, 0.397) 70%,
+            rgb(83, 125, 216) 0%,
+            rgba(47, 116, 243, 0.397) 70%,
             rgba(255, 255, 255, 0.06) 100%
         ) !important;
         backdrop-filter: blur(12px);
@@ -522,6 +663,7 @@
         border-top: 1.5px solid #e3e6f0;
         box-shadow: 0 -2px 16px 0 rgba(13,110,253,0.04);
         font-size: 1.05rem;
+        z-index: 1;
     }
     .footer .container {
         max-width: 1100px;
@@ -801,6 +943,31 @@
         text-shadow: 0 1px 2px rgba(0,0,0,0.3);
     }
     
+    .form-text {
+        color: rgba(255, 255, 255, 0.6) !important;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3) !important;
+        font-size: 0.85rem !important;
+    }
+    
+    /* Date input styling */
+    input[type="date"] {
+        color: rgba(255, 255, 255, 0.9) !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+    
+    input[type="date"]:focus {
+        color: #fff !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+    }
+    
+    /* Date preset buttons */
+    .btn-group-sm .btn {
+        font-size: 0.8rem !important;
+        padding: 0.25rem 0.75rem !important;
+    }
+    
     .alert {
         background: rgba(255, 255, 255, 0.1) !important;
         backdrop-filter: blur(10px);
@@ -837,20 +1004,258 @@
         height: 12px;
         margin-bottom: 1rem;
     }
+    
+    /* Even more specific targeting for skill badges in results */
+    #results-container .result-card .matched-skills .badge.bg-success,
+    #results-container .card .matched-skills .badge.bg-success {
+        background: rgba(76, 78, 236, 0.849) !important;
+        color: #fff !important;
+        border: 1px solid rgba(99, 102, 241, 0.4) !important;
+    }
+    
+    #results-container .result-card .missing-skills .badge.bg-danger,
+    #results-container .card .missing-skills .badge.bg-danger {
+        background: rgba(37, 39, 155, 0.568) !important;
+        color: #fff !important;
+        border: 1px solid rgba(99, 102, 241, 0.6) !important;
+    }
+    
+    /* Force the specific colors for results badges */
+    .card-body .matched-skills .badge.bg-success {
+        background: rgba(99, 102, 241, 0.3) !important;
+    }
+    
+    .card-body .missing-skills .badge.bg-danger {
+        background: rgba(99, 102, 241, 0.5) !important;
+    }
+    
+    /* Search card smooth scrolling animation */
+    .header-search-wrapper {
+        transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform-origin: top center;
+    }
+    
+    .header-search-wrapper.search-active {
+        transform: translateY(-80px);
+    }
+    
+    .search-card {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1rem;
+        margin-top: 0.5rem;
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.25),
+            0 4px 16px rgba(0, 0, 0, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        border-radius: 2rem;
+        background: rgba(255, 255, 255, 0.08) !important;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .search-card .card-body {
+        padding: 2.5rem 2rem 2rem 2rem;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    /* Add smooth scroll behavior to page */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Independent loading text without card wrapper */
+    .loading-content {
+        text-align: center;
+        margin: 2rem auto 4rem auto;
+        padding: 2rem;
+        opacity: 0;
+        transform: translateY(30px);
+        pointer-events: none;
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        display: none;
+    }
+    
+    .loading-content.show {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        display: block;
+    }
+    
+    /* Loading spinner icon */
+    .loading-icon {
+        width: 60px;
+        height: 60px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top: 4px solid #0d6efd;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 2rem auto;
+    }
+    
+    /* Enhanced loading text with gradient animation */
+    .loading-text {
+        display: inline-block;
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(90deg, #0d6efd 0%, #6ea8fe 40%, #e3e6f0 60%, #0d6efd 100%);
+        background-size: 200% auto;
+        color: #fff;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: loading-gradient-move 2.0s linear infinite;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 20px rgba(13, 110, 253, 0.5);
+    }
+    
+    @keyframes loading-gradient-move {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+    
+    .loading-subtitle {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-bottom: 0;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    /* Add margin to results section for better spacing */
+    #results-col {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 4rem;
+        margin-top: 1rem;
+        opacity: 0;
+        transform: translateY(40px);
+        pointer-events: none;
+        transition: opacity 0.5s cubic-bezier(.4,2,.6,1), transform 0.5s cubic-bezier(.4,2,.6,1);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    /* Transparent Loading Overlay Box */
+    .loading-overlay-box {
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem 0;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .loading-content-centered {
+        text-align: center;
+        z-index: 10;
+    }
+
+    .loading-overlay-box .loading-icon {
+        display: none; /* Remove circular loader */
+    }
+
+    @keyframes shimmer {
+        0% {
+            background-position: -200% 0;
+        }
+        100% {
+            background-position: 200% 0;
+        }
+    }
+
+    .loading-overlay-box .loading-text {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem; /* Reduced from 1rem to 0.5rem */
+        color: #b3d9ff; /* Light blue fallback color */
+        background: linear-gradient(
+            90deg,
+            #b3d9ff 0%,
+            #b3d9ff 15%,
+            rgba(255, 255, 255, 1) 25%,
+            rgba(255, 255, 255, 1) 50%,
+            rgba(255, 255, 255, 1) 75%,
+            #b3d9ff 85%,
+            #b3d9ff 100%
+        );
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: shimmer 2s ease-in-out infinite;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    /* Fallback for browsers that don't support background-clip: text */
+    @supports not (-webkit-background-clip: text) {
+        .loading-overlay-box .loading-text {
+            color: #b3d9ff !important;
+            background: none !important;
+            -webkit-text-fill-color: #b3d9ff !important;
+        }
+    }
+
+    .loading-overlay-box .loading-subtitle {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+        font-weight: 300;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes gradientShift {
+        0%, 100% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+    }
 </style>
 {% endblock extra_head %}
 
 {% block content %}
 <div class="main-content-particles" style="position:relative; width:100%;">
-    <canvas id="background-canvas" style="position:absolute; left:0; top:0; width:100%; height:100%; z-index:0; opacity:0.5; pointer-events:none;"></canvas>
+    <canvas id="background-canvas"></canvas>
 
-    <div class="card-header">   
-        <div class="subtitle">Find the best candidates for your job requirements</div>
-    </div>
-    <div class="container mt-4">
-        <div class="row justify-content-center flex-column align-items-center">
-            <div class="col-12">
-                <div class="search-card card shadow-lg mb-4">                    <div class="card-body">
+    <div class="header-search-wrapper">
+        <div class="card-header">   
+            <div class="subtitle">Find the best candidates for your job requirements</div>
+        </div>
+        <div class="container mt-4">
+            <div class="row justify-content-center flex-column align-items-center">
+                <div class="col-15">
+                    <div class="search-card card shadow-lg mb-4">                    <div class="card-body">
                         <form id="resume-matcher-form" autocomplete="off">
                             {% csrf_token %}
                             
@@ -884,6 +1289,42 @@
                                 <label for="min_experience" class="form-label">Minimum Experience (years)</label>
                                 <input type="number" class="form-control" id="min_experience" name="min_experience"
                                        placeholder="2" min="0" value="0">
+                            </div>
+                            
+                            <!-- Date Filter Section -->
+                            <div class="mb-4">
+                                <div class="d-flex align-items-center justify-content-between mb-3">
+                                    <label class="form-label mb-0">
+                                        <i class="bi bi-calendar-range me-2"></i>Filter by Application Date
+                                    </label>
+                                    <small class="text-muted">
+                                        <i class="bi bi-info-circle me-1"></i>Optional
+                                    </small>
+                                </div>
+                                
+                                <div class="row" id="date_filter_fields">
+                                    <div class="col-md-6">
+                                        <label for="date_from" class="form-label">From Date</label>
+                                        <input type="date" class="form-control" id="date_from" name="date_from">
+                                        <small class="form-text text-muted">Leave empty for earliest emails</small>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="date_to" class="form-label">To Date</label>
+                                        <input type="date" class="form-control" id="date_to" name="date_to">
+                                        <small class="form-text text-muted">Leave empty for latest emails</small>
+                                    </div>
+                                </div>
+                                
+                                <!-- Quick Date Presets -->
+                                <div class="mt-3" id="date_presets">
+                                    <label class="form-label">Quick Presets:</label>
+                                    <div class="btn-group-sm" role="group">
+                                        <button type="button" class="btn btn-outline-light btn-sm me-2" onclick="setDatePreset('today')">Today</button>
+                                        <button type="button" class="btn btn-outline-light btn-sm me-2" onclick="setDatePreset('week')">Last 7 Days</button>
+                                        <button type="button" class="btn btn-outline-light btn-sm me-2" onclick="setDatePreset('month')">Last 30 Days</button>
+                                        <button type="button" class="btn btn-outline-light btn-sm me-2" onclick="setDatePreset('reset')">Reset</button>
+                                    </div>
+                                </div>
                             </div>
                             
                             <button type="submit" class="button-animated">
@@ -927,29 +1368,37 @@
                                 <i class="bi bi-play-circle me-2"></i>View Demo Results
                             </button>
                         </form>
-                        <div class="loading-spinner mt-3" id="loading-spinner">
-                            <span class="loading-text">Matching candidates, please wait...</span>
-                        </div>
                     </div>
                 </div>
-                <div id="results-col">
-                    <div class="card shadow-lg">
-                        <div class="card-header">
-                            <span class="main-title"><i class="bi bi-person-check me-2"></i>Matching Results</span>
-                            <div>
-                                <button class="btn btn-sm btn-light me-2" id="export-excel">
-                                    <i class="bi bi-file-earmark-excel"></i> Export to Excel
-                                </button>
-                                <button class="btn btn-sm btn-light" id="export-pdf">
-                                    <i class="bi bi-file-earmark-pdf"></i> View as PDF
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div id="results-container"></div>
-                        </div>
-                    </div>
+            </div>
+        </div>
+    </div>
+    </div> <!-- End header-search-wrapper -->
+    
+    <!-- Transparent Loading Overlay Box -->
+    <div class="loading-overlay-box" id="loading-overlay-box">
+        <div class="loading-content-centered">
+            <div class="loading-icon"></div>
+            <div class="loading-text">Matching candidates, please wait...</div>
+            <p class="loading-subtitle">Analyzing resumes and calculating compatibility scores</p>
+        </div>
+    </div>
+    
+    <div id="results-col">
+        <div class="card shadow-lg">
+            <div class="card-header">
+                <span class="main-title"><i class="bi bi-person-check me-2"></i>Matching Results</span>
+                <div>
+                    <button class="btn btn-sm btn-light me-2" id="export-excel">
+                        <i class="bi bi-file-earmark-excel"></i> Export to Excel
+                    </button>
+                    <button class="btn btn-sm btn-light" id="export-pdf">
+                        <i class="bi bi-file-earmark-pdf"></i> View as PDF
+                    </button>
                 </div>
+            </div>
+            <div class="card-body">
+                <div id="results-container"></div>
             </div>
         </div>
     </div>
@@ -973,14 +1422,33 @@
 
         document.getElementById('resume-matcher-form').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const loadingSpinner = document.getElementById('loading-spinner');
+            
+            // Get elements
+            const loadingOverlayBox = document.getElementById('loading-overlay-box');
+            const headerSearchWrapper = document.querySelector('.header-search-wrapper');
             const resultsContainer = document.getElementById('results-container');
+            
+            // Clear previous results
             resultsCol.classList.remove('results-visible');
             resultsContainer.innerHTML = '';
-            loadingSpinner.style.display = 'block';
+            
+            // Show loading overlay box first to add height to the page
+            loadingOverlayBox.style.display = 'flex';
+            
+            // Wait a moment for the loader to be visible, then scroll to it
+            setTimeout(() => {
+                const loaderRect = loadingOverlayBox.getBoundingClientRect();
+                const loaderTop = window.pageYOffset + loaderRect.top;
+                const centerOffset = (window.innerHeight - loaderRect.height) / 2;
+                
+                window.scrollTo({
+                    top: loaderTop - centerOffset,
+                    behavior: 'smooth'
+                });
+            }, 100);
 
-            // Wait for fetch and loader to finish before showing results
-            await new Promise((resolve) => setTimeout(resolve, 350)); // Small delay for loader effect
+            // Wait for animations to complete before making request
+            await new Promise((resolve) => setTimeout(resolve, 1000));
 
             fetch('/match-resumes/', {
                 method: 'POST',
@@ -988,8 +1456,12 @@
             })
             .then(response => response.json())
             .then(async data => {
-                loadingSpinner.style.display = 'none';
-                await new Promise((resolve) => setTimeout(resolve, 150)); // Wait for loader to disappear
+                // Hide loading overlay box
+                loadingOverlayBox.style.display = 'none';
+                
+                // Wait for loader to disappear
+                await new Promise((resolve) => setTimeout(resolve, 200));
+                
                 if (!Array.isArray(data)) {
                     resultsContainer.innerHTML = `
                         <div class="alert alert-danger">
@@ -1011,11 +1483,19 @@
                     return;
                 }
 
-                resultsContainer.innerHTML = '';
+                // Create grid container for results
+                const gridContainer = document.createElement('div');
+                gridContainer.className = 'row g-3'; // Bootstrap grid with gap
+                resultsContainer.appendChild(gridContainer);
+
                 data.forEach((result, index) => {
                     setTimeout(() => {
+                        // Create column wrapper for each result
+                        const colWrapper = document.createElement('div');
+                        colWrapper.className = 'col-md-6'; // 2 items per row on medium screens and up
+                        
                         const resultCard = document.createElement('div');
-                        resultCard.className = 'card mb-3 result-card';
+                        resultCard.className = 'card h-100 result-card'; // h-100 ensures equal height
                         resultCard.style.animationDelay = `${index * 0.1}s`;
 
                         const scoreColor = result.score >= 70 ? 'bg-success' : 
@@ -1023,51 +1503,69 @@
 
                         resultCard.innerHTML = `
                             <div class="card-body">
+                                <!-- Header with name and score badge -->
                                 <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <h5 class="card-title mb-0">${result.name}</h5>
+                                    <h5 class="card-title mb-0" title="${result.name}">${result.name}</h5>
                                     <span class="badge ${scoreColor}">${Math.round(result.score)}%</span>
                                 </div>
+                                
+                                <!-- Progress bar at top -->
                                 <div class="progress mb-3" style="height: 10px;">
                                     <div class="progress-bar ${scoreColor}" style="width: 0%" role="progressbar"></div>
                                 </div>
-                                <div class="mb-2 matched-skills">
-                                    <strong>Matched Skills:</strong>
-                                    <div class="mt-1">
-                                        ${result.matched_skills.length ? 
-                                            result.matched_skills.map(skill => 
-                                                `<span class="badge bg-success me-1 mb-1">${skill}</span>`
-                                            ).join('') : 
-                                            '<span class="text-muted">None</span>'}
+                                
+                                <!-- Main content in horizontal layout -->
+                                <div class="row">
+                                    <!-- Left column: Contact info -->
+                                    <div class="col-md-6">
+                                        <div class="candidate-experience mb-2">
+                                            <strong>Experience:</strong> <span class="experience-value">${result.experience || 0} years</span>
+                                        </div>
+                                        <div class="candidate-email mb-2">
+                                            <strong>Email:</strong><br>
+                                            <span class="email-value text-break" style="font-size: 0.9rem;">${result.email ? result.email.trim() : 'N/A'}</span>
+                                        </div>
+                                        <div class="candidate-phone mb-2">
+                                            <strong>Phone:</strong> <span class="phone-value">${result.phone ? result.phone.toString().trim() : 'N/A'}</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Right column: Skills -->
+                                    <div class="col-md-6">
+                                        <div class="matched-skills mb-2">
+                                            <strong>Matched Skills:</strong>
+                                            <div class="mt-1">
+                                                ${result.matched_skills.length ? 
+                                                    result.matched_skills.map(skill => 
+                                                        `<span class="badge bg-success me-1 mb-1">${skill}</span>`
+                                                    ).join('') : 
+                                                    '<span class="text-muted">None</span>'}
+                                            </div>
+                                        </div>
+                                        <div class="missing-skills mb-2">
+                                            <strong>Missing Skills:</strong>
+                                            <div class="mt-1">
+                                                ${result.missing_skills.length ? 
+                                                    result.missing_skills.map(skill => 
+                                                        `<span class="badge bg-danger me-1 mb-1">${skill}</span>`
+                                                    ).join('') : 
+                                                    '<span class="text-muted">None</span>'}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="mb-2 missing-skills">
-                                    <strong>Missing Skills:</strong>
-                                    <div class="mt-1">
-                                        ${result.missing_skills.length ? 
-                                            result.missing_skills.map(skill => 
-                                                `<span class="badge bg-danger me-1 mb-1">${skill}</span>`
-                                            ).join('') : 
-                                            '<span class="text-muted">None</span>'}
-                                    </div>
+                                
+                                <!-- View Resume button -->
+                                <div class="mt-3">
+                                    <a href="${result.resume_url}" class="btn btn-outline-primary" target="_blank">
+                                        <i class="bi bi-file-earmark-text me-1"></i>View Resume
+                                    </a>
                                 </div>
-                                <div class="mb-2 candidate-experience">
-                                    <strong>Experience:</strong>
-                                    <span class="experience-value">${result.experience || 0} years</span>
-                                </div>
-                                <div class="mb-2 candidate-email">
-                                    <strong>Email:</strong>
-                                    <span class="email-value">${result.email ? result.email.trim() : 'N/A'}</span>
-                                </div>
-                                <div class="mb-2 candidate-phone">
-                                    <strong>Phone:</strong>
-                                    <span class="phone-value">${result.phone ? result.phone.toString().trim() : 'N/A'}</span>
-                                </div>
-                                <a href="${result.resume_url}" class="btn btn-sm btn-outline-primary mt-2" target="_blank">
-                                    <i class="bi bi-file-earmark-text me-1"></i>View Resume
-                                </a>
                             </div>`;
 
-                        resultsContainer.appendChild(resultCard);
+                        colWrapper.appendChild(resultCard);
+                        gridContainer.appendChild(colWrapper);
+                        
                         setTimeout(() => {
                             resultCard.querySelector('.progress-bar').style.width = `${Math.round(result.score)}%`;
                         }, 100);
@@ -1079,8 +1577,11 @@
             })
             .catch(async error => {
                 console.error('Error:', error);
-                loadingSpinner.style.display = 'none';
-                await new Promise((resolve) => setTimeout(resolve, 150));
+                
+                // Hide loading content
+                loadingContent.classList.remove('show');
+                
+                await new Promise((resolve) => setTimeout(resolve, 400));
                 resultsContainer.innerHTML = `
                     <div class="alert alert-danger">
                         <i class="bi bi-exclamation-triangle-fill me-2"></i>
@@ -1095,6 +1596,10 @@
         document.getElementById('demo-results-btn').addEventListener('click', function() {
             showDemoResults();
         });
+        
+        // Set default "to" date as today when page loads
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date_to').value = today;
         
         // Animate the priority dropdown
         const prioritySelect = document.getElementById('priority');
@@ -1119,8 +1624,16 @@
         const footer = document.getElementById('main-footer');
         function updateFooterSticky() {
             if (!resultsCol || !footer) return;
-            // If results are hidden, stick footer to bottom
-            if (resultsCol.style.display === 'none' || resultsCol.offsetParent === null || !resultsCol.classList.contains('results-visible')) {
+            
+            const hasResults = resultsCol.classList.contains('results-visible') && 
+                              resultsCol.style.display !== 'none' && 
+                              resultsCol.offsetParent !== null;
+            
+            const contentHeight = document.documentElement.scrollHeight;
+            const viewHeight = window.innerHeight;
+            
+            // If no results and content is less than viewport height, stick footer
+            if (!hasResults && contentHeight <= viewHeight) {
                 footer.classList.add('footer-sticky');
             } else {
                 footer.classList.remove('footer-sticky');
@@ -1149,15 +1662,11 @@
             const PARTICLE_COUNT = 80;            let mouse = { x: 0, y: 0, active: false, lastX: 0, lastY: 0, moving: false };
 
             function resizeCanvas() {
-                const rect = wrapper.getBoundingClientRect();
-                width = rect.width;
-                height = rect.height;
+                width = window.innerWidth;
+                height = window.innerHeight;
                 canvas.width = width;
                 canvas.height = height;
-                canvas.style.width = width + 'px';
-                canvas.style.height = height + 'px';
-                canvas.style.left = '0px';
-                canvas.style.right = '0px';
+                // Don't override CSS positioning since canvas is now fixed
             }
 
             function createParticles() {
@@ -1165,8 +1674,8 @@
                 for (let i = 0; i < PARTICLE_COUNT; i++) {                    particles.push({
                         x: Math.random() * width,
                         y: Math.random() * height,                        
-                        vx: (Math.random() - 0.5) * 1.4,
-                        vy: (Math.random() - 0.5) * 1.4,
+                        vx: (Math.random() - 0.5) * 2.0,
+                        vy: (Math.random() - 0.5) * 2.0,
                         radius: Math.random() * 3.5 + 2.5,
                         color: `rgba(255, 255, 255, ${Math.random() * 0.4 + 0.5})`,
                         attractedToMouse: false,
@@ -1250,8 +1759,8 @@
                         // If mouse is moving, release attracted particles
                         if (mouse.moving && p.attractedToMouse) {
                             p.attractedToMouse = false;                           
-                            p.vx = (Math.random() - 0.5) * 1.5;
-                            p.vy = (Math.random() - 0.5) * 1.5;
+                            p.vx = (Math.random() - 0.5) * 3.0;
+                            p.vy = (Math.random() - 0.5) * 3.0;
                         }
                         
                         // Attract particles within range only when mouse is not moving
@@ -1263,12 +1772,12 @@
                         
                         // Move attracted particles in orbit around mouse (only when not moving)
                         if (p.attractedToMouse && !mouse.moving) {
-                            p.orbitalAngle += 0.02; // Faster orbital speed
+                            p.orbitalAngle += 0.03; // Much faster orbital speed
                             const targetX = mouse.x + Math.cos(p.orbitalAngle) * p.orbitalDistance;
                             const targetY = mouse.y + Math.sin(p.orbitalAngle) * p.orbitalDistance;
                               // Faster movement towards orbital position
-                            p.x += (targetX - p.x) * 0.03;
-                            p.y += (targetY - p.y) * 0.03;
+                            p.x += (targetX - p.x) * 0.05; // Adjusted for faster orbit
+                            p.y += (targetY - p.y) * 0.05;
                             p.vx = 0;
                             p.vy = 0;
                             continue;
@@ -1276,8 +1785,8 @@
                     } else {                        // Release all particles when mouse is not active
                         if (p.attractedToMouse) {
                             p.attractedToMouse = false;
-                            p.vx = (Math.random() - 0.5) * 2.0;
-                            p.vy = (Math.random() - 0.5) * 2.0;
+                            p.vx = (Math.random() - 0.5) * 6.0;
+                            p.vy = (Math.random() - 0.5) * 6.0;
                         }
                     }
                     
@@ -1289,8 +1798,8 @@
                         if (p.x < 0 || p.x > width) p.vx *= -1;
                         if (p.y < 0 || p.y > height) p.vy *= -1;
                         // Limit velocity
-                        p.vx = Math.max(-1, Math.min(1, p.vx));
-                        p.vy = Math.max(-1, Math.min(1, p.vy));
+                        p.vx = Math.max(-3.0, Math.min(3.0, p.vx));
+                        p.vy = Math.max(-3.0, Math.min(3.0, p.vy));
                     }
                 }
             }
@@ -1319,13 +1828,46 @@
                 mouse.moveTimeout = setTimeout(() => {
                     mouse.moving = false;
                 }, 100); // Stop considering as moving after 100ms of no movement
-            }function deactivateMouse() {
+            }            function deactivateMouse() {
                 mouse.active = false;                // Release all particles when mouse leaves
                 for (const p of particles) {
                     if (p.attractedToMouse) {
                         p.attractedToMouse = false;
-                        p.vx = (Math.random() - 0.5) * 2.0;
-                        p.vy = (Math.random() - 0.5) * 2.0;
+                        p.vx = (Math.random() - 0.5) * 3.0;
+                        p.vy = (Math.random() - 0.5) * 3.0;
+                    }
+                }
+            }
+            function animate() {
+                updateParticles();
+                drawParticles();
+                requestAnimationFrame(animate);
+            }            function updateMouse(e) {
+                const newX = e.clientX;
+                const newY = e.clientY;
+                
+                // Check if mouse moved significantly
+                const moveDistance = Math.sqrt(Math.pow(newX - mouse.lastX, 2) + Math.pow(newY - mouse.lastY, 2));
+                mouse.moving = moveDistance > 2; // Consider moving if moved more than 2px
+                
+                mouse.lastX = mouse.x;
+                mouse.lastY = mouse.y;
+                mouse.x = newX;
+                mouse.y = newY;
+                mouse.active = true;
+                
+                // Set a timeout to stop considering the mouse as moving
+                clearTimeout(mouse.moveTimeout);
+                mouse.moveTimeout = setTimeout(() => {
+                    mouse.moving = false;
+                }, 100); // Stop considering as moving after 100ms of no movement
+            }            function deactivateMouse() {
+                mouse.active = false;                // Release all particles when mouse leaves
+                for (const p of particles) {
+                    if (p.attractedToMouse) {
+                        p.attractedToMouse = false;
+                        p.vx = (Math.random() - 0.5) * 6.0;
+                        p.vy = (Math.random() - 0.5) * 6.0;
                     }
                 }
             }
@@ -1334,21 +1876,17 @@
                 resizeCanvas();
                 createParticles();
             });
-            document.addEventListener('scroll', function() {
-                resizeCanvas();
-            }, true);
-            document.addEventListener('mousemove', updateMouse);
-            document.addEventListener('mouseleave', deactivateMouse);
+            window.addEventListener('mousemove', updateMouse);
+            window.addEventListener('mouseleave', deactivateMouse);
 
             // Set mouse to center initially but inactive
             function setMouseToCenter() {
-                const rect = canvas.getBoundingClientRect();
-                mouse.x = rect.width / 2;
-                mouse.y = rect.height / 2;
+                mouse.x = window.Width;
+                mouse.y = window.Height;
                 mouse.active = false;
+                mouse.moving = false;
             }
             setMouseToCenter();
-
             resizeCanvas();
             createParticles();
             animate();
@@ -1378,6 +1916,7 @@
                 phone: getText('.candidate-phone .phone-value'),
                 matched_skills: Array.from(card.querySelectorAll('.matched-skills .badge'))
                     .map(b => b.textContent.trim())
+
                     .filter(skill => skill.toLowerCase() !== 'none'),
                 missing_skills: Array.from(card.querySelectorAll('.missing-skills .badge'))
                     .map(b => b.textContent.trim())
@@ -1421,6 +1960,35 @@
         form.submit();
     }
 
+    // Date Preset Functions
+    function setDatePreset(preset) {
+        const dateFrom = document.getElementById('date_from');
+        const dateTo = document.getElementById('date_to');
+        const today = new Date();
+        
+        switch(preset) {
+            case 'today':
+                const todayStr = today.toISOString().split('T')[0];
+                dateFrom.value = todayStr;
+                dateTo.value = todayStr;
+                break;
+            case 'week':
+                const weekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+                dateFrom.value = weekAgo.toISOString().split('T')[0];
+                dateTo.value = today.toISOString().split('T')[0];
+                break;
+            case 'month':
+                const monthAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
+                dateFrom.value = monthAgo.toISOString().split('T')[0];
+                dateTo.value = today.toISOString().split('T')[0];
+                break;
+            case 'reset':
+                dateFrom.value = '';
+                dateTo.value = '';
+                break;
+        }
+    }
+
     // Demo Results Function
     function showDemoResults() {
         const resultsContainer = document.getElementById('results-container');
@@ -1433,7 +2001,7 @@
         // Demo data - predefined candidates
         const demoData = [
             {
-                name: "Sarah Johnson",
+                name: "qwertyuiopasdfghjklzxcvbnm123456789qwertyuiopasdfghjklzxcvbnm,qwertyuiopsdfghjklzxcvbnm,qwertyuioxcvbnmedrfgthjwestrdyfvgbhterxyfcgj hesrxdfcgvhberydfcgvjhbkn-",
                 score: 87,
                 experience: 5,
                 email: "sarah.johnson@email.com",
@@ -1484,12 +2052,21 @@
             }
         ];
 
+        // Create grid container for results
+        const gridContainer = document.createElement('div');
+        gridContainer.className = 'row g-3';
+        resultsContainer.appendChild(gridContainer);
+
         // Show demo results with animation
         setTimeout(() => {
             demoData.forEach((result, index) => {
                 setTimeout(() => {
+                    // Create column wrapper for grid layout
+                    const colWrapper = document.createElement('div');
+                    colWrapper.className = 'col-md-6';
+
                     const resultCard = document.createElement('div');
-                    resultCard.className = 'card mb-3 result-card';
+                    resultCard.className = 'card h-100 result-card';
                     resultCard.style.animationDelay = `${index * 0.1}s`;
 
                     const scoreColor = result.score >= 70 ? 'bg-success' : 
@@ -1497,51 +2074,69 @@
 
                     resultCard.innerHTML = `
                         <div class="card-body">
+                            <!-- Header with name and score badge -->
                             <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h5 class="card-title mb-0">${result.name}</h5>
+                                <h5 class="card-title mb-0" title="${result.name}">${result.name}</h5>
                                 <span class="badge ${scoreColor}">${Math.round(result.score)}%</span>
                             </div>
+                            
+                            <!-- Progress bar at top -->
                             <div class="progress mb-3" style="height: 10px;">
                                 <div class="progress-bar ${scoreColor}" style="width: 0%" role="progressbar"></div>
                             </div>
-                            <div class="mb-2 matched-skills">
-                                <strong>Matched Skills:</strong>
-                                <div class="mt-1">
-                                    ${result.matched_skills.length ? 
-                                        result.matched_skills.map(skill => 
-                                            `<span class="badge bg-success me-1 mb-1">${skill}</span>`
-                                        ).join('') : 
-                                        '<span class="text-muted">None</span>'}
+                            
+                            <!-- Main content in horizontal layout -->
+                            <div class="row">
+                                <!-- Left column: Contact info -->
+                                <div class="col-md-6">
+                                    <div class="candidate-experience mb-2">
+                                        <strong>Experience:</strong> <span class="experience-value">${result.experience || 0} years</span>
+                                    </div>
+                                    <div class="candidate-email mb-2">
+                                        <strong>Email:</strong><br>
+                                        <span class="email-value text-break" style="font-size: 0.9rem;">${result.email}</span>
+                                    </div>
+                                    <div class="candidate-phone mb-2">
+                                        <strong>Phone:</strong> <span class="phone-value">${result.phone}</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right column: Skills -->
+                                <div class="col-md-6">
+                                    <div class="matched-skills mb-2">
+                                        <strong>Matched Skills:</strong>
+                                        <div class="mt-1">
+                                            ${result.matched_skills.length ? 
+                                                result.matched_skills.map(skill => 
+                                                    `<span class="badge bg-success me-1 mb-1">${skill}</span>`
+                                                ).join('') : 
+                                                '<span class="text-muted">None</span>'}
+                                        </div>
+                                    </div>
+                                    <div class="missing-skills mb-2">
+                                        <strong>Missing Skills:</strong>
+                                        <div class="mt-1">
+                                            ${result.missing_skills.length ? 
+                                                result.missing_skills.map(skill => 
+                                                    `<span class="badge bg-danger me-1 mb-1">${skill}</span>`
+                                                ).join('') : 
+                                                '<span class="text-muted">None</span>'}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="mb-2 missing-skills">
-                                <strong>Missing Skills:</strong>
-                                <div class="mt-1">
-                                    ${result.missing_skills.length ? 
-                                        result.missing_skills.map(skill => 
-                                            `<span class="badge bg-danger me-1 mb-1">${skill}</span>`
-                                        ).join('') : 
-                                        '<span class="text-muted">None</span>'}
-                                </div>
+                            
+                            <!-- View Resume button -->
+                            <div class="mt-3">
+                                <a href="${result.resume_url}" class="btn btn-outline-primary" onclick="alert('This is a demo - no actual resume available'); return false;">
+                                    <i class="bi bi-file-earmark-text me-1"></i>View Resume
+                                </a>
                             </div>
-                            <div class="mb-2 candidate-experience">
-                                <strong>Experience:</strong>
-                                <span class="experience-value">${result.experience || 0} years</span>
-                            </div>
-                            <div class="mb-2 candidate-email">
-                                <strong>Email:</strong>
-                                <span class="email-value">${result.email}</span>
-                            </div>
-                            <div class="mb-2 candidate-phone">
-                                <strong>Phone:</strong>
-                                <span class="phone-value">${result.phone}</span>
-                            </div>
-                            <a href="${result.resume_url}" class="btn btn-sm btn-outline-primary mt-2" onclick="alert('This is a demo - no actual resume available'); return false;">
-                                <i class="bi bi-file-earmark-text me-1"></i>View Resume (Demo)
-                            </a>
                         </div>`;
 
-                    resultsContainer.appendChild(resultCard);
+                    colWrapper.appendChild(resultCard);
+                    gridContainer.appendChild(colWrapper);
+                    
                     setTimeout(() => {
                         resultCard.querySelector('.progress-bar').style.width = `${Math.round(result.score)}%`;
                     }, 100);
@@ -1555,117 +2150,22 @@
         }, 200);
     }
 
-    // Particle effect background responsive to mouse movement
-    (function() {
-        const canvas = document.getElementById('background-canvas');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        let width = window.innerWidth;
-        let height = window.innerHeight;
-        let particles = [];
-        const PARTICLE_COUNT = 70;
-        let mouse = { x: width/2, y: height/2 };
-
-        function resizeCanvas() {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            canvas.width = width;
-            canvas.height = height;
-        }
-
-        function createParticles() {
-            particles = [];
-            for (let i = 0; i < PARTICLE_COUNT; i++) {
-                particles.push({
-                    x: Math.random() * width,
-                    y: Math.random() * height,                    vx: (Math.random() - 0.5) * 0.7,
-                    vy: (Math.random() - 0.5) * 0.7,
-                    radius: Math.random() * 3.5 + 2.0,
-                    color: `rgba(70, 130, 255, ${Math.random() * 0.4 + 0.3})` // Blueish particles
-                });
-            }
-        }
-
-        function drawParticles() {
-            ctx.clearRect(0, 0, width, height);
-            // Draw lines between close particles
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 110) {
-                        ctx.save();
-                        ctx.globalAlpha = 0.08 - dist/1200;
-                        ctx.strokeStyle = '#a8d5ba'; // Very soft green-gray
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                        ctx.restore();
-                    }
-                }
-            }
-            // Draw particles
-            for (const p of particles) {
-                ctx.save();
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI);
-                ctx.fillStyle = p.color;
-                ctx.shadowColor = '#28a745'; // Green shadow
-                ctx.shadowBlur = 8;
-                ctx.fill();
-                ctx.restore();
-            }
-        }
-
-        function updateParticles() {
-            for (const p of particles) {
-                // Move particles
-                p.x += p.vx;
-                p.y += p.vy;
-                // Bounce off edges
-                if (p.x < 0 || p.x > width) p.vx *= -1;
-                if (p.y < 0 || p.y > height) p.vy *= -1;
-                // Mouse repulsion/attraction
-                const dx = p.x - mouse.x;
-                const dy = p.y - mouse.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < 120) {
-                    // Repel
-                    p.vx += dx / dist * 0.04;
-                    p.vy += dy / dist * 0.04;
-                } else if (dist < 220) {
-                    // Attract
-                    p.vx -= dx / dist * 0.01;
-                    p.vy -= dy / dist * 0.01;
-                }
-                // Limit velocity
-                p.vx = Math.max(-1, Math.min(1, p.vx));
-                p.vy = Math.max(-1, Math.min(1, p.vy));
-            }
-        }
-
-        function animate() {
-            updateParticles();
-            drawParticles();
-            requestAnimationFrame(animate);
-        }
-
-        window.addEventListener('resize', function() {
-            resizeCanvas();
-            createParticles();
-        });
-        // Mouse position relative to canvas (robust for scrolling)
-        document.addEventListener('mousemove', function(e) {
-            const rect = canvas.getBoundingClientRect();
-            mouse.x = e.clientX - rect.left;
-            mouse.y = e.clientY - rect.top;
-        });
-
-        resizeCanvas();
-        createParticles();
-        animate();
-    })();
+    // Function to reset page to initial state
+    function resetToInitialState() {
+        const headerSearchWrapper = document.querySelector('.header-search-wrapper');
+        const loadingOverlayBox = document.getElementById('loading-overlay-box');
+        
+        // Hide loading overlay box
+        loadingOverlayBox.style.display = 'none';
+        
+        // Hide results
+        resultsCol.classList.remove('results-visible');
+        
+        // Update footer positioning
+        setTimeout(updateFooterSticky, 100);
+    }
+    
+    // Reset state on page load
+    resetToInitialState();
 </script>
 {% endblock content %}

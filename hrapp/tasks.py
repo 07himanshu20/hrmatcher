@@ -4,6 +4,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hrmatcher.settings')
 
 import imaplib
 import email
+import email.utils
 import logging
 from datetime import datetime, timedelta
 from email.header import decode_header
@@ -114,7 +115,7 @@ logger = logging.getLogger(__name__)
 from .models import EmailConfiguration
 @shared_task(bind=True)
 
-def fetch_resumes_from_email(self, user_id):
+def fetch_resumes_from_email(self, user_id, date_from=None, date_to=None):
     # Configuration
     config = EmailConfiguration.objects.get(user_id=user_id)
     IMAP_SERVER = config.email_host
@@ -169,7 +170,41 @@ def fetch_resumes_from_email(self, user_id):
             if status != 'OK':
                 raise Exception("Failed to select INBOX")
 
-            status, messages = imap.search(None, 'ALL')
+            # Build search criteria with date filtering
+            search_criteria = []
+            
+            # Add date filtering if provided
+            if date_from:
+                try:
+                    # Convert date string to IMAP format (DD-Mon-YYYY)
+                    from_date = datetime.strptime(date_from, '%Y-%m-%d')
+                    formatted_from_date = from_date.strftime('%d-%b-%Y')
+                    search_criteria.append(f'SINCE "{formatted_from_date}"')
+                    logger.info(f"Filtering emails from: {formatted_from_date}")
+                except ValueError:
+                    logger.warning(f"Invalid from_date format: {date_from}")
+            
+            if date_to:
+                try:
+                    # Convert date string to IMAP format (DD-Mon-YYYY)
+                    # For BEFORE, we need the day AFTER to_date since BEFORE is exclusive
+                    to_date = datetime.strptime(date_to, '%Y-%m-%d')
+                    # Add one day to make BEFORE inclusive of the to_date
+                    to_date_inclusive = to_date + timedelta(days=1)
+                    formatted_to_date = to_date_inclusive.strftime('%d-%b-%Y')
+                    search_criteria.append(f'BEFORE "{formatted_to_date}"')
+                    logger.info(f"Filtering emails to: {date_to} (using BEFORE {formatted_to_date})")
+                except ValueError:
+                    logger.warning(f"Invalid to_date format: {date_to}")
+            
+            # If no date criteria, search all emails
+            if search_criteria:
+                search_query = ' '.join(search_criteria)
+                logger.info(f"Using search query: {search_query}")
+            else:
+                search_query = 'ALL'
+            
+            status, messages = imap.search(None, search_query)
             if status != 'OK':
                 raise Exception("IMAP search failed")
 
@@ -186,7 +221,8 @@ def fetch_resumes_from_email(self, user_id):
                     msg = email.message_from_bytes(msg_data[0][1])
                     subject = msg.get("Subject", "")
                     subject_lower = subject.lower()
-
+                    
+                    # Check if email subject contains resume keywords
                     if not any(keyword in subject_lower for keyword in RESUME_KEYWORDS):
                         logger.debug(f"Skipping non-resume email: {subject[:50]}...")
                         continue
