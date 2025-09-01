@@ -1,315 +1,2171 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Matcher | BharatCrest</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Simplified CSS to prevent any hiding */
-        .progress {
-            height: 25px;
+{% extends 'hrapp/base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<style>
+    /* Override base background for better contrast */
+    html, body {
+        background: linear-gradient(50deg, #458cf7 10%, #578bd8 50%, #b7bfd1) !important;
+    }
+    
+    /* Dynamic background: only behind main content, not navbar/footer */
+    #background-canvas {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.5;
+        pointer-events: none;
+        display: block;
+    }
+    /* Ensure main content is positioned relative for absolute canvas */
+    .main-content-particles {
+        position: relative;
+        width: 100%;
+        min-height: 100%;
+        padding-top: 2rem; /* Add top padding to prevent navbar overlap */
+        padding-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+    }
+    /* Body scroll adjustments */
+    body {
+        overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+
+    .main-title {
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #0d6efd;
+        margin-bottom: 0.5rem;
+    }
+    .subtitle {
+        color: #fafafa;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        font-weight: 500;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }    .card {
+        border: none;
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.25),
+            0 4px 16px rgba(0, 0, 0, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        border-radius: 2rem;
+        transition: box-shadow 0.3s, transform 0.3s;
+        background: rgba(255, 255, 255, 0.08) !important;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        overflow: hidden;
+        position: relative;
+    }    .card-header, .card-header {
+        background: none !important;
+        color: #fff !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.7rem;
+        text-align: center;
+        border-radius: 2rem 2rem 0 0;
+        padding: 1rem 2rem 2rem 2rem;
+        margin-bottom: 0.5rem;
+        position: relative;
+    }
+    #results-col .card-header .main-title {
+        background: none;
+        color: #fff;
+        -webkit-text-fill-color: #fff;
+        background-clip: unset;
+        -webkit-background-clip: unset;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 0;
+        text-align: center;
+        width: 100%;
+    }    .card-header .subtitle {
+        background: none;
+        color: rgba(255, 255, 255, 0.9) !important;
+        -webkit-text-fill-color: rgba(255, 255, 255, 0.9) !important;
+        background-clip: unset;
+        -webkit-background-clip: unset;
+        font-size: 2.1rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        width: 100%;
+        line-height: 1.1;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', 'Poppins', system-ui, sans-serif;
+        letter-spacing: -0.02em;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .step-indicator {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .step-number {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .step-number.active {
+        background: rgba(99, 102, 241, 0.4);
+        border-color: rgba(99, 102, 241, 0.6);
+        color: #fff;
+    }
+
+    .step-separator {
+        width: 40px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.3);
+    }
+    
+    @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+    @keyframes loading-gradient-move {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+    #results-col .card-header > div {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    @media (min-width: 768px) {
+        .card-header, #results-col .card-header {
+            flex-direction: row;
+            gap: 1.2rem;
+            padding: 1.7rem 2.2rem 1.2rem 2.2rem;
         }
-        #resultsContainer {
-            max-height: 500px;
-            overflow-y: auto;
-            margin-top: 20px;
-            padding: 15px;
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
+        #results-col .card-header .main-title {
+            margin-bottom: 0;
         }
-        #exportButtons {
-            margin-top: 20px;
-            text-align: right;
+    }
+    @media (max-width: 767.98px) {
+        .card-header, #results-col .card-header {
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center;
+            gap: 0.5rem;
+            padding: 1.2rem 1rem 1rem 1rem;
         }
-    </style>
-</head>
-<body>
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="card shadow">
-                    <div class="card-header bg-primary text-white">
-                        <h3 class="mb-0">Resume Matching System</h3>
-                    </div>
-                    <div class="card-body">
-                        <form id="resumeMatchForm">
+        #results-col .card-header .main-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            width: 100%;
+        }
+        #results-col .card-header > div {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+    }    .card-body {
+        padding: 2.5rem 2rem 2rem 2rem;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }.form-label {
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        font-size: 1rem;
+        margin-bottom: 0.7rem;
+    }    .form-control {
+        color: rgba(255, 255, 255, 0.9) !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        backdrop-filter: blur(5px) !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        border-radius: 0.5rem !important;
+        transition: all 0.3s ease !important;
+    }
+    .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+    }    .form-control:focus {
+        color: #fff7f7 !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        text-decoration: none !important;
+    }    .form-select{
+        color: rgba(255, 255, 255, 0.9) !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        backdrop-filter: blur(5px) !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        border-radius: 0.5rem !important;
+        transition: all 0.3s ease !important;
+    }
+    .form-select:focus{
+        color: rgba(255, 255, 255, 0.9) !important;
+        background: rgba(255, 255, 255, 0.15) !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        text-decoration: none !important;
+    }
+    
+    /* Fix dropdown options visibility */
+    .form-select option {
+        background-color: #fbfdff !important;
+        color: #000000 !important;
+        padding: 8px 12px;
+        font-weight: 500;
+    }
+    
+    .form-select option:hover {
+        background-color: #34495e !important;
+        color: #ffffff !important;
+    }
+    
+    .form-select option:checked,
+    .form-select option:selected {
+        background-color: #3498db !important;
+        color: #ffffff !important;
+    }
+    .btn-primary {
+        border-radius: 0.75rem;
+        font-weight: 700;
+        font-size: 1.1rem;
+        background: rgba(99, 102, 241, 0.3);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(99, 102, 241, 0.4);
+        color: #fff;
+        box-shadow: 
+            0 4px 16px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        letter-spacing: 0.02em;
+    }
+    .btn-primary:hover, .btn-primary:focus {
+        background: rgba(99, 102, 241, 0.5);
+        box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+        transform: translateY(-2px);
+        border-color: rgba(99, 102, 241, 0.6);
+        color: #fff;
+    }    .btn-light {
+        border-radius: 0.5rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(5px);
+        transition: all 0.3s ease;
+    }
+    .btn-light:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.5);
+    }    .result-card {
+        opacity: 0;
+        transform: translateY(24px);
+        animation: fadeInUp 0.6s forwards;
+        border-radius: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.25),
+            0 4px 16px rgba(0, 0, 0, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.08) !important;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        height: 320px !important; /* Fixed height for all cards */
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: hidden !important;
+    }
+    
+    /* Flexible card body */
+    .result-card .card-body {
+        height: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 1.5rem !important;
+        overflow: visible !important; /* Allow content to flow naturally */
+    }
+    
+    /* Card title with proper ellipsis for long names */
+    .result-card .card-title {
+        margin-bottom: 0.5rem !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important; /* Keep single line for consistency */
+        font-size: 1.1rem !important;
+        line-height: 1.3 !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* Progress bar styling */
+    .result-card .progress {
+        height: 10px !important;
+        margin-bottom: 1rem !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* Content area with controlled height and scrolling */
+    .result-card .content-area {
+        height: 180px !important; /* Fixed height for content area */
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        flex-grow: 1 !important;
+        flex-shrink: 0 !important;
+        margin-bottom: 1rem !important;
+        padding-right: 8px !important; /* Space for scrollbar */
+    }
+    
+    /* Custom scrollbar styling */
+    .result-card .content-area::-webkit-scrollbar {
+        width: 4px !important;
+    }
+    
+    .result-card .content-area::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1) !important;
+        border-radius: 2px !important;
+    }
+    
+    .result-card .content-area::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3) !important;
+        border-radius: 2px !important;
+    }
+    
+    .result-card .content-area::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.5) !important;
+    }
+    
+    /* Ensure sections have consistent spacing */
+    .result-card .candidate-experience,
+    .result-card .candidate-email,
+    .result-card .candidate-phone {
+        margin-bottom: 0.75rem !important;
+        word-wrap: break-word !important;
+    }
+    
+    .result-card .matched-skills,
+    .result-card .missing-skills {
+        margin-bottom: 0.75rem !important;
+    }
+    
+    /* Fixed button area at bottom */
+    .result-card .mt-auto {
+        flex-shrink: 0 !important;
+        margin-top: auto !important;
+    }
+
+    /* Grid layout improvements */
+    #results-container .row {
+        margin: 0 -0.75rem; /* Adjust for Bootstrap grid gaps */
+        row-gap: 1.5rem; /* Consistent vertical spacing between rows */
+    }
+    
+    #results-container .col-md-6 {
+        padding: 0 0.75rem;
+    }
+
+    /* Ensure grid cards maintain consistent height */
+    .result-card.h-100 {
+        height: 320px !important; /* Match the base result-card height exactly */
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        #results-container .row {
+            row-gap: 0.5rem;
+        }
+        .result-card,
+        .result-card.h-100 {
+            height: 280px !important; /* Slightly smaller but still fixed height on mobile */
+        }
+        .result-card .content-area {
+            height: 140px !important; /* Adjust content area for mobile */
+            overflow-y: auto !important;
+        }
+        
+        /* Stack columns vertically on mobile */
+        .result-card .row {
+            flex-direction: column;
+        }
+        .result-card .col-md-6 {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Responsive adjustments for header and search card spacing */
+        .search-card {
+            margin-top: 1rem;
+        }
+        
+        .header-search-wrapper.search-active {
+            transform: translateY(-60px);
+        }
+        
+        .card-header, .card-header {
+            padding: 1rem 1.5rem 2.5rem 1.5rem;
+        }
+    }
+    @media (max-width: 576px) {
+        .search-card {
+            margin-top: 1.5rem;
+        }
+        
+        .header-search-wrapper.search-active {
+            transform: translateY(-50px);
+        }
+        
+        .card-header, .card-header {
+            padding: 1.5rem 1rem 2rem 1rem;
+        }
+    }
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .progress {
+        background: #e9ecef;
+        border-radius: 0.5rem;
+        height: 12px;
+        margin-bottom: 1rem;
+    }
+    .progress-bar {
+        border-radius: 0.5rem;
+        transition: width 1s cubic-bezier(.4,2,.6,1);
+    }
+    .badge {
+        border-radius: 0.5rem;
+        font-size: 0.95rem;
+        padding: 0.45em 0.9em;
+        font-weight: 500;
+        letter-spacing: 0.2px;
+        margin-bottom: 0.2em;
+        margin-right: 0.2em;
+        transition: transform 0.2s;
+    }
+    .badge.bg-success {
+        background: rgba(40, 167, 69, 0.8);
+        color: #fff;
+    }
+    .badge.bg-danger {
+        background: rgba(220, 53, 69, 0.8);
+        color: #fff;
+    }
+
+    .badge.bg-warning {
+        background: linear-gradient(90deg, #ffc107 70%, #ffe259 100%);
+        color: #212529;
+    }
+    .badge:hover {
+        transform: scale(1.08);
+        box-shadow: 0 2px 8px 0 rgba(13,110,253,0.08);
+    }
+    .loading-spinner {
+    display: none; /* Hide by default */
+    width: 100%;
+    text-align: center;
+    margin: 32px auto 0 auto;
+    }
+    .loading-text {
+        display: inline-block;
+        font-size: 1.3rem;
+        font-weight: 600;
+        background: #ffffff;
+        background-size: 200% auto;
+        color: #fff;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: loading-gradient-move 2.0s linear infinite;
+    }
+    @keyframes loading-gradient-move {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }    .matched-skills strong, .missing-skills strong, .candidate-experience strong, .candidate-email strong, .candidate-phone strong {
+        color: rgba(255, 255, 255, 0.95);
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        font-size: 1rem;
+    }
+
+    .candidate-email .email-value, .candidate-phone .phone-value {
+        font-family: 'Fira Mono', 'Consolas', monospace;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 500;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .result-card .card-title {
+        color: rgba(255, 255, 255, 0.98) !important;
+        font-weight: 800;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        font-size: 1.25rem;
+    }
+
+    .result-card .card-body {
+        color: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    .result-card .experience-value {
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 500;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .result-card .btn-outline-primary {
+        border-radius: 0.5rem;
+        font-weight: 500;
+        border-width: 1.5px;
+        margin-top: 0.5rem;
+    }    /* Make search card compact - REMOVED DUPLICATE */
+    
+    .search-card .card-body {
+        padding: 2.5rem 2rem 2rem 2rem;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    /* Results card stretches but not beyond content */
+    #results-col {
+        width: 100%; /* Increased from 900px to 1200px */
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1rem;
+        margin-top: 0;
+        opacity: 0;
+        transform: translateY(40px);
+        pointer-events: none;
+        transition: opacity 0.5s cubic-bezier(.4,2,.6,1), transform 0.5s cubic-bezier(.4,2,.6,1);
+        display: none; /* Hidden by default */
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    #results-col.results-visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        display: block; /* Show when results are visible */
+    }    #results-col .card {
+        min-height: 0;
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.25),
+            0 4px 16px rgba(0, 0, 0, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        border-radius: 2rem;
+        background: linear-gradient(
+            180deg,
+            rgba(56, 98, 235, 0.658) 0%,
+            rgba(34, 105, 197, 0.08) 15%,
+            rgba(34, 197, 94, 0.04) 35%,
+            rgba(255, 255, 255, 0.08) 60%,
+            rgba(255, 255, 255, 0.08) 100%
+        ) !important;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        /* Remove h-100 so it doesn't stretch */
+        height: auto !important;
+        overflow: hidden;
+        position: relative;
+    }
+    #results-col .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 40%;
+        background: linear-gradient(
+            180deg,
+            rgba(34, 110, 197, 0.08) 0%,
+            rgba(34, 91, 197, 0.04) 50%,
+            transparent 100%
+        );
+        border-radius: 2rem 2rem 0 0;
+        pointer-events: none;
+        z-index: 1;
+    }
+    #results-col .card-body {
+        padding: 2.5rem 2rem 2rem 2rem;
+        max-height: none;
+        overflow: visible;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        position: relative;
+        z-index: 2;
+    }
+    #results-col .card-header {
+        padding: 2.5rem 2rem 1.5rem 2rem;
+        background: linear-gradient(
+            180deg,
+            rgb(83, 125, 216) 0%,
+            rgba(47, 116, 243, 0.397) 70%,
+            rgba(255, 255, 255, 0.06) 100%
+        ) !important;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        color: #fff !important;
+        border-radius: 2rem 2rem 0 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Prevent results from overflowing footer */
+    html, body {
+        min-height: 100%;
+    }
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    main, .container {
+        flex: 1 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .footer {
+        flex-shrink: 0;
+        transition: position 0.3s;
+        padding-top: 16px;
+        background: #f8f9fa;
+        border-top: 1.5px solid #e3e6f0;
+        box-shadow: 0 -2px 16px 0 rgba(13,110,253,0.04);
+        font-size: 1.05rem;
+        z-index: 1;
+    }
+    .footer .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 16px;
+    }
+    .footer .row {
+        align-items: center;
+    }
+    .footer .col-md-6 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .footer .col-md-6.text-md-end {
+        align-items: flex-end;
+        text-align: right;
+    }
+    @media (max-width: 767.98px) {
+        .footer .row {
+            flex-direction: column;
+            text-align: center;
+        }
+        .footer .col-md-6,
+        .footer .col-md-6.text-md-end {
+            align-items: center !important;
+            text-align: center !important;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    .animated-select {
+        transition: box-shadow 0.3s, border-color 0.3s;
+        will-change: box-shadow, border-color;
+    }    .animated-select.open {
+        box-shadow: 0 8px 24px 0 rgba(13,110,253,0.18);
+        border-color: #0d6efd;
+        background: #f0f8ff;
+    } 
+    .button-animated {
+        --black-700: hsla(220, 80%, 15%, 1);
+        --border_radius: 2rem;
+        --transtion: 0.3s ease-in-out;
+        --offset: 2px;
+
+        cursor: pointer;
+        position: relative;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        
+        transform-origin: center;
+        
+        padding: 1rem 2rem;
+        background-color: transparent;
+        
+        border: none;
+        border-radius: var(--border_radius);
+        transform: scale(calc(1 + (var(--active, 0) * 0.05)));
+        
+        transition: transform var(--transtion);
+        width: 100%;
+        font-size: 1.1rem;
+        font-weight: 600;
+        overflow: hidden;
+        margin: 0.25rem 0;
+    }
+
+    .button-animated::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, #0d6efd 30%, #6ea8fe 100%);
+        
+        border-radius: var(--border_radius);
+        box-shadow: inset 0 0.5px hsl(0, 0%, 100%), inset 0 -1px 2px 0 hsl(0, 0%, 0%),
+            0px 4px 10px -4px hsla(0 0% 0% / calc(1 - var(--active, 0))),
+            0 0 0 calc(var(--active, 0) * 0.375rem) hsl(210 97% 50% / 0.75);
+        
+        transition: all var(--transtion);
+        z-index: 0;
+    }    .button-animated::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        width: 100%;
+        height: 100%;
+        background-color: hsla(210, 59%, 42%, 0.75);
+        background-image: radial-gradient(
+            at 51% 89%,
+            hsla(210, 45%, 74%, 1) 0px,
+            transparent 50%
+        ),
+        radial-gradient(at 100% 100%, hsla(210, 36%, 60%, 1) 0px, transparent 50%),
+        radial-gradient(at 22% 91%, hsla(210, 36%, 60%, 1) 0px, transparent 50%);
+        background-position: top;
+        
+        opacity: var(--active, 0);
+        border-radius: var(--border_radius);
+        transition: opacity var(--transtion);
+        z-index: 1;
+    }
+
+    .button-animated:is(:hover, :focus-visible) {
+        --active: 1;
+    }    .button-animated:active {
+        transform: scale(0.98);
+    }
+
+    .button-animated .dots_border {
+        --size_border: calc(100% + 2px);
+        
+        overflow: hidden;
+        
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        width: var(--size_border);
+        height: var(--size_border);
+        background-color: transparent;
+        
+        border-radius: var(--border_radius);
+        z-index: -10;
+    }
+
+    .button-animated .dots_border::before {
+        content: "";
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transform-origin: left;
+        transform: rotate(0deg);
+        
+        width: 100%;
+        height: 2rem;
+        background-color: white;
+        
+        mask: linear-gradient(transparent 0%, white 120%);
+        animation: rotate 2s linear infinite;
+    }
+
+    @keyframes rotate {
+        to {
+            transform: rotate(360deg);
+        }
+    }    .button-animated .sparkle {
+        position: relative;
+        z-index: 15;
+        
+        width: 1.75rem;
+        flex-shrink: 0;
+    }
+
+    .button-animated .sparkle .path {
+        fill: currentColor;
+        stroke: currentColor;
+        
+        transform-origin: center;
+        
+        color: hsl(0, 0%, 100%);
+    }
+
+    .button-animated:is(:hover, :focus) .sparkle .path {
+        animation: path 1.5s linear 0.5s infinite;
+    }
+
+    .button-animated .sparkle .path:nth-child(1) {
+        --scale_path_1: 1.2;
+    }
+    .button-animated .sparkle .path:nth-child(2) {
+        --scale_path_2: 1.2;
+    }
+    .button-animated .sparkle .path:nth-child(3) {
+        --scale_path_3: 1.2;
+    }
+
+    @keyframes path {
+        0%,
+        34%,
+        71%,
+        100% {
+            transform: scale(1);
+        }
+        17% {
+            transform: scale(var(--scale_path_1, 1));
+        }
+        49% {
+            transform: scale(var(--scale_path_2, 1));
+        }
+        83% {
+            transform: scale(var(--scale_path_3, 1));
+        }
+    }    .button-animated .text_button {
+        position: relative;
+        z-index: 20;
+        
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: white !important;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Fix button text visibility */
+    .btn-outline-primary {
+        color: #0d6efd !important;
+        border-color: #0d6efd !important;
+        background-color: transparent !important;
+    }
+    
+    .btn-outline-primary:hover {
+        color: #fff !important;
+        background-color: #0d6efd !important;
+        border-color: #0d6efd !important;
+    }
+      /* Ensure demo button text is visible */
+    #demo-results-btn {
+        color: rgba(255, 255, 255, 0.9) !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        backdrop-filter: blur(5px) !important;
+        font-weight: 600 !important;
+        border-radius: 0.75rem !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    #demo-results-btn:hover {
+        color: #fff !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        transform: translateY(-2px) !important;
+    }
+      /* Fix resume button text visibility */
+    .result-card .btn-outline-primary {
+        color: rgba(255, 255, 255, 0.9) !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        backdrop-filter: blur(5px) !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        border-radius: 0.5rem !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .result-card .btn-outline-primary:hover {
+        color: #fff !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        text-decoration: none !important;
+    }
+    
+    /* Force text visibility for all buttons */
+    .btn, .btn-outline-primary, #demo-results-btn {
+        -webkit-text-fill-color: unset !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+    }
+    
+    /* Enhanced text visibility for results */
+    .text-muted {
+        color: rgba(255, 255, 255, 0.7) !important;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+    
+    .form-text {
+        color: rgba(255, 255, 255, 0.6) !important;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3) !important;
+        font-size: 0.85rem !important;
+    }
+    
+    /* Date input styling */
+    input[type="date"] {
+        color: rgba(255, 255, 255, 0.9) !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+    
+    input[type="date"]:focus {
+        color: #fff !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+    }
+    
+    /* Date preset buttons */
+    .btn-group-sm .btn {
+        font-size: 0.8rem !important;
+        padding: 0.25rem 0.75rem !important;
+    }
+    
+    .alert {
+        background: rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.95) !important;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+    
+    .alert-danger {
+        background: rgba(220, 53, 69, 0.2) !important;
+        border-color: rgba(220, 53, 69, 0.3);
+    }
+    
+    /* Fix any remaining visibility issues */
+    .result-card p, 
+    .result-card div, 
+    .result-card span:not(.badge) {
+        color: rgba(255, 255, 255, 0.9) !important;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+    
+    /* Ensure badge visibility */
+    .badge {
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        font-weight: 600;
+    }
+    
+    /* Progress bar background for better visibility */
+    .progress {
+        background: rgba(255, 255, 255, 0.2) !important;
+        backdrop-filter: blur(5px);
+        border-radius: 0.5rem;
+        height: 12px;
+        margin-bottom: 1rem;
+    }
+    
+    /* Even more specific targeting for skill badges in results */
+    #results-container .result-card .matched-skills .badge.bg-success,
+    #results-container .card .matched-skills .badge.bg-success {
+        background: rgba(76, 78, 236, 0.849) !important;
+        color: #fff !important;
+        border: 1px solid rgba(99, 102, 241, 0.4) !important;
+    }
+    
+    #results-container .result-card .missing-skills .badge.bg-danger,
+    #results-container .card .missing-skills .badge.bg-danger {
+        background: rgba(37, 39, 155, 0.568) !important;
+        color: #fff !important;
+        border: 1px solid rgba(99, 102, 241, 0.6) !important;
+    }
+    
+    /* Force the specific colors for results badges */
+    .card-body .matched-skills .badge.bg-success {
+        background: rgba(99, 102, 241, 0.3) !important;
+    }
+    
+    .card-body .missing-skills .badge.bg-danger {
+        background: rgba(99, 102, 241, 0.5) !important;
+    }
+    
+    /* Search card smooth scrolling animation */
+    .header-search-wrapper {
+        transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform-origin: top center;
+    }
+    
+    .header-search-wrapper.search-active {
+        transform: translateY(-80px);
+    }
+    
+    .search-card {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1rem;
+        margin-top: 0.5rem;
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.25),
+            0 4px 16px rgba(0, 0, 0, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        border-radius: 2rem;
+        background: rgba(255, 255, 255, 0.08) !important;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .search-card .card-body {
+        padding: 2.5rem 2rem 2rem 2rem;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    /* Add smooth scroll behavior to page */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Independent loading text without card wrapper */
+    .loading-content {
+        text-align: center;
+        margin: 2rem auto 4rem auto;
+        padding: 2rem;
+        opacity: 0;
+        transform: translateY(30px);
+        pointer-events: none;
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        display: none;
+    }
+    
+    .loading-content.show {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        display: block;
+    }
+    
+    /* Loading spinner icon */
+    .loading-icon {
+        width: 60px;
+        height: 60px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top: 4px solid #0d6efd;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 2rem auto;
+    }
+    
+    /* Enhanced loading text with gradient animation */
+    .loading-text {
+        display: inline-block;
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(90deg, #0d6efd 0%, #6ea8fe 40%, #e3e6f0 60%, #0d6efd 100%);
+        background-size: 200% auto;
+        color: #fff;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: loading-gradient-move 2.0s linear infinite;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 20px rgba(13, 110, 253, 0.5);
+    }
+    
+    @keyframes loading-gradient-move {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+    
+    .loading-subtitle {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-bottom: 0;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    /* Add margin to results section for better spacing */
+    #results-col {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 4rem;
+        margin-top: 1rem;
+        opacity: 0;
+        transform: translateY(40px);
+        pointer-events: none;
+        transition: opacity 0.5s cubic-bezier(.4,2,.6,1), transform 0.5s cubic-bezier(.4,2,.6,1);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    /* Transparent Loading Overlay Box */
+    .loading-overlay-box {
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem 0;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .loading-content-centered {
+        text-align: center;
+        z-index: 10;
+    }
+
+    .loading-overlay-box .loading-icon {
+        display: none; /* Remove circular loader */
+    }
+
+    @keyframes shimmer {
+        0% {
+            background-position: -200% 0;
+        }
+        100% {
+            background-position: 200% 0;
+        }
+    }
+
+    .loading-overlay-box .loading-text {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem; /* Reduced from 1rem to 0.5rem */
+        color: #b3d9ff; /* Light blue fallback color */
+        background: linear-gradient(
+            90deg,
+            #b3d9ff 0%,
+            #b3d9ff 15%,
+            rgba(255, 255, 255, 1) 25%,
+            rgba(255, 255, 255, 1) 50%,
+            rgba(255, 255, 255, 1) 75%,
+            #b3d9ff 85%,
+            #b3d9ff 100%
+        );
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: shimmer 2s ease-in-out infinite;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    /* Fallback for browsers that don't support background-clip: text */
+    @supports not (-webkit-background-clip: text) {
+        .loading-overlay-box .loading-text {
+            color: #b3d9ff !important;
+            background: none !important;
+            -webkit-text-fill-color: #b3d9ff !important;
+        }
+    }
+
+    .loading-overlay-box .loading-subtitle {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+        font-weight: 300;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes gradientShift {
+        0%, 100% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+    }
+</style>
+{% endblock extra_head %}
+
+{% block content %}
+<div class="main-content-particles" style="position:relative; width:100%;">
+    <canvas id="background-canvas"></canvas>
+
+    <div class="header-search-wrapper">
+        <div class="card-header">   
+            <div class="subtitle">Find the best candidates for your job requirements</div>
+        </div>
+        <div class="container mt-4">
+            <div class="row justify-content-center flex-column align-items-center">
+                <div class="col-15">
+                    <div class="search-card card shadow-lg mb-4">                    <div class="card-body">
+                        <form id="resume-matcher-form" autocomplete="off">
                             {% csrf_token %}
-                            <div class="mb-3">
-                                <label for="position" class="form-label">Job Position</label>
-                                <input type="text" class="form-control" id="position" name="position" 
-                                       placeholder="e.g. Python Developer" required>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <label for="skills" class="form-label">Required Skills (comma separated)</label>
-                                <input type="text" class="form-control" id="skills" name="skills"
-                                       placeholder="e.g. Python, Django, AWS" required>
-                            </div>
                             
                             <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="minExperience" class="form-label">Minimum Experience (years)</label>
-                                    <input type="number" class="form-control" id="minExperience" 
-                                           name="min_experience" min="0" value="2" required>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="position" class="form-label">Job Position</label>
+                                        <input type="text" class="form-control" id="position" name="position" 
+                                               placeholder="Software Developer" required>
+                                    </div>
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="priority" class="form-label">Priority</label>
-                                    <select class="form-select" id="priority" name="priority">
-                                        <option value="high">High</option>
-                                        <option value="medium" selected>Medium</option>
-                                        <option value="low">Low</option>
-                                    </select>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="priority" class="form-label">Priority Level</label>
+                                        <select class="form-select animated-select" id="priority" name="priority">
+                                            <option value="low">Low Priority</option>
+                                            <option value="medium" selected>Medium Priority</option>
+                                            <option value="high">High Priority</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             
-                            <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-primary btn-lg" id="matchButton">
-                                    <span id="buttonText">Match Resumes</span>
-                                    <div id="buttonSpinner" class="spinner-border spinner-border-sm d-none" role="status">
-                                        <span class="visually-hidden">Loading...</span>
-                                    </div>
-                                </button>
+                            <div class="mb-3">
+                                <label for="skills" class="form-label">Required Skills</label>
+                                <input type="text" class="form-control" id="skills" name="skills"
+                                       placeholder="Python, Django, React, AWS (comma separated)" required>
                             </div>
+                            
+                            <div class="mb-4">
+                                <label for="min_experience" class="form-label">Minimum Experience (years)</label>
+                                <input type="number" class="form-control" id="min_experience" name="min_experience"
+                                       placeholder="2" min="0" value="0">
+                            </div>
+                            
+                            <!-- Date Filter Section -->
+                            <div class="mb-4">
+                                <div class="d-flex align-items-center justify-content-between mb-3">
+                                    <label class="form-label mb-0">
+                                        <i class="bi bi-calendar-range me-2"></i>Filter by Application Date
+                                    </label>
+                                    <small class="text-muted">
+                                        <i class="bi bi-info-circle me-1"></i>Optional
+                                    </small>
+                                </div>
+                                
+                                <div class="row" id="date_filter_fields">
+                                    <div class="col-md-6">
+                                        <label for="date_from" class="form-label">From Date</label>
+                                        <input type="date" class="form-control" id="date_from" name="date_from">
+                                        <small class="form-text text-muted">Leave empty for earliest emails</small>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="date_to" class="form-label">To Date</label>
+                                        <input type="date" class="form-control" id="date_to" name="date_to">
+                                        <small class="form-text text-muted">Leave empty for latest emails</small>
+                                    </div>
+                                </div>
+                                
+                                <!-- Quick Date Presets -->
+                                <div class="mt-3" id="date_presets">
+                                    <label class="form-label">Quick Presets:</label>
+                                    <div class="btn-group-sm" role="group">
+                                        <button type="button" class="btn btn-outline-light btn-sm me-2" onclick="setDatePreset('today')">Today</button>
+                                        <button type="button" class="btn btn-outline-light btn-sm me-2" onclick="setDatePreset('week')">Last 7 Days</button>
+                                        <button type="button" class="btn btn-outline-light btn-sm me-2" onclick="setDatePreset('month')">Last 30 Days</button>
+                                        <button type="button" class="btn btn-outline-light btn-sm me-2" onclick="setDatePreset('reset')">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="button-animated">
+                                <div class="dots_border"></div>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    class="sparkle"
+                                >
+                                    <path
+                                        class="path"
+                                        stroke-linejoin="round"
+                                        stroke-linecap="round"
+                                        stroke="white"
+                                        fill="white"
+                                        d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
+                                    ></path>
+                                    <path
+                                        class="path"
+                                        stroke-linejoin="round"
+                                        stroke-linecap="round"
+                                        stroke="white"
+                                        fill="white"
+                                        d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
+                                    ></path>
+                                    <path
+                                        class="path"
+                                        stroke-linejoin="round"
+                                        stroke-linecap="round"
+                                        stroke="white"
+                                        fill="white"
+                                        d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
+                                    ></path>
+                                </svg>
+                                <span class="text_button">Find Candidates</span>
+                            </button>
+                            
+                            <!-- Demo Results Button -->
+                            <button type="button" class="btn btn-outline-primary mt-3" id="demo-results-btn">
+                                <i class="bi bi-play-circle me-2"></i>View Demo Results
+                            </button>
                         </form>
-                        
-                        <!-- Export Buttons - Always visible below the form -->
-                        <div id="exportButtons">
-                            <button id="exportExcel" class="btn btn-success me-2">
-                                <i class="bi bi-file-excel"></i> Export to Excel
-                            </button>
-                            <button id="exportPdf" class="btn btn-danger">
-                                <i class="bi bi-file-pdf"></i> Export to PDF
-                            </button>
-                        </div>
-                        
-                        <!-- Results Container -->
-                        <div id="resultsContainer" style="display: none;">
-                            <h4 class="mb-3">Matching Results</h4>
-                            <div id="resultsList" class="list-group"></div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div> <!-- End header-search-wrapper -->
+    
+    <!-- Transparent Loading Overlay Box -->
+    <div class="loading-overlay-box" id="loading-overlay-box">
+        <div class="loading-content-centered">
+            <div class="loading-icon"></div>
+            <div class="loading-text">Matching candidates, please wait...</div>
+            <p class="loading-subtitle">Analyzing resumes and calculating compatibility scores</p>
+        </div>
+    </div>
+    
+    <div id="results-col">
+        <div class="card shadow-lg">
+            <div class="card-header">
+                <span class="main-title"><i class="bi bi-person-check me-2"></i>Matching Results</span>
+                <div>
+                    <button class="btn btn-sm btn-light me-2" id="export-excel">
+                        <i class="bi bi-file-earmark-excel"></i> Export to Excel
+                    </button>
+                    <button class="btn btn-sm btn-light" id="export-pdf">
+                        <i class="bi bi-file-earmark-pdf"></i> View as PDF
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="results-container"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // FORM SUBMISSION HANDLER
-        document.getElementById('resumeMatchForm').addEventListener('submit', async (e) => {
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const canvas = document.getElementById('background-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouseX = 0;
+        let mouseY = 0;
+
+        // Define resultsCol at the top so it's available everywhere
+        const resultsCol = document.getElementById('results-col');
+        resultsCol.classList.remove('results-visible'); // Hide initially
+
+
+        document.getElementById('export-excel').addEventListener('click', () => handleExport('excel'));
+        document.getElementById('export-pdf').addEventListener('click', () => handleExport('pdf'));
+
+        document.getElementById('resume-matcher-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            const button = document.getElementById('matchButton');
-            const buttonText = document.getElementById('buttonText');
-            const spinner = document.getElementById('buttonSpinner');
-            const resultsContainer = document.getElementById('resultsContainer');
-            
-            // Show loading state
-            buttonText.textContent = "Matching...";
-            spinner.classList.remove('d-none');
-            button.disabled = true;
-            resultsContainer.style.display = 'none';
-            document.getElementById('resultsList').innerHTML = '';
-            
-            try {
-                const formData = new FormData(e.target);
-                const response = await fetch('/match-resumes/', {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRFToken': '{{ csrf_token }}',
-                        'Accept': 'application/json',
-                        'X-Requested-With': 'XMLHttpRequest'
-                    },
-                    body: formData
-                });
-                
-                if (!response.ok) {
-                    const error = await response.json();
-                    throw new Error(error.message || 'Failed to match resumes');
-                }
-                
-                const results = await response.json();
-                displayResults(results);
-                
-            } catch (error) {
-                console.error('Error:', error);
-                alert(`Error: ${error.message}`);
-            } finally {
-                buttonText.textContent = "Match Resumes";
-                spinner.classList.add('d-none');
-                button.disabled = false;
-            }
-        });
-        
-        // DISPLAY RESULTS FUNCTION
-        function displayResults(results) {
-            const container = document.getElementById('resultsContainer');
-            const list = document.getElementById('resultsList');
+            // Get elements
+            const loadingOverlayBox = document.getElementById('loading-overlay-box');
+            const headerSearchWrapper = document.querySelector('.header-search-wrapper');
+            const resultsContainer = document.getElementById('results-container');
             
             // Clear previous results
-            list.innerHTML = '';
+            resultsCol.classList.remove('results-visible');
+            resultsContainer.innerHTML = '';
             
-            if (!results || results.length === 0) {
-                list.innerHTML = '<div class="alert alert-info">No matching resumes found.</div>';
-                container.style.display = 'block';
-                return;
-            }
+            // Show loading overlay box first to add height to the page
+            loadingOverlayBox.style.display = 'flex';
             
-            // Add each result to the list
-            results.forEach(result => {
-                const card = document.createElement('div');
-                card.className = 'card mb-3';
+            // Wait a moment for the loader to be visible, then scroll to it
+            setTimeout(() => {
+                const loaderRect = loadingOverlayBox.getBoundingClientRect();
+                const loaderTop = window.pageYOffset + loaderRect.top;
+                const centerOffset = (window.innerHeight - loaderRect.height) / 2;
                 
-                // Determine score class
-                let scoreClass = 'danger';
-                if (result.score >= 75) scoreClass = 'success';
-                else if (result.score >= 50) scoreClass = 'warning';
-                
-                card.innerHTML = `
-                    <div class="card-body border-${scoreClass} border-start border-5">
-                        <div class="d-flex justify-content-between">
-                            <h5>${result.name || 'Unknown Candidate'}</h5>
-                            <span class="badge bg-${scoreClass}">
-                                ${result.score.toFixed(1)}%
-                            </span>
-                        </div>
-                        
-                        <div class="progress mb-2" style="height: 20px;">
-                            <div class="progress-bar bg-${scoreClass}" 
-                                 style="width: ${result.score}%"></div>
-                        </div>
-                        
-                        <p><strong>Matched Skills:</strong> ${result.matched_skills?.join(', ') || 'None'}</p>
-                        <p><strong>Missing Skills:</strong> ${result.missing_skills?.join(', ') || 'None'}</p>
-                        <p><strong>Experience:</strong> ${result.experience || 0} years</p>
-                        
-                        <div class="mt-2">
-                            <a href="${result.resume_url || '#'}" target="_blank" 
-                               class="btn btn-sm btn-outline-primary">
-                                View Resume
-                            </a>
-                            ${result.email ? `
-                            <button class="btn btn-sm btn-outline-success ms-2 contact-btn" 
-                                    data-email="${result.email}">
-                                Contact
-                            </button>
-                            ` : ''}
-                        </div>
-                    </div>
-                `;
-                
-                list.appendChild(card);
-            });
-            
-            // Show the results container
-            container.style.display = 'block';
-            
-            // Set up contact buttons
-            document.querySelectorAll('.contact-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const email = e.target.dataset.email;
-                    if (email) window.location.href = `mailto:${email}`;
+                window.scrollTo({
+                    top: loaderTop - centerOffset,
+                    behavior: 'smooth'
                 });
+            }, 100);
+
+            // Wait for animations to complete before making request
+            await new Promise((resolve) => setTimeout(resolve, 1000));
+
+            fetch('/match-resumes/', {
+                method: 'POST',
+                body: new FormData(this)
+            })
+            .then(response => response.json())
+            .then(async data => {
+                // Hide loading overlay box
+                loadingOverlayBox.style.display = 'none';
+                
+                // Wait for loader to disappear
+                await new Promise((resolve) => setTimeout(resolve, 200));
+                
+                if (!Array.isArray(data)) {
+                    resultsContainer.innerHTML = `
+                        <div class="alert alert-danger">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                            ${data.error ? data.error : 'An error occurred while processing your request.'}
+                        </div>`;
+                    resultsCol.classList.add('results-visible');
+                    if (window.updateFooterSticky) window.updateFooterSticky();
+                    return;
+                }
+                if (data.length === 0) {
+                    resultsContainer.innerHTML = `
+                        <div class="text-center text-muted">
+                            <i class="bi bi-emoji-frown" style="font-size: 3rem;"></i>
+                            <p class="mt-3">No matching candidates found</p>
+                        </div>`;
+                    resultsCol.classList.add('results-visible');
+                    if (window.updateFooterSticky) window.updateFooterSticky();
+                    return;
+                }
+
+                // Create grid container for results
+                const gridContainer = document.createElement('div');
+                gridContainer.className = 'row g-3'; // Bootstrap grid with gap
+                resultsContainer.appendChild(gridContainer);
+
+                data.forEach((result, index) => {
+                    setTimeout(() => {
+                        // Create column wrapper for each result
+                        const colWrapper = document.createElement('div');
+                        colWrapper.className = 'col-md-6'; // 2 items per row on medium screens and up
+                        
+                        const resultCard = document.createElement('div');
+                        resultCard.className = 'card h-100 result-card'; // h-100 ensures equal height
+                        resultCard.style.animationDelay = `${index * 0.1}s`;
+
+                        const scoreColor = result.score >= 70 ? 'bg-success' : 
+                                        result.score >= 40 ? 'bg-warning' : 'bg-danger';
+
+                        resultCard.innerHTML = `
+                            <div class="card-body">
+                                <!-- Header with name and score badge -->
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <h5 class="card-title mb-0" title="${result.name}">${result.name}</h5>
+                                    <span class="badge ${scoreColor}">${Math.round(result.score)}%</span>
+                                </div>
+                                
+                                <!-- Progress bar at top -->
+                                <div class="progress mb-3" style="height: 10px;">
+                                    <div class="progress-bar ${scoreColor}" style="width: 0%" role="progressbar"></div>
+                                </div>
+                                
+                                <!-- Main content in horizontal layout -->
+                                <div class="row">
+                                    <!-- Left column: Contact info -->
+                                    <div class="col-md-6">
+                                        <div class="candidate-experience mb-2">
+                                            <strong>Experience:</strong> <span class="experience-value">${result.experience || 0} years</span>
+                                        </div>
+                                        <div class="candidate-email mb-2">
+                                            <strong>Email:</strong><br>
+                                            <span class="email-value text-break" style="font-size: 0.9rem;">${result.email ? result.email.trim() : 'N/A'}</span>
+                                        </div>
+                                        <div class="candidate-phone mb-2">
+                                            <strong>Phone:</strong> <span class="phone-value">${result.phone ? result.phone.toString().trim() : 'N/A'}</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Right column: Skills -->
+                                    <div class="col-md-6">
+                                        <div class="matched-skills mb-2">
+                                            <strong>Matched Skills:</strong>
+                                            <div class="mt-1">
+                                                ${result.matched_skills.length ? 
+                                                    result.matched_skills.map(skill => 
+                                                        `<span class="badge bg-success me-1 mb-1">${skill}</span>`
+                                                    ).join('') : 
+                                                    '<span class="text-muted">None</span>'}
+                                            </div>
+                                        </div>
+                                        <div class="missing-skills mb-2">
+                                            <strong>Missing Skills:</strong>
+                                            <div class="mt-1">
+                                                ${result.missing_skills.length ? 
+                                                    result.missing_skills.map(skill => 
+                                                        `<span class="badge bg-danger me-1 mb-1">${skill}</span>`
+                                                    ).join('') : 
+                                                    '<span class="text-muted">None</span>'}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- View Resume button -->
+                                <div class="mt-3">
+                                    <a href="${result.resume_url}" class="btn btn-outline-primary" target="_blank">
+                                        <i class="bi bi-file-earmark-text me-1"></i>View Resume
+                                    </a>
+                                </div>
+                            </div>`;
+
+                        colWrapper.appendChild(resultCard);
+                        gridContainer.appendChild(colWrapper);
+                        
+                        setTimeout(() => {
+                            resultCard.querySelector('.progress-bar').style.width = `${Math.round(result.score)}%`;
+                        }, 100);
+                        if (window.updateFooterSticky) window.updateFooterSticky();
+                    }, index * 150);
+                });
+                resultsCol.classList.add('results-visible');
+                if (window.updateFooterSticky) window.updateFooterSticky();
+            })
+            .catch(async error => {
+                console.error('Error:', error);
+                
+                // Hide loading content
+                loadingContent.classList.remove('show');
+                
+                await new Promise((resolve) => setTimeout(resolve, 400));
+                resultsContainer.innerHTML = `
+                    <div class="alert alert-danger">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        An error occurred while processing your request.
+                    </div>`;
+                resultsCol.classList.add('results-visible');
+                if (window.updateFooterSticky) window.updateFooterSticky();
+            });
+        });
+
+        // Demo Results Button Event Listener
+        document.getElementById('demo-results-btn').addEventListener('click', function() {
+            showDemoResults();
+        });
+        
+        // Set default "to" date as today when page loads
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date_to').value = today;
+        
+        // Animate the priority dropdown
+        const prioritySelect = document.getElementById('priority');
+        if (prioritySelect) {
+            prioritySelect.addEventListener('focus', function() {
+                this.classList.add('open');
+            });
+            prioritySelect.addEventListener('blur', function() {
+                this.classList.remove('open');
+            });
+            // For keyboard navigation (optional, for accessibility)
+            prioritySelect.addEventListener('mousedown', function() {
+                this.classList.add('open');
+            });
+            prioritySelect.addEventListener('change', function() {
+                this.classList.remove('open');
             });
         }
-        
-        // EXPORT TO EXCEL
-        document.getElementById('exportExcel').addEventListener('click', async () => {
-            try {
-                const cards = document.querySelectorAll('#resultsList .card');
-                if (cards.length === 0) {
-                    alert('No results to export!');
-                    return;
-                }
-                
-                const results = Array.from(cards).map(card => {
-                    return {
-                        name: card.querySelector('h5').textContent.trim(),
-                        score: parseFloat(card.querySelector('.badge').textContent),
-                        experience: parseFloat(card.querySelector('p:nth-of-type(3)').textContent
-                                     .replace('Experience:', '').trim()),
-                        matched_skills: card.querySelector('p:nth-of-type(1)').textContent
-                                       .replace('Matched Skills:', '').trim().split(/\s*,\s*/),
-                        missing_skills: card.querySelector('p:nth-of-type(2)').textContent
-                                       .replace('Missing Skills:', '').trim().split(/\s*,\s*/)
-                    };
-                });
-                
-                const response = await fetch('/export/excel/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': '{{ csrf_token }}'
-                    },
-                    body: JSON.stringify({ candidates: results })
-                });
-                
-                if (!response.ok) throw new Error('Export failed');
-                
-                const blob = await response.blob();
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `candidates_${new Date().toISOString().split('T')[0]}.xlsx`;
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(url);
-                
-            } catch (error) {
-                console.error('Export error:', error);
-                alert('Failed to export: ' + error.message);
+
+        // Sticky footer logic for resume matcher page
+        // Use the already defined resultsCol at the top
+        const footer = document.getElementById('main-footer');
+        function updateFooterSticky() {
+            if (!resultsCol || !footer) return;
+            
+            const hasResults = resultsCol.classList.contains('results-visible') && 
+                              resultsCol.style.display !== 'none' && 
+                              resultsCol.offsetParent !== null;
+            
+            const contentHeight = document.documentElement.scrollHeight;
+            const viewHeight = window.innerHeight;
+            
+            // If no results and content is less than viewport height, stick footer
+            if (!hasResults && contentHeight <= viewHeight) {
+                footer.classList.add('footer-sticky');
+            } else {
+                footer.classList.remove('footer-sticky');
             }
-        });
-        
-        // EXPORT TO PDF
-        document.getElementById('exportPdf').addEventListener('click', async () => {
-            try {
-                const cards = document.querySelectorAll('#resultsList .card');
-                if (cards.length === 0) {
-                    alert('No results to export!');
-                    return;
-                }
-                
-                const results = Array.from(cards).map(card => {
-                    return {
-                        name: card.querySelector('h5').textContent.trim(),
-                        score: parseFloat(card.querySelector('.badge').textContent),
-                        experience: parseFloat(card.querySelector('p:nth-of-type(3)').textContent
-                                     .replace('Experience:', '').trim()),
-                        matched_skills: card.querySelector('p:nth-of-type(1)').textContent
-                                       .replace('Matched Skills:', '').trim().split(/\s*,\s*/),
-                        missing_skills: card.querySelector('p:nth-of-type(2)').textContent
-                                       .replace('Missing Skills:', '').trim().split(/\s*,\s*/)
-                    };
-                });
-                
-                const response = await fetch('/export/pdf/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': '{{ csrf_token }}'
-                    },
-                    body: JSON.stringify({ candidates: results })
-                });
-                
-                if (!response.ok) throw new Error('Export failed');
-                
-                const blob = await response.blob();
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `candidates_${new Date().toISOString().split('T')[0]}.pdf`;
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(url);
-                
-            } catch (error) {
-                console.error('Export error:', error);
-                alert('Failed to export: ' + error.message);
+        }
+        // Initial check
+        updateFooterSticky();
+        // Listen for results-col display changes
+        const observer = new MutationObserver(updateFooterSticky);
+        if (resultsCol) {
+            observer.observe(resultsCol, { attributes: true, attributeFilter: ['style', 'class'] });
+        }
+        // Also update on window resize
+        window.addEventListener('resize', updateFooterSticky);
+        // Expose for manual update from other scripts if needed
+        window.updateFooterSticky = updateFooterSticky;        // --- Particle effect background responsive to mouse movement ---
+        (function() {
+            // Instead of full window, use only the main-content-particles area
+            const wrapper = document.querySelector('.main-content-particles');
+            const canvas = document.getElementById('background-canvas');
+            if (!canvas || !wrapper) return;
+            const ctx = canvas.getContext('2d');
+            let width = 0;
+            let height = 0;
+            let particles = [];
+            const PARTICLE_COUNT = 80;            let mouse = { x: 0, y: 0, active: false, lastX: 0, lastY: 0, moving: false };
+
+            function resizeCanvas() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = width;
+                canvas.height = height;
+                // Don't override CSS positioning since canvas is now fixed
             }
+
+            function createParticles() {
+                particles = [];
+                for (let i = 0; i < PARTICLE_COUNT; i++) {                    particles.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,                        
+                        vx: (Math.random() - 0.5) * 2.0,
+                        vy: (Math.random() - 0.5) * 2.0,
+                        radius: Math.random() * 3.5 + 2.5,
+                        color: `rgba(255, 255, 255, ${Math.random() * 0.4 + 0.5})`,
+                        attractedToMouse: false,
+                        orbitalAngle: Math.random() * Math.PI * 2,
+                        orbitalDistance: 50 + Math.random() * 100
+                    });
+                }
+            }
+
+            function drawParticles() {
+                ctx.clearRect(0, 0, width, height);
+                // Draw lines between close particles (only free particles)
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        if (!particles[i].attractedToMouse && !particles[j].attractedToMouse) {
+                            const dx = particles[i].x - particles[j].x;
+                            const dy = particles[i].y - particles[j].y;
+                            const dist = Math.sqrt(dx * dx + dy * dy);                            if (dist < 110) {
+                                ctx.save();
+                                ctx.globalAlpha = 0.25 - dist/800; // More visible lines
+                                ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)'; // White lines for better visibility
+                                ctx.lineWidth = 1.2;
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                                ctx.stroke();
+                                ctx.restore();
+                            }
+                        }
+                    }
+                }
+                // Draw lines from attracted particles to mouse
+                if (mouse.active) {
+                    for (const p of particles) {                        if (p.attractedToMouse) {
+                            ctx.save();
+                            ctx.globalAlpha = 0.7;
+                            ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)'; // Bright white connection lines
+                            ctx.lineWidth = 2;
+                            ctx.shadowColor = 'rgba(255, 255, 255, 0.5)';
+                            ctx.shadowBlur = 3;
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(mouse.x, mouse.y);
+                            ctx.stroke();
+                            ctx.restore();
+                        }else {
+                            // Draw line to nearby particles if close to mouse
+                            const dx = p.x - mouse.x;
+                            const dy = p.y - mouse.y;
+                            const dist = Math.sqrt(dx * dx + dy * dy);                            if (dist < 120) {
+                                ctx.save();
+                                ctx.globalAlpha = 0.4 - dist/600;
+                                ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)'; // White proximity lines
+                                ctx.lineWidth = 1.5;
+                                ctx.beginPath();
+                                ctx.moveTo(p.x, p.y);
+                                ctx.lineTo(mouse.x, mouse.y);
+                                ctx.stroke();
+                                ctx.restore();
+                            }
+                        }
+                    }
+                }
+                // Draw particles
+                for (const p of particles) {
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI);                    ctx.fillStyle = p.color;
+                    ctx.shadowColor = 'rgba(255, 255, 255, 0.8)'; // Bright white glow
+                    ctx.shadowBlur = 8;
+                    ctx.fill();
+                    ctx.restore();
+                }
+            }            function updateParticles() {
+                for (const p of particles) {
+                    if (mouse.active) {
+                        const dx = p.x - mouse.x;
+                        const dy = p.y - mouse.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        
+                        // If mouse is moving, release attracted particles
+                        if (mouse.moving && p.attractedToMouse) {
+                            p.attractedToMouse = false;                           
+                            p.vx = (Math.random() - 0.5) * 3.0;
+                            p.vy = (Math.random() - 0.5) * 3.0;
+                        }
+                        
+                        // Attract particles within range only when mouse is not moving
+                        if (dist < 120 && !p.attractedToMouse && !mouse.moving) {
+                            p.attractedToMouse = true;
+                            p.orbitalAngle = Math.atan2(dy, dx);
+                            p.orbitalDistance = 50; // Set consistent orbital distance of 50px
+                        }
+                        
+                        // Move attracted particles in orbit around mouse (only when not moving)
+                        if (p.attractedToMouse && !mouse.moving) {
+                            p.orbitalAngle += 0.03; // Much faster orbital speed
+                            const targetX = mouse.x + Math.cos(p.orbitalAngle) * p.orbitalDistance;
+                            const targetY = mouse.y + Math.sin(p.orbitalAngle) * p.orbitalDistance;
+                              // Faster movement towards orbital position
+                            p.x += (targetX - p.x) * 0.05; // Adjusted for faster orbit
+                            p.y += (targetY - p.y) * 0.05;
+                            p.vx = 0;
+                            p.vy = 0;
+                            continue;
+                        }
+                    } else {                        // Release all particles when mouse is not active
+                        if (p.attractedToMouse) {
+                            p.attractedToMouse = false;
+                            p.vx = (Math.random() - 0.5) * 6.0;
+                            p.vy = (Math.random() - 0.5) * 6.0;
+                        }
+                    }
+                    
+                    // Normal particle movement for free particles
+                    if (!p.attractedToMouse) {
+                        p.x += p.vx;
+                        p.y += p.vy;
+                        // Bounce off edges
+                        if (p.x < 0 || p.x > width) p.vx *= -1;
+                        if (p.y < 0 || p.y > height) p.vy *= -1;
+                        // Limit velocity
+                        p.vx = Math.max(-3.0, Math.min(3.0, p.vx));
+                        p.vy = Math.max(-3.0, Math.min(3.0, p.vy));
+                    }
+                }
+            }
+
+            function animate() {
+                updateParticles();
+                drawParticles();
+                requestAnimationFrame(animate);
+            }            function updateMouse(e) {
+                const rect = canvas.getBoundingClientRect();
+                const newX = e.clientX - rect.left;
+                const newY = e.clientY - rect.top;
+                
+                // Check if mouse moved significantly
+                const moveDistance = Math.sqrt(Math.pow(newX - mouse.lastX, 2) + Math.pow(newY - mouse.lastY, 2));
+                mouse.moving = moveDistance > 2; // Consider moving if moved more than 2px
+                
+                mouse.lastX = mouse.x;
+                mouse.lastY = mouse.y;
+                mouse.x = newX;
+                mouse.y = newY;
+                mouse.active = true;
+                
+                // Set a timeout to stop considering the mouse as moving
+                clearTimeout(mouse.moveTimeout);
+                mouse.moveTimeout = setTimeout(() => {
+                    mouse.moving = false;
+                }, 100); // Stop considering as moving after 100ms of no movement
+            }            function deactivateMouse() {
+                mouse.active = false;                // Release all particles when mouse leaves
+                for (const p of particles) {
+                    if (p.attractedToMouse) {
+                        p.attractedToMouse = false;
+                        p.vx = (Math.random() - 0.5) * 3.0;
+                        p.vy = (Math.random() - 0.5) * 3.0;
+                    }
+                }
+            }
+            function animate() {
+                updateParticles();
+                drawParticles();
+                requestAnimationFrame(animate);
+            }            function updateMouse(e) {
+                const newX = e.clientX;
+                const newY = e.clientY;
+                
+                // Check if mouse moved significantly
+                const moveDistance = Math.sqrt(Math.pow(newX - mouse.lastX, 2) + Math.pow(newY - mouse.lastY, 2));
+                mouse.moving = moveDistance > 2; // Consider moving if moved more than 2px
+                
+                mouse.lastX = mouse.x;
+                mouse.lastY = mouse.y;
+                mouse.x = newX;
+                mouse.y = newY;
+                mouse.active = true;
+                
+                // Set a timeout to stop considering the mouse as moving
+                clearTimeout(mouse.moveTimeout);
+                mouse.moveTimeout = setTimeout(() => {
+                    mouse.moving = false;
+                }, 100); // Stop considering as moving after 100ms of no movement
+            }            function deactivateMouse() {
+                mouse.active = false;                // Release all particles when mouse leaves
+                for (const p of particles) {
+                    if (p.attractedToMouse) {
+                        p.attractedToMouse = false;
+                        p.vx = (Math.random() - 0.5) * 6.0;
+                        p.vy = (Math.random() - 0.5) * 6.0;
+                    }
+                }
+            }
+
+            window.addEventListener('resize', function() {
+                resizeCanvas();
+                createParticles();
+            });
+            window.addEventListener('mousemove', updateMouse);
+            window.addEventListener('mouseleave', deactivateMouse);
+
+            // Set mouse to center initially but inactive
+            function setMouseToCenter() {
+                mouse.x = window.Width;
+                mouse.y = window.Height;
+                mouse.active = false;
+                mouse.moving = false;
+            }
+            setMouseToCenter();
+            resizeCanvas();
+            createParticles();
+            animate();
+        })();
+    });
+
+    function handleExport(format) {
+        const cards = document.querySelectorAll('.result-card');
+        if (!cards.length) {
+            alert('No results to export!');
+            return;
+        }
+
+        const candidates = [];
+        cards.forEach(card => {
+            // Helper function to safely get text content
+            const getText = (selector) => {
+                const element = card.querySelector(selector);
+                return element ? element.textContent.trim() : '';
+            };
+
+            const candidate = {
+                name: getText('.card-title'),
+                score: parseFloat(getText('.badge').replace('%', '')) || 0,
+                experience: parseFloat(getText('.candidate-experience .experience-value').replace(' years', '')) || 0,
+                email: getText('.candidate-email .email-value'),
+                phone: getText('.candidate-phone .phone-value'),
+                matched_skills: Array.from(card.querySelectorAll('.matched-skills .badge'))
+                    .map(b => b.textContent.trim())
+
+                    .filter(skill => skill.toLowerCase() !== 'none'),
+                missing_skills: Array.from(card.querySelectorAll('.missing-skills .badge'))
+                    .map(b => b.textContent.trim())
+                    .filter(skill => skill.toLowerCase() !== 'none'),
+                path: card.querySelector('a[target="_blank"]')?.href || ''
+            };
+
+            // Clean and validate data
+            candidate.email = candidate.email === 'N/A' ? '' : candidate.email;
+            candidate.phone = candidate.phone === 'N/A' ? '' : candidate.phone;
+            
+            
+            candidates.push(candidate);
         });
-    </script>
-</body>
-</html>
+
+        // Debug output
+        console.log('Exporting candidates:', candidates);
+
+        const csrfElement = document.querySelector('[name=csrfmiddlewaretoken]');
+        if (!csrfElement) {
+            alert('Security token missing! Please refresh the page.');
+            return;
+        }
+
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = `/export/${format}/`;
+
+        const csrf = document.createElement('input');
+        csrf.type = 'hidden';
+        csrf.name = 'csrfmiddlewaretoken';
+        csrf.value = csrfElement.value;
+
+        const data = document.createElement('input');
+        data.type = 'hidden';
+        data.name = 'candidates';
+        data.value = JSON.stringify(candidates);
+
+        form.append(csrf, data);
+        document.body.appendChild(form);
+        form.submit();
+    }
+
+    // Date Preset Functions
+    function setDatePreset(preset) {
+        const dateFrom = document.getElementById('date_from');
+        const dateTo = document.getElementById('date_to');
+        const today = new Date();
+        
+        switch(preset) {
+            case 'today':
+                const todayStr = today.toISOString().split('T')[0];
+                dateFrom.value = todayStr;
+                dateTo.value = todayStr;
+                break;
+            case 'week':
+                const weekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+                dateFrom.value = weekAgo.toISOString().split('T')[0];
+                dateTo.value = today.toISOString().split('T')[0];
+                break;
+            case 'month':
+                const monthAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
+                dateFrom.value = monthAgo.toISOString().split('T')[0];
+                dateTo.value = today.toISOString().split('T')[0];
+                break;
+            case 'reset':
+                dateFrom.value = '';
+                dateTo.value = '';
+                break;
+        }
+    }
+
+    // Demo Results Function
+    function showDemoResults() {
+        const resultsContainer = document.getElementById('results-container');
+        const resultsCol = document.getElementById('results-col');
+        
+        // Hide results first
+        resultsCol.classList.remove('results-visible');
+        resultsContainer.innerHTML = '';
+        
+        // Demo data - predefined candidates
+        const demoData = [
+            {
+                name: "qwertyuiopasdfghjklzxcvbnm123456789qwertyuiopasdfghjklzxcvbnm,qwertyuiopsdfghjklzxcvbnm,qwertyuioxcvbnmedrfgthjwestrdyfvgbhterxyfcgj hesrxdfcgvhberydfcgvjhbkn-",
+                score: 87,
+                experience: 5,
+                email: "sarah.johnson@email.com",
+                phone: "+1 (555) 123-4567",
+                matched_skills: ["Python", "Django", "JavaScript", "React", "SQL"],
+                missing_skills: ["AWS", "Docker"],
+                resume_url: "#"
+            },
+            {
+                name: "Michael Chen",
+                score: 76,
+                experience: 3,
+                email: "michael.chen@techcorp.com",
+                phone: "+1 (555) 987-6543",
+                matched_skills: ["JavaScript", "React", "Node.js", "MongoDB"],
+                missing_skills: ["Python", "Django", "AWS"],
+                resume_url: "#"
+            },
+            {
+                name: "Emily Rodriguez",
+                score: 92,
+                experience: 7,
+                email: "emily.rodriguez@devstudio.io",
+                phone: "+1 (555) 456-7890",
+                matched_skills: ["Python", "Django", "AWS", "Docker", "PostgreSQL", "React"],
+                missing_skills: [],
+                resume_url: "#"
+            },
+            {
+                name: "David Kim",
+                score: 64,
+                experience: 2,
+                email: "david.kim@startup.com",
+                phone: "+1 (555) 321-0987",
+                matched_skills: ["JavaScript", "HTML", "CSS"],
+                missing_skills: ["Python", "Django", "AWS", "React", "SQL"],
+                resume_url: "#"
+            },
+            {
+                name: "Lisa Wang",
+                score: 81,
+                experience: 4,
+                email: "lisa.wang@techsolutions.net",
+                phone: "+1 (555) 654-3210",
+                matched_skills: ["Python", "SQL", "AWS", "Git"],
+                missing_skills: ["Django", "React", "Docker"],
+                resume_url: "#"
+            }
+        ];
+
+        // Create grid container for results
+        const gridContainer = document.createElement('div');
+        gridContainer.className = 'row g-3';
+        resultsContainer.appendChild(gridContainer);
+
+        // Show demo results with animation
+        setTimeout(() => {
+            demoData.forEach((result, index) => {
+                setTimeout(() => {
+                    // Create column wrapper for grid layout
+                    const colWrapper = document.createElement('div');
+                    colWrapper.className = 'col-md-6';
+
+                    const resultCard = document.createElement('div');
+                    resultCard.className = 'card h-100 result-card';
+                    resultCard.style.animationDelay = `${index * 0.1}s`;
+
+                    const scoreColor = result.score >= 70 ? 'bg-success' : 
+                                    result.score >= 40 ? 'bg-warning' : 'bg-danger';
+
+                    resultCard.innerHTML = `
+                        <div class="card-body">
+                            <!-- Header with name and score badge -->
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0" title="${result.name}">${result.name}</h5>
+                                <span class="badge ${scoreColor}">${Math.round(result.score)}%</span>
+                            </div>
+                            
+                            <!-- Progress bar at top -->
+                            <div class="progress mb-3" style="height: 10px;">
+                                <div class="progress-bar ${scoreColor}" style="width: 0%" role="progressbar"></div>
+                            </div>
+                            
+                            <!-- Main content in horizontal layout -->
+                            <div class="row">
+                                <!-- Left column: Contact info -->
+                                <div class="col-md-6">
+                                    <div class="candidate-experience mb-2">
+                                        <strong>Experience:</strong> <span class="experience-value">${result.experience || 0} years</span>
+                                    </div>
+                                    <div class="candidate-email mb-2">
+                                        <strong>Email:</strong><br>
+                                        <span class="email-value text-break" style="font-size: 0.9rem;">${result.email}</span>
+                                    </div>
+                                    <div class="candidate-phone mb-2">
+                                        <strong>Phone:</strong> <span class="phone-value">${result.phone}</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right column: Skills -->
+                                <div class="col-md-6">
+                                    <div class="matched-skills mb-2">
+                                        <strong>Matched Skills:</strong>
+                                        <div class="mt-1">
+                                            ${result.matched_skills.length ? 
+                                                result.matched_skills.map(skill => 
+                                                    `<span class="badge bg-success me-1 mb-1">${skill}</span>`
+                                                ).join('') : 
+                                                '<span class="text-muted">None</span>'}
+                                        </div>
+                                    </div>
+                                    <div class="missing-skills mb-2">
+                                        <strong>Missing Skills:</strong>
+                                        <div class="mt-1">
+                                            ${result.missing_skills.length ? 
+                                                result.missing_skills.map(skill => 
+                                                    `<span class="badge bg-danger me-1 mb-1">${skill}</span>`
+                                                ).join('') : 
+                                                '<span class="text-muted">None</span>'}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- View Resume button -->
+                            <div class="mt-3">
+                                <a href="${result.resume_url}" class="btn btn-outline-primary" onclick="alert('This is a demo - no actual resume available'); return false;">
+                                    <i class="bi bi-file-earmark-text me-1"></i>View Resume
+                                </a>
+                            </div>
+                        </div>`;
+
+                    colWrapper.appendChild(resultCard);
+                    gridContainer.appendChild(colWrapper);
+                    
+                    setTimeout(() => {
+                        resultCard.querySelector('.progress-bar').style.width = `${Math.round(result.score)}%`;
+                    }, 100);
+                    if (window.updateFooterSticky) window.updateFooterSticky();
+                }, index * 150);
+            });
+            
+            // Show results container
+            resultsCol.classList.add('results-visible');
+            if (window.updateFooterSticky) window.updateFooterSticky();
+        }, 200);
+    }
+
+    // Function to reset page to initial state
+    function resetToInitialState() {
+        const headerSearchWrapper = document.querySelector('.header-search-wrapper');
+        const loadingOverlayBox = document.getElementById('loading-overlay-box');
+        
+        // Hide loading overlay box
+        loadingOverlayBox.style.display = 'none';
+        
+        // Hide results
+        resultsCol.classList.remove('results-visible');
+        
+        // Update footer positioning
+        setTimeout(updateFooterSticky, 100);
+    }
+    
+    // Reset state on page load
+    resetToInitialState();
+</script>
+{% endblock content %}

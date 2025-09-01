@@ -90,6 +90,8 @@ MIDDLEWARE = [
     'hrapp.middleware.SecurityMiddleware',
 ]
 
+
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -273,7 +275,7 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_ROOT = r'C:\Users\himan\OneDrive\Documents\hrmatcher\media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 

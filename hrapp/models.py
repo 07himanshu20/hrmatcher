@@ -39,4 +39,27 @@ class EmailConfiguration(models.Model):
 
     def __str__(self):
          return f"Email config for {self.user.username}"  # Changed from self.name
+
+class ResumeEmail(models.Model):
+    """Track emails with resume attachments for better filtering"""
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    email_id = models.CharField(max_length=255, unique=True)  # IMAP email ID
+    sender_email = models.EmailField()
+    subject = models.CharField(max_length=500)
+    received_date = models.DateTimeField()
+    attachment_filename = models.CharField(max_length=255)
+    attachment_path = models.CharField(max_length=500)
+    processed = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        indexes = [
+            models.Index(fields=['user', 'received_date']),
+            models.Index(fields=['received_date']),
+            models.Index(fields=['processed']),
+        ]
+        ordering = ['-received_date']
+    
+    def __str__(self):
+        return f"Resume from {self.sender_email} - {self.subject[:50]}..."
      

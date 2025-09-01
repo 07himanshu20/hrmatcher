@@ -4,10 +4,12 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hrmatcher.settings')
 
 import imaplib
 import email
+import email.utils
 import logging
 from datetime import datetime, timedelta
 from email.header import decode_header
 from typing import List, Dict, Any, Optional, Union
+import ssl
 
 from celery import shared_task
 from django.conf import settings
@@ -113,10 +115,7 @@ logger = logging.getLogger(__name__)
 from .models import EmailConfiguration
 @shared_task(bind=True)
 
-def fetch_resumes_from_email(self, user_id):
-        
-    
-
+def fetch_resumes_from_email(self, user_id, date_from=None, date_to=None):
     # Configuration
     config = EmailConfiguration.objects.get(user_id=user_id)
     IMAP_SERVER = config.email_host
@@ -124,15 +123,46 @@ def fetch_resumes_from_email(self, user_id):
     PASSWORD = config.email_password
     PORT = config.email_port
     USE_TLS = config.use_tls
-    DOWNLOAD_DIR = r"C:\Users\himan\OneDrive\Documents\hrmatcher\media\resumes"
-    RESUME_KEYWORDS = ["resume", "cv", "application", "apply", "applying"]
+    
+    # Import settings and os at the beginning of the function
+    from django.conf import settings
+    import os
+    import logging
+    
+    logger = logging.getLogger(__name__)
+    
+    # Log the base directory and media root for debugging
+    logger.info(f"BASE_DIR: {settings.BASE_DIR}")
+    logger.info(f"MEDIA_ROOT: {settings.MEDIA_ROOT}")
+    
+    # Create a user-specific directory for resumes
+    user_resume_dir = os.path.join(settings.MEDIA_ROOT, 'resumes')
 
-    os.makedirs(DOWNLOAD_DIR, exist_ok=True)
+    
+    # Log the directory we're trying to create
+    logger.info(f"Attempting to create directory: {user_resume_dir}")
+    
+    try:
+        os.makedirs(user_resume_dir, exist_ok=True)
+        logger.info(f"Directory created successfully: {user_resume_dir}")
+    except Exception as e:
+        logger.error(f"Error creating directory: {str(e)}")
+        # Fallback to a temporary directory
+        import tempfile
+        user_resume_dir = tempfile.mkdtemp()
+        logger.info(f"Using temporary directory instead: {user_resume_dir}")
+    
+    DOWNLOAD_DIR = user_resume_dir
+    
+    RESUME_KEYWORDS = ["resume","job","availability" "cv", "application", "apply","intern", "internship", "applying","interview"]
+
     saved_files = []
 
     try:
         logger.info("Connecting to IMAP...")
-        with imaplib.IMAP4_SSL(IMAP_SERVER, 993) as imap:
+        # Always use a fresh SSL context for each connection
+        ssl_context = ssl.create_default_context()
+        with imaplib.IMAP4_SSL(IMAP_SERVER, 993, ssl_context=ssl_context) as imap:
             imap.login(EMAIL, PASSWORD)
             logger.info("Logged in successfully")
 
@@ -140,7 +170,41 @@ def fetch_resumes_from_email(self, user_id):
             if status != 'OK':
                 raise Exception("Failed to select INBOX")
 
-            status, messages = imap.search(None, 'ALL')
+            # Build search criteria with date filtering
+            search_criteria = []
+            
+            # Add date filtering if provided
+            if date_from:
+                try:
+                    # Convert date string to IMAP format (DD-Mon-YYYY)
+                    from_date = datetime.strptime(date_from, '%Y-%m-%d')
+                    formatted_from_date = from_date.strftime('%d-%b-%Y')
+                    search_criteria.append(f'SINCE "{formatted_from_date}"')
+                    logger.info(f"Filtering emails from: {formatted_from_date}")
+                except ValueError:
+                    logger.warning(f"Invalid from_date format: {date_from}")
+            
+            if date_to:
+                try:
+                    # Convert date string to IMAP format (DD-Mon-YYYY)
+                    # For BEFORE, we need the day AFTER to_date since BEFORE is exclusive
+                    to_date = datetime.strptime(date_to, '%Y-%m-%d')
+                    # Add one day to make BEFORE inclusive of the to_date
+                    to_date_inclusive = to_date + timedelta(days=1)
+                    formatted_to_date = to_date_inclusive.strftime('%d-%b-%Y')
+                    search_criteria.append(f'BEFORE "{formatted_to_date}"')
+                    logger.info(f"Filtering emails to: {date_to} (using BEFORE {formatted_to_date})")
+                except ValueError:
+                    logger.warning(f"Invalid to_date format: {date_to}")
+            
+            # If no date criteria, search all emails
+            if search_criteria:
+                search_query = ' '.join(search_criteria)
+                logger.info(f"Using search query: {search_query}")
+            else:
+                search_query = 'ALL'
+            
+            status, messages = imap.search(None, search_query)
             if status != 'OK':
                 raise Exception("IMAP search failed")
 
@@ -157,7 +221,8 @@ def fetch_resumes_from_email(self, user_id):
                     msg = email.message_from_bytes(msg_data[0][1])
                     subject = msg.get("Subject", "")
                     subject_lower = subject.lower()
-
+                    
+                    # Check if email subject contains resume keywords
                     if not any(keyword in subject_lower for keyword in RESUME_KEYWORDS):
                         logger.debug(f"Skipping non-resume email: {subject[:50]}...")
                         continue

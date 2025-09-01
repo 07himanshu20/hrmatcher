@@ -1,3 +1,0 @@
-Bob Johnson
-Python, Machine Learning, TensorFlow
-Email: bob.johnson@test.com
