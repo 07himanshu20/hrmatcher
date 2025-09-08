@@ -119,18 +119,20 @@ def match_resumes(request):
         # Check if date filtering is being used
         date_filtering_applied = bool(date_from or date_to)
         
-        # Pass date filters to the email fetching task if they are provided
+        # Fetch emails with date filtering applied at IMAP server level
         if date_filtering_applied:
+            # Only emails within the specified date range will be fetched from the server
             resume_files = fetch_resumes_from_email(request.user.id, date_from, date_to)
-            logger.info(f"Date filtering applied: from={date_from}, to={date_to}")
+            logger.info(f"Date filtering applied at IMAP level: from={date_from}, to={date_to} - only fetching emails in this range")
             
-            # If date filtering is applied and no new emails found, return empty results
+            # If date filtering is applied and no emails found in date range, return empty results
             if not resume_files:
-                logger.info("No new resumes found in email for the specified date range")
+                logger.info("No resumes found in the specified date range - no emails were fetched outside this range")
                 return JsonResponse([], safe=False)
         else:
+            # No date filtering - fetch all emails
             resume_files = fetch_resumes_from_email(request.user.id)
-            logger.info("No date filtering applied - processing all emails")
+            logger.info("No date filtering applied - fetching all emails from server")
         
         if not resume_files and not date_filtering_applied:
             logger.info("No new resumes found in email")
@@ -143,8 +145,54 @@ def match_resumes(request):
         resume_dir = os.path.join(settings.MEDIA_ROOT, 'resumes')
         results = []
         
-        # Only process existing resumes if no date filtering is applied OR if new emails were found
-        if not date_filtering_applied or resume_files:
+        # If date filtering is applied, only process resumes that were fetched within the date range
+        if date_filtering_applied:
+            # Only process the resumes that were actually fetched in this date-filtered request
+            if resume_files:
+                logger.info(f"Processing only {len(resume_files)} resumes fetched within date range: {date_from} to {date_to}")
+                for resume_path in resume_files:
+                    filename = os.path.basename(resume_path)
+                    
+                    try:
+                        text = extract_text_from_resume(resume_path)
+                        if not text:
+                            continue
+                            
+                        # Use Gemini with fallback
+                        candidate_data = extract_skills_with_gemini(text, skills)
+                        
+                        ats_score = calculate_ats_score(
+                            resume_text=text,
+                            job_requirements={
+                                'required_skills': skills,
+                                'min_experience': min_experience,
+                                'job_title_keywords': [position],
+                                'preferred_skills': []
+                            }
+                        )
+                        if ats_score['matched_skills']:  # This checks if the list is not empty
+                            results.append({
+                                'name': candidate_data['name'],
+                                'score': ats_score['total_score'],
+                                'matched_skills': ats_score['matched_skills'],
+                                'missing_skills': ats_score['missing_skills'],
+                                'experience': candidate_data['experience'],
+                                'email': candidate_data['email'],
+                                'phone': candidate_data['phone'],
+                                'filename': filename,
+                                'resume_url': os.path.join(settings.MEDIA_URL, 'resumes', filename).replace('\\', '/'),
+                            })
+                        
+                    except Exception as e:
+                        logger.error(f"Error processing {filename}: {str(e)}")
+                        continue
+                        
+            else:
+                logger.info("No resumes found within the specified date range")
+                
+        else:
+            # No date filtering - process all existing resumes
+            logger.info("No date filtering applied - processing all existing resumes")
             for filename in os.listdir(resume_dir):
                 if filename.lower().endswith(('.pdf', '.docx')):
                     filepath = os.path.join(resume_dir, filename)
@@ -173,15 +221,11 @@ def match_resumes(request):
                                 'matched_skills': ats_score['matched_skills'],
                                 'missing_skills': ats_score['missing_skills'],
                                 'experience': candidate_data['experience'],
-                                #'email': candidate_data.get('email', ''),
-                                #'phone': candidate_data.get('phone', ''),
                                 'email': candidate_data['email'],
                                 'phone': candidate_data['phone'],
-                                
-                                
                                 'filename': filename,
                                 'resume_url': os.path.join(settings.MEDIA_URL, 'resumes', filename).replace('\\', '/'),
-                        })
+                            })
                         
                     except Exception as e:
                         logger.error(f"Error processing {filename}: {str(e)}")
@@ -317,7 +361,7 @@ def fetch_resumes(request):
         return JsonResponse({'status': 'error', 'error': str(e)}, status=500)
     
     
-from .export_utils import export_to_excel, export_to_pdf
+# from .export_utils import export_to_excel, export_to_pdf
 
 from django.views.decorators.csrf import csrf_exempt
 
@@ -338,9 +382,11 @@ def export_results(request, format_type):
                         candidate[field] = []
 
             if format_type == 'excel':
-                return export_to_excel(candidates)
+                # return export_to_excel(candidates)
+                return JsonResponse({'error': 'Excel export temporarily disabled'}, status=500)
             elif format_type == 'pdf':
-                return export_to_pdf(candidates)
+                # return export_to_pdf(candidates)
+                return JsonResponse({'error': 'PDF export temporarily disabled'}, status=500)
             else:
                 return HttpResponseBadRequest("Invalid format")
                 
@@ -364,6 +410,7 @@ def email_config_view(request):
         if form.is_valid():
             # Get or create the configuration for this user
             config, created = EmailConfiguration.objects.get_or_create(user=request.user)
+            logger.info(f"Email config: {'Created' if created else 'Updated'} for user {request.user.username} (ID: {request.user.id})")
             
             # Update the configuration with form data
             config.email_backend = form.cleaned_data['email_backend']
@@ -373,6 +420,7 @@ def email_config_view(request):
             config.email_username = form.cleaned_data['email_username']
             config.email_password = form.cleaned_data['email_password']
             config.save()
+            logger.info(f"Saved email config for {request.user.username}: host={config.email_host}, username={config.email_username}")
             
             # Update session state
             request.session.update({
