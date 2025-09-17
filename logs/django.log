@@ -28891,3 +28891,1029 @@ django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 4: 'block'.
 2025-08-08 17:11:59,402 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
 2025-08-08 17:12:31,306 INFO autoreload C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\hrapp\tasks.py changed, reloading.
 2025-08-08 17:12:36,101 INFO autoreload Watching for file changes with StatReloader
+2025-09-05 11:26:13,005 INFO autoreload Watching for file changes with StatReloader
+2025-09-05 11:26:22,823 WARNING log Not Found: /favicon.ico
+2025-09-05 11:27:10,093 INFO views Received POST data: {'email_host': 'imap.gmail.com', 'email_port': '993', 'email_username': 'himanshu', 'use_tls': 'true', 'csrfmiddlewaretoken': 'kgwC2Nh6NjaMr8ocNllMS3X9pFHmkyrtciOKOeILb6AwrwXBWnqeTt20Qk3C4BFe'}
+2025-09-05 11:27:10,094 INFO views Testing connection with: host='imap.gmail.com', port='993', username='himanshu', use_tls=True
+2025-09-05 11:27:10,094 INFO views Testing IMAP connection to imap.gmail.com:993
+2025-09-05 11:27:14,953 WARNING log Bad Request: /test-email-connection/
+2025-09-05 11:27:55,979 INFO views Received POST data: {'email_host': 'imap.gmail.com', 'email_port': '993', 'email_username': 'himanshu', 'use_tls': 'true', 'csrfmiddlewaretoken': 'kgwC2Nh6NjaMr8ocNllMS3X9pFHmkyrtciOKOeILb6AwrwXBWnqeTt20Qk3C4BFe'}
+2025-09-05 11:27:55,980 INFO views Testing connection with: host='imap.gmail.com', port='993', username='himanshu', use_tls=True
+2025-09-05 11:27:55,981 INFO views Testing IMAP connection to imap.gmail.com:993
+2025-09-05 11:27:59,739 WARNING log Bad Request: /test-email-connection/
+2025-09-05 11:28:28,697 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'himanshu', 'use_tls': 'true', 'csrfmiddlewaretoken': 'kgwC2Nh6NjaMr8ocNllMS3X9pFHmkyrtciOKOeILb6AwrwXBWnqeTt20Qk3C4BFe'}
+2025-09-05 11:28:28,697 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='himanshu', use_tls=True
+2025-09-05 11:28:28,698 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 11:28:34,317 WARNING log Bad Request: /test-email-connection/
+2025-09-05 11:29:04,224 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'himanshu', 'use_tls': 'true', 'csrfmiddlewaretoken': 'kgwC2Nh6NjaMr8ocNllMS3X9pFHmkyrtciOKOeILb6AwrwXBWnqeTt20Qk3C4BFe'}
+2025-09-05 11:29:04,226 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='himanshu', use_tls=True
+2025-09-05 11:29:04,227 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 11:29:08,934 WARNING log Bad Request: /test-email-connection/
+2025-09-05 11:29:56,964 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'himanshu', 'use_tls': 'true', 'csrfmiddlewaretoken': 'kgwC2Nh6NjaMr8ocNllMS3X9pFHmkyrtciOKOeILb6AwrwXBWnqeTt20Qk3C4BFe'}
+2025-09-05 11:29:56,967 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='himanshu', use_tls=True
+2025-09-05 11:29:56,968 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 11:30:01,643 WARNING log Bad Request: /test-email-connection/
+2025-09-05 11:30:08,768 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'himanshu', 'use_tls': 'false', 'csrfmiddlewaretoken': 'kgwC2Nh6NjaMr8ocNllMS3X9pFHmkyrtciOKOeILb6AwrwXBWnqeTt20Qk3C4BFe'}
+2025-09-05 11:30:08,769 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='himanshu', use_tls=False
+2025-09-05 11:30:08,770 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 11:30:12,708 WARNING log Bad Request: /test-email-connection/
+2025-09-05 11:35:52,241 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'false', 'csrfmiddlewaretoken': 'kgwC2Nh6NjaMr8ocNllMS3X9pFHmkyrtciOKOeILb6AwrwXBWnqeTt20Qk3C4BFe'}
+2025-09-05 11:35:52,242 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='prod@bharatcrest.com', use_tls=False
+2025-09-05 11:35:52,242 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 11:35:57,182 INFO views Connection to imap.secureserver.net successful!
+2025-09-05 11:37:55,476 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 11:37:55,477 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 11:37:55,477 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 11:37:55,478 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 11:37:55,478 INFO tasks Connecting to IMAP...
+2025-09-05 11:37:59,093 INFO tasks Logged in successfully
+2025-09-05 11:37:59,660 INFO tasks Filtering emails from: 02-Sep-2025
+2025-09-05 11:37:59,668 INFO tasks Filtering emails to: 2025-09-05 (using BEFORE 06-Sep-2025)
+2025-09-05 11:37:59,692 INFO tasks Using search query: SINCE 02-Sep-2025 BEFORE 06-Sep-2025
+2025-09-05 11:38:00,212 INFO tasks Found 8 emails to scan
+2025-09-05 11:38:08,116 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Frontend_Developer_Internship_=E2=80=93_Fo?=
+	=?UTF-8?Q?llow=2Dup?=
+2025-09-05 11:38:08,130 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\ANSH Resume.pdf
+2025-09-05 11:40:33,135 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-05 11:40:33,680 INFO views Date filtering applied: from=2025-09-02, to=2025-09-05
+2025-09-05 11:40:42,282 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:40:43,071 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:14,575 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:14,584 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:14,590 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:14,604 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:14,613 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:14,623 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:14,636 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:14,644 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:15,774 WARNING pdfinterp Cannot set gray stroke color because /'P4' is an invalid float value
+2025-09-05 11:41:15,775 WARNING pdfinterp Cannot set gray non-stroke color because /'P4' is an invalid float value
+2025-09-05 11:41:15,776 WARNING pdfinterp Cannot set gray stroke color because /'P5' is an invalid float value
+2025-09-05 11:41:15,776 WARNING pdfinterp Cannot set gray non-stroke color because /'P5' is an invalid float value
+2025-09-05 11:41:15,785 WARNING pdfinterp Cannot set gray stroke color because /'P4' is an invalid float value
+2025-09-05 11:41:15,786 WARNING pdfinterp Cannot set gray non-stroke color because /'P4' is an invalid float value
+2025-09-05 11:41:18,569 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:18,574 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:18,578 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:18,583 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:18,992 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:18,998 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:19,000 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:19,004 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:19,241 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:19,248 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:19,250 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:19,253 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:19,256 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:19,268 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:19,272 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:25,073 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:25,081 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:25,097 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:25,129 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:25,135 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:25,164 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:41:25,182 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:42:07,163 ERROR log Internal Server Error: /export/excel/
+2025-09-05 11:42:13,429 ERROR log Internal Server Error: /export/pdf/
+2025-09-05 11:42:26,791 ERROR log Internal Server Error: /export/excel/
+2025-09-05 11:43:50,673 ERROR log Internal Server Error: /export/excel/
+2025-09-05 11:44:16,133 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 11:44:16,136 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 11:44:16,138 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 11:44:16,151 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 11:44:16,169 INFO tasks Connecting to IMAP...
+2025-09-05 11:44:19,949 INFO tasks Logged in successfully
+2025-09-05 11:44:20,537 INFO tasks Filtering emails from: 02-Sep-2025
+2025-09-05 11:44:20,537 INFO tasks Filtering emails to: 2025-09-05 (using BEFORE 06-Sep-2025)
+2025-09-05 11:44:20,538 INFO tasks Using search query: SINCE 02-Sep-2025 BEFORE 06-Sep-2025
+2025-09-05 11:44:21,109 INFO tasks Found 8 emails to scan
+2025-09-05 11:44:25,849 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Frontend_Developer_Internship_=E2=80=93_Fo?=
+	=?UTF-8?Q?llow=2Dup?=
+2025-09-05 11:44:25,867 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\ANSH Resume.pdf
+2025-09-05 11:44:30,327 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-09-05 11:46:00,927 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-05 11:46:01,486 INFO views Date filtering applied: from=2025-09-02, to=2025-09-05
+2025-09-05 11:46:09,070 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:09,784 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:40,106 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:40,116 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:40,122 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:40,134 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:40,141 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:40,153 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:40,166 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:40,171 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:41,264 WARNING pdfinterp Cannot set gray stroke color because /'P4' is an invalid float value
+2025-09-05 11:46:41,264 WARNING pdfinterp Cannot set gray non-stroke color because /'P4' is an invalid float value
+2025-09-05 11:46:41,265 WARNING pdfinterp Cannot set gray stroke color because /'P5' is an invalid float value
+2025-09-05 11:46:41,266 WARNING pdfinterp Cannot set gray non-stroke color because /'P5' is an invalid float value
+2025-09-05 11:46:41,272 WARNING pdfinterp Cannot set gray stroke color because /'P4' is an invalid float value
+2025-09-05 11:46:41,273 WARNING pdfinterp Cannot set gray non-stroke color because /'P4' is an invalid float value
+2025-09-05 11:46:43,921 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:43,926 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:43,929 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:43,931 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:44,238 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:44,243 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:44,247 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:44,250 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:44,542 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:44,548 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:44,550 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:44,553 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:44,559 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:44,563 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:44,566 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:50,498 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:50,505 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:50,512 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:50,519 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:50,523 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:50,526 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 11:46:50,531 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:00:49,667 INFO autoreload Watching for file changes with StatReloader
+2025-09-05 12:03:57,696 INFO autoreload Watching for file changes with StatReloader
+2025-09-05 12:04:30,176 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'false', 'csrfmiddlewaretoken': 'YpmEHGagLMhRZen5xFxH0o8ZacoQbOEOQrEMt7BV9zHBZCWuGHC91OdQBRK6VRSz'}
+2025-09-05 12:04:30,177 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='prod@bharatcrest.com', use_tls=False
+2025-09-05 12:04:30,178 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 12:04:35,097 INFO views Connection to imap.secureserver.net successful!
+2025-09-05 12:05:12,592 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 12:05:12,593 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 12:05:12,593 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 12:05:12,594 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 12:05:12,594 INFO tasks Connecting to IMAP...
+2025-09-05 12:05:14,747 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-09-05 12:05:16,556 INFO tasks Logged in successfully
+2025-09-05 12:05:17,253 INFO tasks Filtering emails from: 02-Sep-2025
+2025-09-05 12:05:17,254 INFO tasks Filtering emails to: 2025-09-05 (using BEFORE 06-Sep-2025)
+2025-09-05 12:05:17,254 INFO tasks Using search query: 'SINCE 02-Sep-2025 BEFORE 06-Sep-2025'
+2025-09-05 12:05:17,801 INFO tasks Found 9 emails to scan
+2025-09-05 12:05:23,487 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Frontend_Developer_Internship_=E2=80=93_Fo?=
+	=?UTF-8?Q?llow=2Dup?=
+2025-09-05 12:05:23,496 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\ANSH Resume.pdf
+2025-09-05 12:05:38,913 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-05 12:05:40,480 INFO views Date filtering applied: from=2025-09-02, to=2025-09-05
+2025-09-05 12:05:47,330 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:05:47,960 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:15,102 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:15,110 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:15,116 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:15,128 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:15,137 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:15,146 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:15,153 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:15,161 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:16,247 WARNING pdfinterp Cannot set gray stroke color because /'P4' is an invalid float value
+2025-09-05 12:06:16,247 WARNING pdfinterp Cannot set gray non-stroke color because /'P4' is an invalid float value
+2025-09-05 12:06:16,248 WARNING pdfinterp Cannot set gray stroke color because /'P5' is an invalid float value
+2025-09-05 12:06:16,249 WARNING pdfinterp Cannot set gray non-stroke color because /'P5' is an invalid float value
+2025-09-05 12:06:16,256 WARNING pdfinterp Cannot set gray stroke color because /'P4' is an invalid float value
+2025-09-05 12:06:16,257 WARNING pdfinterp Cannot set gray non-stroke color because /'P4' is an invalid float value
+2025-09-05 12:06:18,918 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:18,922 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:18,924 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:18,925 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:19,244 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:19,251 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:19,255 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:19,258 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:19,414 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:19,417 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:19,419 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:19,421 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:19,422 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:19,425 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:19,429 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:24,772 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:24,775 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:24,778 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:24,781 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:24,785 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:24,789 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:06:24,796 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:07:52,677 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 12:07:52,678 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 12:07:52,678 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 12:07:52,679 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 12:07:52,679 INFO tasks Connecting to IMAP...
+2025-09-05 12:07:54,320 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-09-05 12:07:56,784 INFO tasks Logged in successfully
+2025-09-05 12:07:57,289 INFO tasks Filtering emails from: 02-Sep-2025
+2025-09-05 12:07:57,290 INFO tasks Filtering emails to: 2025-09-05 (using BEFORE 06-Sep-2025)
+2025-09-05 12:07:57,290 INFO tasks Using search query: 'SINCE 02-Sep-2025 BEFORE 06-Sep-2025'
+2025-09-05 12:07:58,747 INFO tasks Found 9 emails to scan
+2025-09-05 12:08:10,365 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Frontend_Developer_Internship_=E2=80=93_Fo?=
+	=?UTF-8?Q?llow=2Dup?=
+2025-09-05 12:08:10,370 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\ANSH Resume.pdf
+2025-09-05 12:09:47,045 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-05 12:09:49,807 INFO views Date filtering applied: from=2025-09-02, to=2025-09-05
+2025-09-05 12:09:55,851 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:09:56,547 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:25,088 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:25,100 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:25,108 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:25,119 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:25,130 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:25,140 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:25,154 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:25,164 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:26,330 WARNING pdfinterp Cannot set gray stroke color because /'P4' is an invalid float value
+2025-09-05 12:10:26,330 WARNING pdfinterp Cannot set gray non-stroke color because /'P4' is an invalid float value
+2025-09-05 12:10:26,331 WARNING pdfinterp Cannot set gray stroke color because /'P5' is an invalid float value
+2025-09-05 12:10:26,332 WARNING pdfinterp Cannot set gray non-stroke color because /'P5' is an invalid float value
+2025-09-05 12:10:26,343 WARNING pdfinterp Cannot set gray stroke color because /'P4' is an invalid float value
+2025-09-05 12:10:26,354 WARNING pdfinterp Cannot set gray non-stroke color because /'P4' is an invalid float value
+2025-09-05 12:10:28,827 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:28,832 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:28,835 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:28,837 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:29,143 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:29,148 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:29,150 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:29,154 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:29,340 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:29,347 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:29,350 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:29,355 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:29,359 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:29,362 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:29,367 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:35,439 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:35,444 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:35,452 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:35,460 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:35,468 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:35,473 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:10:35,477 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:20:18,859 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-09-05 12:22:16,171 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-09-05 12:23:34,339 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 12:23:34,341 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 12:23:34,341 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 12:23:34,344 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 12:23:34,344 INFO tasks Connecting to IMAP...
+2025-09-05 12:23:38,087 INFO tasks Logged in successfully
+2025-09-05 12:23:38,683 INFO tasks Filtering emails from: 04-Sep-2025
+2025-09-05 12:23:38,684 INFO tasks Filtering emails to: 2025-09-05 (using BEFORE 06-Sep-2025)
+2025-09-05 12:23:38,684 INFO tasks Using search query: 'SINCE 04-Sep-2025 BEFORE 06-Sep-2025'
+2025-09-05 12:23:39,297 INFO tasks Found 9 emails to scan
+2025-09-05 12:23:46,989 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Frontend_Developer_Internship_=E2=80=93_Fo?=
+	=?UTF-8?Q?llow=2Dup?=
+2025-09-05 12:23:46,991 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\ANSH Resume.pdf
+2025-09-05 12:26:09,736 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-05 12:26:12,093 INFO views Date filtering applied: from=2025-09-04, to=2025-09-05
+2025-09-05 12:26:18,836 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:19,384 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:45,184 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:45,193 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:45,198 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:45,207 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:45,213 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:45,218 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:45,223 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:45,228 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:46,299 WARNING pdfinterp Cannot set gray stroke color because /'P4' is an invalid float value
+2025-09-05 12:26:46,299 WARNING pdfinterp Cannot set gray non-stroke color because /'P4' is an invalid float value
+2025-09-05 12:26:46,300 WARNING pdfinterp Cannot set gray stroke color because /'P5' is an invalid float value
+2025-09-05 12:26:46,300 WARNING pdfinterp Cannot set gray non-stroke color because /'P5' is an invalid float value
+2025-09-05 12:26:46,305 WARNING pdfinterp Cannot set gray stroke color because /'P4' is an invalid float value
+2025-09-05 12:26:46,306 WARNING pdfinterp Cannot set gray non-stroke color because /'P4' is an invalid float value
+2025-09-05 12:26:48,691 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:48,748 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:48,783 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:48,824 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:49,074 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:49,079 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:49,081 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:49,083 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:49,248 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:49,252 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:49,253 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:49,256 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:49,258 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:49,264 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:49,269 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:54,779 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:54,787 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:54,793 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:54,806 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:54,808 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:54,811 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:26:54,814 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:28:16,705 INFO autoreload C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\hrapp\tasks.py changed, reloading.
+2025-09-05 12:28:21,062 INFO autoreload Watching for file changes with StatReloader
+2025-09-05 12:28:35,988 INFO autoreload C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\hrapp\views.py changed, reloading.
+2025-09-05 12:28:38,225 INFO autoreload Watching for file changes with StatReloader
+2025-09-05 12:41:37,764 INFO autoreload Watching for file changes with StatReloader
+2025-09-05 12:41:52,123 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'false', 'csrfmiddlewaretoken': 'HzGVfiQSEBeAvCshhYpoAbrCyFTls5OszBY31Jhx2oEkv01Gq0uQBBwtZkfBc82d'}
+2025-09-05 12:41:52,125 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='prod@bharatcrest.com', use_tls=False
+2025-09-05 12:41:52,125 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 12:41:57,262 INFO views Connection to imap.secureserver.net successful!
+2025-09-05 12:42:27,115 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 12:42:27,116 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 12:42:27,116 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 12:42:27,125 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 12:42:27,125 INFO tasks Connecting to IMAP...
+2025-09-05 12:42:30,998 INFO tasks Logged in successfully
+2025-09-05 12:42:31,581 INFO tasks IMAP filtering emails FROM: 04-Sep-2025
+2025-09-05 12:42:31,582 INFO tasks IMAP filtering emails TO: 2025-09-05 (using BEFORE 06-Sep-2025)
+2025-09-05 12:42:31,583 INFO tasks IMAP search query (server-side filtering): 'SINCE 04-Sep-2025 BEFORE 06-Sep-2025'
+2025-09-05 12:42:32,179 INFO tasks Only fetching emails that match the date criteria - no other emails will be downloaded
+2025-09-05 12:42:32,180 INFO tasks Found 9 emails to scan
+2025-09-05 12:42:37,512 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Frontend_Developer_Internship_=E2=80=93_Fo?=
+	=?UTF-8?Q?llow=2Dup?=
+2025-09-05 12:42:37,516 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\ANSH Resume.pdf
+2025-09-05 12:43:24,960 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-09-05 12:44:57,213 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-09-05 12:44:58,857 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-09-05 12:44:59,540 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-09-05 12:45:00,332 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-09-05 12:45:00,663 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-09-05 12:45:00,865 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-09-05 12:45:07,241 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-05 12:45:08,945 INFO views Date filtering applied at IMAP level: from=2025-09-04, to=2025-09-05 - only fetching emails in this range
+2025-09-05 12:45:08,946 INFO views Processing only 1 resumes fetched within date range: 2025-09-04 to 2025-09-05
+2025-09-05 12:45:08,976 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:45:36,991 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 12:45:36,992 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 12:45:36,992 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 12:45:36,993 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 12:45:36,994 INFO tasks Connecting to IMAP...
+2025-09-05 12:45:42,239 INFO tasks Logged in successfully
+2025-09-05 12:45:42,740 INFO tasks IMAP filtering emails FROM: 05-Sep-2025
+2025-09-05 12:45:42,742 INFO tasks IMAP filtering emails TO: 2025-09-05 (using BEFORE 06-Sep-2025)
+2025-09-05 12:45:42,744 INFO tasks IMAP search query (server-side filtering): 'SINCE 05-Sep-2025 BEFORE 06-Sep-2025'
+2025-09-05 12:45:43,275 INFO tasks Only fetching emails that match the date criteria - no other emails will be downloaded
+2025-09-05 12:45:43,276 INFO tasks Found 3 emails to scan
+2025-09-05 12:45:48,176 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-05 12:45:52,217 INFO views Date filtering applied at IMAP level: from=2025-09-05, to=2025-09-05 - only fetching emails in this range
+2025-09-05 12:45:52,217 INFO views No resumes found in the specified date range - no emails were fetched outside this range
+2025-09-05 12:46:12,620 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 12:46:12,620 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 12:46:12,621 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 12:46:12,622 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 12:46:12,622 INFO tasks Connecting to IMAP...
+2025-09-05 12:46:17,264 INFO tasks Logged in successfully
+2025-09-05 12:46:17,954 INFO tasks IMAP filtering emails FROM: 04-Sep-2025
+2025-09-05 12:46:17,956 INFO tasks IMAP filtering emails TO: 2025-09-05 (using BEFORE 06-Sep-2025)
+2025-09-05 12:46:17,956 INFO tasks IMAP search query (server-side filtering): 'SINCE 04-Sep-2025 BEFORE 06-Sep-2025'
+2025-09-05 12:46:18,572 INFO tasks Only fetching emails that match the date criteria - no other emails will be downloaded
+2025-09-05 12:46:18,573 INFO tasks Found 9 emails to scan
+2025-09-05 12:46:23,303 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Frontend_Developer_Internship_=E2=80=93_Fo?=
+	=?UTF-8?Q?llow=2Dup?=
+2025-09-05 12:46:23,305 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\ANSH Resume.pdf
+2025-09-05 12:46:37,899 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-05 12:46:39,413 INFO views Date filtering applied at IMAP level: from=2025-09-04, to=2025-09-05 - only fetching emails in this range
+2025-09-05 12:46:39,413 INFO views Processing only 1 resumes fetched within date range: 2025-09-04 to 2025-09-05
+2025-09-05 12:46:39,449 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:47:15,993 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 12:47:15,994 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 12:47:15,996 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 12:47:15,999 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 12:47:16,003 INFO tasks Connecting to IMAP...
+2025-09-05 12:47:19,807 INFO tasks Logged in successfully
+2025-09-05 12:47:20,421 INFO tasks IMAP filtering emails FROM: 03-Sep-2025
+2025-09-05 12:47:20,422 INFO tasks IMAP filtering emails TO: 2025-09-05 (using BEFORE 06-Sep-2025)
+2025-09-05 12:47:20,423 INFO tasks IMAP search query (server-side filtering): 'SINCE 03-Sep-2025 BEFORE 06-Sep-2025'
+2025-09-05 12:47:20,940 INFO tasks Only fetching emails that match the date criteria - no other emails will be downloaded
+2025-09-05 12:47:20,942 INFO tasks Found 9 emails to scan
+2025-09-05 12:47:26,210 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Frontend_Developer_Internship_=E2=80=93_Fo?=
+	=?UTF-8?Q?llow=2Dup?=
+2025-09-05 12:47:26,213 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\ANSH Resume.pdf
+2025-09-05 12:49:44,005 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-09-05 12:49:45,442 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-05 12:49:47,865 INFO views Date filtering applied at IMAP level: from=2025-09-03, to=2025-09-05 - only fetching emails in this range
+2025-09-05 12:49:47,866 INFO views Processing only 1 resumes fetched within date range: 2025-09-03 to 2025-09-05
+2025-09-05 12:49:47,902 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:49:57,586 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 12:49:57,587 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 12:49:57,588 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 12:49:57,589 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 12:49:57,589 INFO tasks Connecting to IMAP...
+2025-09-05 12:50:01,859 INFO tasks Logged in successfully
+2025-09-05 12:50:02,419 INFO tasks IMAP filtering emails FROM: 02-Sep-2025
+2025-09-05 12:50:02,420 INFO tasks IMAP filtering emails TO: 2025-09-05 (using BEFORE 06-Sep-2025)
+2025-09-05 12:50:02,421 INFO tasks IMAP search query (server-side filtering): 'SINCE 02-Sep-2025 BEFORE 06-Sep-2025'
+2025-09-05 12:50:03,034 INFO tasks Only fetching emails that match the date criteria - no other emails will be downloaded
+2025-09-05 12:50:03,035 INFO tasks Found 9 emails to scan
+2025-09-05 12:50:08,747 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Frontend_Developer_Internship_=E2=80=93_Fo?=
+	=?UTF-8?Q?llow=2Dup?=
+2025-09-05 12:50:08,749 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\ANSH Resume.pdf
+2025-09-05 12:51:17,629 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-05 12:51:19,418 INFO views Date filtering applied at IMAP level: from=2025-09-02, to=2025-09-05 - only fetching emails in this range
+2025-09-05 12:51:19,418 INFO views Processing only 1 resumes fetched within date range: 2025-09-02 to 2025-09-05
+2025-09-05 12:51:19,440 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:51:48,647 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 12:51:48,648 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 12:51:48,652 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 12:51:48,653 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 12:51:48,654 INFO tasks Connecting to IMAP...
+2025-09-05 12:51:52,807 INFO tasks Logged in successfully
+2025-09-05 12:51:53,348 INFO tasks IMAP filtering emails FROM: 06-Aug-2025
+2025-09-05 12:51:53,349 INFO tasks IMAP filtering emails TO: 2025-09-05 (using BEFORE 06-Sep-2025)
+2025-09-05 12:51:53,350 INFO tasks IMAP search query (server-side filtering): 'SINCE 06-Aug-2025 BEFORE 06-Sep-2025'
+2025-09-05 12:51:53,882 INFO tasks Only fetching emails that match the date criteria - no other emails will be downloaded
+2025-09-05 12:51:53,883 INFO tasks Found 24 emails to scan
+2025-09-05 12:51:57,928 INFO tasks Processing resume email: Resume -Prashant Kumar Mishra
+2025-09-05 12:51:57,931 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\DOC-20250808-WA0001..pdf
+2025-09-05 12:51:59,352 INFO tasks Processing resume email: Application for Web Application Developer Intern
+2025-09-05 12:51:59,357 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\PritiPaul.pdf
+2025-09-05 12:52:00,176 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Web_Application_Developer_Intern_=E2=80=93?=
+	=?UTF-8?Q?_Interview_Availability?=
+2025-09-05 12:52:00,180 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\harsh_resume.pdf
+2025-09-05 12:52:03,137 INFO tasks Processing resume email: Application for Web Application Developer Internship
+2025-09-05 12:52:03,146 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Abhinav_Sharma_Resume.pdf
+2025-09-05 12:52:05,305 INFO tasks Processing resume email: Subject: Application for Web Application Developer Intern
+2025-09-05 12:52:05,311 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Shaswat_Resume.pdf
+2025-09-05 12:52:06,352 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Web_Application_Developer_Intern_=E2=80=93?=
+	=?UTF-8?Q?_Srija_Dhanwada?=
+2025-09-05 12:52:06,356 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Dhanwada Srija Resume.pdf
+2025-09-05 12:52:07,133 INFO tasks Processing resume email: Re: web application developer intern (Sumit Deb Roy)
+2025-09-05 12:52:08,209 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Web_Application_Developer_Intern_=E2=80=93?=
+	=?UTF-8?Q?_Dhanwada_Srija?=
+2025-09-05 12:52:08,212 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Dhanwada Srija Resume.pdf
+2025-09-05 12:52:09,257 INFO tasks Processing resume email: Application for Web Application Developer Intern
+2025-09-05 12:52:09,262 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Arvind_Resume.pdf
+2025-09-05 12:52:10,355 INFO tasks Processing resume email: =?UTF-8?Q?CV_Submission_and_Interview_Availability_=E2=80=93_Web_App?=
+	=?UTF-8?Q?lication_Developer_Intern?=
+2025-09-05 12:52:10,359 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Suraj(9).pdf
+2025-09-05 12:52:12,570 INFO tasks Processing resume email: web developer intern
+2025-09-05 12:52:12,573 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\AayushArunam_Resume .pdf
+2025-09-05 12:52:13,919 INFO tasks Processing resume email: For an Internship
+2025-09-05 12:52:13,925 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Mujtaba Farooqui resume.pdf
+2025-09-05 12:52:19,039 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Frontend_Developer_Internship_=E2=80=93_Fo?=
+	=?UTF-8?Q?llow=2Dup?=
+2025-09-05 12:52:19,043 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\ANSH Resume.pdf
+2025-09-05 12:52:55,198 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-05 12:52:56,800 INFO views Date filtering applied at IMAP level: from=2025-08-06, to=2025-09-05 - only fetching emails in this range
+2025-09-05 12:52:56,802 INFO views Processing only 12 resumes fetched within date range: 2025-08-06 to 2025-09-05
+2025-09-05 12:52:56,844 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:52:56,853 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:52:56,897 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:53:06,345 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 12:53:06,966 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 13:30:59,768 INFO autoreload Watching for file changes with StatReloader
+2025-09-05 13:31:03,320 WARNING log Not Found: /favicon.ico
+2025-09-05 13:31:25,609 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'himanshu', 'use_tls': 'false', 'csrfmiddlewaretoken': '3jHqJCgR9wQgub4QNpN9lap8blE6ugG2DuwNTCagY8R3SzLPYgKYRGqqLPKkbvwG'}
+2025-09-05 13:31:25,610 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='himanshu', use_tls=False
+2025-09-05 13:31:25,610 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 13:31:28,572 WARNING log Bad Request: /test-email-connection/
+2025-09-05 13:31:33,563 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'himanshu', 'use_tls': 'true', 'csrfmiddlewaretoken': '3jHqJCgR9wQgub4QNpN9lap8blE6ugG2DuwNTCagY8R3SzLPYgKYRGqqLPKkbvwG'}
+2025-09-05 13:31:33,564 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='himanshu', use_tls=True
+2025-09-05 13:31:33,564 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 13:31:36,845 WARNING log Bad Request: /test-email-connection/
+2025-09-05 13:31:44,458 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'true', 'csrfmiddlewaretoken': '3jHqJCgR9wQgub4QNpN9lap8blE6ugG2DuwNTCagY8R3SzLPYgKYRGqqLPKkbvwG'}
+2025-09-05 13:31:44,458 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='prod@bharatcrest.com', use_tls=True
+2025-09-05 13:31:44,459 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 13:31:49,647 INFO views Connection to imap.secureserver.net successful!
+2025-09-05 13:32:40,635 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 13:32:40,636 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 13:32:40,637 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 13:32:40,639 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 13:32:40,639 INFO tasks Connecting to IMAP...
+2025-09-05 13:32:44,950 ERROR tasks IMAP operation failed: b'[AUTHENTICATIONFAILED] Authentication failed.'
+2025-09-05 13:32:44,950 ERROR views Match resumes error: b'[AUTHENTICATIONFAILED] Authentication failed.'
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\hrapp\views.py", line 125, in match_resumes
+    resume_files = fetch_resumes_from_email(request.user.id, date_from, date_to)
+  File "C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\hrapp\tasks.py", line 161, in fetch_resumes_from_email
+    imap.login(EMAIL, PASSWORD)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\imaplib.py", line 621, in login
+    raise self.error(dat[-1])
+imaplib.IMAP4.error: b'[AUTHENTICATIONFAILED] Authentication failed.'
+2025-09-05 13:32:44,968 ERROR log Internal Server Error: /match-resumes/
+2025-09-05 13:38:54,737 INFO autoreload Watching for file changes with StatReloader
+2025-09-05 13:39:13,443 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'himanshu', 'use_tls': 'false', 'csrfmiddlewaretoken': 'wZf2i6pER31kxGQMN4bZEeVZVSkD25Qk6a4ps6j3GF27V4xLYV8OaKWhvmqRJkGY'}
+2025-09-05 13:39:13,443 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='himanshu', use_tls=False
+2025-09-05 13:39:13,444 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 13:39:16,712 WARNING log Bad Request: /test-email-connection/
+2025-09-05 13:39:22,588 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'false', 'csrfmiddlewaretoken': 'wZf2i6pER31kxGQMN4bZEeVZVSkD25Qk6a4ps6j3GF27V4xLYV8OaKWhvmqRJkGY'}
+2025-09-05 13:39:22,588 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='prod@bharatcrest.com', use_tls=False
+2025-09-05 13:39:22,589 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 13:39:26,039 INFO autoreload C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\hrapp\tasks.py changed, reloading.
+2025-09-05 13:39:28,188 INFO autoreload Watching for file changes with StatReloader
+2025-09-05 13:39:40,865 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'true', 'csrfmiddlewaretoken': 'wZf2i6pER31kxGQMN4bZEeVZVSkD25Qk6a4ps6j3GF27V4xLYV8OaKWhvmqRJkGY'}
+2025-09-05 13:39:40,867 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='prod@bharatcrest.com', use_tls=True
+2025-09-05 13:39:40,868 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 13:39:45,663 INFO views Connection to imap.secureserver.net successful!
+2025-09-05 13:40:22,953 ERROR views Match resumes error: cannot access local variable 'logger' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\hrapp\views.py", line 125, in match_resumes
+    resume_files = fetch_resumes_from_email(request.user.id, date_from, date_to)
+  File "C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\hrapp\tasks.py", line 128, in fetch_resumes_from_email
+    logger.info(f"Email configuration - Host: {IMAP_SERVER}, Username: {EMAIL}, Port: {PORT}, TLS: {USE_TLS}")
+    ^^^^^^
+UnboundLocalError: cannot access local variable 'logger' where it is not associated with a value
+2025-09-05 13:40:23,013 ERROR log Internal Server Error: /match-resumes/
+2025-09-05 13:40:34,522 ERROR views Match resumes error: cannot access local variable 'logger' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\hrapp\views.py", line 125, in match_resumes
+    resume_files = fetch_resumes_from_email(request.user.id, date_from, date_to)
+  File "C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\hrapp\tasks.py", line 128, in fetch_resumes_from_email
+    logger.info(f"Email configuration - Host: {IMAP_SERVER}, Username: {EMAIL}, Port: {PORT}, TLS: {USE_TLS}")
+    ^^^^^^
+UnboundLocalError: cannot access local variable 'logger' where it is not associated with a value
+2025-09-05 13:40:34,524 ERROR log Internal Server Error: /match-resumes/
+2025-09-05 13:44:54,178 INFO autoreload Watching for file changes with StatReloader
+2025-09-05 13:45:28,261 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'himanshu', 'use_tls': 'true', 'csrfmiddlewaretoken': 'QiEaWcNLymzeX7RRb88da7c6tobfokJfQ6cHICxGlnFDuGTZbfyf8baQmzyzrfA8'}
+2025-09-05 13:45:28,263 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='himanshu', use_tls=True
+2025-09-05 13:45:28,264 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 13:45:32,861 WARNING log Bad Request: /test-email-connection/
+2025-09-05 13:45:36,426 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'true', 'csrfmiddlewaretoken': 'QiEaWcNLymzeX7RRb88da7c6tobfokJfQ6cHICxGlnFDuGTZbfyf8baQmzyzrfA8'}
+2025-09-05 13:45:36,426 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='prod@bharatcrest.com', use_tls=True
+2025-09-05 13:45:36,426 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 13:45:42,267 INFO views Connection to imap.secureserver.net successful!
+2025-09-05 13:46:22,617 INFO tasks Email configuration - Host: imap.secureserver.net, Username: himanshu, Port: 993, TLS: True
+2025-09-05 13:46:22,617 INFO tasks Password present: True, Password length: 10
+2025-09-05 13:46:22,618 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 13:46:22,618 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 13:46:22,618 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 13:46:22,622 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 13:46:22,623 INFO tasks Connecting to IMAP...
+2025-09-05 13:46:27,687 ERROR tasks IMAP operation failed: b'[AUTHENTICATIONFAILED] Authentication failed.'
+2025-09-05 13:46:27,688 ERROR views Match resumes error: b'[AUTHENTICATIONFAILED] Authentication failed.'
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\hrapp\views.py", line 125, in match_resumes
+    resume_files = fetch_resumes_from_email(request.user.id, date_from, date_to)
+  File "C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\hrapp\tasks.py", line 171, in fetch_resumes_from_email
+    imap.login(EMAIL, PASSWORD)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\imaplib.py", line 621, in login
+    raise self.error(dat[-1])
+imaplib.IMAP4.error: b'[AUTHENTICATIONFAILED] Authentication failed.'
+2025-09-05 13:46:27,697 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-09-05 13:46:27,705 ERROR log Internal Server Error: /match-resumes/
+2025-09-05 13:52:43,502 INFO autoreload Watching for file changes with StatReloader
+2025-09-05 13:53:24,441 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'himanshu', 'use_tls': 'true', 'csrfmiddlewaretoken': 'Pe6zclGhmcIIm4dHxGq0aZGs7yomdsglQ5pAGfyxg1Qs1VSoVO3WrVhWM19vy0cU'}
+2025-09-05 13:53:24,441 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='himanshu', use_tls=True
+2025-09-05 13:53:24,442 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 13:53:28,009 WARNING log Bad Request: /test-email-connection/
+2025-09-05 13:53:31,714 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'true', 'csrfmiddlewaretoken': 'Pe6zclGhmcIIm4dHxGq0aZGs7yomdsglQ5pAGfyxg1Qs1VSoVO3WrVhWM19vy0cU'}
+2025-09-05 13:53:31,715 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='prod@bharatcrest.com', use_tls=True
+2025-09-05 13:53:31,715 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 13:53:36,589 INFO views Connection to imap.secureserver.net successful!
+2025-09-05 13:53:41,407 INFO views Email config: Updated for user himanshu (ID: 2)
+2025-09-05 13:53:41,415 INFO views Saved email config for himanshu: host=imap.secureserver.net, username=himanshu
+2025-09-05 13:54:44,838 INFO tasks Attempting to fetch email config for user_id: 2
+2025-09-05 13:54:44,843 INFO tasks Found email config for user_id 2: username=himanshu
+2025-09-05 13:54:44,844 INFO tasks Email configuration - Host: imap.secureserver.net, Username: himanshu, Port: 993, TLS: True
+2025-09-05 13:54:44,845 INFO tasks Password present: True, Password length: 10
+2025-09-05 13:54:44,847 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 13:54:44,848 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 13:54:44,850 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 13:54:44,856 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 13:54:44,857 INFO tasks Connecting to IMAP...
+2025-09-05 13:54:48,790 ERROR tasks IMAP operation failed: b'[AUTHENTICATIONFAILED] Authentication failed.'
+2025-09-05 13:54:48,791 ERROR views Match resumes error: b'[AUTHENTICATIONFAILED] Authentication failed.'
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\hrapp\views.py", line 125, in match_resumes
+    resume_files = fetch_resumes_from_email(request.user.id, date_from, date_to)
+  File "C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\hrapp\tasks.py", line 173, in fetch_resumes_from_email
+    imap.login(EMAIL, PASSWORD)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\imaplib.py", line 621, in login
+    raise self.error(dat[-1])
+imaplib.IMAP4.error: b'[AUTHENTICATIONFAILED] Authentication failed.'
+2025-09-05 13:54:48,796 ERROR log Internal Server Error: /match-resumes/
+2025-09-05 14:19:07,724 INFO autoreload Watching for file changes with StatReloader
+2025-09-05 14:19:21,553 WARNING log Not Found: /favicon.ico
+2025-09-05 14:19:52,201 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'himanshu', 'use_tls': 'false', 'csrfmiddlewaretoken': 'Ymj7UDik7rU4Y34mdFijSfpW3l1zm21nqpp9CRVZ4TyMtsHf0TotAC8eiIhtAa0K'}
+2025-09-05 14:19:52,202 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='himanshu', use_tls=False
+2025-09-05 14:19:52,202 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 14:19:56,750 WARNING log Bad Request: /test-email-connection/
+2025-09-05 14:20:54,735 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'true', 'csrfmiddlewaretoken': 'Ymj7UDik7rU4Y34mdFijSfpW3l1zm21nqpp9CRVZ4TyMtsHf0TotAC8eiIhtAa0K'}
+2025-09-05 14:20:54,735 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='prod@bharatcrest.com', use_tls=True
+2025-09-05 14:20:54,736 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 14:21:00,129 INFO views Connection to imap.secureserver.net successful!
+2025-09-05 14:21:22,764 INFO views Email config: Updated for user himanshu (ID: 2)
+2025-09-05 14:21:22,774 INFO views Saved email config for himanshu: host=imap.secureserver.net, username=prod@bharatcrest.com
+2025-09-05 14:21:55,331 INFO tasks Attempting to fetch email config for user_id: 2
+2025-09-05 14:21:55,344 INFO tasks Found email config for user_id 2: username=prod@bharatcrest.com
+2025-09-05 14:21:55,350 INFO tasks Email configuration - Host: imap.secureserver.net, Username: prod@bharatcrest.com, Port: 993, TLS: True
+2025-09-05 14:21:55,374 INFO tasks Password present: True, Password length: 16
+2025-09-05 14:21:55,377 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 14:21:55,390 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 14:21:55,394 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 14:21:55,400 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 14:21:55,401 INFO tasks Connecting to IMAP...
+2025-09-05 14:21:59,465 INFO tasks Logged in successfully
+2025-09-05 14:22:00,079 INFO tasks IMAP filtering emails FROM: 29-Aug-2025
+2025-09-05 14:22:00,080 INFO tasks IMAP filtering emails TO: 2025-09-05 (using BEFORE 06-Sep-2025)
+2025-09-05 14:22:00,080 INFO tasks IMAP search query (server-side filtering): 'SINCE 29-Aug-2025 BEFORE 06-Sep-2025'
+2025-09-05 14:22:00,726 INFO tasks Only fetching emails that match the date criteria - no other emails will be downloaded
+2025-09-05 14:22:00,726 INFO tasks Found 9 emails to scan
+2025-09-05 14:22:06,030 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Frontend_Developer_Internship_=E2=80=93_Fo?=
+	=?UTF-8?Q?llow=2Dup?=
+2025-09-05 14:22:06,039 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\ANSH Resume.pdf
+2025-09-05 14:22:32,991 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-05 14:22:35,099 INFO views Date filtering applied at IMAP level: from=2025-08-29, to=2025-09-05 - only fetching emails in this range
+2025-09-05 14:22:35,099 INFO views Processing only 1 resumes fetched within date range: 2025-08-29 to 2025-09-05
+2025-09-05 14:22:35,196 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:23:25,868 INFO tasks Attempting to fetch email config for user_id: 2
+2025-09-05 14:23:25,870 INFO tasks Found email config for user_id 2: username=prod@bharatcrest.com
+2025-09-05 14:23:25,871 INFO tasks Email configuration - Host: imap.secureserver.net, Username: prod@bharatcrest.com, Port: 993, TLS: True
+2025-09-05 14:23:25,871 INFO tasks Password present: True, Password length: 16
+2025-09-05 14:23:25,872 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 14:23:25,873 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 14:23:25,874 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 14:23:25,876 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 14:23:25,878 INFO tasks Connecting to IMAP...
+2025-09-05 14:23:29,980 INFO tasks Logged in successfully
+2025-09-05 14:23:30,472 INFO tasks IMAP filtering emails FROM: 05-Sep-2025
+2025-09-05 14:23:30,473 INFO tasks IMAP filtering emails TO: 2025-09-05 (using BEFORE 06-Sep-2025)
+2025-09-05 14:23:30,473 INFO tasks IMAP search query (server-side filtering): 'SINCE 05-Sep-2025 BEFORE 06-Sep-2025'
+2025-09-05 14:23:31,069 INFO tasks Only fetching emails that match the date criteria - no other emails will be downloaded
+2025-09-05 14:23:31,071 INFO tasks Found 3 emails to scan
+2025-09-05 14:23:33,333 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-05 14:23:35,573 INFO views Date filtering applied at IMAP level: from=2025-09-05, to=2025-09-05 - only fetching emails in this range
+2025-09-05 14:23:35,574 INFO views No resumes found in the specified date range - no emails were fetched outside this range
+2025-09-05 14:23:50,745 INFO tasks Attempting to fetch email config for user_id: 2
+2025-09-05 14:23:50,750 INFO tasks Found email config for user_id 2: username=prod@bharatcrest.com
+2025-09-05 14:23:50,754 INFO tasks Email configuration - Host: imap.secureserver.net, Username: prod@bharatcrest.com, Port: 993, TLS: True
+2025-09-05 14:23:50,758 INFO tasks Password present: True, Password length: 16
+2025-09-05 14:23:50,758 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 14:23:50,774 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 14:23:50,777 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 14:23:50,780 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 14:23:50,786 INFO tasks Connecting to IMAP...
+2025-09-05 14:23:54,825 INFO tasks Logged in successfully
+2025-09-05 14:23:55,329 INFO tasks IMAP filtering emails FROM: 29-Aug-2025
+2025-09-05 14:23:55,329 INFO tasks IMAP filtering emails TO: 2025-09-05 (using BEFORE 06-Sep-2025)
+2025-09-05 14:23:55,330 INFO tasks IMAP search query (server-side filtering): 'SINCE 29-Aug-2025 BEFORE 06-Sep-2025'
+2025-09-05 14:23:55,884 INFO tasks Only fetching emails that match the date criteria - no other emails will be downloaded
+2025-09-05 14:23:55,885 INFO tasks Found 9 emails to scan
+2025-09-05 14:24:01,113 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Frontend_Developer_Internship_=E2=80=93_Fo?=
+	=?UTF-8?Q?llow=2Dup?=
+2025-09-05 14:24:01,114 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\ANSH Resume.pdf
+2025-09-05 14:24:39,474 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-05 14:24:41,523 INFO views Date filtering applied at IMAP level: from=2025-08-29, to=2025-09-05 - only fetching emails in this range
+2025-09-05 14:24:41,523 INFO views Processing only 1 resumes fetched within date range: 2025-08-29 to 2025-09-05
+2025-09-05 14:24:41,554 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:25:36,629 INFO tasks Attempting to fetch email config for user_id: 2
+2025-09-05 14:25:36,633 INFO tasks Found email config for user_id 2: username=prod@bharatcrest.com
+2025-09-05 14:25:36,633 INFO tasks Email configuration - Host: imap.secureserver.net, Username: prod@bharatcrest.com, Port: 993, TLS: True
+2025-09-05 14:25:36,633 INFO tasks Password present: True, Password length: 16
+2025-09-05 14:25:36,634 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 14:25:36,636 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 14:25:36,640 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 14:25:36,641 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 14:25:36,643 INFO tasks Connecting to IMAP...
+2025-09-05 14:25:40,910 INFO tasks Logged in successfully
+2025-09-05 14:25:41,530 INFO tasks IMAP filtering emails FROM: 02-Aug-2025
+2025-09-05 14:25:41,531 INFO tasks IMAP filtering emails TO: 2025-09-05 (using BEFORE 06-Sep-2025)
+2025-09-05 14:25:41,532 INFO tasks IMAP search query (server-side filtering): 'SINCE 02-Aug-2025 BEFORE 06-Sep-2025'
+2025-09-05 14:25:42,962 INFO tasks Only fetching emails that match the date criteria - no other emails will be downloaded
+2025-09-05 14:25:42,962 INFO tasks Found 25 emails to scan
+2025-09-05 14:25:50,928 INFO tasks Processing resume email: Resume -Prashant Kumar Mishra
+2025-09-05 14:25:50,933 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\DOC-20250808-WA0001..pdf
+2025-09-05 14:25:55,664 INFO tasks Processing resume email: Application for Web Application Developer Intern
+2025-09-05 14:25:55,668 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\PritiPaul.pdf
+2025-09-05 14:25:57,300 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Web_Application_Developer_Intern_=E2=80=93?=
+	=?UTF-8?Q?_Interview_Availability?=
+2025-09-05 14:25:57,302 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\harsh_resume.pdf
+2025-09-05 14:26:02,844 INFO tasks Processing resume email: Application for Web Application Developer Internship
+2025-09-05 14:26:02,852 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Abhinav_Sharma_Resume.pdf
+2025-09-05 14:26:04,890 INFO tasks Processing resume email: Subject: Application for Web Application Developer Intern
+2025-09-05 14:26:04,894 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Shaswat_Resume.pdf
+2025-09-05 14:26:06,051 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Web_Application_Developer_Intern_=E2=80=93?=
+	=?UTF-8?Q?_Srija_Dhanwada?=
+2025-09-05 14:26:06,054 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Dhanwada Srija Resume.pdf
+2025-09-05 14:26:06,989 INFO tasks Processing resume email: Re: web application developer intern (Sumit Deb Roy)
+2025-09-05 14:26:07,980 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Web_Application_Developer_Intern_=E2=80=93?=
+	=?UTF-8?Q?_Dhanwada_Srija?=
+2025-09-05 14:26:07,984 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Dhanwada Srija Resume.pdf
+2025-09-05 14:26:08,890 INFO tasks Processing resume email: Application for Web Application Developer Intern
+2025-09-05 14:26:08,893 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Arvind_Resume.pdf
+2025-09-05 14:26:09,874 INFO tasks Processing resume email: =?UTF-8?Q?CV_Submission_and_Interview_Availability_=E2=80=93_Web_App?=
+	=?UTF-8?Q?lication_Developer_Intern?=
+2025-09-05 14:26:09,878 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Suraj(9).pdf
+2025-09-05 14:26:11,582 INFO tasks Processing resume email: web developer intern
+2025-09-05 14:26:11,589 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\AayushArunam_Resume .pdf
+2025-09-05 14:26:12,574 INFO tasks Processing resume email: For an Internship
+2025-09-05 14:26:12,577 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Mujtaba Farooqui resume.pdf
+2025-09-05 14:26:16,876 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Frontend_Developer_Internship_=E2=80=93_Fo?=
+	=?UTF-8?Q?llow=2Dup?=
+2025-09-05 14:26:16,882 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\ANSH Resume.pdf
+2025-09-05 14:26:25,080 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-05 14:26:27,412 INFO views Date filtering applied at IMAP level: from=2025-08-02, to=2025-09-05 - only fetching emails in this range
+2025-09-05 14:26:27,413 INFO views Processing only 12 resumes fetched within date range: 2025-08-02 to 2025-09-05
+2025-09-05 14:26:27,448 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:26:27,453 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:26:27,473 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:26:35,611 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:26:36,444 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:32:49,983 INFO tasks Attempting to fetch email config for user_id: 2
+2025-09-05 14:32:49,985 INFO tasks Found email config for user_id 2: username=prod@bharatcrest.com
+2025-09-05 14:32:49,985 INFO tasks Email configuration - Host: imap.secureserver.net, Username: prod@bharatcrest.com, Port: 993, TLS: True
+2025-09-05 14:32:49,985 INFO tasks Password present: True, Password length: 16
+2025-09-05 14:32:49,986 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 14:32:49,986 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 14:32:49,987 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 14:32:49,988 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 14:32:49,988 INFO tasks Connecting to IMAP...
+2025-09-05 14:32:54,281 INFO tasks Logged in successfully
+2025-09-05 14:32:54,890 INFO tasks IMAP filtering emails FROM: 02-Jul-2025
+2025-09-05 14:32:54,890 INFO tasks IMAP filtering emails TO: 2025-09-05 (using BEFORE 06-Sep-2025)
+2025-09-05 14:32:54,891 INFO tasks IMAP search query (server-side filtering): 'SINCE 02-Jul-2025 BEFORE 06-Sep-2025'
+2025-09-05 14:32:55,505 INFO tasks Only fetching emails that match the date criteria - no other emails will be downloaded
+2025-09-05 14:32:55,506 INFO tasks Found 98 emails to scan
+2025-09-05 14:33:03,086 INFO tasks Processing resume email: Your job, Business Development Intern, has been closed
+2025-09-05 14:33:06,924 INFO tasks Processing resume email: We received your NVIDIA Inception program application
+2025-09-05 14:33:17,949 INFO tasks Processing resume email: Application for frontend web developer
+2025-09-05 14:33:17,958 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Amrita singh  resume.pdf
+2025-09-05 14:33:51,699 INFO tasks Processing resume email: Re: Experience Letter For Internship
+2025-09-05 14:33:52,853 INFO tasks Processing resume email: Your job, Business Development Intern, is active!
+2025-09-05 14:33:54,734 INFO tasks Processing resume email: Application for Business Development Intern | Resume & Portfolio Attached
+2025-09-05 14:33:54,736 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Avala_Parimal_Prasad_PM_Resume.pdf
+2025-09-05 14:33:55,859 INFO tasks Processing resume email: Application for Business Development Intern
+2025-09-05 14:33:55,861 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Naomi Nyasulu CV1.pdf.pdf
+2025-09-05 14:33:59,035 INFO tasks Processing resume email: Re: Application for Business Development Intern | Resume & Portfolio Attached
+2025-09-05 14:34:01,229 INFO tasks Processing resume email: Re: Application for Business Development Intern
+2025-09-05 14:34:01,931 INFO tasks Processing resume email: Internship
+2025-09-05 14:34:01,933 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Nancykansal__Resume.pdf
+2025-09-05 14:34:03,477 INFO tasks Processing resume email: Applying for business development executive intern
+2025-09-05 14:34:03,480 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Jiya resume bca.pdf
+2025-09-05 14:34:04,078 INFO tasks Processing resume email: You have 13 new applicants for your job: Business Development
+ Intern
+2025-09-05 14:34:05,354 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Business_Development_Executive_Inter?=
+	=?UTF-8?Q?nship_=E2=80=93_Aryan_Bindal?=
+2025-09-05 14:34:05,366 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Resume 2025.pdf
+2025-09-05 14:34:09,418 INFO tasks Processing resume email: Re: Application for Business Development Intern
+2025-09-05 14:34:10,612 INFO tasks Processing resume email: Seeking internship opportunity
+2025-09-05 14:34:10,615 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\CV Shiwani Singh.pdf
+2025-09-05 14:34:12,311 INFO tasks Processing resume email: We're sending your resume to...
+2025-09-05 14:34:18,197 INFO tasks Processing resume email: Re: Application for Business Development Intern
+2025-09-05 14:34:19,230 INFO tasks Processing resume email: Application for Business Development Intern - [Vaishali Agrawal]
+2025-09-05 14:34:19,232 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Vaishali resume1.pdf
+2025-09-05 14:34:19,898 INFO tasks Processing resume email: Re: Application for frontend React developer Internship
+2025-09-05 14:34:22,346 INFO tasks Processing resume email: Application for frontend developer
+2025-09-05 14:34:22,348 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\ANSH REACT RESUME.pdf
+2025-09-05 14:34:36,870 INFO tasks Processing resume email: Re: Application for frontend developer
+2025-09-05 14:34:42,461 INFO tasks Processing resume email: Business development executive internship remote
+2025-09-05 14:34:42,469 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Resume Shivam Soni .pdf
+2025-09-05 14:34:50,341 INFO tasks Processing resume email: Application for Business Development Executive Position
+2025-09-05 14:34:51,016 INFO tasks Processing resume email: Gunashree Resume
+2025-09-05 14:34:51,758 INFO tasks Processing resume email: Fwd: Gunashree Resume
+2025-09-05 14:35:12,644 INFO tasks Processing resume email: Ashton Williams - Application for Business development executive
+2025-09-05 14:35:14,064 INFO tasks Processing resume email: Application for Buisness development - Name [Kanak Chaudhary]
+2025-09-05 14:35:14,067 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\KanakChaudharyResume (1).docx
+2025-09-05 14:35:16,176 INFO tasks Processing resume email: Application for Business Development Executive
+2025-09-05 14:35:16,177 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\ATRI MAZUMDAR_resume.docx
+2025-09-05 14:35:31,558 INFO tasks Processing resume email: Re: Application for Business Development Executive Position
+2025-09-05 14:35:32,147 INFO tasks Processing resume email: =?utf-8?Q?Application_for_Business_Development_Executive_Intern_?=
+ =?utf-8?Q?=E2=80=93_Muskan_Lodha?=
+2025-09-05 14:35:38,467 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Business_Development_Executive_Inter?=
+	=?UTF-8?Q?n_=E2=80=93_Muskan_Lodha?=
+2025-09-05 14:35:38,482 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Muskan Lodha CV.pdf.pdf
+2025-09-05 14:35:44,485 INFO tasks Processing resume email: Resume -Prashant Kumar Mishra
+2025-09-05 14:35:44,495 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\DOC-20250808-WA0001..pdf
+2025-09-05 14:35:46,320 INFO tasks Processing resume email: Application for Web Application Developer Intern
+2025-09-05 14:35:46,349 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\PritiPaul.pdf
+2025-09-05 14:35:47,375 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Web_Application_Developer_Intern_=E2=80=93?=
+	=?UTF-8?Q?_Interview_Availability?=
+2025-09-05 14:35:47,379 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\harsh_resume.pdf
+2025-09-05 14:35:49,825 INFO tasks Processing resume email: Application for Web Application Developer Internship
+2025-09-05 14:35:49,831 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Abhinav_Sharma_Resume.pdf
+2025-09-05 14:35:52,674 INFO tasks Processing resume email: Subject: Application for Web Application Developer Intern
+2025-09-05 14:35:52,679 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Shaswat_Resume.pdf
+2025-09-05 14:35:53,982 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Web_Application_Developer_Intern_=E2=80=93?=
+	=?UTF-8?Q?_Srija_Dhanwada?=
+2025-09-05 14:35:53,986 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Dhanwada Srija Resume.pdf
+2025-09-05 14:35:54,709 INFO tasks Processing resume email: Re: web application developer intern (Sumit Deb Roy)
+2025-09-05 14:35:55,941 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Web_Application_Developer_Intern_=E2=80=93?=
+	=?UTF-8?Q?_Dhanwada_Srija?=
+2025-09-05 14:35:55,944 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Dhanwada Srija Resume.pdf
+2025-09-05 14:35:56,881 INFO tasks Processing resume email: Application for Web Application Developer Intern
+2025-09-05 14:35:56,883 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Arvind_Resume.pdf
+2025-09-05 14:35:57,914 INFO tasks Processing resume email: =?UTF-8?Q?CV_Submission_and_Interview_Availability_=E2=80=93_Web_App?=
+	=?UTF-8?Q?lication_Developer_Intern?=
+2025-09-05 14:35:57,916 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Suraj(9).pdf
+2025-09-05 14:35:59,559 INFO tasks Processing resume email: web developer intern
+2025-09-05 14:35:59,561 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\AayushArunam_Resume .pdf
+2025-09-05 14:36:00,556 INFO tasks Processing resume email: For an Internship
+2025-09-05 14:36:00,558 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Mujtaba Farooqui resume.pdf
+2025-09-05 14:36:05,575 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Frontend_Developer_Internship_=E2=80=93_Fo?=
+	=?UTF-8?Q?llow=2Dup?=
+2025-09-05 14:36:05,577 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\ANSH Resume.pdf
+2025-09-05 14:37:21,557 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-05 14:37:25,032 INFO views Date filtering applied at IMAP level: from=2025-07-02, to=2025-09-05 - only fetching emails in this range
+2025-09-05 14:37:25,032 INFO views Processing only 25 resumes fetched within date range: 2025-07-02 to 2025-09-05
+2025-09-05 14:37:28,091 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:28,100 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:28,103 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:28,108 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:28,685 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:28,693 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:28,696 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:28,701 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:28,994 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:29,006 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:29,009 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:29,015 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:29,022 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:29,025 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:29,030 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:36,757 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:40,244 WARNING pdfinterp Cannot set gray stroke color because /'P4' is an invalid float value
+2025-09-05 14:37:40,245 WARNING pdfinterp Cannot set gray non-stroke color because /'P4' is an invalid float value
+2025-09-05 14:37:40,247 WARNING pdfinterp Cannot set gray stroke color because /'P5' is an invalid float value
+2025-09-05 14:37:40,247 WARNING pdfinterp Cannot set gray non-stroke color because /'P5' is an invalid float value
+2025-09-05 14:37:40,257 WARNING pdfinterp Cannot set gray stroke color because /'P4' is an invalid float value
+2025-09-05 14:37:40,261 WARNING pdfinterp Cannot set gray non-stroke color because /'P4' is an invalid float value
+2025-09-05 14:37:40,978 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:40,986 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:41,018 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:51,062 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:37:51,921 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 14:38:50,218 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-09-05 18:46:21,473 WARNING log Not Found: /favicon.ico
+2025-09-05 18:46:36,635 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'himanshu', 'use_tls': 'false', 'csrfmiddlewaretoken': '8maY5tPVeSMBt45QzF3rOoTvHLO2B8Ez26o8Tefxs8SsKQngv9QqyemEPKc6Nk04'}
+2025-09-05 18:46:36,636 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='himanshu', use_tls=False
+2025-09-05 18:46:36,637 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 18:46:39,947 WARNING log Bad Request: /test-email-connection/
+2025-09-05 18:46:46,252 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'himanshu', 'use_tls': 'true', 'csrfmiddlewaretoken': '8maY5tPVeSMBt45QzF3rOoTvHLO2B8Ez26o8Tefxs8SsKQngv9QqyemEPKc6Nk04'}
+2025-09-05 18:46:46,254 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='himanshu', use_tls=True
+2025-09-05 18:46:46,255 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 18:46:49,715 WARNING log Bad Request: /test-email-connection/
+2025-09-05 18:47:36,331 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'true', 'csrfmiddlewaretoken': '8maY5tPVeSMBt45QzF3rOoTvHLO2B8Ez26o8Tefxs8SsKQngv9QqyemEPKc6Nk04'}
+2025-09-05 18:47:36,331 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='prod@bharatcrest.com', use_tls=True
+2025-09-05 18:47:36,332 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 18:47:41,903 INFO views Connection to imap.secureserver.net successful!
+2025-09-05 18:48:23,831 INFO views Email config: Updated for user himanshu (ID: 2)
+2025-09-05 18:48:23,837 INFO views Saved email config for himanshu: host=imap.secureserver.net, username=himanshu
+2025-09-05 20:32:31,811 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'true', 'csrfmiddlewaretoken': '1DYcgzQlyfDhjhvTzCwaN00Ui9xy2YISVncm4kgXMvJ8A3Njv6j9xQt3q8VCea4n'}
+2025-09-05 20:32:31,812 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='prod@bharatcrest.com', use_tls=True
+2025-09-05 20:32:31,813 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-05 20:32:37,239 INFO views Connection to imap.secureserver.net successful!
+2025-09-05 20:32:40,900 INFO views Email config: Updated for user himanshu (ID: 2)
+2025-09-05 20:32:40,914 INFO views Saved email config for himanshu: host=imap.secureserver.net, username=prod@bharatcrest.com
+2025-09-05 20:33:27,762 INFO tasks Attempting to fetch email config for user_id: 2
+2025-09-05 20:33:27,764 INFO tasks Found email config for user_id 2: username=prod@bharatcrest.com
+2025-09-05 20:33:27,764 INFO tasks Email configuration - Host: imap.secureserver.net, Username: prod@bharatcrest.com, Port: 993, TLS: True
+2025-09-05 20:33:27,765 INFO tasks Password present: True, Password length: 16
+2025-09-05 20:33:27,765 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 20:33:27,766 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 20:33:27,767 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 20:33:27,771 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 20:33:27,774 INFO tasks Connecting to IMAP...
+2025-09-05 20:33:32,227 INFO tasks Logged in successfully
+2025-09-05 20:33:32,862 INFO tasks IMAP filtering emails FROM: 29-Aug-2025
+2025-09-05 20:33:32,863 INFO tasks IMAP filtering emails TO: 2025-09-05 (using BEFORE 06-Sep-2025)
+2025-09-05 20:33:32,863 INFO tasks IMAP search query (server-side filtering): 'SINCE 29-Aug-2025 BEFORE 06-Sep-2025'
+2025-09-05 20:33:33,548 INFO tasks Only fetching emails that match the date criteria - no other emails will be downloaded
+2025-09-05 20:33:33,549 INFO tasks Found 11 emails to scan
+2025-09-05 20:33:41,662 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Frontend_Developer_Internship_=E2=80=93_Fo?=
+	=?UTF-8?Q?llow=2Dup?=
+2025-09-05 20:33:41,672 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\ANSH Resume.pdf
+2025-09-05 20:37:49,186 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-05 20:37:57,662 INFO tasks Processing resume email: Hi BharatCrest,"Myself Surendra Kumar, I'm applying for your Business
+ Development Associate roles @ =?UTF-8?B?4oK5MCI=?=
+2025-09-05 20:37:58,181 INFO views Date filtering applied at IMAP level: from=2025-08-29, to=2025-09-05 - only fetching emails in this range
+2025-09-05 20:37:58,182 INFO views Processing only 1 resumes fetched within date range: 2025-08-29 to 2025-09-05
+2025-09-05 20:37:58,305 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 20:40:11,331 INFO tasks Attempting to fetch email config for user_id: 2
+2025-09-05 20:40:11,332 INFO tasks Found email config for user_id 2: username=prod@bharatcrest.com
+2025-09-05 20:40:11,333 INFO tasks Email configuration - Host: imap.secureserver.net, Username: prod@bharatcrest.com, Port: 993, TLS: True
+2025-09-05 20:40:11,333 INFO tasks Password present: True, Password length: 16
+2025-09-05 20:40:11,333 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 20:40:11,333 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 20:40:11,334 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 20:40:11,335 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 20:40:11,335 INFO tasks Connecting to IMAP...
+2025-09-05 20:40:15,274 INFO tasks Logged in successfully
+2025-09-05 20:40:15,813 INFO tasks IMAP filtering emails FROM: 01-Aug-2025
+2025-09-05 20:40:15,814 INFO tasks IMAP filtering emails TO: 2025-09-05 (using BEFORE 06-Sep-2025)
+2025-09-05 20:40:15,814 INFO tasks IMAP search query (server-side filtering): 'SINCE 01-Aug-2025 BEFORE 06-Sep-2025'
+2025-09-05 20:40:16,334 INFO tasks Only fetching emails that match the date criteria - no other emails will be downloaded
+2025-09-05 20:40:16,335 INFO tasks Found 27 emails to scan
+2025-09-05 20:40:21,025 INFO tasks Processing resume email: Resume -Prashant Kumar Mishra
+2025-09-05 20:40:21,026 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\DOC-20250808-WA0001..pdf
+2025-09-05 20:40:23,083 INFO tasks Processing resume email: Application for Web Application Developer Intern
+2025-09-05 20:40:23,085 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\PritiPaul.pdf
+2025-09-05 20:40:24,033 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Web_Application_Developer_Intern_=E2=80=93?=
+	=?UTF-8?Q?_Interview_Availability?=
+2025-09-05 20:40:24,035 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\harsh_resume.pdf
+2025-09-05 20:40:28,076 INFO tasks Processing resume email: Application for Web Application Developer Internship
+2025-09-05 20:40:28,078 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Abhinav_Sharma_Resume.pdf
+2025-09-05 20:40:30,913 INFO tasks Processing resume email: Subject: Application for Web Application Developer Intern
+2025-09-05 20:40:30,916 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Shaswat_Resume.pdf
+2025-09-05 20:40:32,390 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Web_Application_Developer_Intern_=E2=80=93?=
+	=?UTF-8?Q?_Srija_Dhanwada?=
+2025-09-05 20:40:32,393 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Dhanwada Srija Resume.pdf
+2025-09-05 20:40:35,174 INFO tasks Processing resume email: Re: web application developer intern (Sumit Deb Roy)
+2025-09-05 20:40:37,428 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Web_Application_Developer_Intern_=E2=80=93?=
+	=?UTF-8?Q?_Dhanwada_Srija?=
+2025-09-05 20:40:37,431 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Dhanwada Srija Resume.pdf
+2025-09-05 20:40:40,017 INFO tasks Processing resume email: Application for Web Application Developer Intern
+2025-09-05 20:40:40,021 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Arvind_Resume.pdf
+2025-09-05 20:40:44,568 INFO tasks Processing resume email: =?UTF-8?Q?CV_Submission_and_Interview_Availability_=E2=80=93_Web_App?=
+	=?UTF-8?Q?lication_Developer_Intern?=
+2025-09-05 20:40:44,570 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Suraj(9).pdf
+2025-09-05 20:40:51,453 INFO tasks Processing resume email: web developer intern
+2025-09-05 20:40:51,455 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\AayushArunam_Resume .pdf
+2025-09-05 20:40:55,627 INFO tasks Processing resume email: For an Internship
+2025-09-05 20:40:55,630 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\Mujtaba Farooqui resume.pdf
+2025-09-05 20:41:09,834 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Frontend_Developer_Internship_=E2=80=93_Fo?=
+	=?UTF-8?Q?llow=2Dup?=
+2025-09-05 20:41:09,839 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\ANSH Resume.pdf
+2025-09-05 20:42:34,914 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-05 20:42:38,890 INFO tasks Processing resume email: Hi BharatCrest,"Myself Surendra Kumar, I'm applying for your Business
+ Development Associate roles @ =?UTF-8?B?4oK5MCI=?=
+2025-09-05 20:42:41,173 INFO views Date filtering applied at IMAP level: from=2025-08-01, to=2025-09-05 - only fetching emails in this range
+2025-09-05 20:42:41,174 INFO views Processing only 12 resumes fetched within date range: 2025-08-01 to 2025-09-05
+2025-09-05 20:42:41,225 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 20:42:41,230 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 20:42:41,252 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 20:42:50,681 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 20:42:51,371 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 20:43:06,357 ERROR log Internal Server Error: /export/excel/
+2025-09-05 20:47:15,824 INFO tasks Attempting to fetch email config for user_id: 2
+2025-09-05 20:47:15,826 INFO tasks Found email config for user_id 2: username=prod@bharatcrest.com
+2025-09-05 20:47:15,827 INFO tasks Email configuration - Host: imap.secureserver.net, Username: prod@bharatcrest.com, Port: 993, TLS: True
+2025-09-05 20:47:15,827 INFO tasks Password present: True, Password length: 16
+2025-09-05 20:47:15,828 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-05 20:47:15,828 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-05 20:47:15,829 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 20:47:15,832 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-05 20:47:15,833 INFO tasks Connecting to IMAP...
+2025-09-05 20:47:19,523 INFO tasks Logged in successfully
+2025-09-05 20:47:20,128 INFO tasks IMAP filtering emails FROM: 02-Sep-2025
+2025-09-05 20:47:20,129 INFO tasks IMAP filtering emails TO: 2025-09-05 (using BEFORE 06-Sep-2025)
+2025-09-05 20:47:20,129 INFO tasks IMAP search query (server-side filtering): 'SINCE 02-Sep-2025 BEFORE 06-Sep-2025'
+2025-09-05 20:47:20,676 INFO tasks Only fetching emails that match the date criteria - no other emails will be downloaded
+2025-09-05 20:47:20,677 INFO tasks Found 11 emails to scan
+2025-09-05 20:47:30,647 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Frontend_Developer_Internship_=E2=80=93_Fo?=
+	=?UTF-8?Q?llow=2Dup?=
+2025-09-05 20:47:30,649 INFO tasks Saved resume: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes\ANSH Resume.pdf
+2025-09-05 20:54:58,076 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-05 20:55:16,533 INFO tasks Processing resume email: Hi BharatCrest,"Myself Surendra Kumar, I'm applying for your Business
+ Development Associate roles @ =?UTF-8?B?4oK5MCI=?=
+2025-09-05 20:55:17,082 INFO views Date filtering applied at IMAP level: from=2025-09-02, to=2025-09-05 - only fetching emails in this range
+2025-09-05 20:55:17,084 INFO views Processing only 1 resumes fetched within date range: 2025-09-02 to 2025-09-05
+2025-09-05 20:55:17,123 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-05 20:55:42,505 WARNING log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-09-05 20:57:56,926 ERROR log Internal Server Error: /export/excel/
+2025-09-15 16:46:40,092 INFO autoreload Watching for file changes with StatReloader
+2025-09-15 16:52:13,080 INFO autoreload Watching for file changes with StatReloader
+2025-09-15 16:53:52,627 INFO autoreload Watching for file changes with StatReloader
+2025-09-15 16:55:35,452 INFO autoreload Watching for file changes with StatReloader
+2025-09-15 16:57:37,288 INFO autoreload Watching for file changes with StatReloader
+2025-09-15 17:04:03,105 INFO autoreload Watching for file changes with StatReloader
+2025-09-15 17:57:03,018 INFO autoreload Watching for file changes with StatReloader
+2025-09-15 19:53:54,504 INFO autoreload Watching for file changes with StatReloader
+2025-09-15 19:56:41,221 INFO autoreload Watching for file changes with StatReloader
+2025-09-15 19:57:00,609 WARNING log Not Found: /favicon.ico
+2025-09-15 19:57:26,222 INFO views Email config: Updated for user himanshu (ID: 2)
+2025-09-15 19:57:26,242 INFO views Saved email config for himanshu: host=imap.secureserver.net, username=himanshu
+2025-09-15 20:02:02,872 INFO tasks Attempting to fetch email config for user_id: 2
+2025-09-15 20:02:02,878 INFO tasks Found email config for user_id 2: username=himanshu
+2025-09-15 20:02:02,879 INFO tasks Email configuration - Host: imap.secureserver.net, Username: himanshu, Port: 993, TLS: True
+2025-09-15 20:02:02,881 INFO tasks Password present: True, Password length: 10
+2025-09-15 20:02:02,884 INFO tasks BASE_DIR: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher
+2025-09-15 20:02:02,887 INFO tasks MEDIA_ROOT: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media
+2025-09-15 20:02:02,889 INFO tasks Attempting to create directory: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-15 20:02:02,894 INFO tasks Directory created successfully: C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\media\resumes
+2025-09-15 20:02:02,896 INFO tasks Connecting to IMAP...
+2025-09-15 20:02:06,661 ERROR tasks IMAP operation failed: b'[AUTHENTICATIONFAILED] Authentication failed.'
+2025-09-15 20:02:06,665 ERROR views Match resumes error: b'[AUTHENTICATIONFAILED] Authentication failed.'
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\hrapp\views.py", line 125, in match_resumes
+    resume_files = fetch_resumes_from_email(request.user.id, date_from, date_to)
+  File "C:\Users\hp\OneDrive\Documents\Desktop\intern\hrmatcher\hrapp\tasks.py", line 173, in fetch_resumes_from_email
+    imap.login(EMAIL, PASSWORD)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python313\Lib\imaplib.py", line 621, in login
+    raise self.error(dat[-1])
+imaplib.IMAP4.error: b'[AUTHENTICATIONFAILED] Authentication failed.'
+2025-09-15 20:02:06,842 ERROR log Internal Server Error: /match-resumes/
+2025-09-15 20:03:25,514 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'true', 'csrfmiddlewaretoken': 'fx952CWlXnR7a2deEeJK10NYmoYhipDEQkGf8y0VzkU2hlm5u2YxBpddwLDzjJ3p'}
+2025-09-15 20:03:25,519 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='prod@bharatcrest.com', use_tls=True
+2025-09-15 20:03:25,529 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-15 20:03:32,591 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'true', 'csrfmiddlewaretoken': 'fx952CWlXnR7a2deEeJK10NYmoYhipDEQkGf8y0VzkU2hlm5u2YxBpddwLDzjJ3p'}
+2025-09-15 20:03:32,600 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='prod@bharatcrest.com', use_tls=True
+2025-09-15 20:03:32,611 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-15 20:03:33,612 INFO views Connection to imap.secureserver.net successful!
+2025-09-15 20:03:36,402 INFO views Email config: Updated for user himanshu (ID: 2)
+2025-09-15 20:03:36,411 INFO views Saved email config for himanshu: host=imap.secureserver.net, username=prod@bharatcrest.com
+2025-09-15 20:03:37,446 INFO views Connection to imap.secureserver.net successful!
