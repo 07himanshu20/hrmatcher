@@ -103,15 +103,11 @@ def resume_matcher_view(request):
         'matched_candidates': matched_candidates
     })
 
+
 @require_POST
 @csrf_exempt 
 def match_resumes(request):
     try:
-        
-        #accessing resumes from the email 
-        # First fetch new resumes from email with date filtering
-        from .tasks import fetch_resumes_from_email
-        
         # Get date filter parameters
         date_from = request.POST.get('date_from', '').strip()
         date_to = request.POST.get('date_to', '').strip()
@@ -119,73 +115,70 @@ def match_resumes(request):
         # Check if date filtering is being used
         date_filtering_applied = bool(date_from or date_to)
         
-        # Pass date filters to the email fetching task if they are provided
-        if date_filtering_applied:
-            resume_files = fetch_resumes_from_email(request.user.id, date_from, date_to)
-            logger.info(f"Date filtering applied: from={date_from}, to={date_to}")
-            
-            # If date filtering is applied and no new emails found, return empty results
-            if not resume_files:
-                logger.info("No new resumes found in email for the specified date range")
-                return JsonResponse([], safe=False)
-        else:
-            resume_files = fetch_resumes_from_email(request.user.id)
-            logger.info("No date filtering applied - processing all emails")
+        # Always fetch emails with date filtering applied at IMAP server level
+        resume_files = fetch_resumes_from_email(request.user.id, date_from, date_to)
         
-        if not resume_files and not date_filtering_applied:
-            logger.info("No new resumes found in email")
-        
+        logger.info(f"Date filtering: from={date_from}, to={date_to}, applied={date_filtering_applied}")
+        logger.info(f"Found {len(resume_files)} resumes after date filtering")
         
         skills = [s.strip().lower() for s in request.POST.get('skills', '').split(',') if s.strip()]
         min_experience = int(request.POST.get('min_experience', 0))
         position = request.POST.get('position', '').lower()
         
-        resume_dir = os.path.join(settings.MEDIA_ROOT, 'resumes')
         results = []
         
-        # Only process existing resumes if no date filtering is applied OR if new emails were found
-        if not date_filtering_applied or resume_files:
-            for filename in os.listdir(resume_dir):
-                if filename.lower().endswith(('.pdf', '.docx')):
-                    filepath = os.path.join(resume_dir, filename)
-                    
-                    try:
-                        text = extract_text_from_resume(filepath)
-                        if not text:
-                            continue
-                            
-                        # Use Gemini with fallback
-                        candidate_data = extract_skills_with_gemini(text, skills)
-                        
-                        ats_score = calculate_ats_score(
-                            resume_text=text,
-                            job_requirements={
-                                'required_skills': skills,
-                                'min_experience': min_experience,
-                                'job_title_keywords': [position],
-                                'preferred_skills': []
-                            }
-                        )
-                        if ats_score['matched_skills']:  # This checks if the list is not empty
-                            results.append({
-                                'name': candidate_data['name'],
-                                'score': ats_score['total_score'],
-                                'matched_skills': ats_score['matched_skills'],
-                                'missing_skills': ats_score['missing_skills'],
-                                'experience': candidate_data['experience'],
-                                #'email': candidate_data.get('email', ''),
-                                #'phone': candidate_data.get('phone', ''),
-                                'email': candidate_data['email'],
-                                'phone': candidate_data['phone'],
-                                
-                                
-                                'filename': filename,
-                                'resume_url': os.path.join(settings.MEDIA_URL, 'resumes', filename).replace('\\', '/'),
-                        })
-                        
-                    except Exception as e:
-                        logger.error(f"Error processing {filename}: {str(e)}")
+        # Process only the resumes that were fetched within the date range
+        if resume_files:
+            logger.info(f"Processing {len(resume_files)} resumes fetched within date range: {date_from} to {date_to}")
+            
+            for resume_path in resume_files:
+                filename = os.path.basename(resume_path)
+                
+                try:
+                    # Check if file exists
+                    if not os.path.exists(resume_path):
+                        logger.warning(f"Resume file not found: {resume_path}")
                         continue
+                        
+                    text = extract_text_from_resume(resume_path)
+                    if not text:
+                        logger.warning(f"Could not extract text from: {filename}")
+                        continue
+                        
+                    # Use Gemini with fallback
+                    candidate_data = extract_skills_with_gemini(text, skills)
+                    
+                    ats_score = calculate_ats_score(
+                        resume_text=text,
+                        job_requirements={
+                            'required_skills': skills,
+                            'min_experience': min_experience,
+                            'job_title_keywords': [position],
+                            'preferred_skills': []
+                        }
+                    )
+                    
+                    # Only include candidates with matched skills and sufficient experience
+                    if ats_score['matched_skills'] and candidate_data['experience'] >= min_experience:
+                        results.append({
+                            'name': candidate_data['name'],
+                            'score': ats_score['total_score'],
+                            'matched_skills': ats_score['matched_skills'],
+                            'missing_skills': ats_score['missing_skills'],
+                            'experience': candidate_data['experience'],
+                            'email': candidate_data['email'],
+                            'phone': candidate_data['phone'],
+                            'filename': filename,
+                            'resume_url': os.path.join(settings.MEDIA_URL, 'resumes', filename).replace('\\', '/'),
+                        })
+                    
+                except Exception as e:
+                    logger.error(f"Error processing {filename}: {str(e)}", exc_info=True)
+                    continue
+        else:
+            logger.info("No resumes found within the specified date range")
+            # Return empty results instead of processing all existing resumes
+            results = []
         
         results.sort(key=lambda x: x['score'], reverse=True)
         return JsonResponse(results, safe=False)
@@ -193,7 +186,7 @@ def match_resumes(request):
     except Exception as e:
         logger.error(f"Match resumes error: {str(e)}", exc_info=True)
         return JsonResponse({'error': str(e)}, status=500)
-
+        
 # ====================== Utility Functions ====================== #
 def calculate_ats_score(resume_text: str, job_requirements: dict) -> dict:
     """Enhanced ATS scoring with position matching"""
@@ -322,7 +315,7 @@ from .export_utils import export_to_excel, export_to_pdf
 from django.views.decorators.csrf import csrf_exempt
 
 from django.http import HttpResponseBadRequest
-
+'''
 def export_results(request, format_type):
     if request.method == 'POST':
         try:
@@ -338,16 +331,18 @@ def export_results(request, format_type):
                         candidate[field] = []
 
             if format_type == 'excel':
-                return export_to_excel(candidates)
+                # return export_to_excel(candidates)
+                return JsonResponse({'error': 'Excel export temporarily disabled'}, status=500)
             elif format_type == 'pdf':
-                return export_to_pdf(candidates)
+                # return export_to_pdf(candidates)
+                return JsonResponse({'error': 'PDF export temporarily disabled'}, status=500)
             else:
                 return HttpResponseBadRequest("Invalid format")
                 
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=500)
     return HttpResponseBadRequest("Invalid request method")
-
+'''
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.contrib import messages
@@ -364,6 +359,7 @@ def email_config_view(request):
         if form.is_valid():
             # Get or create the configuration for this user
             config, created = EmailConfiguration.objects.get_or_create(user=request.user)
+            logger.info(f"Email config: {'Created' if created else 'Updated'} for user {request.user.username} (ID: {request.user.id})")
             
             # Update the configuration with form data
             config.email_backend = form.cleaned_data['email_backend']
@@ -373,6 +369,7 @@ def email_config_view(request):
             config.email_username = form.cleaned_data['email_username']
             config.email_password = form.cleaned_data['email_password']
             config.save()
+            logger.info(f"Saved email config for {request.user.username}: host={config.email_host}, username={config.email_username}")
             
             # Update session state
             request.session.update({
@@ -578,3 +575,58 @@ def root_redirect(request):
 from django.contrib.auth import logout
 from django.shortcuts import redirect
 
+# from .export_utils import export_to_excel, export_to_pdf
+
+from django.views.decorators.csrf import csrf_exempt
+
+from django.http import HttpResponseBadRequest
+
+@require_POST
+@login_required
+def export_results(request, format_type):
+    """Export matching results to Excel or PDF format"""
+    try:
+        if not request.POST.get('candidates'):
+            return JsonResponse({'error': 'Missing candidates data'}, status=400)
+        
+        # Parse candidates data from POST request
+        candidates_data = json.loads(request.POST['candidates'])
+        
+        # Validate and clean candidates data
+        valid_candidates = []
+        for candidate in candidates_data:
+            # Ensure all required fields exist and are properly formatted
+            cleaned_candidate = {
+                'name': candidate.get('name', 'Unknown Candidate'),
+                'score': float(candidate.get('score', 0)),
+                'experience': float(candidate.get('experience', 0)),
+                'email': candidate.get('email', 'N/A'),
+                'phone': candidate.get('phone', 'N/A'),
+                'matched_skills': candidate.get('matched_skills', []),
+                'missing_skills': candidate.get('missing_skills', [])
+            }
+            
+            # Convert string skills to list if needed
+            if isinstance(cleaned_candidate['matched_skills'], str):
+                cleaned_candidate['matched_skills'] = [skill.strip() for skill in cleaned_candidate['matched_skills'].split(',') if skill.strip()]
+            
+            if isinstance(cleaned_candidate['missing_skills'], str):
+                cleaned_candidate['missing_skills'] = [skill.strip() for skill in cleaned_candidate['missing_skills'].split(',') if skill.strip()]
+            
+            valid_candidates.append(cleaned_candidate)
+        
+        # Sort candidates by score (highest first)
+        valid_candidates.sort(key=lambda x: x['score'], reverse=True)
+        
+        if format_type == 'excel':
+            return export_to_excel(valid_candidates)
+        elif format_type == 'pdf':
+            return export_to_pdf(valid_candidates)
+        else:
+            return JsonResponse({'error': 'Invalid export format'}, status=400)
+            
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid JSON data'}, status=400)
+    except Exception as e:
+        logger.error(f"Export error: {str(e)}")
+        return JsonResponse({'error': f'Export failed: {str(e)}'}, status=500)

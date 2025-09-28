@@ -6,6 +6,7 @@ import imaplib
 import email
 import email.utils
 import logging
+import tempfile
 from datetime import datetime, timedelta
 from email.header import decode_header
 from typing import List, Dict, Any, Optional, Union
@@ -15,12 +16,14 @@ from celery import shared_task
 from django.conf import settings
 from django.core.cache import cache
 
+# Import the EmailConfiguration model
+from .models import EmailConfiguration
+
 logger = logging.getLogger(__name__)
 
 @shared_task(bind=True, name="hrapp.tasks.process_resumes_from_email")
 def process_resumes_from_email(self, job_req_id):
     """Process resumes from email with proper model imports"""
-    # Import models inside the task to avoid circular imports
     from hrapp.models import JobRequirement, Candidate
     from hrapp.utils import (
         extract_text_from_resume,
@@ -42,7 +45,6 @@ def process_resumes_from_email(self, job_req_id):
         
         for i, resume_path in enumerate(resume_files, 1):
             try:
-                # Update progress
                 self.update_state(
                     state='PROGRESS',
                     meta={
@@ -53,7 +55,6 @@ def process_resumes_from_email(self, job_req_id):
                     }
                 )
                 
-                # Process resume
                 text = extract_text_from_resume(resume_path)
                 if not text:
                     continue
@@ -62,7 +63,6 @@ def process_resumes_from_email(self, job_req_id):
                 skills = extract_skills_from_resume(text)
                 score = calculate_match_score(skills, job_req.skills)
                 
-                # Create candidate record
                 rel_path = os.path.relpath(resume_path, settings.MEDIA_ROOT)
                 Candidate.objects.create(
                     name=name,
@@ -97,39 +97,34 @@ def process_resumes_from_email(self, job_req_id):
     except Exception as e:
         logger.exception("Resume processing task failed")
         self.retry(exc=e, countdown=60, max_retries=3)
-import imaplib
-import email
-from email.header import decode_header
-import os
-from datetime import datetime
 
-# hrapp/tasks.py
-import os
-import imaplib
-import email
-from email.header import decode_header
-from django.conf import settings
-from django.core.files.storage import default_storage
-
-logger = logging.getLogger(__name__)
-from .models import EmailConfiguration
-@shared_task(bind=True)
-
-def fetch_resumes_from_email(self, user_id, date_from=None, date_to=None):
+def fetch_resumes_from_email(user_id, date_from=None, date_to=None):
     # Configuration
-    config = EmailConfiguration.objects.get(user_id=user_id)
+    logger.info(f"Attempting to fetch email config for user_id: {user_id}")
+    try:
+        config = EmailConfiguration.objects.get(user_id=user_id)
+        logger.info(f"Found email config for user_id {user_id}: username={config.email_username}")
+    except EmailConfiguration.DoesNotExist:
+        logger.error(f"Email configuration not found for user_id: {user_id}")
+        raise Exception("Email configuration not found. Please configure your email settings first.")
+    
     IMAP_SERVER = config.email_host
     EMAIL = config.email_username
     PASSWORD = config.email_password
     PORT = config.email_port
     USE_TLS = config.use_tls
     
+    # Debug logging
+    logger.info(f"Email configuration - Host: {IMAP_SERVER}, Username: {EMAIL}, Port: {PORT}, TLS: {USE_TLS}")
+    logger.info(f"Password present: {bool(PASSWORD)}, Password length: {len(PASSWORD) if PASSWORD else 0}")
+    
+    if not PASSWORD:
+        logger.error("Email password is empty! Please check your email configuration.")
+        raise Exception("Email password is not configured. Please update your email settings.")
+    
     # Import settings and os at the beginning of the function
     from django.conf import settings
     import os
-    import logging
-    
-    logger = logging.getLogger(__name__)
     
     # Log the base directory and media root for debugging
     logger.info(f"BASE_DIR: {settings.BASE_DIR}")
@@ -170,17 +165,17 @@ def fetch_resumes_from_email(self, user_id, date_from=None, date_to=None):
             if status != 'OK':
                 raise Exception("Failed to select INBOX")
 
-            # Build search criteria with date filtering
+            # Build search criteria with date filtering - ONLY fetch emails in specified date range
             search_criteria = []
             
-            # Add date filtering if provided
+            # Add date filtering if provided - this filters at IMAP level, not after fetching
             if date_from:
                 try:
                     # Convert date string to IMAP format (DD-Mon-YYYY)
                     from_date = datetime.strptime(date_from, '%Y-%m-%d')
                     formatted_from_date = from_date.strftime('%d-%b-%Y')
-                    search_criteria.append(f'SINCE "{formatted_from_date}"')
-                    logger.info(f"Filtering emails from: {formatted_from_date}")
+                    search_criteria.append(f'SINCE {formatted_from_date}')
+                    logger.info(f"IMAP filtering emails FROM: {formatted_from_date}")
                 except ValueError:
                     logger.warning(f"Invalid from_date format: {date_from}")
             
@@ -192,19 +187,21 @@ def fetch_resumes_from_email(self, user_id, date_from=None, date_to=None):
                     # Add one day to make BEFORE inclusive of the to_date
                     to_date_inclusive = to_date + timedelta(days=1)
                     formatted_to_date = to_date_inclusive.strftime('%d-%b-%Y')
-                    search_criteria.append(f'BEFORE "{formatted_to_date}"')
-                    logger.info(f"Filtering emails to: {date_to} (using BEFORE {formatted_to_date})")
+                    search_criteria.append(f'BEFORE {formatted_to_date}')
+                    logger.info(f"IMAP filtering emails TO: {date_to} (using BEFORE {formatted_to_date})")
                 except ValueError:
                     logger.warning(f"Invalid to_date format: {date_to}")
             
-            # If no date criteria, search all emails
+            # Perform IMAP search - this ONLY returns emails within the date range, no other emails are fetched
             if search_criteria:
+                # Join criteria with space for IMAP search - this filters at server level
                 search_query = ' '.join(search_criteria)
-                logger.info(f"Using search query: {search_query}")
+                logger.info(f"IMAP search query (server-side filtering): '{search_query}'")
+                status, messages = imap.search(None, search_query)
+                logger.info("Only fetching emails that match the date criteria - no other emails will be downloaded")
             else:
-                search_query = 'ALL'
-            
-            status, messages = imap.search(None, search_query)
+                logger.info("No date filtering specified - will fetch ALL emails")
+                status, messages = imap.search(None, 'ALL')
             if status != 'OK':
                 raise Exception("IMAP search failed")
 
