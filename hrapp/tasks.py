@@ -16,12 +16,14 @@ from celery import shared_task
 from django.conf import settings
 from django.core.cache import cache
 
+# Import the EmailConfiguration model
+from .models import EmailConfiguration
+
 logger = logging.getLogger(__name__)
 
 @shared_task(bind=True, name="hrapp.tasks.process_resumes_from_email")
 def process_resumes_from_email(self, job_req_id):
     """Process resumes from email with proper model imports"""
-    # Import models inside the task to avoid circular imports
     from hrapp.models import JobRequirement, Candidate
     from hrapp.utils import (
         extract_text_from_resume,
@@ -43,7 +45,6 @@ def process_resumes_from_email(self, job_req_id):
         
         for i, resume_path in enumerate(resume_files, 1):
             try:
-                # Update progress
                 self.update_state(
                     state='PROGRESS',
                     meta={
@@ -54,7 +55,6 @@ def process_resumes_from_email(self, job_req_id):
                     }
                 )
                 
-                # Process resume
                 text = extract_text_from_resume(resume_path)
                 if not text:
                     continue
@@ -63,7 +63,6 @@ def process_resumes_from_email(self, job_req_id):
                 skills = extract_skills_from_resume(text)
                 score = calculate_match_score(skills, job_req.skills)
                 
-                # Create candidate record
                 rel_path = os.path.relpath(resume_path, settings.MEDIA_ROOT)
                 Candidate.objects.create(
                     name=name,
@@ -98,17 +97,6 @@ def process_resumes_from_email(self, job_req_id):
     except Exception as e:
         logger.exception("Resume processing task failed")
         self.retry(exc=e, countdown=60, max_retries=3)
-
-# hrapp/tasks.py
-import os
-import imaplib
-import email
-from email.header import decode_header
-from django.conf import settings
-from django.core.files.storage import default_storage
-
-logger = logging.getLogger(__name__)
-from .models import EmailConfiguration
 
 def fetch_resumes_from_email(user_id, date_from=None, date_to=None):
     # Configuration
@@ -305,5 +293,3 @@ def cleanup_old_files(days: int = 7) -> Dict[str, Union[int, str]]:
     except Exception as e:
         logger.error(f"Cleanup failed: {str(e)}")
         return {'status': 'failed', 'error': str(e)}
-
-

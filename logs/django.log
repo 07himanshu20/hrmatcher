@@ -29917,3 +29917,288 @@ imaplib.IMAP4.error: b'[AUTHENTICATIONFAILED] Authentication failed.'
 2025-09-15 20:03:36,402 INFO views Email config: Updated for user himanshu (ID: 2)
 2025-09-15 20:03:36,411 INFO views Saved email config for himanshu: host=imap.secureserver.net, username=prod@bharatcrest.com
 2025-09-15 20:03:37,446 INFO views Connection to imap.secureserver.net successful!
+2025-09-28 03:49:49,284 INFO autoreload Watching for file changes with StatReloader
+2025-09-28 03:55:00,013 INFO autoreload Watching for file changes with StatReloader
+2025-09-28 03:55:56,397 INFO autoreload Watching for file changes with StatReloader
+2025-09-28 03:56:13,576 INFO autoreload Watching for file changes with StatReloader
+2025-09-28 03:56:37,839 INFO autoreload Watching for file changes with StatReloader
+2025-09-28 03:57:27,681 INFO autoreload Watching for file changes with StatReloader
+2025-09-28 03:57:53,549 INFO autoreload Watching for file changes with StatReloader
+2025-09-28 03:58:13,065 INFO autoreload Watching for file changes with StatReloader
+2025-09-28 03:58:35,814 INFO autoreload Watching for file changes with StatReloader
+2025-09-28 03:59:10,552 INFO views Received POST data: {'email_host': 'imap.secureserver.net', 'email_port': '993', 'email_username': 'prod@bharatcrest.com', 'use_tls': 'true', 'csrfmiddlewaretoken': 'eJXwlisQbR9oaaTtE3PqUYNRcqD0S4VDSJ8t7n9ZS0RBIdUDVqnyOGODXhVd7az5'}
+2025-09-28 03:59:10,553 INFO views Testing connection with: host='imap.secureserver.net', port='993', username='prod@bharatcrest.com', use_tls=True
+2025-09-28 03:59:10,559 INFO views Testing IMAP connection to imap.secureserver.net:993
+2025-09-28 03:59:15,569 INFO views Connection to imap.secureserver.net successful!
+2025-09-28 03:59:18,408 INFO views Email config: Updated for user himanshu (ID: 2)
+2025-09-28 03:59:18,420 INFO views Saved email config for himanshu: host=imap.secureserver.net, username=prod@bharatcrest.com
+2025-09-28 04:00:04,146 INFO tasks Attempting to fetch email config for user_id: 2
+2025-09-28 04:00:04,147 ERROR views Match resumes error: name 'EmailConfiguration' is not defined
+Traceback (most recent call last):
+  File "C:\Users\RAKESH SHARMA\Downloads\hrmatcher\hrapp\tasks.py", line 101, in fetch_resumes_from_email
+    config = EmailConfiguration.objects.get(user_id=user_id)
+             ^^^^^^^^^^^^^^^^^^
+NameError: name 'EmailConfiguration' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\RAKESH SHARMA\Downloads\hrmatcher\hrapp\views.py", line 119, in match_resumes
+    resume_files = fetch_resumes_from_email(request.user.id, date_from, date_to)
+  File "C:\Users\RAKESH SHARMA\Downloads\hrmatcher\hrapp\tasks.py", line 103, in fetch_resumes_from_email
+    except EmailConfiguration.DoesNotExist:
+           ^^^^^^^^^^^^^^^^^^
+NameError: name 'EmailConfiguration' is not defined
+2025-09-28 04:00:04,165 ERROR log Internal Server Error: /match-resumes/
+2025-09-28 04:00:14,513 INFO tasks Attempting to fetch email config for user_id: 2
+2025-09-28 04:00:14,514 ERROR views Match resumes error: name 'EmailConfiguration' is not defined
+Traceback (most recent call last):
+  File "C:\Users\RAKESH SHARMA\Downloads\hrmatcher\hrapp\tasks.py", line 101, in fetch_resumes_from_email
+    config = EmailConfiguration.objects.get(user_id=user_id)
+             ^^^^^^^^^^^^^^^^^^
+NameError: name 'EmailConfiguration' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\RAKESH SHARMA\Downloads\hrmatcher\hrapp\views.py", line 119, in match_resumes
+    resume_files = fetch_resumes_from_email(request.user.id, date_from, date_to)
+  File "C:\Users\RAKESH SHARMA\Downloads\hrmatcher\hrapp\tasks.py", line 103, in fetch_resumes_from_email
+    except EmailConfiguration.DoesNotExist:
+           ^^^^^^^^^^^^^^^^^^
+NameError: name 'EmailConfiguration' is not defined
+2025-09-28 04:00:14,517 ERROR log Internal Server Error: /match-resumes/
+2025-09-28 04:08:28,347 INFO autoreload C:\Users\RAKESH SHARMA\Downloads\hrmatcher\hrapp\tasks.py changed, reloading.
+2025-09-28 04:08:30,012 INFO autoreload Watching for file changes with StatReloader
+2025-09-28 04:09:13,985 INFO tasks Attempting to fetch email config for user_id: 2
+2025-09-28 04:10:30,459 INFO tasks Found email config for user_id 2: username=prod@bharatcrest.com
+2025-09-28 04:10:30,459 INFO tasks Email configuration - Host: imap.secureserver.net, Username: prod@bharatcrest.com, Port: 993, TLS: True
+2025-09-28 04:10:30,459 INFO tasks Password present: True, Password length: 16
+2025-09-28 04:10:30,460 INFO tasks BASE_DIR: C:\Users\RAKESH SHARMA\Downloads\hrmatcher
+2025-09-28 04:10:30,460 INFO tasks MEDIA_ROOT: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media
+2025-09-28 04:10:30,461 INFO tasks Attempting to create directory: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes
+2025-09-28 04:10:30,462 INFO tasks Directory created successfully: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes
+2025-09-28 04:10:30,462 INFO tasks Connecting to IMAP...
+2025-09-28 04:10:34,285 INFO tasks Logged in successfully
+2025-09-28 04:10:34,931 INFO tasks IMAP filtering emails FROM: 01-Sep-2025
+2025-09-28 04:10:34,932 INFO tasks IMAP filtering emails TO: 2025-09-27 (using BEFORE 28-Sep-2025)
+2025-09-28 04:10:34,932 INFO tasks IMAP search query (server-side filtering): 'SINCE 01-Sep-2025 BEFORE 28-Sep-2025'
+2025-09-28 04:10:35,458 INFO tasks Only fetching emails that match the date criteria - no other emails will be downloaded
+2025-09-28 04:10:35,459 INFO tasks Found 71 emails to scan
+2025-09-28 04:10:40,531 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Frontend_Developer_Internship_=E2=80=93_Fo?=
+	=?UTF-8?Q?llow=2Dup?=
+2025-09-28 04:10:40,537 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\ANSH Resume.pdf
+2025-09-28 04:10:57,297 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-28 04:10:59,704 INFO tasks Processing resume email: Hi BharatCrest,"Myself Surendra Kumar, I'm applying for your Business
+ Development Associate roles @ =?UTF-8?B?4oK5MCI=?=
+2025-09-28 04:11:00,997 INFO tasks Processing resume email: Attachments for joining internship
+2025-09-28 04:11:02,596 INFO tasks Processing resume email: Hi! Iam Nithisha graduated in the year 2024 ,i have seen your job
+ posting in lindin the role was wen application developer iam intrested in
+ that job and eagerly waiting for the interview process with strong skills in
+ frontend :html,css,js and backend:python,frameworks:django,librarires:reactjs
+ .iam looking forward to work with you thank you
+2025-09-28 04:11:02,599 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\CV-Nithisha Final.pdf
+2025-09-28 04:11:04,206 INFO tasks Processing resume email: Resume regarding job opportunity
+2025-09-28 04:11:04,213 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\venkatesh_resume.pdf
+2025-09-28 04:11:07,886 INFO tasks Processing resume email: Application for Web Application Developer Internship
+2025-09-28 04:11:08,469 INFO tasks Processing resume email: Application for Web Application Developer Internship
+2025-09-28 04:11:08,475 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Mansi_Resume2 (6).pdf
+2025-09-28 04:11:10,665 INFO tasks Processing resume email: Application for Web Application Developer (Intern)
+2025-09-28 04:11:10,673 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\myresume3.pdf
+2025-09-28 04:11:12,188 INFO tasks Processing resume email: Application for Web Application
+2025-09-28 04:11:12,190 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Rishu_resume.pdf
+2025-09-28 04:11:12,878 INFO tasks Processing resume email: Application for Web Developer (intern)
+2025-09-28 04:11:12,883 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Premchand_resume.pdf
+2025-09-28 04:11:13,552 INFO tasks Processing resume email: Web developer intern
+2025-09-28 04:11:14,466 INFO tasks Processing resume email: =?UTF-8?Q?Resume_Submission_=E2=80=93_Web_Application_Developer_=28Int?=
+	=?UTF-8?Q?ern=29?=
+2025-09-28 04:11:14,469 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\SUDHIR.KRM.pdf
+2025-09-28 04:11:15,312 INFO tasks Processing resume email: Application for Web Application Developer (Intern)
+2025-09-28 04:11:15,317 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Resume_Shafina.pdf
+2025-09-28 04:11:16,118 INFO tasks Processing resume email: Apply for the post of application developer (intern)
+2025-09-28 04:11:16,123 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\shiv resume newwww.pdf
+2025-09-28 04:11:16,690 INFO tasks Processing resume email: Application for web developer intern -(Himanshu Sir Reference)
+2025-09-28 04:11:16,693 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\SanthoshKumar_FullStackDeveloper_Resume (2).docx
+2025-09-28 04:11:17,513 INFO tasks Processing resume email: Application for web developer intern
+2025-09-28 04:11:17,520 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Subashree Developer Resume-1.pdf
+2025-09-28 04:11:18,601 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Web_Application_Developer_Internship?=
+	=?UTF-8?Q?_=E2=80=93_Rajesh_Vellanki?=
+2025-09-28 04:11:18,608 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\rajesh_resume DE.pdf
+2025-09-28 04:11:19,242 INFO tasks Processing resume email: Web Application development intern
+2025-09-28 04:11:19,245 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Upendra_Web.docx
+2025-09-28 04:11:20,725 INFO tasks Processing resume email: Application for Web Developer Internship
+2025-09-28 04:11:20,735 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\PiyushJangde.pdf
+2025-09-28 04:11:21,633 INFO tasks Processing resume email: RE:JOB OPPERTUNITY
+2025-09-28 04:11:21,641 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Basireddy.SR.pdf
+2025-09-28 04:11:23,062 INFO tasks Processing resume email: Re: Application for Web Developer Internship
+2025-09-28 04:11:23,741 INFO tasks Processing resume email: Application for Web Application Developer Intern Position
+2025-09-28 04:11:23,746 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Shikha Pandey's Resume.pdf
+2025-09-28 04:11:24,679 INFO tasks Processing resume email: Web Application Developer (Intern)
+2025-09-28 04:11:24,689 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Resume-Pratha Agarwal.pdf
+2025-09-28 04:11:25,338 INFO tasks Processing resume email: Subject: Application for Web Application Developer Internship
+2025-09-28 04:11:25,345 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Shubham Raj Resume-2 (1).pdf
+2025-09-28 04:11:25,975 INFO tasks Processing resume email: Application for Web Developer.
+2025-09-28 04:11:26,525 INFO tasks Processing resume email: Web application developer
+2025-09-28 04:11:27,414 INFO tasks Processing resume email: Application for Web Application Developer (Intern) -Anmol walia
+2025-09-28 04:11:27,419 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Anmol walia  cv.pdf
+2025-09-28 04:11:28,318 INFO tasks Processing resume email: I'm applying for the Frontend developer . I've attached my resume for
+ your review. I'm confident my skills in HTML, CSS, Javascript, React.js align
+ with the role. Looking forward to the opportunity . Regards, Bharti Pal Phone
+ : 9760117948 Email : bhartipal2504@gmail.com
+2025-09-28 04:11:29,795 INFO tasks Processing resume email: Resume
+2025-09-28 04:11:29,802 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Resume-SEP2025_1757955852913.pdf
+2025-09-28 04:11:30,761 INFO tasks Processing resume email: Python Internship
+2025-09-28 04:11:30,764 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\DOC-20250828-WA0000..pdf
+2025-09-28 04:11:32,875 INFO tasks Processing resume email: Internship Required
+2025-09-28 04:11:32,878 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\TRINATH RES.pdf
+2025-09-28 04:11:33,439 INFO tasks Processing resume email: Web Application Developer
+2025-09-28 04:11:33,443 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\satya_resu1.pdf
+2025-09-28 04:11:34,275 INFO tasks Processing resume email: Resume
+2025-09-28 04:11:34,278 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Ashmeet-Singh-Resume.pdf
+2025-09-28 04:11:36,281 INFO tasks Processing resume email: Re: RE:JOB OPPERTUNITY
+2025-09-28 04:11:37,506 INFO tasks Processing resume email: BharatCrest,"I'm Amit, applied for your Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= | Call Me @ 789xxxx579"
+2025-09-28 04:11:42,103 INFO tasks Processing resume email: Document for web developer intern
+2025-09-28 04:11:43,711 INFO tasks Processing resume email: Re: Web Application Developer-Intern at Bharatcrest
+2025-09-28 04:11:48,799 INFO tasks Processing resume email: Re: Web Application Developer-Intern at Bharatcrest
+2025-09-28 04:11:48,829 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Pratha_offer_letter.pdf
+2025-09-28 04:11:50,122 INFO tasks Processing resume email: BharatCrest,"I'm Vijendra, applied for your Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= | Call Me @ 950xxxx823"
+2025-09-28 04:11:55,691 INFO views Date filtering: from=2025-09-01, to=2025-09-27, applied=True
+2025-09-28 04:11:55,691 INFO views Found 26 resumes after date filtering
+2025-09-28 04:11:55,694 INFO views Processing 26 resumes fetched within date range: 2025-09-01 to 2025-09-27
+2025-09-28 04:11:55,795 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-28 04:12:06,187 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-28 04:12:06,199 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-28 04:12:06,203 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-28 04:12:06,210 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-28 04:12:06,216 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-28 04:12:06,225 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-28 04:12:06,235 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-28 04:13:45,202 ERROR log Internal Server Error: /export/excel/
+2025-09-28 04:18:32,657 INFO autoreload C:\Users\RAKESH SHARMA\Downloads\hrmatcher\hrapp\views.py changed, reloading.
+2025-09-28 04:18:36,074 INFO autoreload Watching for file changes with StatReloader
+2025-09-28 04:19:44,844 INFO autoreload C:\Users\RAKESH SHARMA\Downloads\hrmatcher\hrapp\views.py changed, reloading.
+2025-09-28 04:19:46,287 INFO autoreload Watching for file changes with StatReloader
+2025-09-28 04:19:49,549 ERROR log Internal Server Error: /export/excel/
+2025-09-28 04:19:53,312 ERROR log Internal Server Error: /export/excel/
+2025-09-28 04:21:12,863 INFO autoreload C:\Users\RAKESH SHARMA\Downloads\hrmatcher\hrapp\views.py changed, reloading.
+2025-09-28 04:21:14,284 INFO autoreload Watching for file changes with StatReloader
+2025-09-28 04:21:28,805 INFO autoreload C:\Users\RAKESH SHARMA\Downloads\hrmatcher\hrapp\views.py changed, reloading.
+2025-09-28 04:21:30,327 INFO autoreload Watching for file changes with StatReloader
+2025-09-28 04:21:37,235 ERROR views Export error: name 'export_to_excel' is not defined
+2025-09-28 04:21:37,238 ERROR log Internal Server Error: /export/excel/
+2025-09-28 04:22:16,754 INFO tasks Attempting to fetch email config for user_id: 2
+2025-09-28 04:22:16,756 INFO tasks Found email config for user_id 2: username=prod@bharatcrest.com
+2025-09-28 04:22:16,759 INFO tasks Email configuration - Host: imap.secureserver.net, Username: prod@bharatcrest.com, Port: 993, TLS: True
+2025-09-28 04:22:16,774 INFO tasks Password present: True, Password length: 16
+2025-09-28 04:22:16,776 INFO tasks BASE_DIR: C:\Users\RAKESH SHARMA\Downloads\hrmatcher
+2025-09-28 04:22:16,777 INFO tasks MEDIA_ROOT: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media
+2025-09-28 04:22:16,789 INFO tasks Attempting to create directory: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes
+2025-09-28 04:22:16,793 INFO tasks Directory created successfully: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes
+2025-09-28 04:22:16,795 INFO tasks Connecting to IMAP...
+2025-09-28 04:22:20,524 INFO tasks Logged in successfully
+2025-09-28 04:22:21,167 INFO tasks IMAP filtering emails FROM: 02-Sep-2025
+2025-09-28 04:22:21,168 INFO tasks IMAP filtering emails TO: 2025-09-27 (using BEFORE 28-Sep-2025)
+2025-09-28 04:22:21,171 INFO tasks IMAP search query (server-side filtering): 'SINCE 02-Sep-2025 BEFORE 28-Sep-2025'
+2025-09-28 04:22:21,801 INFO tasks Only fetching emails that match the date criteria - no other emails will be downloaded
+2025-09-28 04:22:21,802 INFO tasks Found 71 emails to scan
+2025-09-28 04:22:27,273 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Frontend_Developer_Internship_=E2=80=93_Fo?=
+	=?UTF-8?Q?llow=2Dup?=
+2025-09-28 04:22:27,275 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\ANSH Resume.pdf
+2025-09-28 04:22:44,407 INFO tasks Processing resume email: Hi BharatCrest, "I'm Shantha & have applied for Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= salary"
+2025-09-28 04:22:46,883 INFO tasks Processing resume email: Hi BharatCrest,"Myself Surendra Kumar, I'm applying for your Business
+ Development Associate roles @ =?UTF-8?B?4oK5MCI=?=
+2025-09-28 04:22:47,979 INFO tasks Processing resume email: Attachments for joining internship
+2025-09-28 04:22:49,470 INFO tasks Processing resume email: Hi! Iam Nithisha graduated in the year 2024 ,i have seen your job
+ posting in lindin the role was wen application developer iam intrested in
+ that job and eagerly waiting for the interview process with strong skills in
+ frontend :html,css,js and backend:python,frameworks:django,librarires:reactjs
+ .iam looking forward to work with you thank you
+2025-09-28 04:22:49,475 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\CV-Nithisha Final.pdf
+2025-09-28 04:22:51,048 INFO tasks Processing resume email: Resume regarding job opportunity
+2025-09-28 04:22:51,053 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\venkatesh_resume.pdf
+2025-09-28 04:22:53,970 INFO tasks Processing resume email: Application for Web Application Developer Internship
+2025-09-28 04:22:54,610 INFO tasks Processing resume email: Application for Web Application Developer Internship
+2025-09-28 04:22:54,613 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Mansi_Resume2 (6).pdf
+2025-09-28 04:22:56,575 INFO tasks Processing resume email: Application for Web Application Developer (Intern)
+2025-09-28 04:22:56,579 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\myresume3.pdf
+2025-09-28 04:22:57,834 INFO tasks Processing resume email: Application for Web Application
+2025-09-28 04:22:57,837 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Rishu_resume.pdf
+2025-09-28 04:22:58,392 INFO tasks Processing resume email: Application for Web Developer (intern)
+2025-09-28 04:22:58,394 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Premchand_resume.pdf
+2025-09-28 04:22:58,935 INFO tasks Processing resume email: Web developer intern
+2025-09-28 04:22:59,798 INFO tasks Processing resume email: =?UTF-8?Q?Resume_Submission_=E2=80=93_Web_Application_Developer_=28Int?=
+	=?UTF-8?Q?ern=29?=
+2025-09-28 04:22:59,802 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\SUDHIR.KRM.pdf
+2025-09-28 04:23:00,893 INFO tasks Processing resume email: Application for Web Application Developer (Intern)
+2025-09-28 04:23:00,897 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Resume_Shafina.pdf
+2025-09-28 04:23:01,808 INFO tasks Processing resume email: Apply for the post of application developer (intern)
+2025-09-28 04:23:01,810 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\shiv resume newwww.pdf
+2025-09-28 04:23:02,456 INFO tasks Processing resume email: Application for web developer intern -(Himanshu Sir Reference)
+2025-09-28 04:23:02,458 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\SanthoshKumar_FullStackDeveloper_Resume (2).docx
+2025-09-28 04:23:03,409 INFO tasks Processing resume email: Application for web developer intern
+2025-09-28 04:23:03,412 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Subashree Developer Resume-1.pdf
+2025-09-28 04:23:04,687 INFO tasks Processing resume email: =?UTF-8?Q?Application_for_Web_Application_Developer_Internship?=
+	=?UTF-8?Q?_=E2=80=93_Rajesh_Vellanki?=
+2025-09-28 04:23:04,694 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\rajesh_resume DE.pdf
+2025-09-28 04:23:05,386 INFO tasks Processing resume email: Web Application development intern
+2025-09-28 04:23:05,388 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Upendra_Web.docx
+2025-09-28 04:23:07,129 INFO tasks Processing resume email: Application for Web Developer Internship
+2025-09-28 04:23:07,136 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\PiyushJangde.pdf
+2025-09-28 04:23:08,123 INFO tasks Processing resume email: RE:JOB OPPERTUNITY
+2025-09-28 04:23:08,130 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Basireddy.SR.pdf
+2025-09-28 04:23:09,894 INFO tasks Processing resume email: Re: Application for Web Developer Internship
+2025-09-28 04:23:10,703 INFO tasks Processing resume email: Application for Web Application Developer Intern Position
+2025-09-28 04:23:10,709 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Shikha Pandey's Resume.pdf
+2025-09-28 04:23:11,663 INFO tasks Processing resume email: Web Application Developer (Intern)
+2025-09-28 04:23:11,677 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Resume-Pratha Agarwal.pdf
+2025-09-28 04:23:12,395 INFO tasks Processing resume email: Subject: Application for Web Application Developer Internship
+2025-09-28 04:23:12,402 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Shubham Raj Resume-2 (1).pdf
+2025-09-28 04:23:12,969 INFO tasks Processing resume email: Application for Web Developer.
+2025-09-28 04:23:13,598 INFO tasks Processing resume email: Web application developer
+2025-09-28 04:23:14,441 INFO tasks Processing resume email: Application for Web Application Developer (Intern) -Anmol walia
+2025-09-28 04:23:14,444 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Anmol walia  cv.pdf
+2025-09-28 04:23:15,082 INFO tasks Processing resume email: I'm applying for the Frontend developer . I've attached my resume for
+ your review. I'm confident my skills in HTML, CSS, Javascript, React.js align
+ with the role. Looking forward to the opportunity . Regards, Bharti Pal Phone
+ : 9760117948 Email : bhartipal2504@gmail.com
+2025-09-28 04:23:16,231 INFO tasks Processing resume email: Resume
+2025-09-28 04:23:16,236 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Resume-SEP2025_1757955852913.pdf
+2025-09-28 04:23:17,175 INFO tasks Processing resume email: Python Internship
+2025-09-28 04:23:17,180 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\DOC-20250828-WA0000..pdf
+2025-09-28 04:23:19,441 INFO tasks Processing resume email: Internship Required
+2025-09-28 04:23:19,445 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\TRINATH RES.pdf
+2025-09-28 04:23:20,050 INFO tasks Processing resume email: Web Application Developer
+2025-09-28 04:23:20,052 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\satya_resu1.pdf
+2025-09-28 04:23:21,062 INFO tasks Processing resume email: Resume
+2025-09-28 04:23:21,066 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Ashmeet-Singh-Resume.pdf
+2025-09-28 04:23:29,415 INFO tasks Processing resume email: Re: RE:JOB OPPERTUNITY
+2025-09-28 04:23:31,896 INFO tasks Processing resume email: BharatCrest,"I'm Amit, applied for your Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= | Call Me @ 789xxxx579"
+2025-09-28 04:23:38,152 INFO tasks Processing resume email: Document for web developer intern
+2025-09-28 04:23:40,591 INFO tasks Processing resume email: Re: Web Application Developer-Intern at Bharatcrest
+2025-09-28 04:23:46,313 INFO tasks Processing resume email: Re: Web Application Developer-Intern at Bharatcrest
+2025-09-28 04:23:46,346 INFO tasks Saved resume: C:\Users\RAKESH SHARMA\Downloads\hrmatcher\media\resumes\Pratha_offer_letter.pdf
+2025-09-28 04:23:47,619 INFO tasks Processing resume email: BharatCrest,"I'm Vijendra, applied for your Business Development
+ Associate job @ =?UTF-8?B?4oK5MA==?= | Call Me @ 950xxxx823"
+2025-09-28 04:23:53,320 INFO views Date filtering: from=2025-09-02, to=2025-09-27, applied=True
+2025-09-28 04:23:53,321 INFO views Found 26 resumes after date filtering
+2025-09-28 04:23:53,325 INFO views Processing 26 resumes fetched within date range: 2025-09-02 to 2025-09-27
+2025-09-28 04:23:53,386 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-28 04:24:03,829 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-28 04:24:03,841 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-28 04:24:03,847 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-28 04:24:03,858 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-28 04:24:03,864 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-28 04:24:03,871 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-28 04:24:03,878 WARNING pdffont Could get FontBBox from font descriptor because None cannot be parsed as 4 floats
+2025-09-28 04:24:12,702 ERROR views Export error: name 'export_to_excel' is not defined
+2025-09-28 04:24:12,703 ERROR log Internal Server Error: /export/excel/
+2025-09-28 04:25:52,840 INFO autoreload C:\Users\RAKESH SHARMA\Downloads\hrmatcher\hrapp\views.py changed, reloading.
+2025-09-28 04:25:56,685 INFO autoreload Watching for file changes with StatReloader
+2025-09-28 04:26:21,755 INFO autoreload Watching for file changes with StatReloader
+2025-09-28 04:27:11,802 INFO autoreload Watching for file changes with StatReloader
+2025-09-28 04:27:29,996 INFO autoreload Watching for file changes with StatReloader
