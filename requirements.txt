@@ -7,7 +7,7 @@ annotated-types==0.7.0
 anyio==4.8.0
 asgiref==3.8.1
 attrs==25.1.0
-audioop-lts==0.2.1
+#audioop-lts==0.2.1
 beautifulsoup4==4.13.3
 billiard==4.2.1
 buildozer==1.5.0
@@ -105,10 +105,10 @@ PyPDF2==3.0.1
 pytesseract==0.3.13
 python-crontab==3.2.0
 python-dateutil==2.9.0.post0
-python-docx==0.15.0
+python-docx
 python-dotenv==1.0.1
 PyYAML==6.0.2
-reportlab==3.6.0
+reportlab==4.1.0
 requests==2.32.3
 requests-toolbelt==1.0.0
 rfc3986==1.5.0

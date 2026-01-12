@@ -28891,3 +28891,33 @@ django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 4: 'block'.
 2025-08-08 17:11:59,402 WARNING pdfpage CropBox missing from /Page, defaulting to MediaBox
 2025-08-08 17:12:31,306 INFO autoreload C:\Users\suraj\OneDrive\Desktop\codes\hrmatcher\hrapp\tasks.py changed, reloading.
 2025-08-08 17:12:36,101 INFO autoreload Watching for file changes with StatReloader
+2026-01-12 07:33:07,343 INFO autoreload Watching for file changes with StatReloader
+2026-01-12 07:33:15,016 WARNING log Not Found: /favicon.ico
+2026-01-12 09:21:14,256 INFO autoreload Watching for file changes with StatReloader
+2026-01-12 09:22:44,685 INFO views Received POST data: {'email_host': 'imap.gmail.com', 'email_port': '993', 'email_username': 'bharatcrest@gmail.com', 'use_tls': 'true', 'csrfmiddlewaretoken': 'mH9DrmZY2NCfHhevuFPhWq1DUgLKFIxCpkV88FeT5lL5CNIBTHw30xFhfebOXOcG'}
+2026-01-12 09:22:44,694 INFO views Testing connection with: host='imap.gmail.com', port='993', username='bharatcrest@gmail.com', use_tls=True
+2026-01-12 09:22:44,695 INFO views Testing IMAP connection to imap.gmail.com:993
+2026-01-12 09:22:47,966 WARNING log Bad Request: /test-email-connection/
+2026-01-12 09:25:58,340 INFO views Received POST data: {'email_host': 'imap.gmail.com', 'email_port': '993', 'email_username': 'bharatcrest@gmail.com', 'use_tls': 'true', 'csrfmiddlewaretoken': 'rNc9r4xlzPF1SnqnkGQX1gI4yxsVYw9tuqYE8nMgCnORNTUtJIxJ5nmITvSZgCOx'}
+2026-01-12 09:25:58,351 INFO views Testing connection with: host='imap.gmail.com', port='993', username='bharatcrest@gmail.com', use_tls=True
+2026-01-12 09:25:58,354 INFO views Testing IMAP connection to imap.gmail.com:993
+2026-01-12 09:26:01,000 INFO views Connection to imap.gmail.com successful!
+2026-01-12 09:26:46,276 INFO tasks BASE_DIR: /home/anshu/hrmatcher
+2026-01-12 09:26:46,277 INFO tasks MEDIA_ROOT: /home/anshu/hrmatcher/media
+2026-01-12 09:26:46,278 INFO tasks Attempting to create directory: /home/anshu/hrmatcher/media/resumes
+2026-01-12 09:26:46,280 INFO tasks Directory created successfully: /home/anshu/hrmatcher/media/resumes
+2026-01-12 09:26:46,281 INFO tasks Connecting to IMAP...
+2026-01-12 09:26:48,057 INFO tasks Logged in successfully
+2026-01-12 09:26:48,520 INFO tasks Filtering emails from: 06-Jun-2025
+2026-01-12 09:26:48,520 INFO tasks Filtering emails to: 2025-07-12 (using BEFORE 13-Jul-2025)
+2026-01-12 09:26:48,520 INFO tasks Using search query: SINCE "06-Jun-2025" BEFORE "13-Jul-2025"
+2026-01-12 09:26:48,902 INFO tasks Found 0 emails to scan
+2026-01-12 09:26:49,314 INFO views Date filtering applied: from=2025-06-06, to=2025-07-12
+2026-01-12 09:26:49,315 INFO views No new resumes found in email for the specified date range
+2026-01-12 09:27:02,076 INFO tasks BASE_DIR: /home/anshu/hrmatcher
+2026-01-12 09:27:02,076 INFO tasks MEDIA_ROOT: /home/anshu/hrmatcher/media
+2026-01-12 09:27:02,076 INFO tasks Attempting to create directory: /home/anshu/hrmatcher/media/resumes
+2026-01-12 09:27:02,076 INFO tasks Directory created successfully: /home/anshu/hrmatcher/media/resumes
+2026-01-12 09:27:02,076 INFO tasks Connecting to IMAP...
+2026-01-12 09:27:05,389 INFO tasks Logged in successfully
+2026-01-12 09:27:06,102 INFO tasks Found 1113 emails to scan
